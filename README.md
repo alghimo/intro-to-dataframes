@@ -36,6 +36,7 @@ cd /c/Users/Foo/Projects/intro-to-dataframes/setup/
 docker build -t alghimo/intro-to-dataframes:latest .
 docker run -d -p 9995:9995 -p 4040:4040 -h zeppelin --name zeppelin alghimo/intro-to-dataframes:latest -d
 ```
+
     - Browse to [http://localhost:9995](http://localhost:9995)
 
 ## Stopping / restarting the environment.
