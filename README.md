@@ -1,5 +1,4 @@
 ## Pre-requisites: Docker setup
----
 
 ### Linux:
 - Install Docker. Instructions for your OS can be found in the [docker installation page](https://docs.docker.com/engine/installation/)
@@ -22,7 +21,6 @@
         - Do the same for port 4040
 
 ## Setup the training docker image
----
 
 - Clone the git repository (if you don't have git, just [browse to the repository](https://github.com/alghimo/intro-to-dataframes) and click "Download as ZIP":
 ```
@@ -41,7 +39,6 @@ docker run -d -p 9995:9995 -p 4040:4040 -h zeppelin --name zeppelin alghimo/intr
     - Browse to [http://localhost:9995](http://localhost:9995)
 
 ## Stopping / restarting the environment.
----
 
 - Stop the training environment
 ```
