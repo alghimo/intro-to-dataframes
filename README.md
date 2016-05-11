@@ -24,6 +24,7 @@
 
 - Clone the git repository (if you don't have git, just [browse to the repository](https://github.com/alghimo/intro-to-dataframes) and click "Download as ZIP":
 ```
+cd /c/Users/Foo/Projects/ # or any folder where you want to put the training material
 git clone https://github.com/alghimo/intro-to-dataframes.git
 ```
 
@@ -32,7 +33,7 @@ git clone https://github.com/alghimo/intro-to-dataframes.git
     - Windows / Mac: Open the Docker Quickstart Terminal.
     - Build the image and run it. Assuming that you cloned the repo to "C:\Users\Foo\Projects\intro-to-dataframes":
 ```
-cd /c/Users/Foo/Projects/intro-to-dataframes/setup/
+cd intro-to-dataframes/
 docker build -t alghimo/intro-to-dataframes:latest .
 docker run -d -p 9995:9995 -p 4040:4040 -h zeppelin --name zeppelin alghimo/intro-to-dataframes:latest -d
 ```
