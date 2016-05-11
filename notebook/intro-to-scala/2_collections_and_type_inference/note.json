@@ -1,0 +1,1844 @@
+{
+  "paragraphs": [
+    {
+      "text": "%md\n## Collections\nWe\u0027ll not be covering all of the Scala collections, but we\u0027ll cover some of the collections you\u0027ll probably use more often.\nIt\u0027s important to note that Scala makes a clear differentiation between mutable and immutable collections, and usually offers a \"mutable\" equivalent for every \"immutable\" collection type.",
+      "authenticationInfo": {},
+      "dateUpdated": "Apr 16, 2016 4:32:59 PM",
+      "config": {
+        "colWidth": 12.0,
+        "graph": {
+          "mode": "table",
+          "height": 300.0,
+          "optionOpen": false,
+          "keys": [],
+          "values": [],
+          "groups": [],
+          "scatter": {}
+        },
+        "enabled": true,
+        "editorMode": "ace/mode/scala",
+        "editorHide": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "jobName": "paragraph_1460820667717_-81314009",
+      "id": "20160416-153107_238293675",
+      "result": {
+        "code": "SUCCESS",
+        "type": "HTML",
+        "msg": "\u003ch2\u003eCollections\u003c/h2\u003e\n\u003cp\u003eWe\u0027ll not be covering all of the Scala collections, but we\u0027ll cover some of the collections you\u0027ll probably use more often.\n\u003cbr  /\u003eIt\u0027s important to note that Scala makes a clear differentiation between mutable and immutable collections, and usually offers a \u0026ldquo;mutable\u0026rdquo; equivalent for every \u0026ldquo;immutable\u0026rdquo; collection type.\u003c/p\u003e\n"
+      },
+      "dateCreated": "Apr 16, 2016 3:31:07 PM",
+      "dateStarted": "Apr 16, 2016 4:32:56 PM",
+      "dateFinished": "Apr 16, 2016 4:32:56 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%md\n### Immutable Collections\nImmutable collections are defined inside the \"scala.collection.immutable\" package:\n\u003chttp://www.scala-lang.org/api/2.10.6/#scala.collection.immutable.package\u003e\n#### List and Set\nThe main functional difference between a List and a Set is that Set only keeps distinct elements.",
+      "authenticationInfo": {},
+      "dateUpdated": "Apr 17, 2016 1:45:40 PM",
+      "config": {
+        "colWidth": 12.0,
+        "graph": {
+          "mode": "table",
+          "height": 300.0,
+          "optionOpen": false,
+          "keys": [],
+          "values": [],
+          "groups": [],
+          "scatter": {}
+        },
+        "enabled": true,
+        "editorHide": true,
+        "editorMode": "ace/mode/markdown"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "jobName": "paragraph_1460820681300_1521965306",
+      "id": "20160416-153121_1873706993",
+      "result": {
+        "code": "SUCCESS",
+        "type": "HTML",
+        "msg": "\u003ch3\u003eImmutable Collections\u003c/h3\u003e\n\u003cp\u003eImmutable collections are defined inside the \u0026ldquo;scala.collection.immutable\u0026rdquo; package:\n\u003cbr  /\u003e\u003ca href\u003d\"http://www.scala-lang.org/api/2.10.6/#scala.collection.immutable.package\"\u003ehttp://www.scala-lang.org/api/2.10.6/#scala.collection.immutable.package\u003c/a\u003e\u003c/p\u003e\n\u003ch4\u003eList and Set\u003c/h4\u003e\n\u003cp\u003eThe main functional difference between a List and a Set is that Set only keeps distinct elements.\u003c/p\u003e\n"
+      },
+      "dateCreated": "Apr 16, 2016 3:31:21 PM",
+      "dateStarted": "Apr 16, 2016 3:31:43 PM",
+      "dateFinished": "Apr 16, 2016 3:31:43 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "val myList \u003d List(1,2,3,4,1)\nval mySet  \u003d Set(1,2,3,4,1)",
+      "authenticationInfo": {},
+      "dateUpdated": "Apr 16, 2016 3:32:02 PM",
+      "config": {
+        "colWidth": 12.0,
+        "graph": {
+          "mode": "table",
+          "height": 300.0,
+          "optionOpen": false,
+          "keys": [],
+          "values": [],
+          "groups": [],
+          "scatter": {}
+        },
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "jobName": "paragraph_1460820703130_866753253",
+      "id": "20160416-153143_1481404317",
+      "result": {
+        "code": "SUCCESS",
+        "type": "TEXT",
+        "msg": "myList: List[Int] \u003d List(1, 2, 3, 4, 1)\nmySet: scala.collection.immutable.Set[Int] \u003d Set(1, 2, 3, 4)\n"
+      },
+      "dateCreated": "Apr 16, 2016 3:31:43 PM",
+      "dateStarted": "Apr 16, 2016 3:32:02 PM",
+      "dateFinished": "Apr 16, 2016 3:32:02 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%md\n#### Map\nA map keeps its elements in the form (key, value). Keys are unique, so you can not have the same key with two different values.",
+      "authenticationInfo": {},
+      "dateUpdated": "Apr 16, 2016 3:32:21 PM",
+      "config": {
+        "colWidth": 12.0,
+        "graph": {
+          "mode": "table",
+          "height": 300.0,
+          "optionOpen": false,
+          "keys": [],
+          "values": [],
+          "groups": [],
+          "scatter": {}
+        },
+        "enabled": true,
+        "editorHide": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "jobName": "paragraph_1460820722336_1889662661",
+      "id": "20160416-153202_1726047668",
+      "result": {
+        "code": "SUCCESS",
+        "type": "HTML",
+        "msg": "\u003ch4\u003eMap\u003c/h4\u003e\n\u003cp\u003eA map keeps its elements in the form (key, value). Keys are unique, so you can not have the same key with two different values.\u003c/p\u003e\n"
+      },
+      "dateCreated": "Apr 16, 2016 3:32:02 PM",
+      "dateStarted": "Apr 16, 2016 3:32:19 PM",
+      "dateFinished": "Apr 16, 2016 3:32:19 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "val myMap \u003d Map(\n    \"john\" -\u003e 123,\n    \"jane\" -\u003e 345,\n    \"foo\"  -\u003e 254\n)\n\n// You can also create the map just using regular Tuples..\nval myOtherMap \u003d Map(\n    (\"a\", 25.4),\n    (\"b\", 1.0)\n)",
+      "authenticationInfo": {},
+      "dateUpdated": "Apr 17, 2016 1:51:08 PM",
+      "config": {
+        "colWidth": 12.0,
+        "graph": {
+          "mode": "table",
+          "height": 300.0,
+          "optionOpen": false,
+          "keys": [],
+          "values": [],
+          "groups": [],
+          "scatter": {}
+        },
+        "enabled": true,
+        "editorMode": "ace/mode/scala"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "jobName": "paragraph_1460820739281_-322628191",
+      "id": "20160416-153219_1652636333",
+      "result": {
+        "code": "SUCCESS",
+        "type": "TEXT",
+        "msg": "myMap: scala.collection.immutable.Map[String,Int] \u003d Map(john -\u003e 123, jane -\u003e 345, foo -\u003e 254)\nmyOtherMap: scala.collection.immutable.Map[String,Double] \u003d Map(a -\u003e 25.4, b -\u003e 1.0)\n"
+      },
+      "dateCreated": "Apr 16, 2016 3:32:19 PM",
+      "dateStarted": "Apr 17, 2016 1:51:08 PM",
+      "dateFinished": "Apr 17, 2016 1:51:09 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%md\n### Mutable Collections\nExcept for Array, mutable collections are defined inside the \"scala.collection.mutable\" package:\n\u003chttp://www.scala-lang.org/api/2.10.6/#scala.collection.mutable.package\u003e\n\n---\nMutable collections will allow you to update existing values, and provide methods to add and remove elements. Note that with immutable collections, you can already do most of this operations, but what happens is that you collection is \"copied\" into a new one, so you actually can\u0027t change the original collection.\nIn practice, it is recommended to stick to immutable versions, and use the mutable equivalent as in intermediate steps if you need to perform updates, inserts, etc..\n\n\n#### ListBuffer, Set, Array, ArrayBuffer\nAll of these collections are defined in the same way, and, except for the Array, they provide the methods to add / remove elements to the collections.\n\n---\n\u003chttp://www.scala-lang.org/api/2.10.6/#scala.collection.mutable.ListBuffer\u003e\n\u003chttp://www.scala-lang.org/api/2.10.6/#scala.collection.mutable.Set\u003e\n\u003chttp://www.scala-lang.org/api/2.10.6/#scala.Array\u003e\n\u003chttp://www.scala-lang.org/api/2.10.6/#scala.collection.mutable.ArrayBuffer\u003e",
+      "authenticationInfo": {},
+      "dateUpdated": "Apr 16, 2016 4:32:14 PM",
+      "config": {
+        "colWidth": 12.0,
+        "graph": {
+          "mode": "table",
+          "height": 300.0,
+          "optionOpen": false,
+          "keys": [],
+          "values": [],
+          "groups": [],
+          "scatter": {}
+        },
+        "enabled": true,
+        "editorHide": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "jobName": "paragraph_1460820757919_-1424148967",
+      "id": "20160416-153237_1020794472",
+      "result": {
+        "code": "SUCCESS",
+        "type": "HTML",
+        "msg": "\u003ch3\u003eMutable Collections\u003c/h3\u003e\n\u003cp\u003eExcept for Array, mutable collections are defined inside the \u0026ldquo;scala.collection.mutable\u0026rdquo; package:\n\u003cbr  /\u003e\u003ca href\u003d\"http://www.scala-lang.org/api/2.10.6/#scala.collection.mutable.package\"\u003ehttp://www.scala-lang.org/api/2.10.6/#scala.collection.mutable.package\u003c/a\u003e\u003c/p\u003e\n\u003chr /\u003e\n\u003cp\u003eMutable collections will allow you to update existing values, and provide methods to add and remove elements. Note that with immutable collections, you can already do most of this operations, but what happens is that you collection is \u0026ldquo;copied\u0026rdquo; into a new one, so you actually can\u0027t change the original collection.\n\u003cbr  /\u003eIn practice, it is recommended to stick to immutable versions, and use the mutable equivalent as in intermediate steps if you need to perform updates, inserts, etc..\u003c/p\u003e\n\u003ch4\u003eListBuffer, Set, Array, ArrayBuffer\u003c/h4\u003e\n\u003cp\u003eAll of these collections are defined in the same way, and, except for the Array, they provide the methods to add / remove elements to the collections.\u003c/p\u003e\n\u003chr /\u003e\n\u003cp\u003e\u003ca href\u003d\"http://www.scala-lang.org/api/2.10.6/#scala.collection.mutable.ListBuffer\"\u003ehttp://www.scala-lang.org/api/2.10.6/#scala.collection.mutable.ListBuffer\u003c/a\u003e\n\u003cbr  /\u003e\u003ca href\u003d\"http://www.scala-lang.org/api/2.10.6/#scala.collection.mutable.Set\"\u003ehttp://www.scala-lang.org/api/2.10.6/#scala.collection.mutable.Set\u003c/a\u003e\n\u003cbr  /\u003e\u003ca href\u003d\"http://www.scala-lang.org/api/2.10.6/#scala.Array\"\u003ehttp://www.scala-lang.org/api/2.10.6/#scala.Array\u003c/a\u003e\n\u003cbr  /\u003e\u003ca href\u003d\"http://www.scala-lang.org/api/2.10.6/#scala.collection.mutable.ArrayBuffer\"\u003ehttp://www.scala-lang.org/api/2.10.6/#scala.collection.mutable.ArrayBuffer\u003c/a\u003e\u003c/p\u003e\n"
+      },
+      "dateCreated": "Apr 16, 2016 3:32:37 PM",
+      "dateStarted": "Apr 16, 2016 3:32:48 PM",
+      "dateFinished": "Apr 16, 2016 3:32:48 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "// We\u0027ll be explaining imports later\nimport scala.collection.mutable\n\nval mutableList \u003d mutable.ListBuffer(1,2,3)\nval immutableList \u003d List(1,2,3)\nmutableList.drop(1)\nimmutableList.drop(1)\n\n// What do you expect mutableList and immutableList to contain? Uncomment the code and run it when you\u0027ve got an answer\n//mutableList\n//immutableList",
+      "authenticationInfo": {},
+      "dateUpdated": "Apr 16, 2016 3:33:05 PM",
+      "config": {
+        "colWidth": 12.0,
+        "graph": {
+          "mode": "table",
+          "height": 300.0,
+          "optionOpen": false,
+          "keys": [],
+          "values": [],
+          "groups": [],
+          "scatter": {}
+        },
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "jobName": "paragraph_1460820768641_307621156",
+      "id": "20160416-153248_468778396",
+      "result": {
+        "code": "SUCCESS",
+        "type": "TEXT",
+        "msg": "import scala.collection.mutable\nmutableList: scala.collection.mutable.ListBuffer[Int] \u003d ListBuffer(1, 2, 3)\nimmutableList: List[Int] \u003d List(1, 2, 3)\nres258: scala.collection.mutable.ListBuffer[Int] \u003d ListBuffer(2, 3)\nres259: List[Int] \u003d List(2, 3)\n"
+      },
+      "dateCreated": "Apr 16, 2016 3:32:48 PM",
+      "dateStarted": "Apr 16, 2016 3:33:05 PM",
+      "dateFinished": "Apr 16, 2016 3:33:06 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "import scala.collection.mutable\n\nval mutableSet \u003d mutable.Set(1,2,3,1)\n\n// These operations are not defined in the immutable version\nmutableSet +\u003d 5\nmutableSet ++\u003d Set(6,7)\n\nmutableSet.toSet",
+      "authenticationInfo": {},
+      "dateUpdated": "Apr 16, 2016 3:33:17 PM",
+      "config": {
+        "colWidth": 12.0,
+        "graph": {
+          "mode": "table",
+          "height": 300.0,
+          "optionOpen": false,
+          "keys": [],
+          "values": [],
+          "groups": [],
+          "scatter": {}
+        },
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "jobName": "paragraph_1460820785608_-1315082783",
+      "id": "20160416-153305_765275809",
+      "result": {
+        "code": "SUCCESS",
+        "type": "TEXT",
+        "msg": "import scala.collection.mutable\nmutableSet: scala.collection.mutable.Set[Int] \u003d Set(1, 2, 3)\nres261: mutableSet.type \u003d Set(1, 5, 2, 3)\nres262: mutableSet.type \u003d Set(1, 5, 2, 6, 3, 7)\nres263: scala.collection.immutable.Set[Int] \u003d Set(5, 1, 6, 2, 7, 3)\n"
+      },
+      "dateCreated": "Apr 16, 2016 3:33:05 PM",
+      "dateStarted": "Apr 16, 2016 3:33:17 PM",
+      "dateFinished": "Apr 16, 2016 3:33:18 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "import scala.collection.mutable\n\nval myArrayBuffer \u003d mutable.ArrayBuffer(\"a\", \"b\", \"c\")\nval myArray \u003d Array(\"a\", \"b\", \"c\")\n\nmyArrayBuffer.prepend(\"x\")\nmyArrayBuffer -\u003d \"c\"\nmyArrayBuffer.insert(1, \"z\")\nmyArrayBuffer.toArray",
+      "authenticationInfo": {},
+      "dateUpdated": "Apr 16, 2016 3:33:29 PM",
+      "config": {
+        "colWidth": 12.0,
+        "graph": {
+          "mode": "table",
+          "height": 300.0,
+          "optionOpen": false,
+          "keys": [],
+          "values": [],
+          "groups": [],
+          "scatter": {}
+        },
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "jobName": "paragraph_1460820797339_-1952581062",
+      "id": "20160416-153317_1039147789",
+      "result": {
+        "code": "SUCCESS",
+        "type": "TEXT",
+        "msg": "import scala.collection.mutable\nmyArrayBuffer: scala.collection.mutable.ArrayBuffer[String] \u003d ArrayBuffer(a, b, c)\nmyArray: Array[String] \u003d Array(a, b, c)\nres266: myArrayBuffer.type \u003d ArrayBuffer(x, a, b)\nres268: Array[String] \u003d Array(x, z, a, b)\n"
+      },
+      "dateCreated": "Apr 16, 2016 3:33:17 PM",
+      "dateStarted": "Apr 16, 2016 3:33:29 PM",
+      "dateFinished": "Apr 16, 2016 3:33:30 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%md\n#### HashMap\nThe last mutable collection we\u0027ll explain is HashMap. As with the other mutable types, you can reassign values and add / remove elements.\n\n---\n\u003chttp://www.scala-lang.org/api/2.10.6/#scala.collection.mutable.HashMap\u003e",
+      "authenticationInfo": {},
+      "dateUpdated": "Apr 16, 2016 3:33:45 PM",
+      "config": {
+        "colWidth": 12.0,
+        "graph": {
+          "mode": "table",
+          "height": 300.0,
+          "optionOpen": false,
+          "keys": [],
+          "values": [],
+          "groups": [],
+          "scatter": {}
+        },
+        "enabled": true,
+        "editorHide": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "jobName": "paragraph_1460820809494_719130624",
+      "id": "20160416-153329_1021098719",
+      "result": {
+        "code": "SUCCESS",
+        "type": "HTML",
+        "msg": "\u003ch4\u003eHashMap\u003c/h4\u003e\n\u003cp\u003eThe last mutable collection we\u0027ll explain is HashMap. As with the other mutable types, you can reassign values and add / remove elements.\u003c/p\u003e\n\u003chr /\u003e\n\u003cp\u003e\u003ca href\u003d\"http://www.scala-lang.org/api/2.10.6/#scala.collection.mutable.HashMap\"\u003ehttp://www.scala-lang.org/api/2.10.6/#scala.collection.mutable.HashMap\u003c/a\u003e\u003c/p\u003e\n"
+      },
+      "dateCreated": "Apr 16, 2016 3:33:29 PM",
+      "dateStarted": "Apr 16, 2016 3:33:43 PM",
+      "dateFinished": "Apr 16, 2016 3:33:43 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "import scala.collection.mutable\n\nval myHashMap \u003d mutable.HashMap(\n    1 -\u003e \"x\",\n    2 -\u003e \"y\"\n)\nmyHashMap(1) \u003d \"a\"\n\nmyHashMap(3) \u003d \"d\"\n\nmyHashMap -\u003d 2\n\nmyHashMap.toMap",
+      "authenticationInfo": {},
+      "dateUpdated": "Apr 16, 2016 3:34:00 PM",
+      "config": {
+        "colWidth": 12.0,
+        "graph": {
+          "mode": "table",
+          "height": 300.0,
+          "optionOpen": false,
+          "keys": [],
+          "values": [],
+          "groups": [],
+          "scatter": {}
+        },
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "jobName": "paragraph_1460820823306_-1888297347",
+      "id": "20160416-153343_1232081312",
+      "result": {
+        "code": "SUCCESS",
+        "type": "TEXT",
+        "msg": "import scala.collection.mutable\nmyHashMap: scala.collection.mutable.HashMap[Int,String] \u003d Map(2 -\u003e y, 1 -\u003e x)\nres272: myHashMap.type \u003d Map(1 -\u003e a, 3 -\u003e d)\nres273: scala.collection.immutable.Map[Int,String] \u003d Map(1 -\u003e a, 3 -\u003e d)\n"
+      },
+      "dateCreated": "Apr 16, 2016 3:33:43 PM",
+      "dateStarted": "Apr 16, 2016 3:34:00 PM",
+      "dateFinished": "Apr 16, 2016 3:34:01 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%md\n### Common operations with collections\nYou\u0027ll probably find yourself working with collections quite often. There is a set of operations that are especially important in collections. Let\u0027s show them through examples:\n\n#### \"contains\" and \"isDefinedAt\"",
+      "authenticationInfo": {},
+      "dateUpdated": "Apr 16, 2016 3:34:16 PM",
+      "config": {
+        "colWidth": 12.0,
+        "graph": {
+          "mode": "table",
+          "height": 300.0,
+          "optionOpen": false,
+          "keys": [],
+          "values": [],
+          "groups": [],
+          "scatter": {}
+        },
+        "enabled": true,
+        "editorHide": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "jobName": "paragraph_1460820840227_-918498612",
+      "id": "20160416-153400_1136634221",
+      "result": {
+        "code": "SUCCESS",
+        "type": "HTML",
+        "msg": "\u003ch3\u003eCommon operations with collections\u003c/h3\u003e\n\u003cp\u003eYou\u0027ll probably find yourself working with collections quite often. There is a set of operations that are especially important in collections. Let\u0027s show them through examples:\u003c/p\u003e\n\u003ch4\u003e\u0026ldquo;contains\u0026rdquo; and \u0026ldquo;isDefinedAt\u0026rdquo;\u003c/h4\u003e\n"
+      },
+      "dateCreated": "Apr 16, 2016 3:34:00 PM",
+      "dateStarted": "Apr 16, 2016 3:34:12 PM",
+      "dateFinished": "Apr 16, 2016 3:34:12 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "val myArray \u003d Array(1,2,3)\nval myMap \u003d Map(1 -\u003e \"x\", 2 -\u003e \"foo\", 5 -\u003e \"bar\")\nval myList \u003d List(2.5, 6.3, 18.98)\n\n// Check whether an element exists in the collection\nprintln(\"myArray contains \u00271\u0027: \" + myArray.contains(1))\n// Map.contains checks keys, not values\nprintln(\"myMap contains \u00271\u0027: \" + myMap.contains(1))\n// If you want to check whether a value exists in a Map, it is not that straight - forward:\nprintln(\"myMap contains value \u0027foo\u0027: \" + myMap.values.exists(_ \u003d\u003d \"foo\"))\n\n// Check whether the given index / key exists\nprintln(\"myArray is defined at index 2: \" + myArray.isDefinedAt(2))\nprintln(\"myMap contains key \u00273\u0027: \" + myMap.isDefinedAt(3))\nprintln(\"myList is defined at index \u00273\u0027: \" + myList.isDefinedAt(3))",
+      "authenticationInfo": {},
+      "dateUpdated": "Apr 16, 2016 3:34:32 PM",
+      "config": {
+        "colWidth": 12.0,
+        "graph": {
+          "mode": "table",
+          "height": 300.0,
+          "optionOpen": false,
+          "keys": [],
+          "values": [],
+          "groups": [],
+          "scatter": {}
+        },
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "jobName": "paragraph_1460820852926_1123394449",
+      "id": "20160416-153412_1234560136",
+      "result": {
+        "code": "SUCCESS",
+        "type": "TEXT",
+        "msg": "myArray: Array[Int] \u003d Array(1, 2, 3)\nmyMap: scala.collection.immutable.Map[Int,String] \u003d Map(1 -\u003e x, 2 -\u003e foo, 5 -\u003e bar)\nmyList: List[Double] \u003d List(2.5, 6.3, 18.98)\nmyArray contains \u00271\u0027: true\nmyMap contains \u00271\u0027: true\nmyMap contains value \u0027foo\u0027: true\nmyArray is defined at index 2: true\nmyMap contains key \u00273\u0027: false\nmyList is defined at index \u00273\u0027: false\n"
+      },
+      "dateCreated": "Apr 16, 2016 3:34:12 PM",
+      "dateStarted": "Apr 16, 2016 3:34:32 PM",
+      "dateFinished": "Apr 16, 2016 3:34:33 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%md\n#### map\n\"map\" will return a new collection, generated by applying the given function to each element of the original collection.\n\nThing to note:\n- The \"_\" is just syntactic sugar to shorten lambda functions: it represents the arguments of the function, but can only be used once in the same anonymous function.",
+      "authenticationInfo": {},
+      "dateUpdated": "May 1, 2016 10:33:11 AM",
+      "config": {
+        "colWidth": 12.0,
+        "graph": {
+          "mode": "table",
+          "height": 300.0,
+          "optionOpen": false,
+          "keys": [],
+          "values": [],
+          "groups": [],
+          "scatter": {}
+        },
+        "enabled": true,
+        "editorHide": true,
+        "editorMode": "ace/mode/markdown"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "jobName": "paragraph_1460820901710_52684233",
+      "id": "20160416-153501_1200694751",
+      "result": {
+        "code": "SUCCESS",
+        "type": "HTML",
+        "msg": "\u003ch4\u003emap\u003c/h4\u003e\n\u003cp\u003e\u0026ldquo;map\u0026rdquo; will return a new collection, generated by applying the given function to each element of the original collection.\u003c/p\u003e\n\u003cp\u003eThing to note:\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003eThe \u0026ldquo;_\u0026rdquo; is just syntactic sugar to shorten lambda functions: it represents the arguments of the function, but can only be used once in the same anonymous function.\u003c/li\u003e\n\u003c/ul\u003e\n"
+      },
+      "dateCreated": "Apr 16, 2016 3:35:01 PM",
+      "dateStarted": "May 1, 2016 10:33:08 AM",
+      "dateFinished": "May 1, 2016 10:33:08 AM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "val someNumbers \u003d List(1, 4, 12)\n\nsomeNumbers.map(_ * 2)\n\nsomeNumbers.map(x \u003d\u003e x * 2)\n\ndef mult2(x: Int) \u003d x*2\nsomeNumbers.map(mult2)",
+      "authenticationInfo": {},
+      "dateUpdated": "Apr 17, 2016 2:13:17 PM",
+      "config": {
+        "colWidth": 12.0,
+        "graph": {
+          "mode": "table",
+          "height": 300.0,
+          "optionOpen": false,
+          "keys": [],
+          "values": [],
+          "groups": [],
+          "scatter": {}
+        },
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "jobName": "paragraph_1460820916491_1845845614",
+      "id": "20160416-153516_1699124249",
+      "result": {
+        "code": "SUCCESS",
+        "type": "TEXT",
+        "msg": "someNumbers: List[Int] \u003d List(1, 4, 12)\nres27: List[Int] \u003d List(2, 8, 24)\nres28: List[Int] \u003d List(2, 8, 24)\nmult2: (x: Int)Int\nres29: List[Int] \u003d List(2, 8, 24)\n"
+      },
+      "dateCreated": "Apr 16, 2016 3:35:16 PM",
+      "dateStarted": "Apr 17, 2016 2:13:17 PM",
+      "dateFinished": "Apr 17, 2016 2:13:18 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%md\n#### filter\nSometimes, you want to get only the elements that match a certain condition. You can use filter for that. Note that filter will return a new collection.\n\nThing to note:\n- the filter method takes a function as argument. It can be a lambda function, or a function you defined previously.",
+      "authenticationInfo": {},
+      "dateUpdated": "May 1, 2016 10:34:05 AM",
+      "config": {
+        "colWidth": 12.0,
+        "graph": {
+          "mode": "table",
+          "height": 300.0,
+          "optionOpen": false,
+          "keys": [],
+          "values": [],
+          "groups": [],
+          "scatter": {}
+        },
+        "enabled": true,
+        "editorHide": true,
+        "editorMode": "ace/mode/markdown"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "jobName": "paragraph_1460820872242_-536012233",
+      "id": "20160416-153432_1444549862",
+      "result": {
+        "code": "SUCCESS",
+        "type": "HTML",
+        "msg": "\u003ch4\u003efilter\u003c/h4\u003e\n\u003cp\u003eSometimes, you want to get only the elements that match a certain condition. You can use filter for that. Note that filter will return a new collection.\u003c/p\u003e\n\u003cp\u003eThing to note:\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003ethe filter method takes a function as argument. It can be a lambda function, or a function you defined previously.\u003c/li\u003e\n\u003c/ul\u003e\n"
+      },
+      "dateCreated": "Apr 16, 2016 3:34:32 PM",
+      "dateStarted": "May 1, 2016 10:34:01 AM",
+      "dateFinished": "May 1, 2016 10:34:01 AM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "// This is the same function we defined in the previous example\ndef isEven(number: Int) \u003d {\n    number % 2 \u003d\u003d 0\n}\n\nval myNumbers \u003d Array(1, 2, 5, 6, 7, 15)\nval names \u003d List(\"foo\", \"bar\", \"jane\", \"john\")\n\n// Get only even numbers\nmyNumbers.filter(isEven)\n\n// Get numbers bigger than 5\nmyNumbers.filter(_ \u003e 0)\n\n// Get names not starting with \"j\"\nnames.filter(!_.startsWith(\"j\"))",
+      "authenticationInfo": {},
+      "dateUpdated": "Apr 16, 2016 3:35:01 PM",
+      "config": {
+        "colWidth": 12.0,
+        "graph": {
+          "mode": "table",
+          "height": 300.0,
+          "optionOpen": false,
+          "keys": [],
+          "values": [],
+          "groups": [],
+          "scatter": {}
+        },
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "jobName": "paragraph_1460820882339_1733252104",
+      "id": "20160416-153442_1358874650",
+      "result": {
+        "code": "SUCCESS",
+        "type": "TEXT",
+        "msg": "isEven: (number: Int)Boolean\nmyNumbers: Array[Int] \u003d Array(1, 2, 5, 6, 7, 15)\nnames: List[String] \u003d List(foo, bar, jane, john)\nres283: Array[Int] \u003d Array(2, 6)\nres284: Array[Int] \u003d Array(1, 2, 5, 6, 7, 15)\nres285: List[String] \u003d List(foo, bar)\n"
+      },
+      "dateCreated": "Apr 16, 2016 3:34:42 PM",
+      "dateStarted": "Apr 16, 2016 3:35:01 PM",
+      "dateFinished": "Apr 16, 2016 3:35:02 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%md\n#### Using \"map\" on Map / HashMap\nMaps are slightly different. Every element is a tuple, so it\u0027s important to keep that in mind.",
+      "authenticationInfo": {},
+      "dateUpdated": "Apr 16, 2016 3:35:40 PM",
+      "config": {
+        "colWidth": 12.0,
+        "graph": {
+          "mode": "table",
+          "height": 300.0,
+          "optionOpen": false,
+          "keys": [],
+          "values": [],
+          "groups": [],
+          "scatter": {}
+        },
+        "enabled": true,
+        "editorHide": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "jobName": "paragraph_1460820929703_2102119030",
+      "id": "20160416-153529_1103969101",
+      "result": {
+        "code": "SUCCESS",
+        "type": "HTML",
+        "msg": "\u003ch4\u003eUsing \u0026ldquo;map\u0026rdquo; on Map / HashMap\u003c/h4\u003e\n\u003cp\u003eMaps are slightly different. Every element is a tuple, so it\u0027s important to keep that in mind.\u003c/p\u003e\n"
+      },
+      "dateCreated": "Apr 16, 2016 3:35:29 PM",
+      "dateStarted": "Apr 16, 2016 3:35:37 PM",
+      "dateFinished": "Apr 16, 2016 3:35:37 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "val myMap \u003d Map(1 -\u003e \"x\", 2-\u003e \"y\", 10 -\u003e \"z\")\n// The \"case (key, value)\" is actually Pattern Matching, which is explained after.\nmyMap.map{ case (key, value) \u003d\u003e s\"Key is \u0027$key\u0027, value is \u0027$value\u0027\" }\n// If you only want one of the elements, you can do something like this\nmyMap.map(_._2)\n// In both cases, the result is an \"Iterable\" instance, but you might explicitly convert it to a List, Array, etc..\nmyMap.map{ case (key, value) \u003d\u003e s\"Key is \u0027$key\u0027, value is \u0027$value\u0027\" }.toList\nval myArray: Array[String] \u003d myMap.map(_._2).toArray\nmyMap.map{ case (key, value) \u003d\u003e value -\u003e key }",
+      "authenticationInfo": {},
+      "dateUpdated": "Apr 16, 2016 3:35:55 PM",
+      "config": {
+        "colWidth": 12.0,
+        "graph": {
+          "mode": "table",
+          "height": 300.0,
+          "optionOpen": false,
+          "keys": [],
+          "values": [],
+          "groups": [],
+          "scatter": {}
+        },
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "jobName": "paragraph_1460820937415_-865064487",
+      "id": "20160416-153537_501789169",
+      "result": {
+        "code": "SUCCESS",
+        "type": "TEXT",
+        "msg": "myMap: scala.collection.immutable.Map[Int,String] \u003d Map(1 -\u003e x, 2 -\u003e y, 10 -\u003e z)\nres289: scala.collection.immutable.Iterable[String] \u003d List(Key is \u00271\u0027, value is \u0027x\u0027, Key is \u00272\u0027, value is \u0027y\u0027, Key is \u002710\u0027, value is \u0027z\u0027)\nres290: scala.collection.immutable.Iterable[String] \u003d List(x, y, z)\nres291: List[String] \u003d List(Key is \u00271\u0027, value is \u0027x\u0027, Key is \u00272\u0027, value is \u0027y\u0027, Key is \u002710\u0027, value is \u0027z\u0027)\nmyArray: Array[String] \u003d Array(x, y, z)\nres292: scala.collection.immutable.Map[String,Int] \u003d Map(x -\u003e 1, y -\u003e 2, z -\u003e 10)\n"
+      },
+      "dateCreated": "Apr 16, 2016 3:35:37 PM",
+      "dateStarted": "Apr 16, 2016 3:35:55 PM",
+      "dateFinished": "Apr 16, 2016 3:35:57 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%md\n#### reduce\nAs the name might suggest, reduce will narrow your collection to a single element. In short, it will apply the given function to pairs of elements in your collection.\n\nImportant to keep in mind when using reduce:\n- The order is not guaranteed. This means that if you apply a function that\u0027s not associative, you have no guarantee that your reduce will get the same results twice.",
+      "authenticationInfo": {},
+      "dateUpdated": "Apr 17, 2016 2:41:36 PM",
+      "config": {
+        "colWidth": 12.0,
+        "graph": {
+          "mode": "table",
+          "height": 300.0,
+          "optionOpen": false,
+          "keys": [],
+          "values": [],
+          "groups": [],
+          "scatter": {}
+        },
+        "enabled": true,
+        "editorHide": true,
+        "editorMode": "ace/mode/markdown"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "jobName": "paragraph_1460820955653_-2111250851",
+      "id": "20160416-153555_392160757",
+      "result": {
+        "code": "SUCCESS",
+        "type": "HTML",
+        "msg": "\u003ch4\u003ereduce\u003c/h4\u003e\n\u003cp\u003eAs the name might suggest, reduce will narrow your collection to a single element. In short, it will apply the given function to pairs of elements in your collection.\u003c/p\u003e\n\u003cp\u003eImportant to keep in mind when using reduce:\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003eThe order is not guaranteed. This means that if you apply a function that\u0027s not associative, you have no guarantee that your reduce will get the same results twice.\u003c/li\u003e\n\u003c/ul\u003e\n"
+      },
+      "dateCreated": "Apr 16, 2016 3:35:55 PM",
+      "dateStarted": "Apr 17, 2016 2:41:19 PM",
+      "dateFinished": "Apr 17, 2016 2:41:19 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "val myList \u003d List(1, 2, 3, 5)\n// The two \"_\" stand for the two elements that our reduce function will take.\nmyList.reduce(_ + _)\n\ndef multiply(a: Int, b: Int) \u003d a * b\nmyList.reduce(multiply)\n// This will seem to work, but you might start getting unexpected results any time.\nmyList.fold(3)(multiply)",
+      "authenticationInfo": {},
+      "dateUpdated": "Apr 17, 2016 2:41:37 PM",
+      "config": {
+        "colWidth": 12.0,
+        "graph": {
+          "mode": "table",
+          "height": 300.0,
+          "optionOpen": false,
+          "keys": [],
+          "values": [],
+          "groups": [],
+          "scatter": {}
+        },
+        "enabled": true,
+        "editorMode": "ace/mode/scala"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "jobName": "paragraph_1460820973480_-1194547464",
+      "id": "20160416-153613_776426429",
+      "result": {
+        "code": "SUCCESS",
+        "type": "TEXT",
+        "msg": "myList: List[Int] \u003d List(1, 2, 3, 5)\nres111: Int \u003d 11\nmultiply: (a: Int, b: Int)Int\nres112: Int \u003d 30\nres113: Int \u003d 90\n"
+      },
+      "dateCreated": "Apr 16, 2016 3:36:13 PM",
+      "dateStarted": "Apr 17, 2016 2:41:37 PM",
+      "dateFinished": "Apr 17, 2016 2:41:38 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%md\n#### reduceLeft / reduceRight and foldLeft / foldRight\nIn some cases you want to make sure that your collection is reduced in the right order. In these cases, you can use reduceLeft and reduceRight, that will make sure the elements are processed left-to-right and right-to-left, respectively.\nfoldLeft and foldRight, are basically the same as reduce, but it takes the neutral element as an argument as well (that\u0027s it, 0 for addition, 1 for multiplication, etc..) ",
+      "authenticationInfo": {},
+      "dateUpdated": "Apr 16, 2016 3:36:57 PM",
+      "config": {
+        "colWidth": 12.0,
+        "graph": {
+          "mode": "table",
+          "height": 300.0,
+          "optionOpen": false,
+          "keys": [],
+          "values": [],
+          "groups": [],
+          "scatter": {}
+        },
+        "enabled": true,
+        "editorHide": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "jobName": "paragraph_1460820986106_778475545",
+      "id": "20160416-153626_1235669748",
+      "result": {
+        "code": "SUCCESS",
+        "type": "HTML",
+        "msg": "\u003ch4\u003ereduceLeft / reduceRight and foldLeft / foldRight\u003c/h4\u003e\n\u003cp\u003eIn some cases you want to make sure that your collection is reduced in the right order. In these cases, you can use reduceLeft and reduceRight, that will make sure the elements are processed left-to-right and right-to-left, respectively.\n\u003cbr  /\u003efoldLeft and foldRight, are basically the same as reduce, but it takes the neutral element as an argument as well (that\u0027s it, 0 for addition, 1 for multiplication, etc..)\u003c/p\u003e\n"
+      },
+      "dateCreated": "Apr 16, 2016 3:36:26 PM",
+      "dateStarted": "Apr 16, 2016 3:36:53 PM",
+      "dateFinished": "Apr 16, 2016 3:36:53 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "val myList \u003d List(10, 3, 2, 1)\n\n// Note that in different runs, you might get different results from reduce, reduceLeft and reduceRight.\nmyList.reduce(_ - _)\nmyList.reduceLeft(_ - _)\nmyList.reduceRight(_ - _)\n\n// When does \"fold\" make sense then? For instance, when we want to change the type of the reduce, such as to generate lists...\nval names \u003d List(\"jane doe\", \"john smith\", \"andy patterson\")\n\ndef addSurname(name: String, names: List[String]) \u003d {\n    names :+ name.split(\" \")(1)\n}\n\nnames.foldLeft(List[String]()){ (l, n) \u003d\u003e \n    l :+ n.split(\" \")(0)\n}\n\nnames.foldRight(List[String]()){ (l, n) \u003d\u003e addSurname(l, n)}",
+      "authenticationInfo": {},
+      "dateUpdated": "Apr 16, 2016 3:37:09 PM",
+      "config": {
+        "colWidth": 12.0,
+        "graph": {
+          "mode": "table",
+          "height": 300.0,
+          "optionOpen": false,
+          "keys": [],
+          "values": [],
+          "groups": [],
+          "scatter": {}
+        },
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "jobName": "paragraph_1460821013707_312575275",
+      "id": "20160416-153653_108169160",
+      "result": {
+        "code": "SUCCESS",
+        "type": "TEXT",
+        "msg": "myList: List[Int] \u003d List(10, 3, 2, 1)\nres298: Int \u003d 4\nres299: Int \u003d 4\nres300: Int \u003d 8\nnames: List[String] \u003d List(jane doe, john smith, andy patterson)\naddSurname: (name: String, names: List[String])List[String]\nres301: List[String] \u003d List(jane, john, andy)\nres302: List[String] \u003d List(patterson, smith, doe)\n"
+      },
+      "dateCreated": "Apr 16, 2016 3:36:53 PM",
+      "dateStarted": "Apr 16, 2016 3:37:09 PM",
+      "dateFinished": "Apr 16, 2016 3:37:11 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%md\n### Ranges\nClosely related to collections, we have Ranges. They are quite simple, but still useful in situations where you need to generate sequences, such as in for loops.\n\nYou need to define the start and end values, and optionally a \"step\".\n\n*NOTE*: You can generate both numbers and chars with Ranges, but not Strings",
+      "authenticationInfo": {},
+      "dateUpdated": "Apr 16, 2016 3:37:24 PM",
+      "config": {
+        "colWidth": 12.0,
+        "graph": {
+          "mode": "table",
+          "height": 300.0,
+          "optionOpen": false,
+          "keys": [],
+          "values": [],
+          "groups": [],
+          "scatter": {}
+        },
+        "enabled": true,
+        "editorHide": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "jobName": "paragraph_1460821029682_-1428013425",
+      "id": "20160416-153709_1110822521",
+      "result": {
+        "code": "SUCCESS",
+        "type": "HTML",
+        "msg": "\u003ch3\u003eRanges\u003c/h3\u003e\n\u003cp\u003eClosely related to collections, we have Ranges. They are quite simple, but still useful in situations where you need to generate sequences, such as in for loops.\u003c/p\u003e\n\u003cp\u003eYou need to define the start and end values, and optionally a \u0026ldquo;step\u0026rdquo;.\u003c/p\u003e\n\u003cp\u003e\u003cem\u003eNOTE\u003c/em\u003e: You can generate both numbers and chars with Ranges, but not Strings\u003c/p\u003e\n"
+      },
+      "dateCreated": "Apr 16, 2016 3:37:09 PM",
+      "dateStarted": "Apr 16, 2016 3:37:21 PM",
+      "dateFinished": "Apr 16, 2016 3:37:21 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "1 to 10\n1 until 10\n1 to 10 by 2\n1 to 10 by 5\n\u0027a\u0027 to \u0027z\u0027\n\u0027a\u0027 to \u0027z\u0027 by 5",
+      "authenticationInfo": {},
+      "dateUpdated": "Apr 16, 2016 3:37:37 PM",
+      "config": {
+        "colWidth": 12.0,
+        "graph": {
+          "mode": "table",
+          "height": 300.0,
+          "optionOpen": false,
+          "keys": [],
+          "values": [],
+          "groups": [],
+          "scatter": {}
+        },
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "jobName": "paragraph_1460821041397_-1562878043",
+      "id": "20160416-153721_1278953596",
+      "result": {
+        "code": "SUCCESS",
+        "type": "TEXT",
+        "msg": "res304: scala.collection.immutable.Range.Inclusive \u003d Range(1, 2, 3, 4, 5, 6, 7, 8, 9, 10)\nres305: scala.collection.immutable.Range \u003d Range(1, 2, 3, 4, 5, 6, 7, 8, 9)\nres306: scala.collection.immutable.Range \u003d Range(1, 3, 5, 7, 9)\nres307: scala.collection.immutable.Range \u003d Range(1, 6)\nres308: scala.collection.immutable.NumericRange.Inclusive[Char] \u003d NumericRange(a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p, q, r, s, t, u, v, w, x, y, z)\nres309: scala.collection.immutable.NumericRange[Char] \u003d NumericRange(a, f, k, p, u, z)\n"
+      },
+      "dateCreated": "Apr 16, 2016 3:37:21 PM",
+      "dateStarted": "Apr 16, 2016 3:37:37 PM",
+      "dateFinished": "Apr 16, 2016 3:37:38 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%md\nYou can also convert the Range to a List, Array, etc, or just use the \"range\" method that is available for many collections",
+      "authenticationInfo": {},
+      "dateUpdated": "Apr 17, 2016 2:43:23 PM",
+      "config": {
+        "colWidth": 12.0,
+        "graph": {
+          "mode": "table",
+          "height": 300.0,
+          "optionOpen": false,
+          "keys": [],
+          "values": [],
+          "groups": [],
+          "scatter": {}
+        },
+        "enabled": true,
+        "editorHide": true,
+        "tableHide": false
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "jobName": "paragraph_1460821057470_1474345098",
+      "id": "20160416-153737_724965593",
+      "result": {
+        "code": "SUCCESS",
+        "type": "HTML",
+        "msg": "\u003cp\u003eYou can also convert the Range to a List, Array, etc, or just use the \u0026ldquo;range\u0026rdquo; method that is available for many collections\u003c/p\u003e\n"
+      },
+      "dateCreated": "Apr 16, 2016 3:37:37 PM",
+      "dateStarted": "Apr 16, 2016 3:37:49 PM",
+      "dateFinished": "Apr 16, 2016 3:37:49 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "(1 to 10).toArray\nList.range(1, 10)\nArray.range(1, 10, step\u003d2)",
+      "authenticationInfo": {},
+      "dateUpdated": "Apr 16, 2016 3:38:06 PM",
+      "config": {
+        "colWidth": 12.0,
+        "graph": {
+          "mode": "table",
+          "height": 300.0,
+          "optionOpen": false,
+          "keys": [],
+          "values": [],
+          "groups": [],
+          "scatter": {}
+        },
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "jobName": "paragraph_1460821069265_-1922202868",
+      "id": "20160416-153749_174946419",
+      "result": {
+        "code": "SUCCESS",
+        "type": "TEXT",
+        "msg": "res311: Array[Int] \u003d Array(1, 2, 3, 4, 5, 6, 7, 8, 9, 10)\nres312: List[Int] \u003d List(1, 2, 3, 4, 5, 6, 7, 8, 9)\nres313: Array[Int] \u003d Array(1, 3, 5, 7, 9)\n"
+      },
+      "dateCreated": "Apr 16, 2016 3:37:49 PM",
+      "dateStarted": "Apr 16, 2016 3:38:06 PM",
+      "dateFinished": "Apr 16, 2016 3:38:06 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%md\n#### Example - Creating \"aa\" to \"cc\".\nWe can not create Ranges of Strings, but we can work with chars and convert them to Strings.",
+      "authenticationInfo": {},
+      "dateUpdated": "Apr 16, 2016 3:38:17 PM",
+      "config": {
+        "colWidth": 12.0,
+        "graph": {
+          "mode": "table",
+          "height": 300.0,
+          "optionOpen": false,
+          "keys": [],
+          "values": [],
+          "groups": [],
+          "scatter": {}
+        },
+        "enabled": true,
+        "editorHide": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "jobName": "paragraph_1460821086090_183558511",
+      "id": "20160416-153806_47679624",
+      "result": {
+        "code": "SUCCESS",
+        "type": "HTML",
+        "msg": "\u003ch4\u003eExample - Creating \u0026ldquo;aa\u0026rdquo; to \u0026ldquo;cc\u0026rdquo;.\u003c/h4\u003e\n\u003cp\u003eWe can not create Ranges of Strings, but we can work with chars and convert them to Strings.\u003c/p\u003e\n"
+      },
+      "dateCreated": "Apr 16, 2016 3:38:06 PM",
+      "dateStarted": "Apr 16, 2016 3:38:13 PM",
+      "dateFinished": "Apr 16, 2016 3:38:13 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "for(i \u003c- \u0027a\u0027 to \u0027c\u0027; j \u003c- \u0027a\u0027 to \u0027c\u0027) {\n    println(i.toString + j.toString)\n}\n\n(\u0027a\u0027 to \u0027c\u0027).flatMap(x \u003d\u003e (\u0027a\u0027 to \u0027c\u0027).map(y \u003d\u003e x.toString+y.toString))",
+      "authenticationInfo": {},
+      "dateUpdated": "Apr 17, 2016 2:48:17 PM",
+      "config": {
+        "colWidth": 12.0,
+        "graph": {
+          "mode": "table",
+          "height": 300.0,
+          "optionOpen": false,
+          "keys": [],
+          "values": [],
+          "groups": [],
+          "scatter": {}
+        },
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "jobName": "paragraph_1460821093193_1645619655",
+      "id": "20160416-153813_388137157",
+      "result": {
+        "code": "SUCCESS",
+        "type": "TEXT",
+        "msg": "aa\nab\nac\nba\nbb\nbc\nca\ncb\ncc\nres171: scala.collection.immutable.IndexedSeq[String] \u003d Vector(aa, ab, ac, ba, bb, bc, ca, cb, cc)\n"
+      },
+      "dateCreated": "Apr 16, 2016 3:38:13 PM",
+      "dateStarted": "Apr 17, 2016 2:48:17 PM",
+      "dateFinished": "Apr 17, 2016 2:48:18 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%md\n### Options\nEver had to deal with null values? Most languages implement some sort of keyword to define a missing value, but many times, receiving a null value in your function becomes an issue.\nThe \"Option\" type is Scala\u0027s way of getting rid of null values, and as the name might suggest, the basic idea behind it is quite simple: optional values.\n\nThere are two types extending from Option:\n- **Some**: Represents an existing value\n- **None**: Missing value.\n\n#### Creating Options\nLet\u0027s see how to create options with some examples:",
+      "authenticationInfo": {},
+      "dateUpdated": "May 1, 2016 10:36:08 AM",
+      "config": {
+        "colWidth": 12.0,
+        "graph": {
+          "mode": "table",
+          "height": 300.0,
+          "optionOpen": false,
+          "keys": [],
+          "values": [],
+          "groups": [],
+          "scatter": {}
+        },
+        "enabled": true,
+        "editorHide": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "jobName": "paragraph_1460821108436_1598911797",
+      "id": "20160416-153828_436227021",
+      "result": {
+        "code": "SUCCESS",
+        "type": "HTML",
+        "msg": "\u003ch3\u003eOptions\u003c/h3\u003e\n\u003cp\u003eEver had to deal with null values? Most languages implement some sort of keyword to define a missing value, but many times, receiving a null value in your function becomes an issue.\n\u003cbr  /\u003eThe \u0026ldquo;Option\u0026rdquo; type is Scala\u0027s way of getting rid of null values, and as the name might suggest, the basic idea behind it is quite simple: optional values.\u003c/p\u003e\n\u003cp\u003eThere are two types extending from Option:\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003e\u003cstrong\u003eSome\u003c/strong\u003e: Represents an existing value\u003c/li\u003e\n\u003cli\u003e\u003cstrong\u003eNone\u003c/strong\u003e: Missing value.\u003c/li\u003e\n\u003c/ul\u003e\n\u003ch4\u003eCreating Options\u003c/h4\u003e\n\u003cp\u003eLet\u0027s see how to create options with some examples:\u003c/p\u003e\n"
+      },
+      "dateCreated": "Apr 16, 2016 3:38:28 PM",
+      "dateStarted": "May 1, 2016 10:36:06 AM",
+      "dateFinished": "May 1, 2016 10:36:06 AM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "val numberFive \u003d Option(5)\nval twoShort: Option[Short] \u003d Some(2)\nval emptyValue: Option[Int] \u003d None\nval emptyValue2 \u003d Option(null)",
+      "authenticationInfo": {},
+      "dateUpdated": "Apr 16, 2016 3:38:55 PM",
+      "config": {
+        "colWidth": 12.0,
+        "graph": {
+          "mode": "table",
+          "height": 300.0,
+          "optionOpen": false,
+          "keys": [],
+          "values": [],
+          "groups": [],
+          "scatter": {}
+        },
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "jobName": "paragraph_1460821121541_1173764262",
+      "id": "20160416-153841_1680061333",
+      "result": {
+        "code": "SUCCESS",
+        "type": "TEXT",
+        "msg": "numberFive: Option[Int] \u003d Some(5)\ntwoShort: Option[Short] \u003d Some(2)\nemptyValue: Option[Int] \u003d None\nemptyValue2: Option[Null] \u003d None\n"
+      },
+      "dateCreated": "Apr 16, 2016 3:38:41 PM",
+      "dateStarted": "Apr 16, 2016 3:38:55 PM",
+      "dateFinished": "Apr 16, 2016 3:38:56 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%md\n#### Extracting the value of an option\n\nTo get the value that is contained into an option, you can use \"*getOrElse(DEFAULT_VALUE)*\". Note that there is also a \"*get*\" method, but it will fail if your option is *None*.",
+      "authenticationInfo": {},
+      "dateUpdated": "Apr 17, 2016 3:03:03 PM",
+      "config": {
+        "colWidth": 12.0,
+        "graph": {
+          "mode": "table",
+          "height": 300.0,
+          "optionOpen": false,
+          "keys": [],
+          "values": [],
+          "groups": [],
+          "scatter": {}
+        },
+        "enabled": true,
+        "editorHide": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "jobName": "paragraph_1460821135460_-1462519877",
+      "id": "20160416-153855_578538750",
+      "result": {
+        "code": "SUCCESS",
+        "type": "HTML",
+        "msg": "\u003ch4\u003eExtracting the value of an option\u003c/h4\u003e\n\u003cp\u003eTo get the value that is contained into an option, you can use \u0026ldquo;\u003cem\u003egetOrElse(DEFAULT_VALUE)\u003c/em\u003e\u0026ldquo;. Note that there is also a \u0026ldquo;\u003cem\u003eget\u003c/em\u003e\u0026rdquo; method, but it will fail if your option is \u003cem\u003eNone\u003c/em\u003e.\u003c/p\u003e\n"
+      },
+      "dateCreated": "Apr 16, 2016 3:38:55 PM",
+      "dateStarted": "Apr 16, 2016 3:39:05 PM",
+      "dateFinished": "Apr 16, 2016 3:39:05 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "val numberFive \u003d Option(5)\nval firstName \u003d Option(\"foo\")\nval emptyValue: Option[Int] \u003d None\nval emptyValue2 \u003d Option(null)\n\nnumberFive.get\n// This would fail...\n// emptyValue.get\n\n// Defining the type when using None / Option(null) is important.\n// Look at the types of what is returned by emptyValue / emptyValue2\nemptyValue.getOrElse(1)\nemptyValue2.getOrElse(1)",
+      "authenticationInfo": {},
+      "dateUpdated": "Apr 16, 2016 3:39:14 PM",
+      "config": {
+        "colWidth": 12.0,
+        "graph": {
+          "mode": "table",
+          "height": 300.0,
+          "optionOpen": false,
+          "keys": [],
+          "values": [],
+          "groups": [],
+          "scatter": {}
+        },
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "jobName": "paragraph_1460821145620_511642053",
+      "id": "20160416-153905_1149960296",
+      "result": {
+        "code": "SUCCESS",
+        "type": "TEXT",
+        "msg": "numberFive: Option[Int] \u003d Some(5)\nfirstName: Option[String] \u003d Some(foo)\nemptyValue: Option[Int] \u003d None\nemptyValue2: Option[Null] \u003d None\nres318: Int \u003d 5\nres319: Int \u003d 1\nres320: Any \u003d 1\n"
+      },
+      "dateCreated": "Apr 16, 2016 3:39:05 PM",
+      "dateStarted": "Apr 16, 2016 3:39:14 PM",
+      "dateFinished": "Apr 16, 2016 3:39:15 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%md\nThere is yet another way of working with Options. They accept some of the methods that collections accept, meaning that you can, for instance, filter and map them",
+      "authenticationInfo": {},
+      "dateUpdated": "Apr 16, 2016 3:41:01 PM",
+      "config": {
+        "colWidth": 12.0,
+        "graph": {
+          "mode": "table",
+          "height": 300.0,
+          "optionOpen": false,
+          "keys": [],
+          "values": [],
+          "groups": [],
+          "scatter": {}
+        },
+        "enabled": true,
+        "editorMode": "ace/mode/markdown",
+        "editorHide": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "jobName": "paragraph_1460821154414_1412354553",
+      "id": "20160416-153914_304832473",
+      "result": {
+        "code": "SUCCESS",
+        "type": "HTML",
+        "msg": "\u003cp\u003eThere is yet another way of working with Options. They accept some of the methods that collections accept, meaning that you can, for instance, filter and map them\u003c/p\u003e\n"
+      },
+      "dateCreated": "Apr 16, 2016 3:39:14 PM",
+      "dateStarted": "Apr 16, 2016 3:39:56 PM",
+      "dateFinished": "Apr 16, 2016 3:39:56 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "val a \u003d Option(5)\nval b: Option[Int] \u003d None\n\na.filter(_ \u003e 2)\nb.filter(_ \u003e 2)\na.map(_ + 1)\nb.map(_ + 1)",
+      "authenticationInfo": {},
+      "dateUpdated": "Apr 16, 2016 3:40:42 PM",
+      "config": {
+        "colWidth": 12.0,
+        "graph": {
+          "mode": "table",
+          "height": 300.0,
+          "optionOpen": false,
+          "keys": [],
+          "values": [],
+          "groups": [],
+          "scatter": {}
+        },
+        "enabled": true,
+        "editorMode": "ace/mode/scala"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "jobName": "paragraph_1460821196325_1355673871",
+      "id": "20160416-153956_1661614485",
+      "result": {
+        "code": "SUCCESS",
+        "type": "TEXT",
+        "msg": "a: Option[Int] \u003d Some(5)\nb: Option[Int] \u003d None\nres327: Option[Int] \u003d Some(5)\nres328: Option[Int] \u003d None\nres329: Option[Int] \u003d Some(6)\nres330: Option[Int] \u003d None\n"
+      },
+      "dateCreated": "Apr 16, 2016 3:39:56 PM",
+      "dateStarted": "Apr 16, 2016 3:40:42 PM",
+      "dateFinished": "Apr 16, 2016 3:40:43 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%md\n#### Using Options in your methods\nOptions become more useful as you increase complexity. Let\u0027s show it with real methods:",
+      "authenticationInfo": {},
+      "dateUpdated": "Apr 16, 2016 3:41:07 PM",
+      "config": {
+        "colWidth": 12.0,
+        "graph": {
+          "mode": "table",
+          "height": 300.0,
+          "optionOpen": false,
+          "keys": [],
+          "values": [],
+          "groups": [],
+          "scatter": {}
+        },
+        "enabled": true,
+        "editorHide": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "jobName": "paragraph_1460821224276_543899664",
+      "id": "20160416-154024_735013498",
+      "result": {
+        "code": "SUCCESS",
+        "type": "HTML",
+        "msg": "\u003ch4\u003eUsing Options in your methods\u003c/h4\u003e\n\u003cp\u003eOptions become more useful as you increase complexity. Let\u0027s show it with real methods:\u003c/p\u003e\n"
+      },
+      "dateCreated": "Apr 16, 2016 3:40:24 PM",
+      "dateStarted": "Apr 16, 2016 3:41:04 PM",
+      "dateFinished": "Apr 16, 2016 3:41:04 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "def toDate(day: Int, month: Int, year: Int) \u003d {\n    s\"${day}-${month}-${year}\"\n}\n\nval day \u003d 15\nval month \u003d 5\nval year \u003d 2001\ntoDate(day, month, year)",
+      "authenticationInfo": {},
+      "dateUpdated": "Apr 16, 2016 3:41:18 PM",
+      "config": {
+        "colWidth": 12.0,
+        "graph": {
+          "mode": "table",
+          "height": 300.0,
+          "optionOpen": false,
+          "keys": [],
+          "values": [],
+          "groups": [],
+          "scatter": {}
+        },
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "jobName": "paragraph_1460821264943_759621204",
+      "id": "20160416-154104_139421781",
+      "result": {
+        "code": "SUCCESS",
+        "type": "TEXT",
+        "msg": "toDate: (day: Int, month: Int, year: Int)String\nday: Int \u003d 15\nmonth: Int \u003d 5\nyear: Int \u003d 2001\nres332: String \u003d 15-5-2001\n"
+      },
+      "dateCreated": "Apr 16, 2016 3:41:04 PM",
+      "dateStarted": "Apr 16, 2016 3:41:18 PM",
+      "dateFinished": "Apr 16, 2016 3:41:19 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%md\nThis seems to work just fine, right?\nBut, what happens if one of the variables is null?",
+      "authenticationInfo": {},
+      "dateUpdated": "Apr 16, 2016 3:41:32 PM",
+      "config": {
+        "colWidth": 12.0,
+        "graph": {
+          "mode": "table",
+          "height": 300.0,
+          "optionOpen": false,
+          "keys": [],
+          "values": [],
+          "groups": [],
+          "scatter": {}
+        },
+        "enabled": true,
+        "editorHide": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "jobName": "paragraph_1460821278579_-1125648407",
+      "id": "20160416-154118_1781385963",
+      "result": {
+        "code": "SUCCESS",
+        "type": "HTML",
+        "msg": "\u003cp\u003eThis seems to work just fine, right?\n\u003cbr  /\u003eBut, what happens if one of the variables is null?\u003c/p\u003e\n"
+      },
+      "dateCreated": "Apr 16, 2016 3:41:18 PM",
+      "dateStarted": "Apr 16, 2016 3:41:29 PM",
+      "dateFinished": "Apr 16, 2016 3:41:29 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "val day \u003d 15\n// Using \"Int\" instead of Integer will not even let you call the method...\nval month: Integer \u003d null\nval year \u003d 2001\ntoDate(day, month, year)",
+      "authenticationInfo": {},
+      "dateUpdated": "Apr 16, 2016 3:41:45 PM",
+      "config": {
+        "colWidth": 12.0,
+        "graph": {
+          "mode": "table",
+          "height": 300.0,
+          "optionOpen": false,
+          "keys": [],
+          "values": [],
+          "groups": [],
+          "scatter": {}
+        },
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "jobName": "paragraph_1460821289849_-25235904",
+      "id": "20160416-154129_829999751",
+      "result": {
+        "code": "ERROR",
+        "type": "TEXT",
+        "msg": "day: Int \u003d 15\nmonth: Integer \u003d null\nyear: Int \u003d 2001\njava.lang.NullPointerException\n\tat scala.Predef$.Integer2int(Predef.scala:392)\n\tat $iwC$$iwC$$iwC$$iwC$$iwC$$iwC$$iwC$$iwC$$iwC$$iwC$$iwC$$iwC$$iwC$$iwC$$iwC$$iwC$$iwC$$iwC$$iwC$$iwC$$iwC$$iwC$$iwC$$iwC$$iwC$$iwC$$iwC.\u003cinit\u003e(\u003cconsole\u003e:89)\n\tat $iwC$$iwC$$iwC$$iwC$$iwC$$iwC$$iwC$$iwC$$iwC$$iwC$$iwC$$iwC$$iwC$$iwC$$iwC$$iwC$$iwC$$iwC$$iwC$$iwC$$iwC$$iwC$$iwC$$iwC$$iwC$$iwC.\u003cinit\u003e(\u003cconsole\u003e:94)\n\tat $iwC$$iwC$$iwC$$iwC$$iwC$$iwC$$iwC$$iwC$$iwC$$iwC$$iwC$$iwC$$iwC$$iwC$$iwC$$iwC$$iwC$$iwC$$iwC$$iwC$$iwC$$iwC$$iwC$$iwC$$iwC.\u003cinit\u003e(\u003cconsole\u003e:96)\n\tat $iwC$$iwC$$iwC$$iwC$$iwC$$iwC$$iwC$$iwC$$iwC$$iwC$$iwC$$iwC$$iwC$$iwC$$iwC$$iwC$$iwC$$iwC$$iwC$$iwC$$iwC$$iwC$$iwC$$iwC.\u003cinit\u003e(\u003cconsole\u003e:98)\n\tat $iwC$$iwC$$iwC$$iwC$$iwC$$iwC$$iwC$$iwC$$iwC$$iwC$$iwC$$iwC$$iwC$$iwC$$iwC$$iwC$$iwC$$iwC$$iwC$$iwC$$iwC$$iwC$$iwC.\u003cinit\u003e(\u003cconsole\u003e:100)\n\tat $iwC$$iwC$$iwC$$iwC$$iwC$$iwC$$iwC$$iwC$$iwC$$iwC$$iwC$$iwC$$iwC$$iwC$$iwC$$iwC$$iwC$$iwC$$iwC$$iwC$$iwC$$iwC.\u003cinit\u003e(\u003cconsole\u003e:102)\n\tat $iwC$$iwC$$iwC$$iwC$$iwC$$iwC$$iwC$$iwC$$iwC$$iwC$$iwC$$iwC$$iwC$$iwC$$iwC$$iwC$$iwC$$iwC$$iwC$$iwC$$iwC.\u003cinit\u003e(\u003cconsole\u003e:104)\n\tat $iwC$$iwC$$iwC$$iwC$$iwC$$iwC$$iwC$$iwC$$iwC$$iwC$$iwC$$iwC$$iwC$$iwC$$iwC$$iwC$$iwC$$iwC$$iwC$$iwC.\u003cinit\u003e(\u003cconsole\u003e:106)\n\tat $iwC$$iwC$$iwC$$iwC$$iwC$$iwC$$iwC$$iwC$$iwC$$iwC$$iwC$$iwC$$iwC$$iwC$$iwC$$iwC$$iwC$$iwC$$iwC.\u003cinit\u003e(\u003cconsole\u003e:108)\n\tat $iwC$$iwC$$iwC$$iwC$$iwC$$iwC$$iwC$$iwC$$iwC$$iwC$$iwC$$iwC$$iwC$$iwC$$iwC$$iwC$$iwC$$iwC.\u003cinit\u003e(\u003cconsole\u003e:110)\n\tat $iwC$$iwC$$iwC$$iwC$$iwC$$iwC$$iwC$$iwC$$iwC$$iwC$$iwC$$iwC$$iwC$$iwC$$iwC$$iwC$$iwC.\u003cinit\u003e(\u003cconsole\u003e:112)\n\tat $iwC$$iwC$$iwC$$iwC$$iwC$$iwC$$iwC$$iwC$$iwC$$iwC$$iwC$$iwC$$iwC$$iwC$$iwC$$iwC.\u003cinit\u003e(\u003cconsole\u003e:114)\n\tat $iwC$$iwC$$iwC$$iwC$$iwC$$iwC$$iwC$$iwC$$iwC$$iwC$$iwC$$iwC$$iwC$$iwC$$iwC.\u003cinit\u003e(\u003cconsole\u003e:116)\n\tat $iwC$$iwC$$iwC$$iwC$$iwC$$iwC$$iwC$$iwC$$iwC$$iwC$$iwC$$iwC$$iwC$$iwC.\u003cinit\u003e(\u003cconsole\u003e:118)\n\tat $iwC$$iwC$$iwC$$iwC$$iwC$$iwC$$iwC$$iwC$$iwC$$iwC$$iwC$$iwC$$iwC.\u003cinit\u003e(\u003cconsole\u003e:120)\n\tat $iwC$$iwC$$iwC$$iwC$$iwC$$iwC$$iwC$$iwC$$iwC$$iwC$$iwC$$iwC.\u003cinit\u003e(\u003cconsole\u003e:122)\n\tat $iwC$$iwC$$iwC$$iwC$$iwC$$iwC$$iwC$$iwC$$iwC$$iwC$$iwC.\u003cinit\u003e(\u003cconsole\u003e:124)\n\tat $iwC$$iwC$$iwC$$iwC$$iwC$$iwC$$iwC$$iwC$$iwC$$iwC.\u003cinit\u003e(\u003cconsole\u003e:126)\n\tat $iwC$$iwC$$iwC$$iwC$$iwC$$iwC$$iwC$$iwC$$iwC.\u003cinit\u003e(\u003cconsole\u003e:128)\n\tat $iwC$$iwC$$iwC$$iwC$$iwC$$iwC$$iwC$$iwC.\u003cinit\u003e(\u003cconsole\u003e:130)\n\tat $iwC$$iwC$$iwC$$iwC$$iwC$$iwC$$iwC.\u003cinit\u003e(\u003cconsole\u003e:132)\n\tat $iwC$$iwC$$iwC$$iwC$$iwC$$iwC.\u003cinit\u003e(\u003cconsole\u003e:134)\n\tat $iwC$$iwC$$iwC$$iwC$$iwC.\u003cinit\u003e(\u003cconsole\u003e:136)\n\tat $iwC$$iwC$$iwC$$iwC.\u003cinit\u003e(\u003cconsole\u003e:138)\n\tat $iwC$$iwC$$iwC.\u003cinit\u003e(\u003cconsole\u003e:140)\n\tat $iwC$$iwC.\u003cinit\u003e(\u003cconsole\u003e:142)\n\tat $iwC.\u003cinit\u003e(\u003cconsole\u003e:144)\n\tat \u003cinit\u003e(\u003cconsole\u003e:146)\n\tat .\u003cinit\u003e(\u003cconsole\u003e:150)\n\tat .\u003cclinit\u003e(\u003cconsole\u003e)\n\tat .\u003cinit\u003e(\u003cconsole\u003e:7)\n\tat .\u003cclinit\u003e(\u003cconsole\u003e)\n\tat $print(\u003cconsole\u003e)\n\tat sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)\n\tat sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)\n\tat sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)\n\tat java.lang.reflect.Method.invoke(Method.java:498)\n\tat org.apache.spark.repl.SparkIMain$ReadEvalPrint.call(SparkIMain.scala:1065)\n\tat org.apache.spark.repl.SparkIMain$Request.loadAndRun(SparkIMain.scala:1346)\n\tat org.apache.spark.repl.SparkIMain.loadAndRunReq$1(SparkIMain.scala:840)\n\tat org.apache.spark.repl.SparkIMain.interpret(SparkIMain.scala:871)\n\tat org.apache.spark.repl.SparkIMain.interpret(SparkIMain.scala:819)\n\tat org.apache.zeppelin.spark.SparkInterpreter.interpretInput(SparkInterpreter.java:812)\n\tat org.apache.zeppelin.spark.SparkInterpreter.interpret(SparkInterpreter.java:755)\n\tat org.apache.zeppelin.spark.SparkInterpreter.interpret(SparkInterpreter.java:748)\n\tat org.apache.zeppelin.interpreter.ClassloaderInterpreter.interpret(ClassloaderInterpreter.java:57)\n\tat org.apache.zeppelin.interpreter.LazyOpenInterpreter.interpret(LazyOpenInterpreter.java:93)\n\tat org.apache.zeppelin.interpreter.remote.RemoteInterpreterServer$InterpretJob.jobRun(RemoteInterpreterServer.java:331)\n\tat org.apache.zeppelin.scheduler.Job.run(Job.java:171)\n\tat org.apache.zeppelin.scheduler.FIFOScheduler$1.run(FIFOScheduler.java:139)\n\tat java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511)\n\tat java.util.concurrent.FutureTask.run(FutureTask.java:266)\n\tat java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.access$201(ScheduledThreadPoolExecutor.java:180)\n\tat java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:293)\n\tat java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)\n\tat java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)\n\tat java.lang.Thread.run(Thread.java:745)\n\n"
+      },
+      "dateCreated": "Apr 16, 2016 3:41:29 PM",
+      "dateStarted": "Apr 16, 2016 3:41:45 PM",
+      "dateFinished": "Apr 16, 2016 3:41:46 PM",
+      "status": "ERROR",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%md\nThis failed.. with an exception that should be well-known by Java developers. If we want to fix it, we\u0027ll need to change our method to something like this:",
+      "authenticationInfo": {},
+      "dateUpdated": "Apr 16, 2016 3:42:02 PM",
+      "config": {
+        "colWidth": 12.0,
+        "graph": {
+          "mode": "table",
+          "height": 300.0,
+          "optionOpen": false,
+          "keys": [],
+          "values": [],
+          "groups": [],
+          "scatter": {}
+        },
+        "enabled": true,
+        "editorHide": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "jobName": "paragraph_1460821305548_1448149880",
+      "id": "20160416-154145_1075723529",
+      "result": {
+        "code": "SUCCESS",
+        "type": "HTML",
+        "msg": "\u003cp\u003eThis failed.. with an exception that should be well-known by Java developers. If we want to fix it, we\u0027ll need to change our method to something like this:\u003c/p\u003e\n"
+      },
+      "dateCreated": "Apr 16, 2016 3:41:45 PM",
+      "dateStarted": "Apr 16, 2016 3:41:59 PM",
+      "dateFinished": "Apr 16, 2016 3:41:59 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "def toDate(day: Integer, month: Integer, year: Integer) \u003d {\n    val processedMonth \u003d if (month !\u003d null) {\n        month\n    } else {\n        1\n    }\n    s\"${day}-${processedMonth}-${year}\"\n}\n\nval day \u003d 15\nval month: Integer \u003d null\nval year \u003d 2001\ntoDate(day, month, year)",
+      "authenticationInfo": {},
+      "dateUpdated": "Apr 16, 2016 3:42:18 PM",
+      "config": {
+        "colWidth": 12.0,
+        "graph": {
+          "mode": "table",
+          "height": 300.0,
+          "optionOpen": false,
+          "keys": [],
+          "values": [],
+          "groups": [],
+          "scatter": {}
+        },
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "jobName": "paragraph_1460821319004_-466360647",
+      "id": "20160416-154159_665442887",
+      "result": {
+        "code": "SUCCESS",
+        "type": "TEXT",
+        "msg": "toDate: (day: Integer, month: Integer, year: Integer)String\nday: Int \u003d 15\nmonth: Integer \u003d null\nyear: Int \u003d 2001\nres335: String \u003d 15-1-2001\n"
+      },
+      "dateCreated": "Apr 16, 2016 3:41:59 PM",
+      "dateStarted": "Apr 16, 2016 3:42:18 PM",
+      "dateFinished": "Apr 16, 2016 3:42:19 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%md\nNote that we would need to add a similar check for the day and the year as well, so the code will start become verbose, less readable..\nWe can use Options instead:",
+      "authenticationInfo": {},
+      "dateUpdated": "Apr 16, 2016 3:42:33 PM",
+      "config": {
+        "colWidth": 12.0,
+        "graph": {
+          "mode": "table",
+          "height": 300.0,
+          "optionOpen": false,
+          "keys": [],
+          "values": [],
+          "groups": [],
+          "scatter": {}
+        },
+        "enabled": true,
+        "editorHide": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "jobName": "paragraph_1460821338092_432843505",
+      "id": "20160416-154218_157848862",
+      "result": {
+        "code": "SUCCESS",
+        "type": "HTML",
+        "msg": "\u003cp\u003eNote that we would need to add a similar check for the day and the year as well, so the code will start become verbose, less readable..\n\u003cbr  /\u003eWe can use Options instead:\u003c/p\u003e\n"
+      },
+      "dateCreated": "Apr 16, 2016 3:42:18 PM",
+      "dateStarted": "Apr 16, 2016 3:42:30 PM",
+      "dateFinished": "Apr 16, 2016 3:42:30 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "def toDate(day: Option[Int], month: Option[Int], year: Option[Int]) \u003d {\n    // This is how it would look like with the interpolated string syntax\n    //s\"${day.getOrElse(1)}-${month.getOrElse(1)}-${year.getOrElse(2000)}\"\n\n    day.getOrElse(1) + \"-\" + month.getOrElse(1) + \"-\" + year.getOrElse(2000)\n}\n\nval day \u003d Option(15)\nval month: Option[Int] \u003d None\nval year \u003d Option(2001)\ntoDate(day, month, year)",
+      "authenticationInfo": {},
+      "dateUpdated": "Apr 16, 2016 3:42:42 PM",
+      "config": {
+        "colWidth": 12.0,
+        "graph": {
+          "mode": "table",
+          "height": 300.0,
+          "optionOpen": false,
+          "keys": [],
+          "values": [],
+          "groups": [],
+          "scatter": {}
+        },
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "jobName": "paragraph_1460821350611_160826033",
+      "id": "20160416-154230_1174095516",
+      "result": {
+        "code": "SUCCESS",
+        "type": "TEXT",
+        "msg": "toDate: (day: Option[Int], month: Option[Int], year: Option[Int])String\nday: Option[Int] \u003d Some(15)\nmonth: Option[Int] \u003d None\nyear: Option[Int] \u003d Some(2001)\nres337: String \u003d 15-1-2001\n"
+      },
+      "dateCreated": "Apr 16, 2016 3:42:30 PM",
+      "dateStarted": "Apr 16, 2016 3:42:42 PM",
+      "dateFinished": "Apr 16, 2016 3:42:43 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%md\n### Type Inference\nType inference is one of the most powerful features of Scala. Despite it\u0027s a strongly typed language, meaning that everything needs to explicitly have a type, most of the times Scala can infer that type for you for variables and method return types.\nThere are some exception though, including:\n\n- Creating mutable variables without initializing them (setting them to null).\n- Creating variables / options with None, Nothing, null, etc..\n- If you explicitly use \"return\" in a method.\n\nIn general, it\u0027s a good practice to define the return types for methods, and if you have doubts, add it when declaring variables as well. Let\u0027s see some cases where not using declaring the type will fail:",
+      "authenticationInfo": {},
+      "dateUpdated": "Apr 16, 2016 3:43:38 PM",
+      "config": {
+        "colWidth": 12.0,
+        "graph": {
+          "mode": "table",
+          "height": 300.0,
+          "optionOpen": false,
+          "keys": [],
+          "values": [],
+          "groups": [],
+          "scatter": {}
+        },
+        "enabled": true,
+        "editorHide": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "jobName": "paragraph_1460821362629_-1527605382",
+      "id": "20160416-154242_1336325677",
+      "result": {
+        "code": "SUCCESS",
+        "type": "HTML",
+        "msg": "\u003ch3\u003eType Inference\u003c/h3\u003e\n\u003cp\u003eType inference is one of the most powerful features of Scala. Despite it\u0027s a strongly typed language, meaning that everything needs to explicitly have a type, most of the times Scala can infer that type for you for variables and method return types.\n\u003cbr  /\u003eThere are some exception though, including:\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003eCreating mutable variables without initializing them (setting them to null).\u003c/li\u003e\n\u003cli\u003eCreating variables / options with None, Nothing, null, etc..\u003c/li\u003e\n\u003cli\u003eIf you explicitly use \u0026ldquo;return\u0026rdquo; in a method.\u003c/li\u003e\n\u003c/ul\u003e\n\u003cp\u003eIn general, it\u0027s a good practice to define the return types for methods, and if you have doubts, add it when declaring variables as well. Let\u0027s see some cases where not using declaring the type will fail:\u003c/p\u003e\n"
+      },
+      "dateCreated": "Apr 16, 2016 3:42:42 PM",
+      "dateStarted": "Apr 16, 2016 3:42:51 PM",
+      "dateFinished": "Apr 16, 2016 3:42:51 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "var something \u003d null\nsomething \u003d 1",
+      "authenticationInfo": {},
+      "dateUpdated": "Apr 16, 2016 3:43:41 PM",
+      "config": {
+        "colWidth": 12.0,
+        "graph": {
+          "mode": "table",
+          "height": 300.0,
+          "optionOpen": false,
+          "keys": [],
+          "values": [],
+          "groups": [],
+          "scatter": {}
+        },
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "jobName": "paragraph_1460821371662_770899871",
+      "id": "20160416-154251_1250702060",
+      "result": {
+        "code": "ERROR",
+        "type": "TEXT",
+        "msg": "something: Null \u003d null\n\u003cconsole\u003e:82: error: type mismatch;\n found   : Int(1)\n required: Null\n         something \u003d 1\n                     ^\n"
+      },
+      "dateCreated": "Apr 16, 2016 3:42:51 PM",
+      "dateStarted": "Apr 16, 2016 3:43:41 PM",
+      "dateFinished": "Apr 16, 2016 3:43:41 PM",
+      "status": "ERROR",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "var anotherThing \u003d Option(null)\nanotherThing \u003d Some(\"foo\")",
+      "authenticationInfo": {},
+      "dateUpdated": "Apr 16, 2016 3:43:53 PM",
+      "config": {
+        "colWidth": 12.0,
+        "graph": {
+          "mode": "table",
+          "height": 300.0,
+          "optionOpen": false,
+          "keys": [],
+          "values": [],
+          "groups": [],
+          "scatter": {}
+        },
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "jobName": "paragraph_1460821421410_-1189719227",
+      "id": "20160416-154341_1368468818",
+      "result": {
+        "code": "ERROR",
+        "type": "TEXT",
+        "msg": "anotherThing: Option[Null] \u003d None\n\u003cconsole\u003e:82: error: type mismatch;\n found   : String(\"foo\")\n required: Null\n         anotherThing \u003d Some(\"foo\")\n                             ^\n"
+      },
+      "dateCreated": "Apr 16, 2016 3:43:41 PM",
+      "dateStarted": "Apr 16, 2016 3:43:53 PM",
+      "dateFinished": "Apr 16, 2016 3:43:54 PM",
+      "status": "ERROR",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "var thisIsEmpty \u003d None\nthisIsEmpty \u003d Option(4)",
+      "authenticationInfo": {},
+      "dateUpdated": "Apr 16, 2016 3:44:08 PM",
+      "config": {
+        "colWidth": 12.0,
+        "graph": {
+          "mode": "table",
+          "height": 300.0,
+          "optionOpen": false,
+          "keys": [],
+          "values": [],
+          "groups": [],
+          "scatter": {}
+        },
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "jobName": "paragraph_1460821433946_139419657",
+      "id": "20160416-154353_549270084",
+      "result": {
+        "code": "ERROR",
+        "type": "TEXT",
+        "msg": "thisIsEmpty: None.type \u003d None\n\u003cconsole\u003e:82: error: type mismatch;\n found   : Option[Int]\n required: None.type\n         thisIsEmpty \u003d Option(4)\n                             ^\n"
+      },
+      "dateCreated": "Apr 16, 2016 3:43:53 PM",
+      "dateStarted": "Apr 16, 2016 3:44:08 PM",
+      "dateFinished": "Apr 16, 2016 3:44:08 PM",
+      "status": "ERROR",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "def myFunction() \u003d {\n    return \"foo\"\n}",
+      "authenticationInfo": {},
+      "dateUpdated": "Apr 16, 2016 3:44:19 PM",
+      "config": {
+        "colWidth": 12.0,
+        "graph": {
+          "mode": "table",
+          "height": 300.0,
+          "optionOpen": false,
+          "keys": [],
+          "values": [],
+          "groups": [],
+          "scatter": {}
+        },
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "jobName": "paragraph_1460821448514_1733080249",
+      "id": "20160416-154408_1424876104",
+      "result": {
+        "code": "ERROR",
+        "type": "TEXT",
+        "msg": "\u003cconsole\u003e:81: error: method myFunction has return statement; needs result type\n           return \"foo\"\n           ^\n"
+      },
+      "dateCreated": "Apr 16, 2016 3:44:08 PM",
+      "dateStarted": "Apr 16, 2016 3:44:19 PM",
+      "dateFinished": "Apr 16, 2016 3:44:19 PM",
+      "status": "ERROR",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%md\n#### Other caveats\nSometimes not declaring the type will not fail, but will result in an unexpected type (usually, with the type being inferred to \"Any\", \"AnyVal\" or \"AnyRef\")",
+      "authenticationInfo": {},
+      "dateUpdated": "Apr 16, 2016 3:44:31 PM",
+      "config": {
+        "colWidth": 12.0,
+        "graph": {
+          "mode": "table",
+          "height": 300.0,
+          "optionOpen": false,
+          "keys": [],
+          "values": [],
+          "groups": [],
+          "scatter": {}
+        },
+        "enabled": true,
+        "editorHide": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "jobName": "paragraph_1460821459571_-1562663505",
+      "id": "20160416-154419_429363550",
+      "result": {
+        "code": "SUCCESS",
+        "type": "HTML",
+        "msg": "\u003ch4\u003eOther caveats\u003c/h4\u003e\n\u003cp\u003eSometimes not declaring the type will not fail, but will result in an unexpected type (usually, with the type being inferred to \u0026ldquo;Any\u0026rdquo;, \u0026ldquo;AnyVal\u0026rdquo; or \u0026ldquo;AnyRef\u0026rdquo;)\u003c/p\u003e\n"
+      },
+      "dateCreated": "Apr 16, 2016 3:44:19 PM",
+      "dateStarted": "Apr 16, 2016 3:44:28 PM",
+      "dateFinished": "Apr 16, 2016 3:44:28 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "List(1, 1L, 1: Short, 1.1f, true)\nList(1, 1L, 1: Short, 1.1f, \"foo\")\ndef myFunction(a: Boolean) \u003d {\n    if (a) {\n        1\n    } else {\n        \u0027c\u0027\n    }\n}",
+      "authenticationInfo": {},
+      "dateUpdated": "Apr 16, 2016 3:44:46 PM",
+      "config": {
+        "colWidth": 12.0,
+        "graph": {
+          "mode": "table",
+          "height": 300.0,
+          "optionOpen": false,
+          "keys": [],
+          "values": [],
+          "groups": [],
+          "scatter": {}
+        },
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "jobName": "paragraph_1460821468719_-799691112",
+      "id": "20160416-154428_101568687",
+      "result": {
+        "code": "SUCCESS",
+        "type": "TEXT",
+        "msg": "res339: List[AnyVal] \u003d List(1, 1, 1, 1.1, true)\nres340: List[Any] \u003d List(1, 1, 1, 1.1, foo)\nmyFunction: (a: Boolean)Int\n"
+      },
+      "dateCreated": "Apr 16, 2016 3:44:28 PM",
+      "dateStarted": "Apr 16, 2016 3:44:46 PM",
+      "dateFinished": "Apr 16, 2016 3:44:46 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%md\nAlso, many operations with Short type will return Ints",
+      "authenticationInfo": {},
+      "dateUpdated": "Apr 16, 2016 3:45:32 PM",
+      "config": {
+        "colWidth": 12.0,
+        "graph": {
+          "mode": "table",
+          "height": 300.0,
+          "optionOpen": false,
+          "keys": [],
+          "values": [],
+          "groups": [],
+          "scatter": {}
+        },
+        "enabled": true,
+        "editorHide": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "jobName": "paragraph_1460821486088_-1613034962",
+      "id": "20160416-154446_746093123",
+      "result": {
+        "code": "SUCCESS",
+        "type": "HTML",
+        "msg": "\u003cp\u003eAlso, many operations with Short type will return Ints\u003c/p\u003e\n"
+      },
+      "dateCreated": "Apr 16, 2016 3:44:46 PM",
+      "dateStarted": "Apr 16, 2016 3:44:56 PM",
+      "dateFinished": "Apr 16, 2016 3:44:56 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "val numberOne: Short \u003d 1\nval numberTwo: Short \u003d 2\nnumberOne + numberTwo\n// Quite ugly workaround...\n(numberOne + numberTwo).toShort",
+      "authenticationInfo": {},
+      "dateUpdated": "Apr 16, 2016 3:45:03 PM",
+      "config": {
+        "colWidth": 12.0,
+        "graph": {
+          "mode": "table",
+          "height": 300.0,
+          "optionOpen": false,
+          "keys": [],
+          "values": [],
+          "groups": [],
+          "scatter": {}
+        },
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "jobName": "paragraph_1460821496193_-444336370",
+      "id": "20160416-154456_79645884",
+      "result": {
+        "code": "SUCCESS",
+        "type": "TEXT",
+        "msg": "numberOne: Short \u003d 1\nnumberTwo: Short \u003d 2\nres342: Int \u003d 3\nres343: Short \u003d 3\n"
+      },
+      "dateCreated": "Apr 16, 2016 3:44:56 PM",
+      "dateStarted": "Apr 16, 2016 3:45:03 PM",
+      "dateFinished": "Apr 16, 2016 3:45:04 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "config": {},
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "jobName": "paragraph_1460821503459_-519347081",
+      "id": "20160416-154503_1925712045",
+      "dateCreated": "Apr 16, 2016 3:45:03 PM",
+      "status": "READY",
+      "progressUpdateIntervalMs": 500
+    }
+  ],
+  "name": "Intro to Scala - 2: Collections and Type Inference",
+  "id": "2BJNYS7B3",
+  "angularObjects": {
+    "2BKKGWMY9": [],
+    "2BM7XR6U7": [],
+    "2BHDGC5ZB": [],
+    "2BMJ1ZTKR": [],
+    "2BKYVCNSD": [],
+    "2BM72GFDU": [],
+    "2BM74FBTQ": [],
+    "2BHW3NPVE": [],
+    "2BHZKEE9C": [],
+    "2BM158R3T": [],
+    "2BKMHR2WT": [],
+    "2BK19VD7Y": [],
+    "2BJ72E96T": [],
+    "2BMMM996X": [],
+    "2BKUMG5KZ": [],
+    "2BGQNK6A7": [],
+    "2BH3HCFEG": [],
+    "2BHU5HPQK": []
+  },
+  "config": {
+    "looknfeel": "default"
+  },
+  "info": {}
+}

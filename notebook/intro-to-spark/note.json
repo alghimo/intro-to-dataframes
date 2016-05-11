@@ -1,0 +1,399 @@
+{
+  "paragraphs": [
+    {
+      "text": "%md\n## Spark Basics\n\n[Spark](http://spark.apache.org/) is an in-memory, open-source, distributed computing framework. It is also a system that is well adapted for interactive data exploration and analytics.\n\n\nIt contains 4 main analytics components on top of its core engine: [Spark SQL](http://spark.apache.org/docs/latest/sql-programming-guide.html), [Spark Streaming](http://spark.apache.org/docs/latest/streaming-programming-guide.html), [MLlib](http://spark.apache.org/docs/latest/mllib-guide.html), and [GraphX](https://spark.apache.org/docs/latest/graphx-programming-guide.html). The Data Frame API is built on top of Spark SQL, but it is used more and more as a core to other libraries (e.g. [ML](http://spark.apache.org/docs/latest/ml-guide.html), [GraphFrames](https://databricks.com/blog/2016/03/03/introducing-graphframes.html)).  \n\n![](https://jaceklaskowski.gitbooks.io/mastering-apache-spark/content/diagrams/spark-platform.png)",
+      "authenticationInfo": {},
+      "dateUpdated": "May 4, 2016 2:00:08 PM",
+      "config": {
+        "colWidth": 12.0,
+        "graph": {
+          "mode": "table",
+          "height": 528.0,
+          "optionOpen": false,
+          "keys": [],
+          "values": [],
+          "groups": [],
+          "scatter": {}
+        },
+        "enabled": true,
+        "editorMode": "ace/mode/markdown",
+        "editorHide": true,
+        "tableHide": false
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "jobName": "paragraph_1462025152470_-976257050",
+      "id": "20160430-140552_299393566",
+      "result": {
+        "code": "SUCCESS",
+        "type": "HTML",
+        "msg": "\u003ch2\u003eSpark Basics\u003c/h2\u003e\n\u003cp\u003e\u003ca href\u003d\"http://spark.apache.org/\"\u003eSpark\u003c/a\u003e is an in-memory, open-source, distributed computing framework. It is also a system that is well adapted for interactive data exploration and analytics.\u003c/p\u003e\n\u003cp\u003eIt contains 4 main analytics components on top of its core engine: \u003ca href\u003d\"http://spark.apache.org/docs/latest/sql-programming-guide.html\"\u003eSpark SQL\u003c/a\u003e, \u003ca href\u003d\"http://spark.apache.org/docs/latest/streaming-programming-guide.html\"\u003eSpark Streaming\u003c/a\u003e, \u003ca href\u003d\"http://spark.apache.org/docs/latest/mllib-guide.html\"\u003eMLlib\u003c/a\u003e, and \u003ca href\u003d\"https://spark.apache.org/docs/latest/graphx-programming-guide.html\"\u003eGraphX\u003c/a\u003e. The Data Frame API is built on top of Spark SQL, but it is used more and more as a core to other libraries (e.g. \u003ca href\u003d\"http://spark.apache.org/docs/latest/ml-guide.html\"\u003eML\u003c/a\u003e, \u003ca href\u003d\"https://databricks.com/blog/2016/03/03/introducing-graphframes.html\"\u003eGraphFrames\u003c/a\u003e).\u003c/p\u003e\n\u003cp\u003e\u003cimg src\u003d\"https://jaceklaskowski.gitbooks.io/mastering-apache-spark/content/diagrams/spark-platform.png\" alt\u003d\"\" /\u003e\u003c/p\u003e\n"
+      },
+      "dateCreated": "Apr 30, 2016 2:05:52 PM",
+      "dateStarted": "May 4, 2016 2:00:07 PM",
+      "dateFinished": "May 4, 2016 2:00:07 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%md\n### Spark context\n\nThe Spark context is the fundamental object of a Spark instance and contains all its configuration. Any spark-shell (and the present notebook) comes with a predefined Spark Context (`sc`). ",
+      "authenticationInfo": {},
+      "dateUpdated": "May 4, 2016 10:26:39 AM",
+      "config": {
+        "colWidth": 12.0,
+        "graph": {
+          "mode": "table",
+          "height": 100.0,
+          "optionOpen": false,
+          "keys": [],
+          "values": [],
+          "groups": [],
+          "scatter": {}
+        },
+        "enabled": true,
+        "editorMode": "ace/mode/markdown",
+        "editorHide": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "jobName": "paragraph_1462030261397_-943655803",
+      "id": "20160430-153101_166945142",
+      "result": {
+        "code": "SUCCESS",
+        "type": "HTML",
+        "msg": "\u003ch3\u003eSpark context\u003c/h3\u003e\n\u003cp\u003eThe Spark context is the fundamental object of a Spark instance and contains all its configuration. Any spark-shell (and the present notebook) comes with a predefined Spark Context (\u003ccode\u003esc\u003c/code\u003e).\u003c/p\u003e\n"
+      },
+      "dateCreated": "Apr 30, 2016 3:31:01 PM",
+      "dateStarted": "Apr 30, 2016 3:54:43 PM",
+      "dateFinished": "Apr 30, 2016 3:54:43 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "sc\n\nsc.getConf.getAll.foreach(println)",
+      "authenticationInfo": {},
+      "dateUpdated": "May 4, 2016 8:47:44 AM",
+      "config": {
+        "colWidth": 6.0,
+        "graph": {
+          "mode": "table",
+          "height": 408.0,
+          "optionOpen": false,
+          "keys": [],
+          "values": [],
+          "groups": [],
+          "scatter": {}
+        },
+        "enabled": true,
+        "editorMode": "ace/mode/scala",
+        "editorHide": false
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "jobName": "paragraph_1462032894126_284444073",
+      "id": "20160430-161454_944326661",
+      "result": {
+        "code": "SUCCESS",
+        "type": "TEXT",
+        "msg": "res5: org.apache.spark.SparkContext \u003d org.apache.spark.SparkContext@72e413af\n(args,)\n(master,local[*])\n(zeppelin.spark.concurrentSQL,false)\n(zeppelin.pyspark.python,python)\n(spark.scheduler.mode,FAIR)\n(zeppelin.spark.maxResult,1000)\n(zeppelin.spark.printREPLOutput,true)\n(spark.executor.id,driver)\n(spark.executor.extraClassPath,:/zeppelin/interpreter/spark/dep/*:/zeppelin/interpreter/spark/*:/zeppelin/zeppelin-interpreter/target/lib/*::/zeppelin/conf:/zeppelin/conf:/zeppelin/zeppelin-interpreter/target/classes:)\n(spark.repl.class.uri,http://172.17.0.2:35769)\n(zeppelin.dep.localrepo,local-repo)\n(spark.driver.port,43885)\n(zeppelin.spark.sql.stacktrace,false)\n(spark.driver.host,172.17.0.2)\n(zeppelin.interpreter.localRepo,/zeppelin/local-repo/2BMWCA4BT)\n(spark.externalBlockStore.folderName,spark-4c699e29-4673-4a7d-a27c-87f5fa4a53f2)\n(spark.app.id,local-1462351645246)\n(spark.driver.extraClassPath,:/zeppelin/interpreter/spark/dep/*:/zeppelin/interpreter/spark/*:/zeppelin/zeppelin-interpreter/target/lib/*::/zeppelin/conf:/zeppelin/conf:/zeppelin/zeppelin-interpreter/target/classes:)\n(spark.master,local[*])\n(spark.app.name,Zeppelin)\n(zeppelin.dep.additionalRemoteRepository,spark-packages,http://dl.bintray.com/spark-packages/maven,false;)\n(zeppelin.spark.useHiveContext,true)\n"
+      },
+      "dateCreated": "Apr 30, 2016 4:14:54 PM",
+      "dateStarted": "May 4, 2016 8:47:44 AM",
+      "dateFinished": "May 4, 2016 8:47:45 AM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%md\n--\n\n![spark_context_2](https://jaceklaskowski.gitbooks.io/mastering-apache-spark/content/diagrams/sparkcontext-services.png)\n",
+      "authenticationInfo": {},
+      "dateUpdated": "May 4, 2016 2:01:23 PM",
+      "config": {
+        "colWidth": 6.0,
+        "graph": {
+          "mode": "table",
+          "height": 399.0,
+          "optionOpen": false,
+          "keys": [],
+          "values": [],
+          "groups": [],
+          "scatter": {}
+        },
+        "enabled": true,
+        "editorMode": "ace/mode/markdown",
+        "editorHide": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "jobName": "paragraph_1462031664575_-848833551",
+      "id": "20160430-155424_53806608",
+      "result": {
+        "code": "SUCCESS",
+        "type": "HTML",
+        "msg": "\u003cp\u003e\u0026ndash;\u003c/p\u003e\n\u003cp\u003e\u003cimg src\u003d\"https://jaceklaskowski.gitbooks.io/mastering-apache-spark/content/diagrams/sparkcontext-services.png\" alt\u003d\"spark_context_2\" /\u003e\u003c/p\u003e\n"
+      },
+      "dateCreated": "Apr 30, 2016 3:54:24 PM",
+      "dateStarted": "May 4, 2016 1:16:26 PM",
+      "dateFinished": "May 4, 2016 1:16:26 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%md\n### Resilient Distributed Dataset\n\nThe Resilient Distributed Dataset (RDD) is the fundamental abstraction of Spark ([1](http://spark.apache.org/research.html)).You can think of it as a collection designed to be easily computed on multiple nodes in a fault-tolerant manner.\n\nIn practice, instances of RDD are very similar to lazily evaluated collections. \n\n\u003chttps://spark.apache.org/docs/latest/api/scala/#org.apache.spark.rdd.RDD\u003e",
+      "authenticationInfo": {},
+      "dateUpdated": "May 4, 2016 8:49:50 AM",
+      "config": {
+        "colWidth": 12.0,
+        "graph": {
+          "mode": "table",
+          "height": 130.0,
+          "optionOpen": false,
+          "keys": [],
+          "values": [],
+          "groups": [],
+          "scatter": {}
+        },
+        "enabled": true,
+        "editorMode": "ace/mode/markdown",
+        "editorHide": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "jobName": "paragraph_1462030249818_459523436",
+      "id": "20160430-153049_340023948",
+      "result": {
+        "code": "SUCCESS",
+        "type": "HTML",
+        "msg": "\u003ch3\u003eResilient Distributed Dataset\u003c/h3\u003e\n\u003cp\u003eThe Resilient Distributed Dataset (RDD) is the fundamental abstraction of Spark (\u003ca href\u003d\"http://spark.apache.org/research.html\"\u003e1\u003c/a\u003e).You can think of it as a collection designed to be easily computed on multiple nodes in a fault-tolerant manner.\u003c/p\u003e\n\u003cp\u003eIn practice, instances of RDD are very similar to lazily evaluated collections.\u003c/p\u003e\n\u003cp\u003e\u003ca href\u003d\"https://spark.apache.org/docs/latest/api/scala/#org.apache.spark.rdd.RDD\"\u003ehttps://spark.apache.org/docs/latest/api/scala/#org.apache.spark.rdd.RDD\u003c/a\u003e\u003c/p\u003e\n"
+      },
+      "dateCreated": "Apr 30, 2016 3:30:49 PM",
+      "dateStarted": "May 4, 2016 8:49:42 AM",
+      "dateFinished": "May 4, 2016 8:49:42 AM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%md\n\n--\n\n![catalyst](https://databricks.com/wp-content/uploads/2015/04/Screen-Shot-2015-04-12-at-8.41.26-AM.png)",
+      "authenticationInfo": {},
+      "dateUpdated": "May 4, 2016 1:16:39 PM",
+      "config": {
+        "colWidth": 6.0,
+        "graph": {
+          "mode": "table",
+          "height": 225.0,
+          "optionOpen": false,
+          "keys": [],
+          "values": [],
+          "groups": [],
+          "scatter": {}
+        },
+        "enabled": true,
+        "editorMode": "ace/mode/markdown",
+        "editorHide": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "jobName": "paragraph_1462032729234_-42069826",
+      "id": "20160430-161209_1831671279",
+      "result": {
+        "code": "SUCCESS",
+        "type": "HTML",
+        "msg": "\u003cp\u003e\u0026ndash;\u003c/p\u003e\n\u003cp\u003e\u003cimg src\u003d\"https://databricks.com/wp-content/uploads/2015/04/Screen-Shot-2015-04-12-at-8.41.26-AM.png\" alt\u003d\"catalyst\" /\u003e\u003c/p\u003e\n"
+      },
+      "dateCreated": "Apr 30, 2016 4:12:09 PM",
+      "dateStarted": "May 4, 2016 1:16:38 PM",
+      "dateFinished": "May 4, 2016 1:16:38 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "// lazy evaluation\nval rdd \u003d sc.parallelize(1 to 1000000000)",
+      "authenticationInfo": {},
+      "dateUpdated": "May 4, 2016 10:23:55 AM",
+      "config": {
+        "colWidth": 6.0,
+        "graph": {
+          "mode": "table",
+          "height": 96.0,
+          "optionOpen": false,
+          "keys": [],
+          "values": [],
+          "groups": [],
+          "scatter": {}
+        },
+        "enabled": true,
+        "editorMode": "ace/mode/scala"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "jobName": "paragraph_1462025883449_115873746",
+      "id": "20160430-141803_1950124585",
+      "result": {
+        "code": "SUCCESS",
+        "type": "TEXT",
+        "msg": "rdd: org.apache.spark.rdd.RDD[Int] \u003d ParallelCollectionRDD[0] at parallelize at \u003cconsole\u003e:30\n"
+      },
+      "dateCreated": "Apr 30, 2016 2:18:03 PM",
+      "dateStarted": "May 4, 2016 10:23:55 AM",
+      "dateFinished": "May 4, 2016 10:23:55 AM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "// computation\nrdd.count",
+      "authenticationInfo": {},
+      "dateUpdated": "May 4, 2016 1:47:35 PM",
+      "config": {
+        "colWidth": 6.0,
+        "graph": {
+          "mode": "table",
+          "height": 96.0,
+          "optionOpen": false,
+          "keys": [],
+          "values": [],
+          "groups": [],
+          "scatter": {}
+        },
+        "enabled": true,
+        "editorMode": "ace/mode/scala"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "jobName": "paragraph_1462033411573_-1026460016",
+      "id": "20160430-162331_371172353",
+      "result": {
+        "code": "SUCCESS",
+        "type": "TEXT",
+        "msg": "res20: Long \u003d 1000000000\n"
+      },
+      "dateCreated": "Apr 30, 2016 4:23:31 PM",
+      "dateStarted": "May 4, 2016 1:47:35 PM",
+      "dateFinished": "May 4, 2016 1:47:44 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%md\n### Spark UI\n\n\u003chttp://localhost:4040/jobs/\u003e",
+      "authenticationInfo": {},
+      "dateUpdated": "May 4, 2016 1:49:09 PM",
+      "config": {
+        "colWidth": 12.0,
+        "graph": {
+          "mode": "table",
+          "height": 300.0,
+          "optionOpen": false,
+          "keys": [],
+          "values": [],
+          "groups": [],
+          "scatter": {}
+        },
+        "enabled": true,
+        "editorMode": "ace/mode/markdown",
+        "editorHide": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "jobName": "paragraph_1462369698659_-580712476",
+      "id": "20160504-134818_1756028426",
+      "result": {
+        "code": "SUCCESS",
+        "type": "HTML",
+        "msg": "\u003ch3\u003eSpark UI\u003c/h3\u003e\n\u003cp\u003e\u003ca href\u003d\"http://localhost:4040/jobs/\"\u003ehttp://localhost:4040/jobs/\u003c/a\u003e\u003c/p\u003e\n"
+      },
+      "dateCreated": "May 4, 2016 1:48:18 PM",
+      "dateStarted": "May 4, 2016 1:49:08 PM",
+      "dateFinished": "May 4, 2016 1:49:08 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%md\n#### Credits\nThanks to Jacek Laskowski for allowing us to reuse images from his great book \u003chttps://jaceklaskowski.gitbooks.io/mastering-apache-spark/content/\u003e.",
+      "authenticationInfo": {},
+      "dateUpdated": "May 4, 2016 1:15:58 PM",
+      "config": {
+        "colWidth": 12.0,
+        "graph": {
+          "mode": "table",
+          "height": 300.0,
+          "optionOpen": false,
+          "keys": [],
+          "values": [],
+          "groups": [],
+          "scatter": {}
+        },
+        "enabled": true,
+        "editorMode": "ace/mode/markdown",
+        "editorHide": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "jobName": "paragraph_1462033524013_-805093125",
+      "id": "20160430-162524_2056340728",
+      "result": {
+        "code": "SUCCESS",
+        "type": "HTML",
+        "msg": "\u003ch4\u003eCredits\u003c/h4\u003e\n\u003cp\u003eThanks to Jacek Laskowski for allowing us to reuse images from his great book \u003ca href\u003d\"https://jaceklaskowski.gitbooks.io/mastering-apache-spark/content/\"\u003ehttps://jaceklaskowski.gitbooks.io/mastering-apache-spark/content/\u003c/a\u003e.\u003c/p\u003e\n"
+      },
+      "dateCreated": "Apr 30, 2016 4:25:24 PM",
+      "dateStarted": "May 4, 2016 1:15:57 PM",
+      "dateFinished": "May 4, 2016 1:15:57 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "config": {},
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "jobName": "paragraph_1462367709322_-928486840",
+      "id": "20160504-131509_36814532",
+      "dateCreated": "May 4, 2016 1:15:09 PM",
+      "status": "READY",
+      "progressUpdateIntervalMs": 500
+    }
+  ],
+  "name": "Spark basics",
+  "id": "2BKE3N99M",
+  "angularObjects": {
+    "2BMWCA4BT": [],
+    "2BJE4F1YW": [],
+    "2BHDPMFXC": [],
+    "2BK9JBT9Z": [],
+    "2BM2VRJ1J": [],
+    "2BJ7F8EEF": [],
+    "2BJ35YZU9": [],
+    "2BJJVYEYX": [],
+    "2BJ8Z3NF1": [],
+    "2BM4H84YM": [],
+    "2BKFFWCX3": [],
+    "2BGY118VY": [],
+    "2BJMJNJFV": [],
+    "2BMDUGFDQ": [],
+    "2BJC8F3T1": [],
+    "2BK1NSR8S": [],
+    "2BHRRQE3D": [],
+    "2BJ4G7QS4": []
+  },
+  "config": {},
+  "info": {}
+}

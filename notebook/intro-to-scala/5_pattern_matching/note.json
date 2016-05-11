@@ -1,0 +1,319 @@
+{
+  "paragraphs": [
+    {
+      "text": "%md\n### Pattern Matching\nPattern Matching is one of the parts of Scala you should really get to know if you want to be proficient with the language. Using pattern matching can drastically simplify your code, and the logic you use.\nAlthough the first thing that might come to your mind are regular expressions, pattern matching goes further beyond that in Scala: You can match over types, over values, even over specific instances of classes and case classes.",
+      "authenticationInfo": {},
+      "dateUpdated": "Apr 16, 2016 4:04:52 PM",
+      "config": {
+        "colWidth": 12.0,
+        "graph": {
+          "mode": "table",
+          "height": 300.0,
+          "optionOpen": false,
+          "keys": [],
+          "values": [],
+          "groups": [],
+          "scatter": {}
+        },
+        "enabled": true,
+        "editorHide": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "jobName": "paragraph_1460822625108_665839874",
+      "id": "20160416-160345_1821213435",
+      "result": {
+        "code": "SUCCESS",
+        "type": "HTML",
+        "msg": "\u003ch3\u003ePattern Matching\u003c/h3\u003e\n\u003cp\u003ePattern Matching is one of the parts of Scala you should really get to know if you want to be proficient with the language. Using pattern matching can drastically simplify your code, and the logic you use.\n\u003cbr  /\u003eAlthough the first thing that might come to your mind are regular expressions, pattern matching goes further beyond that in Scala: You can match over types, over values, even over specific instances of classes and case classes.\u003c/p\u003e\n"
+      },
+      "dateCreated": "Apr 16, 2016 4:03:45 PM",
+      "dateStarted": "Apr 16, 2016 4:04:50 PM",
+      "dateFinished": "Apr 16, 2016 4:04:50 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "case class Person(name: String, age: Int)\nval noNumber: Option[Int] \u003d None\nval myList \u003d List(1, 1.0, false, 3.3, Option(\"foo\"), noNumber, Array(1, 2, 3), (\u0027x\u0027, \"abc\"), List(1, 2), Person(\"j.d.\", 25))\n\nfor (element \u003c- myList) {\n    element match {\n        case x: Double         \u003d\u003e println(s\"Element is a Double: $x\")\n        case 1                 \u003d\u003e println(\"Element is 1\")\n        case x: Boolean        \u003d\u003e println(s\"Element is a Boolean: $x\")\n        case Some(str: String) \u003d\u003e println(s\"Element is an Option[String]: $str\")\n        case None              \u003d\u003e println(\"Element is None\")\n        case Array(a, b, c)    \u003d\u003e println(s\"Element is an Array with three elements: $a, $b and $c\")\n        case (x, y)            \u003d\u003e println(s\"Element is a tuple: ($x, $y)\")\n        case Person(name, age) \u003d\u003e println(s\"Element is a Person($name, $age)\")\n        case _                 \u003d\u003e println(\"I don\u0027t know...\")\n    }\n}",
+      "authenticationInfo": {},
+      "dateUpdated": "Apr 16, 2016 4:05:09 PM",
+      "config": {
+        "colWidth": 12.0,
+        "graph": {
+          "mode": "table",
+          "height": 300.0,
+          "optionOpen": false,
+          "keys": [],
+          "values": [],
+          "groups": [],
+          "scatter": {}
+        },
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "jobName": "paragraph_1460822690403_-4099906",
+      "id": "20160416-160450_392786481",
+      "result": {
+        "code": "SUCCESS",
+        "type": "TEXT",
+        "msg": "defined class Person\nnoNumber: Option[Int] \u003d None\nmyList: List[Any] \u003d List(1, 1.0, false, 3.3, Some(foo), None, Array(1, 2, 3), (x,abc), List(1, 2), Person(j.d.,25))\nElement is 1\nElement is a Double: 1.0\nElement is a Boolean: false\nElement is a Double: 3.3\nElement is an Option[String]: foo\nElement is None\nElement is an Array with three elements: 1, 2 and 3\nElement is a tuple: (x, abc)\nI don\u0027t know...\nElement is a Person(j.d., 25)\n"
+      },
+      "dateCreated": "Apr 16, 2016 4:04:50 PM",
+      "dateStarted": "Apr 16, 2016 4:05:09 PM",
+      "dateFinished": "Apr 16, 2016 4:05:10 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%md\n#### Matching on varargs\nWhat if you want to match on variable arguments?",
+      "authenticationInfo": {},
+      "dateUpdated": "Apr 16, 2016 4:05:55 PM",
+      "config": {
+        "colWidth": 12.0,
+        "graph": {
+          "mode": "table",
+          "height": 300.0,
+          "optionOpen": false,
+          "keys": [],
+          "values": [],
+          "groups": [],
+          "scatter": {}
+        },
+        "enabled": true,
+        "editorHide": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "jobName": "paragraph_1460822709269_-1381100895",
+      "id": "20160416-160509_15394255",
+      "result": {
+        "code": "SUCCESS",
+        "type": "HTML",
+        "msg": "\u003ch4\u003eMatching on varargs\u003c/h4\u003e\n\u003cp\u003eWhat if you want to match on variable arguments?\u003c/p\u003e\n"
+      },
+      "dateCreated": "Apr 16, 2016 4:05:09 PM",
+      "dateStarted": "Apr 16, 2016 4:05:36 PM",
+      "dateFinished": "Apr 16, 2016 4:05:36 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "val a \u003d Array(\"a\", \"b\", \"c\", \"d\", \"e\")\n\na match {\n    case Array(one, two, rest @ _*) \u003d\u003e {\n        val strRest \u003d rest.mkString(\",\")\n        println(s\"First is $one, second is $two, rest is: $strRest\")\n    }\n}",
+      "authenticationInfo": {},
+      "dateUpdated": "May 1, 2016 11:16:37 AM",
+      "config": {
+        "colWidth": 12.0,
+        "graph": {
+          "mode": "table",
+          "height": 300.0,
+          "optionOpen": false,
+          "keys": [],
+          "values": [],
+          "groups": [],
+          "scatter": {}
+        },
+        "enabled": true,
+        "editorMode": "ace/mode/scala"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "jobName": "paragraph_1460822736324_-1341441110",
+      "id": "20160416-160536_2092584130",
+      "result": {
+        "code": "SUCCESS",
+        "type": "TEXT",
+        "msg": "a: Array[String] \u003d Array(a, b, c, d, e)\nFirst is a, second is b, rest is: c,d,e\n"
+      },
+      "dateCreated": "Apr 16, 2016 4:05:36 PM",
+      "dateStarted": "May 1, 2016 11:16:37 AM",
+      "dateFinished": "May 1, 2016 11:16:37 AM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%md\n#### Matching on regular expressions\nYou can also use regular expressions to extract values from a string.",
+      "authenticationInfo": {},
+      "dateUpdated": "Apr 16, 2016 4:06:10 PM",
+      "config": {
+        "colWidth": 12.0,
+        "graph": {
+          "mode": "table",
+          "height": 300.0,
+          "optionOpen": false,
+          "keys": [],
+          "values": [],
+          "groups": [],
+          "scatter": {}
+        },
+        "enabled": true,
+        "editorHide": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "jobName": "paragraph_1460822758501_29666052",
+      "id": "20160416-160558_1801666094",
+      "result": {
+        "code": "SUCCESS",
+        "type": "HTML",
+        "msg": "\u003ch4\u003eMatching on regular expressions\u003c/h4\u003e\n\u003cp\u003eYou can also use regular expressions to extract values from a string.\u003c/p\u003e\n"
+      },
+      "dateCreated": "Apr 16, 2016 4:05:58 PM",
+      "dateStarted": "Apr 16, 2016 4:06:08 PM",
+      "dateFinished": "Apr 16, 2016 4:06:08 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "val ymdRegex \u003d \"(\\\\d{4})-(\\\\d{2})-(\\\\d{2})\".r\nval dmyRegex \u003d \"(\\\\d{2})-(\\\\d{2})-(\\\\d{4})\".r\n\nfor (date \u003c- Seq(\"2012-06-15\", \"15-07-1999\", \"12-11-10\")) {\n    date match {\n        case ymdRegex(year, month, day) \u003d\u003e println(s\"Year: $year, Month: $month, Day: $day\")\n        case dmyRegex(day, month, year) \u003d\u003e println(s\"Year: $year, Month: $month, Day: $day\")\n        case _ \u003d\u003e println(\"Unkown date format\")\n    }\n}",
+      "authenticationInfo": {},
+      "dateUpdated": "Apr 16, 2016 4:06:24 PM",
+      "config": {
+        "colWidth": 12.0,
+        "graph": {
+          "mode": "table",
+          "height": 300.0,
+          "optionOpen": false,
+          "keys": [],
+          "values": [],
+          "groups": [],
+          "scatter": {}
+        },
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "jobName": "paragraph_1460822767998_-1837520360",
+      "id": "20160416-160607_990780484",
+      "result": {
+        "code": "SUCCESS",
+        "type": "TEXT",
+        "msg": "ymdRegex: scala.util.matching.Regex \u003d (\\d{4})-(\\d{2})-(\\d{2})\ndmyRegex: scala.util.matching.Regex \u003d (\\d{2})-(\\d{2})-(\\d{4})\nYear: 2012, Month: 06, Day: 15\nYear: 1999, Month: 07, Day: 15\nUnkown date format\n"
+      },
+      "dateCreated": "Apr 16, 2016 4:06:07 PM",
+      "dateStarted": "Apr 16, 2016 4:06:24 PM",
+      "dateFinished": "Apr 16, 2016 4:06:25 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%md\n#### Guards in pattern matching\nYou can use guards (the same that we saw in loops) to refine your cases.",
+      "authenticationInfo": {},
+      "dateUpdated": "Apr 16, 2016 4:06:37 PM",
+      "config": {
+        "colWidth": 12.0,
+        "graph": {
+          "mode": "table",
+          "height": 300.0,
+          "optionOpen": false,
+          "keys": [],
+          "values": [],
+          "groups": [],
+          "scatter": {}
+        },
+        "enabled": true,
+        "editorHide": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "jobName": "paragraph_1460822784801_273627504",
+      "id": "20160416-160624_429601694",
+      "result": {
+        "code": "SUCCESS",
+        "type": "HTML",
+        "msg": "\u003ch4\u003eGuards in pattern matching\u003c/h4\u003e\n\u003cp\u003eYou can use guards (the same that we saw in loops) to refine your cases.\u003c/p\u003e\n"
+      },
+      "dateCreated": "Apr 16, 2016 4:06:24 PM",
+      "dateStarted": "Apr 16, 2016 4:06:34 PM",
+      "dateFinished": "Apr 16, 2016 4:06:34 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "for (i \u003c- 1 to 10) {\n    i match {\n        case x: Int if x % 2 \u003d\u003d 0 \u003d\u003e println(s\"$x is even\")\n        case x: Int if x % 2 \u003d\u003d 1 \u003d\u003e println(s\"$x is odd\")\n    }\n}",
+      "authenticationInfo": {},
+      "dateUpdated": "Apr 16, 2016 4:06:47 PM",
+      "config": {
+        "colWidth": 12.0,
+        "graph": {
+          "mode": "table",
+          "height": 300.0,
+          "optionOpen": false,
+          "keys": [],
+          "values": [],
+          "groups": [],
+          "scatter": {}
+        },
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "jobName": "paragraph_1460822794966_140150284",
+      "id": "20160416-160634_501895582",
+      "result": {
+        "code": "SUCCESS",
+        "type": "TEXT",
+        "msg": "1 is odd\n2 is even\n3 is odd\n4 is even\n5 is odd\n6 is even\n7 is odd\n8 is even\n9 is odd\n10 is even\n"
+      },
+      "dateCreated": "Apr 16, 2016 4:06:34 PM",
+      "dateStarted": "Apr 16, 2016 4:06:47 PM",
+      "dateFinished": "Apr 16, 2016 4:06:49 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "config": {},
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "jobName": "paragraph_1460822807601_1515843784",
+      "id": "20160416-160647_333778360",
+      "dateCreated": "Apr 16, 2016 4:06:47 PM",
+      "status": "READY",
+      "progressUpdateIntervalMs": 500
+    }
+  ],
+  "name": "Intro to Scala - 5: Pattern Matching",
+  "id": "2BG791231",
+  "angularObjects": {
+    "2BKKGWMY9": [],
+    "2BM7XR6U7": [],
+    "2BHDGC5ZB": [],
+    "2BMJ1ZTKR": [],
+    "2BKYVCNSD": [],
+    "2BM72GFDU": [],
+    "2BM74FBTQ": [],
+    "2BHW3NPVE": [],
+    "2BHZKEE9C": [],
+    "2BM158R3T": [],
+    "2BKMHR2WT": [],
+    "2BK19VD7Y": [],
+    "2BJ72E96T": [],
+    "2BMMM996X": [],
+    "2BKUMG5KZ": [],
+    "2BGQNK6A7": [],
+    "2BH3HCFEG": [],
+    "2BHU5HPQK": []
+  },
+  "config": {
+    "looknfeel": "default"
+  },
+  "info": {}
+}

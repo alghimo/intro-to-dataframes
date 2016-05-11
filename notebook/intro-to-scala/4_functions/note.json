@@ -1,0 +1,803 @@
+{
+  "paragraphs": [
+    {
+      "text": "%md\n### Deep dive into functions\nWe already explained the very basics of functions: how to create them. However, there is much more to functions in Scala.\nRemember that the basic syntax for creating a method is:\n\n```\ndef myFunction(param1: Type1): returnType \u003d {\n  // do some staff\n  \n  value\n}\n```\n\nLet\u0027s explore some other nice features that Scala offers when it comes to functions.",
+      "authenticationInfo": {},
+      "dateUpdated": "May 1, 2016 10:54:33 AM",
+      "config": {
+        "colWidth": 12.0,
+        "graph": {
+          "mode": "table",
+          "height": 300.0,
+          "optionOpen": false,
+          "keys": [],
+          "values": [],
+          "groups": [],
+          "scatter": {}
+        },
+        "enabled": true,
+        "editorMode": "ace/mode/scala",
+        "editorHide": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "jobName": "paragraph_1460821824296_1680276584",
+      "id": "20160416-155024_1144631707",
+      "result": {
+        "code": "SUCCESS",
+        "type": "HTML",
+        "msg": "\u003ch3\u003eDeep dive into functions\u003c/h3\u003e\n\u003cp\u003eWe already explained the very basics of functions: how to create them. However, there is much more to functions in Scala.\n\u003cbr  /\u003eRemember that the basic syntax for creating a method is:\u003c/p\u003e\n\u003cpre\u003e\u003ccode\u003edef myFunction(param1: Type1): returnType \u003d {\n  // do some staff\n\n  value\n}\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003eLet\u0027s explore some other nice features that Scala offers when it comes to functions.\u003c/p\u003e\n"
+      },
+      "dateCreated": "Apr 16, 2016 3:50:24 PM",
+      "dateStarted": "May 1, 2016 10:54:30 AM",
+      "dateFinished": "May 1, 2016 10:54:30 AM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%md\n#### Variadic functions (i.e: Function with variable number of arguments)\nSometimes, you want your function to take not one, or two, but a variable number of arguments. That\u0027s where varargs (or variadic arguments, variadic functions) come into play.\nThe syntax is almost the same as for regular functions, except for one thing: you add a star (**\\***) after the argument type. Also, requirement is that all variadic arguments MUST be defined at the end of the argument list.",
+      "authenticationInfo": {},
+      "dateUpdated": "Apr 16, 2016 3:50:53 PM",
+      "config": {
+        "colWidth": 12.0,
+        "graph": {
+          "mode": "table",
+          "height": 300.0,
+          "optionOpen": false,
+          "keys": [],
+          "values": [],
+          "groups": [],
+          "scatter": {}
+        },
+        "enabled": true,
+        "editorHide": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "jobName": "paragraph_1460821835110_-902927531",
+      "id": "20160416-155035_584619944",
+      "result": {
+        "code": "SUCCESS",
+        "type": "HTML",
+        "msg": "\u003ch4\u003eVariadic functions (i.e: Function with variable number of arguments)\u003c/h4\u003e\n\u003cp\u003eSometimes, you want your function to take not one, or two, but a variable number of arguments. That\u0027s where varargs (or variadic arguments, variadic functions) come into play.\n\u003cbr  /\u003eThe syntax is almost the same as for regular functions, except for one thing: you add a star (\u003cstrong\u003e*\u003c/strong\u003e) after the argument type. Also, requirement is that all variadic arguments MUST be defined at the end of the argument list.\u003c/p\u003e\n"
+      },
+      "dateCreated": "Apr 16, 2016 3:50:35 PM",
+      "dateStarted": "Apr 16, 2016 3:50:51 PM",
+      "dateFinished": "Apr 16, 2016 3:50:51 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "def createCommand(arguments: String*) \u003d {\n  arguments.mkString(\" \")\n}\n\ncreateCommand()\ncreateCommand(\"ls\")\ncreateCommand(\"ls\", \"-la\")\ncreateCommand(\"ls\", \"-la\", \"/home\")",
+      "authenticationInfo": {},
+      "dateUpdated": "Apr 16, 2016 3:51:02 PM",
+      "config": {
+        "colWidth": 12.0,
+        "graph": {
+          "mode": "table",
+          "height": 300.0,
+          "optionOpen": false,
+          "keys": [],
+          "values": [],
+          "groups": [],
+          "scatter": {}
+        },
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "jobName": "paragraph_1460821851300_1357887654",
+      "id": "20160416-155051_1484155740",
+      "result": {
+        "code": "SUCCESS",
+        "type": "TEXT",
+        "msg": "createCommand: (arguments: String*)String\nres353: String \u003d \"\"\nres354: String \u003d ls\nres355: String \u003d ls -la\nres356: String \u003d ls -la /home\n"
+      },
+      "dateCreated": "Apr 16, 2016 3:50:51 PM",
+      "dateStarted": "Apr 16, 2016 3:51:02 PM",
+      "dateFinished": "Apr 16, 2016 3:51:03 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%md\n#### Collections to varargs\nSometimes, you have your arguments contained inside an Array, List or similar collection, and you want to use the values it contains to call a variadic function.\nFor that purpose, Scala provides the \"_\\*\": operator. It will extract a Sequence to a list of parameters.",
+      "authenticationInfo": {},
+      "dateUpdated": "Apr 16, 2016 3:51:44 PM",
+      "config": {
+        "colWidth": 12.0,
+        "graph": {
+          "mode": "table",
+          "height": 300.0,
+          "optionOpen": false,
+          "keys": [],
+          "values": [],
+          "groups": [],
+          "scatter": {}
+        },
+        "enabled": true,
+        "editorHide": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "jobName": "paragraph_1460821862923_-2067901228",
+      "id": "20160416-155102_1260469422",
+      "result": {
+        "code": "SUCCESS",
+        "type": "HTML",
+        "msg": "\u003ch4\u003eCollections to varargs\u003c/h4\u003e\n\u003cp\u003eSometimes, you have your arguments contained inside an Array, List or similar collection, and you want to use the values it contains to call a variadic function.\n\u003cbr  /\u003eFor that purpose, Scala provides the \u0026ldquo;_*\u0026ldquo;: operator. It will extract a Sequence to a list of parameters.\u003c/p\u003e\n"
+      },
+      "dateCreated": "Apr 16, 2016 3:51:02 PM",
+      "dateStarted": "Apr 16, 2016 3:51:34 PM",
+      "dateFinished": "Apr 16, 2016 3:51:34 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "def createCommand(arguments: String*) \u003d {\n  arguments.mkString(\" \")\n}\n\nval args1 \u003d List(\"a\", \"b\", \"c\")\nval args2 \u003d Array(\"x\", \"y\", \"123\")\n\ncreateCommand(args1:_*) // Equivalent to createCommand(\"a\", \"b\", \"c\")\ncreateCommand(args2:_*)",
+      "authenticationInfo": {},
+      "dateUpdated": "Apr 16, 2016 3:51:57 PM",
+      "config": {
+        "colWidth": 12.0,
+        "graph": {
+          "mode": "table",
+          "height": 300.0,
+          "optionOpen": false,
+          "keys": [],
+          "values": [],
+          "groups": [],
+          "scatter": {}
+        },
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "jobName": "paragraph_1460821873566_15914139",
+      "id": "20160416-155113_1106577371",
+      "result": {
+        "code": "SUCCESS",
+        "type": "TEXT",
+        "msg": "createCommand: (arguments: String*)String\nargs1: List[String] \u003d List(a, b, c)\nargs2: Array[String] \u003d Array(x, y, 123)\nres358: String \u003d a b c\nres359: String \u003d x y 123\n"
+      },
+      "dateCreated": "Apr 16, 2016 3:51:13 PM",
+      "dateStarted": "Apr 16, 2016 3:51:57 PM",
+      "dateFinished": "Apr 16, 2016 3:51:57 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%md\n#### Anonymous functions\nAlso known as *lambda functions*, or just *lambdas*, anonymous functions are probably one of the cornerstones in Scala.\nYou will use them pretty much everywhere, especially when working with collections.\n\nThe important thing to remember is the general syntax:\n```\n(arg1: Type1, ..., argN: TypeM) \u003d\u003e doStuff\n```\n\nWhen you use it, for instance, to filter, you can use the special underscore operator, and you\u0027ll benefit from type inference.\n\n```\nval myCollection \u003d List(1, 2, 3)\nmyCollection.map(_ + 1)\n```",
+      "authenticationInfo": {},
+      "dateUpdated": "May 1, 2016 10:58:29 AM",
+      "config": {
+        "colWidth": 12.0,
+        "graph": {
+          "mode": "table",
+          "height": 300.0,
+          "optionOpen": false,
+          "keys": [],
+          "values": [],
+          "groups": [],
+          "scatter": {}
+        },
+        "enabled": true,
+        "editorHide": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "jobName": "paragraph_1460821917078_920720958",
+      "id": "20160416-155157_1075542174",
+      "result": {
+        "code": "SUCCESS",
+        "type": "HTML",
+        "msg": "\u003ch4\u003eAnonymous functions\u003c/h4\u003e\n\u003cp\u003eAlso known as \u003cem\u003elambda functions\u003c/em\u003e, or just \u003cem\u003elambdas\u003c/em\u003e, anonymous functions are probably one of the cornerstones in Scala.\n\u003cbr  /\u003eYou will use them pretty much everywhere, especially when working with collections.\u003c/p\u003e\n\u003cp\u003eThe important thing to remember is the general syntax:\u003c/p\u003e\n\u003cpre\u003e\u003ccode\u003e(arg1: Type1, ..., argN: TypeM) \u003d\u0026gt; doStuff\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003eWhen you use it, for instance, to filter, you can use the special underscore operator, and you\u0027ll benefit from type inference.\u003c/p\u003e\n\u003cpre\u003e\u003ccode\u003eval myCollection \u003d List(1, 2, 3)\nmyCollection.map(_ + 1)\n\u003c/code\u003e\u003c/pre\u003e\n"
+      },
+      "dateCreated": "Apr 16, 2016 3:51:57 PM",
+      "dateStarted": "May 1, 2016 10:58:27 AM",
+      "dateFinished": "May 1, 2016 10:58:27 AM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "val a \u003d Array(1, 2, 3, 4)\n\n// Here\u0027s how you could just write an anonymous function\n(i: Int) \u003d\u003e i \u003e 2\n\nval myAnonFunction \u003d (i: Int) \u003d\u003e i \u003e 2\n\n// Here\u0027s how you could write the same as a regular, non-anonymous function \ndef myFunction(i: Int) \u003d i \u003e 2\n\n// Multiple ways of achieving the same thing\n// We declare an anonymous function inline to filter...\na.filter(_ \u003e 2)\n// Or use the anonymous function we declared before\na.filter(myAnonFunction)\n// Or just a regular function\na.filter(myFunction)",
+      "authenticationInfo": {},
+      "dateUpdated": "Apr 16, 2016 3:52:24 PM",
+      "config": {
+        "colWidth": 12.0,
+        "graph": {
+          "mode": "table",
+          "height": 300.0,
+          "optionOpen": false,
+          "keys": [],
+          "values": [],
+          "groups": [],
+          "scatter": {}
+        },
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "jobName": "paragraph_1460821929711_1288956304",
+      "id": "20160416-155209_855640238",
+      "result": {
+        "code": "SUCCESS",
+        "type": "TEXT",
+        "msg": "a: Array[Int] \u003d Array(1, 2, 3, 4)\nres361: Int \u003d\u003e Boolean \u003d \u003cfunction1\u003e\nmyAnonFunction: Int \u003d\u003e Boolean \u003d \u003cfunction1\u003e\nmyFunction: (i: Int)Boolean\nres362: Array[Int] \u003d Array(3, 4)\nres363: Array[Int] \u003d Array(3, 4)\nres364: Array[Int] \u003d Array(3, 4)\n"
+      },
+      "dateCreated": "Apr 16, 2016 3:52:09 PM",
+      "dateStarted": "Apr 16, 2016 3:52:24 PM",
+      "dateFinished": "Apr 16, 2016 3:52:26 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%md\n#### Partially applied functions\nA *partially applied function* is a function that has part of the arguments already set.",
+      "authenticationInfo": {},
+      "dateUpdated": "May 1, 2016 11:02:12 AM",
+      "config": {
+        "colWidth": 12.0,
+        "graph": {
+          "mode": "table",
+          "height": 300.0,
+          "optionOpen": false,
+          "keys": [],
+          "values": [],
+          "groups": [],
+          "scatter": {}
+        },
+        "enabled": true,
+        "editorHide": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "jobName": "paragraph_1460821981699_410067223",
+      "id": "20160416-155301_1336010379",
+      "result": {
+        "code": "SUCCESS",
+        "type": "HTML",
+        "msg": "\u003ch4\u003ePartially applied functions\u003c/h4\u003e\n\u003cp\u003eA \u003cem\u003epartially applied function\u003c/em\u003e is a function that has part of the arguments already set.\u003c/p\u003e\n"
+      },
+      "dateCreated": "Apr 16, 2016 3:53:01 PM",
+      "dateStarted": "May 1, 2016 11:02:09 AM",
+      "dateFinished": "May 1, 2016 11:02:09 AM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "def sayHello(title: String, name: String) \u003d {\n   println(s\"Hello, $title $name!\")\n}\n\nval helloMr \u003d sayHello(\"Mr.\", _: String)\nval helloMrs \u003d sayHello(\"Mrs.\", _: String)\n\nsayHello(\"Mr.\", \"Foo\")\nhelloMr(\"Foo\")\nhelloMr(\"Bar\")\nhelloMrs(\"Jane Doe\")",
+      "authenticationInfo": {},
+      "dateUpdated": "Apr 16, 2016 3:53:29 PM",
+      "config": {
+        "colWidth": 12.0,
+        "graph": {
+          "mode": "table",
+          "height": 300.0,
+          "optionOpen": false,
+          "keys": [],
+          "values": [],
+          "groups": [],
+          "scatter": {}
+        },
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "jobName": "paragraph_1460821991267_1220748480",
+      "id": "20160416-155311_396947351",
+      "result": {
+        "code": "SUCCESS",
+        "type": "TEXT",
+        "msg": "sayHello: (title: String, name: String)Unit\nhelloMr: String \u003d\u003e Unit \u003d \u003cfunction1\u003e\nhelloMrs: String \u003d\u003e Unit \u003d \u003cfunction1\u003e\nHello, Mr. Foo!\nHello, Mr. Foo!\nHello, Mr. Bar!\nHello, Mrs. Jane Doe!\n"
+      },
+      "dateCreated": "Apr 16, 2016 3:53:11 PM",
+      "dateStarted": "Apr 16, 2016 3:53:29 PM",
+      "dateFinished": "Apr 16, 2016 3:53:30 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%md\n#### Function with multiple argument lists\nWhen defining functions, you can have that function take multiple argument lists. You can think of it as if you had a first function, that returns another function for each argument list. This is quite common in other languages, for instance in Javascript.",
+      "authenticationInfo": {},
+      "dateUpdated": "Apr 16, 2016 4:00:08 PM",
+      "config": {
+        "colWidth": 12.0,
+        "graph": {
+          "mode": "table",
+          "height": 300.0,
+          "optionOpen": false,
+          "keys": [],
+          "values": [],
+          "groups": [],
+          "scatter": {}
+        },
+        "enabled": true,
+        "editorHide": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "jobName": "paragraph_1460822009220_-1727551693",
+      "id": "20160416-155329_29726392",
+      "result": {
+        "code": "SUCCESS",
+        "type": "HTML",
+        "msg": "\u003ch4\u003eFunction with multiple argument lists\u003c/h4\u003e\n\u003cp\u003eWhen defining functions, you can have that function take multiple argument lists. You can think of it as if you had a first function, that returns another function for each argument list. This is quite common in other languages, for instance in Javascript.\u003c/p\u003e\n"
+      },
+      "dateCreated": "Apr 16, 2016 3:53:29 PM",
+      "dateStarted": "Apr 16, 2016 3:53:40 PM",
+      "dateFinished": "Apr 16, 2016 3:53:40 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "def myFunction[A](number: A)(f: A \u003d\u003e Unit) \u003d {\n  f(number)\n}\n\n// You can define just part of the argument lists, but in that case, you must end the call with an underscore (that represents the rest of argument lists)\nval res \u003d myFunction(5) _\n\ndef myPrinter(i: Int) \u003d println(s\"Printing $i...\")\ndef myPrinter2(i: Int) \u003d println(s\"Value $i...\")\n\nres(myPrinter)\nres(myPrinter2)",
+      "authenticationInfo": {},
+      "dateUpdated": "Apr 16, 2016 4:00:05 PM",
+      "config": {
+        "colWidth": 12.0,
+        "graph": {
+          "mode": "table",
+          "height": 300.0,
+          "optionOpen": false,
+          "keys": [],
+          "values": [],
+          "groups": [],
+          "scatter": {}
+        },
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "jobName": "paragraph_1460822020927_20578743",
+      "id": "20160416-155340_1092221411",
+      "result": {
+        "code": "SUCCESS",
+        "type": "TEXT",
+        "msg": "myFunction: [A](number: A)(f: A \u003d\u003e Unit)Unit\nres: (Int \u003d\u003e Unit) \u003d\u003e Unit \u003d \u003cfunction1\u003e\nmyPrinter: (i: Int)Unit\nmyPrinter2: (i: Int)Unit\nPrinting 5...\nValue 5...\n"
+      },
+      "dateCreated": "Apr 16, 2016 3:53:40 PM",
+      "dateStarted": "Apr 16, 2016 4:00:05 PM",
+      "dateFinished": "Apr 16, 2016 4:00:06 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%md\n#### Curried functions\nThe functions with multiple argument lists that we have seen are usually referred to as *curried functions*.\n\nYou can define a curried function in different ways, for instance:\n```\ndef multiply(n1: Double)(n2: Double) \u003d n1 * n2\n```\nIs equivalent to:\n```\ndef multiply(n1: Double) \u003d (n2: Double) \u003d\u003e n1 * n2\n```\n\nThe difference is that, with the second notation, you won\u0027t need to use the underscore when you want a partially applied function.",
+      "authenticationInfo": {},
+      "dateUpdated": "May 1, 2016 11:04:57 AM",
+      "config": {
+        "colWidth": 12.0,
+        "graph": {
+          "mode": "table",
+          "height": 300.0,
+          "optionOpen": false,
+          "keys": [],
+          "values": [],
+          "groups": [],
+          "scatter": {}
+        },
+        "enabled": true,
+        "editorHide": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "jobName": "paragraph_1460822405040_112836924",
+      "id": "20160416-160005_1558459228",
+      "result": {
+        "code": "SUCCESS",
+        "type": "HTML",
+        "msg": "\u003ch4\u003eCurried functions\u003c/h4\u003e\n\u003cp\u003eThe functions with multiple argument lists that we have seen are usually referred to as \u003cem\u003ecurried functions\u003c/em\u003e.\u003c/p\u003e\n\u003cp\u003eYou can define a curried function in different ways, for instance:\u003c/p\u003e\n\u003cpre\u003e\u003ccode\u003edef multiply(n1: Double)(n2: Double) \u003d n1 * n2\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003eIs equivalent to:\u003c/p\u003e\n\u003cpre\u003e\u003ccode\u003edef multiply(n1: Double) \u003d (n2: Double) \u003d\u0026gt; n1 * n2\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003eThe difference is that, with the second notation, you won\u0027t need to use the underscore when you want a partially applied function.\u003c/p\u003e\n"
+      },
+      "dateCreated": "Apr 16, 2016 4:00:05 PM",
+      "dateStarted": "May 1, 2016 11:04:54 AM",
+      "dateFinished": "May 1, 2016 11:04:54 AM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "def multiply(n1: Double)(n2: Double) \u003d n1 * n2\ndef multiply2(n1: Double) \u003d (n2: Double) \u003d\u003e n1 * n2\n\n// They are used the exact same way\nmultiply(5)(2)\nmultiply2(5)(2)\n\n// But the second syntax improves (slightly) the usage of partially applied functions\nval byFive \u003d multiply(5) _\nval byFive2 \u003d multiply2(5)",
+      "authenticationInfo": {},
+      "dateUpdated": "Apr 16, 2016 4:00:48 PM",
+      "config": {
+        "colWidth": 12.0,
+        "graph": {
+          "mode": "table",
+          "height": 300.0,
+          "optionOpen": false,
+          "keys": [],
+          "values": [],
+          "groups": [],
+          "scatter": {}
+        },
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "jobName": "paragraph_1460822430403_-797247466",
+      "id": "20160416-160030_529136078",
+      "result": {
+        "code": "SUCCESS",
+        "type": "TEXT",
+        "msg": "multiply: (n1: Double)(n2: Double)Double\nmultiply2: (n1: Double)Double \u003d\u003e Double\nres383: Double \u003d 10.0\nres384: Double \u003d 10.0\nbyFive: Double \u003d\u003e Double \u003d \u003cfunction1\u003e\nbyFive2: Double \u003d\u003e Double \u003d \u003cfunction1\u003e\n"
+      },
+      "dateCreated": "Apr 16, 2016 4:00:30 PM",
+      "dateStarted": "Apr 16, 2016 4:00:48 PM",
+      "dateFinished": "Apr 16, 2016 4:00:49 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%md\nYou can also convert a function with a single argument list to a curried function:",
+      "authenticationInfo": {},
+      "dateUpdated": "Apr 16, 2016 4:01:03 PM",
+      "config": {
+        "colWidth": 12.0,
+        "graph": {
+          "mode": "table",
+          "height": 300.0,
+          "optionOpen": false,
+          "keys": [],
+          "values": [],
+          "groups": [],
+          "scatter": {}
+        },
+        "enabled": true,
+        "editorHide": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "jobName": "paragraph_1460822448665_-2040355838",
+      "id": "20160416-160048_1576583601",
+      "result": {
+        "code": "SUCCESS",
+        "type": "HTML",
+        "msg": "\u003cp\u003eYou can also convert a function with a single argument list to a curried function:\u003c/p\u003e\n"
+      },
+      "dateCreated": "Apr 16, 2016 4:00:48 PM",
+      "dateStarted": "Apr 16, 2016 4:01:00 PM",
+      "dateFinished": "Apr 16, 2016 4:01:00 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "def multiply(d1: Double, d2: Double) \u003d d1 * d2\nval multiplyCurried \u003d (multiply _).curried\n\nmultiplyCurried(5)(2)",
+      "authenticationInfo": {},
+      "dateUpdated": "Apr 16, 2016 4:01:17 PM",
+      "config": {
+        "colWidth": 12.0,
+        "graph": {
+          "mode": "table",
+          "height": 300.0,
+          "optionOpen": false,
+          "keys": [],
+          "values": [],
+          "groups": [],
+          "scatter": {}
+        },
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "jobName": "paragraph_1460822460014_1739463329",
+      "id": "20160416-160100_2092966845",
+      "result": {
+        "code": "SUCCESS",
+        "type": "TEXT",
+        "msg": "multiply: (d1: Double, d2: Double)Double\nmultiplyCurried: Double \u003d\u003e (Double \u003d\u003e Double) \u003d \u003cfunction1\u003e\nres386: Double \u003d 10.0\n"
+      },
+      "dateCreated": "Apr 16, 2016 4:01:00 PM",
+      "dateStarted": "Apr 16, 2016 4:01:17 PM",
+      "dateFinished": "Apr 16, 2016 4:01:17 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%md\nOr convert a curried function to a regular function..",
+      "authenticationInfo": {},
+      "dateUpdated": "Apr 16, 2016 4:01:58 PM",
+      "config": {
+        "colWidth": 12.0,
+        "graph": {
+          "mode": "table",
+          "height": 300.0,
+          "optionOpen": false,
+          "keys": [],
+          "values": [],
+          "groups": [],
+          "scatter": {}
+        },
+        "enabled": true,
+        "editorHide": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "jobName": "paragraph_1460822477069_134122352",
+      "id": "20160416-160117_1532283152",
+      "result": {
+        "code": "SUCCESS",
+        "type": "HTML",
+        "msg": "\u003cp\u003eOr convert a curried function to a regular function..\u003c/p\u003e\n"
+      },
+      "dateCreated": "Apr 16, 2016 4:01:17 PM",
+      "dateStarted": "Apr 16, 2016 4:01:55 PM",
+      "dateFinished": "Apr 16, 2016 4:01:55 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "def multiply(d1: Double)(d2: Double) \u003d d1 * d2\n\nval multiplyUncurried \u003d Function.uncurried(multiply _)\nmultiplyUncurried(5, 2)",
+      "authenticationInfo": {},
+      "dateUpdated": "Apr 16, 2016 4:02:08 PM",
+      "config": {
+        "colWidth": 12.0,
+        "graph": {
+          "mode": "table",
+          "height": 300.0,
+          "optionOpen": false,
+          "keys": [],
+          "values": [],
+          "groups": [],
+          "scatter": {}
+        },
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "jobName": "paragraph_1460822515382_1345357862",
+      "id": "20160416-160155_2025969198",
+      "result": {
+        "code": "SUCCESS",
+        "type": "TEXT",
+        "msg": "multiply: (d1: Double)(d2: Double)Double\nmultiplyUncurried: (Double, Double) \u003d\u003e Double \u003d \u003cfunction2\u003e\nres388: Double \u003d 10.0\n"
+      },
+      "dateCreated": "Apr 16, 2016 4:01:55 PM",
+      "dateStarted": "Apr 16, 2016 4:02:08 PM",
+      "dateFinished": "Apr 16, 2016 4:02:09 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%md\n### Using tuples to call functions\n\nGiven a function than takes n arguments, and a tuple of n elements, wouldn\u0027t it be nice if you could directly call the function using that tuple?\n\nUsually, you would call the function like this:\n```\nval myTuple \u003d (1.5, 2.0, 3.3)\ndef multiply(n1: Double, n2: Double, n3: Double) \u003d n1 * n2 * n3\nmultiply(myTuple._1, myTuple._2, myTuple._3)\n```\n\nYou can use the \"tupled\" method to create a function that will accept the tuple as input",
+      "authenticationInfo": {},
+      "dateUpdated": "May 1, 2016 11:05:51 AM",
+      "config": {
+        "colWidth": 12.0,
+        "graph": {
+          "mode": "table",
+          "height": 300.0,
+          "optionOpen": false,
+          "keys": [],
+          "values": [],
+          "groups": [],
+          "scatter": {}
+        },
+        "enabled": true,
+        "editorHide": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "jobName": "paragraph_1460822528731_-1071619405",
+      "id": "20160416-160208_1941836730",
+      "result": {
+        "code": "SUCCESS",
+        "type": "HTML",
+        "msg": "\u003ch3\u003eUsing tuples to call functions\u003c/h3\u003e\n\u003cp\u003eGiven a function than takes n arguments, and a tuple of n elements, wouldn\u0027t it be nice if you could directly call the function using that tuple?\u003c/p\u003e\n\u003cp\u003eUsually, you would call the function like this:\u003c/p\u003e\n\u003cpre\u003e\u003ccode\u003eval myTuple \u003d (1.5, 2.0, 3.3)\ndef multiply(n1: Double, n2: Double, n3: Double) \u003d n1 * n2 * n3\nmultiply(myTuple._1, myTuple._2, myTuple._3)\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003eYou can use the \u0026ldquo;tupled\u0026rdquo; method to create a function that will accept the tuple as input\u003c/p\u003e\n"
+      },
+      "dateCreated": "Apr 16, 2016 4:02:08 PM",
+      "dateStarted": "May 1, 2016 11:05:49 AM",
+      "dateFinished": "May 1, 2016 11:05:49 AM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "val myTuple \u003d (1.5, 2.0, 3.3)\ndef multiply(n1: Double, n2: Double, n3: Double) \u003d n1 * n2 * n3\nmultiply(myTuple._1, myTuple._2, myTuple._3)\n\nval multiplyTupled \u003d Function.tupled(multiply _)\nmultiplyTupled(myTuple)\n\n// You can easily use a \"tupled\" function to make the call using a case class.\ncase class MyValues(v1: Double, v2: Double, d3: Double)\nval v \u003d MyValues(2.0, 3.0, 4.0)\nmultiplyTupled(MyValues.unapply(v).get)",
+      "authenticationInfo": {},
+      "dateUpdated": "Apr 16, 2016 4:02:37 PM",
+      "config": {
+        "colWidth": 12.0,
+        "graph": {
+          "mode": "table",
+          "height": 300.0,
+          "optionOpen": false,
+          "keys": [],
+          "values": [],
+          "groups": [],
+          "scatter": {}
+        },
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "jobName": "paragraph_1460822540152_502018921",
+      "id": "20160416-160220_1201587326",
+      "result": {
+        "code": "SUCCESS",
+        "type": "TEXT",
+        "msg": "myTuple: (Double, Double, Double) \u003d (1.5,2.0,3.3)\nmultiply: (n1: Double, n2: Double, n3: Double)Double\nres390: Double \u003d 9.899999999999999\nmultiplyTupled: ((Double, Double, Double)) \u003d\u003e Double \u003d \u003cfunction1\u003e\nres391: Double \u003d 9.899999999999999\ndefined class MyValues\nv: MyValues \u003d MyValues(2.0,3.0,4.0)\nres392: Double \u003d 24.0\n"
+      },
+      "dateCreated": "Apr 16, 2016 4:02:20 PM",
+      "dateStarted": "Apr 16, 2016 4:02:37 PM",
+      "dateFinished": "Apr 16, 2016 4:02:39 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%md ### Extra: Partial functions\nThe name looks very similar to \"partial functions\", but partially applied function are not the same. What\u0027s the difference?\n\nA partial function is a function that is **defined only for a certain domain**. The best thing is that they allow to split logic in smaller chunks of code, or to put it another way, to split a big problem in smaller problems.\n\nYou can compose multiple partial functions with \"orElse\". It is the functional equivalent to an \"if\" statement: it will return the result of the first function that\u0027s defined in the domain.\nYou can chain multiple partial functions with \"andThen\" or \"compose\". Assuming you have functions \"f\" and \"g\":\n- \"f andThen g\" is equivalent to \"g(f(x))\"\n- \"f compose g\" is equivalent to \"f(g(x))\"\n",
+      "authenticationInfo": {},
+      "dateUpdated": "May 1, 2016 11:02:57 AM",
+      "config": {
+        "colWidth": 12.0,
+        "graph": {
+          "mode": "table",
+          "height": 300.0,
+          "optionOpen": false,
+          "keys": [],
+          "values": [],
+          "groups": [],
+          "scatter": {}
+        },
+        "enabled": true,
+        "editorMode": "ace/mode/markdown",
+        "editorHide": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "jobName": "paragraph_1460822557938_609225947",
+      "id": "20160416-160237_1683132744",
+      "result": {
+        "code": "SUCCESS",
+        "type": "HTML",
+        "msg": "\u003ch3\u003eExtra: Partial functions\u003c/h3\u003e\n\u003cp\u003eThe name looks very similar to \u0026ldquo;partial functions\u0026rdquo;, but partially applied function are not the same. What\u0027s the difference?\u003c/p\u003e\n\u003cp\u003eA partial function is a function that is \u003cstrong\u003edefined only for a certain domain\u003c/strong\u003e. The best thing is that they allow to split logic in smaller chunks of code, or to put it another way, to split a big problem in smaller problems.\u003c/p\u003e\n\u003cp\u003eYou can compose multiple partial functions with \u0026ldquo;orElse\u0026rdquo;. It is the functional equivalent to an \u0026ldquo;if\u0026rdquo; statement: it will return the result of the first function that\u0027s defined in the domain.\n\u003cbr  /\u003eYou can chain multiple partial functions with \u0026ldquo;andThen\u0026rdquo; or \u0026ldquo;compose\u0026rdquo;. Assuming you have functions \u0026ldquo;f\u0026rdquo; and \u0026ldquo;g\u0026rdquo;:\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003e\u0026ldquo;f andThen g\u0026rdquo; is equivalent to \u0026ldquo;g(f(x))\u0026rdquo;\u003c/li\u003e\n\u003cli\u003e\u0026ldquo;f compose g\u0026rdquo; is equivalent to \u0026ldquo;f(g(x))\u0026rdquo;\u003c/li\u003e\n\u003c/ul\u003e\n"
+      },
+      "dateCreated": "Apr 16, 2016 4:02:37 PM",
+      "dateStarted": "May 1, 2016 11:02:54 AM",
+      "dateFinished": "May 1, 2016 11:02:54 AM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "val kid: PartialFunction[Int, String] \u003d {\n    case age: Int if age \u003c 15 \u003d\u003e \"kid\"\n}\n\nval young: PartialFunction[Int, String] \u003d {\n    case age if age \u003e\u003d 15 \u0026\u0026 age \u003c 30 \u003d\u003e \"young\"\n}\n\nval middleAged: PartialFunction[Int, String] \u003d {\n    case age if age \u003e\u003d 30 \u0026\u0026 age \u003c 60 \u003d\u003e \"middle aged\"\n}\n\nval other: PartialFunction[Int, String] \u003d {\n    case _ \u003d\u003e \"old\"\n}\nval age: Int \u003d 15\n\n// You can check if the function is defined in the value you have\nkid.isDefinedAt(age)\n\n\n// You can compose multiple partial functions into one:\nval kidOrOld \u003d kid orElse other\nkidOrOld(age)\n\nval ageToGroup \u003d kid orElse young orElse middleAged orElse other\nageToGroup(25)\nageToGroup(40)\nageToGroup(71)",
+      "authenticationInfo": {},
+      "dateUpdated": "May 1, 2016 11:00:34 AM",
+      "config": {
+        "colWidth": 12.0,
+        "graph": {
+          "mode": "table",
+          "height": 300.0,
+          "optionOpen": false,
+          "keys": [],
+          "values": [],
+          "groups": [],
+          "scatter": {}
+        },
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "jobName": "paragraph_1462100419046_1243577567",
+      "id": "20160501-110019_618962193",
+      "result": {
+        "code": "SUCCESS",
+        "type": "TEXT",
+        "msg": "kid: PartialFunction[Int,String] \u003d \u003cfunction1\u003e\nyoung: PartialFunction[Int,String] \u003d \u003cfunction1\u003e\nmiddleAged: PartialFunction[Int,String] \u003d \u003cfunction1\u003e\nother: PartialFunction[Int,String] \u003d \u003cfunction1\u003e\nage: Int \u003d 15\nres38: Boolean \u003d false\nkidOrOld: PartialFunction[Int,String] \u003d \u003cfunction1\u003e\nres39: String \u003d old\nageToGroup: PartialFunction[Int,String] \u003d \u003cfunction1\u003e\nres40: String \u003d young\nres41: String \u003d middle aged\nres42: String \u003d old\n"
+      },
+      "dateCreated": "May 1, 2016 11:00:19 AM",
+      "dateStarted": "May 1, 2016 11:00:34 AM",
+      "dateFinished": "May 1, 2016 11:00:36 AM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "val addFive: PartialFunction[Int, Int] \u003d {\n    case x: Int \u003d\u003e x + 5\n}\n\nval byTwo: PartialFunction[Int, Int] \u003d {\n    case x: Int \u003d\u003e x * 2\n}\n\nval plusFiveByTwo \u003d addFive andThen byTwo\n// (3 + 5) * 2\nplusFiveByTwo(3)\n\nval byTwoPlusFive \u003d addFive compose byTwo\n// (3 * 2) + 5\nbyTwoPlusFive(3)",
+      "authenticationInfo": {},
+      "dateUpdated": "May 1, 2016 11:00:50 AM",
+      "config": {
+        "colWidth": 12.0,
+        "graph": {
+          "mode": "table",
+          "height": 300.0,
+          "optionOpen": false,
+          "keys": [],
+          "values": [],
+          "groups": [],
+          "scatter": {}
+        },
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "jobName": "paragraph_1462100434875_-1216306042",
+      "id": "20160501-110034_1885766697",
+      "result": {
+        "code": "SUCCESS",
+        "type": "TEXT",
+        "msg": "addFive: PartialFunction[Int,Int] \u003d \u003cfunction1\u003e\nbyTwo: PartialFunction[Int,Int] \u003d \u003cfunction1\u003e\nplusFiveByTwo: PartialFunction[Int,Int] \u003d \u003cfunction1\u003e\nres44: Int \u003d 16\nbyTwoPlusFive: Int \u003d\u003e Int \u003d \u003cfunction1\u003e\nres45: Int \u003d 11\n"
+      },
+      "dateCreated": "May 1, 2016 11:00:34 AM",
+      "dateStarted": "May 1, 2016 11:00:50 AM",
+      "dateFinished": "May 1, 2016 11:00:50 AM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "config": {},
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "jobName": "paragraph_1462100450185_1469271929",
+      "id": "20160501-110050_1959802853",
+      "dateCreated": "May 1, 2016 11:00:50 AM",
+      "status": "READY",
+      "progressUpdateIntervalMs": 500
+    }
+  ],
+  "name": "Intro to Scala - 4: Deep Dive Into Functions",
+  "id": "2BGU1NN4F",
+  "angularObjects": {
+    "2BKKGWMY9": [],
+    "2BM7XR6U7": [],
+    "2BHDGC5ZB": [],
+    "2BMJ1ZTKR": [],
+    "2BKYVCNSD": [],
+    "2BM72GFDU": [],
+    "2BM74FBTQ": [],
+    "2BHW3NPVE": [],
+    "2BHZKEE9C": [],
+    "2BM158R3T": [],
+    "2BKMHR2WT": [],
+    "2BK19VD7Y": [],
+    "2BJ72E96T": [],
+    "2BMMM996X": [],
+    "2BKUMG5KZ": [],
+    "2BGQNK6A7": [],
+    "2BH3HCFEG": [],
+    "2BHU5HPQK": []
+  },
+  "config": {
+    "looknfeel": "default"
+  },
+  "info": {}
+}

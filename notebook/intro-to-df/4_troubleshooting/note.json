@@ -1,0 +1,388 @@
+{
+  "paragraphs": [
+    {
+      "text": "%md ### Troubleshooting and gotchas",
+      "authenticationInfo": {},
+      "dateUpdated": "Apr 17, 2016 6:33:17 PM",
+      "config": {
+        "colWidth": 12.0,
+        "graph": {
+          "mode": "table",
+          "height": 300.0,
+          "optionOpen": false,
+          "keys": [],
+          "values": [],
+          "groups": [],
+          "scatter": {}
+        },
+        "enabled": true,
+        "editorMode": "ace/mode/scala",
+        "editorHide": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "jobName": "paragraph_1460917980330_-2012493118",
+      "id": "20160417-183300_587806466",
+      "result": {
+        "code": "SUCCESS",
+        "type": "HTML",
+        "msg": "\u003ch3\u003eTroubleshooting and gotchas\u003c/h3\u003e\n"
+      },
+      "dateCreated": "Apr 17, 2016 6:33:00 PM",
+      "dateStarted": "Apr 17, 2016 6:33:15 PM",
+      "dateFinished": "Apr 17, 2016 6:33:15 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%md #### To take into account when saving to Hive:\r\n\r\n* If you intend to use your tables outside Spark (Tableau, etc), you might want to disable the metastore conversion by setting the property \"spark.sql.hive.convertMetastoreParquet\" to false. You can do that when starting your shell:\r\n```\r\nspark-shell \u003cother_options\u003e --conf spark.sql.hive.convertMetastoreParquet\u003dfalse\r\n```\r\n* Spark caches table metadata, meaning that, if you update your table from outside the spark shell, you should refresh it:\r\n```\r\nsqlContext.refreshTable(\"my_table\")\r\n```\r\n* In \"old\" versions of Hive, there are a few issues with Parquet:\r\n  - Not all the types were supported (ex.: DECIMAL, DATE)\r\n  - Bugs (now fixed), for instance when you had lots of nulls in your parquet file\r\n\r\nNote that usually, even if your SQLContext is a Hive context, Scala will have it instantiated as a \"regular\" Spark Shell, so might need to do this little trick:\r\n```\r\nsqlContext.asInstanceOf[org.apache.spark.sql.hive.HiveContext].refreshTable(\"my_db.my_table\")\r\n```",
+      "authenticationInfo": {},
+      "dateUpdated": "Apr 17, 2016 6:33:39 PM",
+      "config": {
+        "colWidth": 12.0,
+        "graph": {
+          "mode": "table",
+          "height": 300.0,
+          "optionOpen": false,
+          "keys": [],
+          "values": [],
+          "groups": [],
+          "scatter": {}
+        },
+        "enabled": true,
+        "editorHide": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "jobName": "paragraph_1460917995073_-770877769",
+      "id": "20160417-183315_1960767726",
+      "result": {
+        "code": "SUCCESS",
+        "type": "HTML",
+        "msg": "\u003ch4\u003eTo take into account when saving to Hive:\u003c/h4\u003e\n\u003cul\u003e\n\u003cli\u003eIf you intend to use your tables outside Spark (Tableau, etc), you might want to disable the metastore conversion by setting the property \u0026ldquo;spark.sql.hive.convertMetastoreParquet\u0026rdquo; to false. You can do that when starting your shell:\u003cpre\u003e\u003ccode\u003espark-shell \u0026lt;other_options\u0026gt; --conf spark.sql.hive.convertMetastoreParquet\u003dfalse\n\u003c/code\u003e\u003c/pre\u003e\n\u003c/li\u003e\n\u003cli\u003eSpark caches table metadata, meaning that, if you update your table from outside the spark shell, you should refresh it:\u003cpre\u003e\u003ccode\u003esqlContext.refreshTable(\"my_table\")\n\u003c/code\u003e\u003c/pre\u003e\n\u003c/li\u003e\n\u003cli\u003eIn \u0026ldquo;old\u0026rdquo; versions of Hive, there are a few issues with Parquet:\u003c/li\u003e\n\u003cli\u003eNot all the types were supported (ex.: DECIMAL, DATE)\u003c/li\u003e\n\u003cli\u003eBugs (now fixed), for instance when you had lots of nulls in your parquet file\u003c/li\u003e\n\u003c/ul\u003e\n\u003cp\u003eNote that usually, even if your SQLContext is a Hive context, Scala will have it instantiated as a \u0026ldquo;regular\u0026rdquo; Spark Shell, so might need to do this little trick:\u003c/p\u003e\n\u003cpre\u003e\u003ccode\u003esqlContext.asInstanceOf[org.apache.spark.sql.hive.HiveContext].refreshTable(\"my_db.my_table\")\n\u003c/code\u003e\u003c/pre\u003e\n"
+      },
+      "dateCreated": "Apr 17, 2016 6:33:15 PM",
+      "dateStarted": "Apr 17, 2016 6:33:36 PM",
+      "dateFinished": "Apr 17, 2016 6:33:36 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "//Fails...\nsqlContext.refreshTable(\"my_db.my_table\")",
+      "authenticationInfo": {},
+      "dateUpdated": "Apr 30, 2016 1:56:18 PM",
+      "config": {
+        "colWidth": 12.0,
+        "graph": {
+          "mode": "table",
+          "height": 300.0,
+          "optionOpen": false,
+          "keys": [],
+          "values": [],
+          "groups": [],
+          "scatter": {}
+        },
+        "enabled": true,
+        "editorMode": "ace/mode/scala"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "jobName": "paragraph_1460918016918_156382404",
+      "id": "20160417-183336_353575644",
+      "result": {
+        "code": "ERROR",
+        "type": "TEXT",
+        "msg": "\u003cconsole\u003e:78: error: value refreshTable is not a member of org.apache.spark.sql.SQLContext\n              sqlContext.refreshTable(\"my_db.my_table\")\n                         ^\n"
+      },
+      "dateCreated": "Apr 17, 2016 6:33:36 PM",
+      "dateStarted": "Apr 30, 2016 1:56:18 PM",
+      "dateFinished": "Apr 30, 2016 1:56:18 PM",
+      "status": "ERROR",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "sqlContext.asInstanceOf[org.apache.spark.sql.hive.HiveContext].refreshTable(\"my_db.my_table\")",
+      "authenticationInfo": {},
+      "dateUpdated": "Apr 30, 2016 1:56:20 PM",
+      "config": {
+        "colWidth": 12.0,
+        "graph": {
+          "mode": "table",
+          "height": 300.0,
+          "optionOpen": false,
+          "keys": [],
+          "values": [],
+          "groups": [],
+          "scatter": {}
+        },
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "jobName": "paragraph_1460918041440_-1189484049",
+      "id": "20160417-183401_2112374981",
+      "result": {
+        "code": "SUCCESS",
+        "type": "TEXT",
+        "msg": ""
+      },
+      "dateCreated": "Apr 17, 2016 6:34:01 PM",
+      "dateStarted": "Apr 30, 2016 1:56:20 PM",
+      "dateFinished": "Apr 30, 2016 1:56:20 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%md #### Large \"pipelines\": Checkpointing your DataFrames",
+      "authenticationInfo": {},
+      "dateUpdated": "Apr 17, 2016 6:35:40 PM",
+      "config": {
+        "colWidth": 12.0,
+        "graph": {
+          "mode": "table",
+          "height": 300.0,
+          "optionOpen": false,
+          "keys": [],
+          "values": [],
+          "groups": [],
+          "scatter": {}
+        },
+        "enabled": true,
+        "editorHide": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "jobName": "paragraph_1460918114229_-1705124196",
+      "id": "20160417-183514_857244320",
+      "result": {
+        "code": "SUCCESS",
+        "type": "HTML",
+        "msg": "\u003ch4\u003eLarge \u0026ldquo;pipelines\u0026rdquo;: Checkpointing your DataFrames\u003c/h4\u003e\n"
+      },
+      "dateCreated": "Apr 17, 2016 6:35:14 PM",
+      "dateStarted": "Apr 17, 2016 6:35:36 PM",
+      "dateFinished": "Apr 17, 2016 6:35:36 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%md When working on large pipelines, you will start filtering, joining, selecting, doing unions of DataFrames.. At the end, chances are that you DF execution plans will become too large, requiring a lot of stages to get there.\r\n \r\nIf possible, you can \"checkpoint\" your DataFrame to a file or table and read it back. This way you \"start fresh\" with your DF, and this will usually enhance the performance. You can also cache your DF, but you can still get the slowness, for instance, if some of parts are removed from memory, if some of the executors die, or if you have dynamic allocation enabled and are not using something like Tachyon (this would mean that the cache is stored in the executors, so when they are decomissioned, so is the cache).\r\n\r\nLet\u0027s show the difference with an example",
+      "authenticationInfo": {},
+      "dateUpdated": "Apr 17, 2016 6:35:57 PM",
+      "config": {
+        "colWidth": 12.0,
+        "graph": {
+          "mode": "table",
+          "height": 300.0,
+          "optionOpen": false,
+          "keys": [],
+          "values": [],
+          "groups": [],
+          "scatter": {}
+        },
+        "enabled": true,
+        "editorHide": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "jobName": "paragraph_1460918136826_911214297",
+      "id": "20160417-183536_875465879",
+      "result": {
+        "code": "SUCCESS",
+        "type": "HTML",
+        "msg": "\u003cp\u003eWhen working on large pipelines, you will start filtering, joining, selecting, doing unions of DataFrames.. At the end, chances are that you DF execution plans will become too large, requiring a lot of stages to get there.\u003c/p\u003e\n\u003cp\u003eIf possible, you can \u0026ldquo;checkpoint\u0026rdquo; your DataFrame to a file or table and read it back. This way you \u0026ldquo;start fresh\u0026rdquo; with your DF, and this will usually enhance the performance. You can also cache your DF, but you can still get the slowness, for instance, if some of parts are removed from memory, if some of the executors die, or if you have dynamic allocation enabled and are not using something like Tachyon (this would mean that the cache is stored in the executors, so when they are decomissioned, so is the cache).\u003c/p\u003e\n\u003cp\u003eLet\u0027s show the difference with an example\u003c/p\u003e\n"
+      },
+      "dateCreated": "Apr 17, 2016 6:35:36 PM",
+      "dateStarted": "Apr 17, 2016 6:35:54 PM",
+      "dateFinished": "Apr 17, 2016 6:35:54 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "val myDf \u003d sc.parallelize(Array(\r\n  (1, \"a\", 5.0, true),\r\n  (2, null, -1.3, false),\r\n  (3, \"b\", 321.09, true)\r\n)).toDF(\"id\", \"col_a\", \"col_b\", \"col_c\")\r\nval myDf2 \u003d myDf.select(\r\n  \u0027id as \"id2\",\r\n  \u0027col_a as \"col_a2\",\r\n  \u0027col_b as \"col_b2\",\r\n  \u0027col_c as \"col_c2\"\r\n)\r\nval myDfStep1 \u003d myDf.join(myDf2)\r\n\r\nval myDfStep2 \u003d myDfStep1.filter(\"col_b \u003e 0\").unionAll(myDfStep1)\r\nz.show(myDfStep2)",
+      "authenticationInfo": {},
+      "dateUpdated": "Apr 30, 2016 1:56:37 PM",
+      "config": {
+        "colWidth": 12.0,
+        "graph": {
+          "mode": "table",
+          "height": 300.0,
+          "optionOpen": false,
+          "keys": [],
+          "values": [],
+          "groups": [],
+          "scatter": {}
+        },
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "jobName": "paragraph_1460918154190_89021222",
+      "id": "20160417-183554_1660549940",
+      "result": {
+        "code": "SUCCESS",
+        "type": "TABLE",
+        "msg": "id\tcol_a\tcol_b\tcol_c\tid2\tcol_a2\tcol_b2\tcol_c2\n1\ta\t5.0\ttrue\t1\ta\t5.0\ttrue\n1\ta\t5.0\ttrue\t2\tnull\t-1.3\tfalse\n1\ta\t5.0\ttrue\t3\tb\t321.09\ttrue\n3\tb\t321.09\ttrue\t1\ta\t5.0\ttrue\n3\tb\t321.09\ttrue\t2\tnull\t-1.3\tfalse\n3\tb\t321.09\ttrue\t3\tb\t321.09\ttrue\n1\ta\t5.0\ttrue\t1\ta\t5.0\ttrue\n1\ta\t5.0\ttrue\t2\tnull\t-1.3\tfalse\n1\ta\t5.0\ttrue\t3\tb\t321.09\ttrue\n2\tnull\t-1.3\tfalse\t1\ta\t5.0\ttrue\n2\tnull\t-1.3\tfalse\t2\tnull\t-1.3\tfalse\n2\tnull\t-1.3\tfalse\t3\tb\t321.09\ttrue\n3\tb\t321.09\ttrue\t1\ta\t5.0\ttrue\n3\tb\t321.09\ttrue\t2\tnull\t-1.3\tfalse\n3\tb\t321.09\ttrue\t3\tb\t321.09\ttrue\n"
+      },
+      "dateCreated": "Apr 17, 2016 6:35:54 PM",
+      "dateStarted": "Apr 30, 2016 1:56:37 PM",
+      "dateFinished": "Apr 30, 2016 1:56:37 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "myDfStep2.explain",
+      "authenticationInfo": {},
+      "dateUpdated": "Apr 17, 2016 6:37:02 PM",
+      "config": {
+        "colWidth": 12.0,
+        "graph": {
+          "mode": "table",
+          "height": 300.0,
+          "optionOpen": false,
+          "keys": [],
+          "values": [],
+          "groups": [],
+          "scatter": {}
+        },
+        "enabled": true,
+        "editorMode": "ace/mode/scala"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "jobName": "paragraph_1460918198027_770288931",
+      "id": "20160417-183638_1602236629",
+      "result": {
+        "code": "SUCCESS",
+        "type": "TEXT",
+        "msg": "\u003d\u003d Physical Plan \u003d\u003d\nUnion\n:- CartesianProduct\n:  :- ConvertToSafe\n:  :  +- Project [_1#818 AS id#822,_2#819 AS col_a#823,_3#820 AS col_b#824,_4#821 AS col_c#825]\n:  :     +- Filter (_3#820 \u003e 0.0)\n:  :        +- Scan ExistingRDD[_1#818,_2#819,_3#820,_4#821] \n:  +- ConvertToSafe\n:     +- Project [_1#818 AS id2#826,_2#819 AS col_a2#827,_3#820 AS col_b2#828,_4#821 AS col_c2#829]\n:        +- Scan ExistingRDD[_1#818,_2#819,_3#820,_4#821] \n+- CartesianProduct\n   :- ConvertToSafe\n   :  +- Project [_1#818 AS id#822,_2#819 AS col_a#823,_3#820 AS col_b#824,_4#821 AS col_c#825]\n   :     +- Scan ExistingRDD[_1#818,_2#819,_3#820,_4#821] \n   +- ConvertToSafe\n      +- Project [_1#818 AS id2#826,_2#819 AS col_a2#827,_3#820 AS col_b2#828,_4#821 AS col_c2#829]\n         +- Scan ExistingRDD[_1#818,_2#819,_3#820,_4#821]\n"
+      },
+      "dateCreated": "Apr 17, 2016 6:36:38 PM",
+      "dateStarted": "Apr 17, 2016 6:37:03 PM",
+      "dateFinished": "Apr 17, 2016 6:37:03 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%md Now, let\u0027s save \"myDfStep2\" to a parquet file and read it back, to compare the physical plans",
+      "authenticationInfo": {},
+      "dateUpdated": "Apr 17, 2016 6:37:27 PM",
+      "config": {
+        "colWidth": 12.0,
+        "graph": {
+          "mode": "table",
+          "height": 300.0,
+          "optionOpen": false,
+          "keys": [],
+          "values": [],
+          "groups": [],
+          "scatter": {}
+        },
+        "enabled": true,
+        "editorHide": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "jobName": "paragraph_1460918222996_-1876921419",
+      "id": "20160417-183702_1717500997",
+      "result": {
+        "code": "SUCCESS",
+        "type": "HTML",
+        "msg": "\u003cp\u003eNow, let\u0027s save \u0026ldquo;myDfStep2\u0026rdquo; to a parquet file and read it back, to compare the physical plans\u003c/p\u003e\n"
+      },
+      "dateCreated": "Apr 17, 2016 6:37:02 PM",
+      "dateStarted": "Apr 17, 2016 6:37:24 PM",
+      "dateFinished": "Apr 17, 2016 6:37:24 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "myDfStep2.write.mode(\"overwrite\").parquet(\"my_df_step2.parquet\")\r\nval checkpointedMyDfStep2 \u003d sqlContext.read.parquet(\"my_df_step2.parquet\")\r\ncheckpointedMyDfStep2.explain",
+      "authenticationInfo": {},
+      "dateUpdated": "Apr 17, 2016 6:37:39 PM",
+      "config": {
+        "colWidth": 12.0,
+        "graph": {
+          "mode": "table",
+          "height": 300.0,
+          "optionOpen": false,
+          "keys": [],
+          "values": [],
+          "groups": [],
+          "scatter": {}
+        },
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "jobName": "paragraph_1460918244396_1520442017",
+      "id": "20160417-183724_2045741077",
+      "result": {
+        "code": "SUCCESS",
+        "type": "TEXT",
+        "msg": "checkpointedMyDfStep2: org.apache.spark.sql.DataFrame \u003d [id: int, col_a: string, col_b: double, col_c: boolean, id2: int, col_a2: string, col_b2: double, col_c2: boolean]\n\u003d\u003d Physical Plan \u003d\u003d\nScan ParquetRelation[id#839,col_a#840,col_b#841,col_c#842,id2#843,col_a2#844,col_b2#845,col_c2#846] InputPaths: file:/data/my_df_step2.parquet\n"
+      },
+      "dateCreated": "Apr 17, 2016 6:37:24 PM",
+      "dateStarted": "Apr 17, 2016 6:37:39 PM",
+      "dateFinished": "Apr 17, 2016 6:37:41 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "config": {},
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "jobName": "paragraph_1460918259986_28016357",
+      "id": "20160417-183739_1334567103",
+      "dateCreated": "Apr 17, 2016 6:37:39 PM",
+      "status": "READY",
+      "progressUpdateIntervalMs": 500
+    }
+  ],
+  "name": "Intro to DataFrames - 4 Troubleshooting and gotchas",
+  "id": "2BH3KHM9W",
+  "angularObjects": {
+    "2BKYPESN5": [],
+    "2BH1HN1YM": [],
+    "2BH8FKXN5": [],
+    "2BJY1F3F5": [],
+    "2BGQW6CTN": [],
+    "2BKMXERWY": [],
+    "2BJ7YMSDX": [],
+    "2BGZ7XWXF": [],
+    "2BJE5NCK6": [],
+    "2BH3QPUEJ": [],
+    "2BMDAZN5C": [],
+    "2BKY8V4U1": [],
+    "2BMAQG5R9": [],
+    "2BKYEJJWM": [],
+    "2BJDUFZ8Y": [],
+    "2BMDX1KHS": [],
+    "2BKJQTF89": [],
+    "2BMCV5U6S": []
+  },
+  "config": {},
+  "info": {}
+}

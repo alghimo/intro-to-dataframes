@@ -1,0 +1,215 @@
+{
+  "paragraphs": [
+    {
+      "text": "%md\n### Introduction to implicits\nImplicits are a way to reduce boiler-plate code, and are useful for different purposes:\n\n- Conversions between types: You can define implicit methods, that will be responsible for converting between types.\n- Context-bound values: You can define a method with implicit arguments, which means that your method will expect to have that value defined in the context where it runs.\n\n#### Context-bound values\nLet\u0027s see what we mean by \"context-bound\" values",
+      "authenticationInfo": {},
+      "dateUpdated": "Apr 16, 2016 4:08:16 PM",
+      "config": {
+        "colWidth": 12.0,
+        "graph": {
+          "mode": "table",
+          "height": 300.0,
+          "optionOpen": false,
+          "keys": [],
+          "values": [],
+          "groups": [],
+          "scatter": {}
+        },
+        "enabled": true,
+        "editorMode": "ace/mode/scala",
+        "editorHide": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "jobName": "paragraph_1460822881743_-1921259347",
+      "id": "20160416-160801_1346891275",
+      "result": {
+        "code": "SUCCESS",
+        "type": "HTML",
+        "msg": "\u003ch3\u003eIntroduction to implicits\u003c/h3\u003e\n\u003cp\u003eImplicits are a way to reduce boiler-plate code, and are useful for different purposes:\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003eConversions between types: You can define implicit methods, that will be responsible for converting between types.\u003c/li\u003e\n\u003cli\u003eContext-bound values: You can define a method with implicit arguments, which means that your method will expect to have that value defined in the context where it runs.\u003c/li\u003e\n\u003c/ul\u003e\n\u003ch4\u003eContext-bound values\u003c/h4\u003e\n\u003cp\u003eLet\u0027s see what we mean by \u0026ldquo;context-bound\u0026rdquo; values\u003c/p\u003e\n"
+      },
+      "dateCreated": "Apr 16, 2016 4:08:01 PM",
+      "dateStarted": "Apr 16, 2016 4:08:13 PM",
+      "dateFinished": "Apr 16, 2016 4:08:13 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "object Multiplier {\n    def multiply(n: Int)(implicit factor: Int) \u003d n * factor\n}\n\ndef byFive(n: Int) \u003d {\n    implicit val factor \u003d 5\n    \n    Multiplier.multiply(n)\n}\n\ndef byTwo(n: Int) \u003d {\n    implicit val factor \u003d 2\n    \n    Multiplier.multiply(n)\n}\n\nbyFive(3)\nbyTwo(2)\n",
+      "authenticationInfo": {},
+      "dateUpdated": "Apr 23, 2016 9:26:07 PM",
+      "config": {
+        "colWidth": 12.0,
+        "graph": {
+          "mode": "table",
+          "height": 300.0,
+          "optionOpen": false,
+          "keys": [],
+          "values": [],
+          "groups": [],
+          "scatter": {}
+        },
+        "enabled": true,
+        "editorMode": "ace/mode/scala"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "jobName": "paragraph_1460822893801_-1321020414",
+      "id": "20160416-160813_23636161",
+      "result": {
+        "code": "SUCCESS",
+        "type": "TEXT",
+        "msg": "defined module Multiplier\nbyFive: (n: Int)Int\nbyTwo: (n: Int)Int\nres4: Int \u003d 15\nres5: Int \u003d 4\n"
+      },
+      "dateCreated": "Apr 16, 2016 4:08:13 PM",
+      "dateStarted": "Apr 23, 2016 9:26:07 PM",
+      "dateFinished": "Apr 23, 2016 9:26:08 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%md\n#### Implicit methods\nImplicit methods allow, for instance, to easily convert between types.",
+      "authenticationInfo": {},
+      "dateUpdated": "Apr 16, 2016 4:08:42 PM",
+      "config": {
+        "colWidth": 12.0,
+        "graph": {
+          "mode": "table",
+          "height": 300.0,
+          "optionOpen": false,
+          "keys": [],
+          "values": [],
+          "groups": [],
+          "scatter": {}
+        },
+        "enabled": true,
+        "editorHide": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "jobName": "paragraph_1460822909829_1299150244",
+      "id": "20160416-160829_287737234",
+      "result": {
+        "code": "SUCCESS",
+        "type": "HTML",
+        "msg": "\u003ch4\u003eImplicit methods\u003c/h4\u003e\n\u003cp\u003eImplicit methods allow, for instance, to easily convert between types.\u003c/p\u003e\n"
+      },
+      "dateCreated": "Apr 16, 2016 4:08:29 PM",
+      "dateStarted": "Apr 16, 2016 4:08:39 PM",
+      "dateFinished": "Apr 16, 2016 4:08:39 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "case class PointOfInterest(name: String, lat: Float, lng: Float)\n\nimplicit def tuple2Person(t: Tuple3[String, Float, Float]) \u003d {\n    PointOfInterest(t._1, t._2, t._3)\n}\n\nval myTuple \u003d (\"home\", 30.123f, 0.632f)\n\nval home: PointOfInterest \u003d myTuple",
+      "authenticationInfo": {},
+      "dateUpdated": "Apr 23, 2016 9:26:24 PM",
+      "config": {
+        "colWidth": 12.0,
+        "graph": {
+          "mode": "table",
+          "height": 300.0,
+          "optionOpen": false,
+          "keys": [],
+          "values": [],
+          "groups": [],
+          "scatter": {}
+        },
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "jobName": "paragraph_1460822919288_-1047433298",
+      "id": "20160416-160839_1155530525",
+      "result": {
+        "code": "SUCCESS",
+        "type": "TEXT",
+        "msg": "defined class PointOfInterest\nwarning: there were 1 feature warning(s); re-run with -feature for details\ntuple2Person: (t: (String, Float, Float))PointOfInterest\nmyTuple: (String, Float, Float) \u003d (home,30.123,0.632)\nhome: PointOfInterest \u003d PointOfInterest(home,30.123,0.632)\n"
+      },
+      "dateCreated": "Apr 16, 2016 4:08:39 PM",
+      "dateStarted": "Apr 23, 2016 9:26:24 PM",
+      "dateFinished": "Apr 23, 2016 9:26:25 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%md\n### Some tips on Spark, Scala and Serialization\nIf you try to write good, structured code with Spark (classes, hierarchy, etc to properly represent your domain), sooner or later, you will probably end up with serialization errors.\nEven if it works, quite often using classes with Spark can end up with huge, unexpected Shuffles due to serialization. Using objects doesn\u0027t cause that most of the times, as long as they are simple.\n\nThere are a few things to take into account:\n\n- If you use classes, have them extend java.io.Serializable\n- Try to limit the scope of your methods. Using things from the \"outer\" scope might cause the whole instance to be serialized\n```\nclass A {\n   val a \u003d \"Mr.\"\n   \n   def doStuff(n: String) \u003d {\n      val a \u003d this.a\n      \n      a + \" \" + n\n   }\n}\n```\n\n- If you know that some params are not serializable, use the \"@transient\" modifier. This is especially important in the case of the spark context (sc) and the sql context (sqlContext)\n```\nclass Foo(param1: Type1, @transient sqlContext: SQLContext)\n```",
+      "authenticationInfo": {},
+      "dateUpdated": "Apr 16, 2016 4:09:11 PM",
+      "config": {
+        "colWidth": 12.0,
+        "graph": {
+          "mode": "table",
+          "height": 300.0,
+          "optionOpen": false,
+          "keys": [],
+          "values": [],
+          "groups": [],
+          "scatter": {}
+        },
+        "enabled": true,
+        "editorHide": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "jobName": "paragraph_1460822934055_-835589896",
+      "id": "20160416-160854_2058148019",
+      "result": {
+        "code": "SUCCESS",
+        "type": "HTML",
+        "msg": "\u003ch3\u003eSome tips on Spark, Scala and Serialization\u003c/h3\u003e\n\u003cp\u003eIf you try to write good, structured code with Spark (classes, hierarchy, etc to properly represent your domain), sooner or later, you will probably end up with serialization errors.\n\u003cbr  /\u003eEven if it works, quite often using classes with Spark can end up with huge, unexpected Shuffles due to serialization. Using objects doesn\u0027t cause that most of the times, as long as they are simple.\u003c/p\u003e\n\u003cp\u003eThere are a few things to take into account:\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003e\u003cp\u003eIf you use classes, have them extend java.io.Serializable\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\u003cp\u003eTry to limit the scope of your methods. Using things from the \u0026ldquo;outer\u0026rdquo; scope might cause the whole instance to be serialized\u003c/p\u003e\n\u003cpre\u003e\u003ccode\u003eclass A {\nval a \u003d \"Mr.\"\n\ndef doStuff(n: String) \u003d {\n  val a \u003d this.a\n\n  a + \" \" + n\n}\n}\n\u003c/code\u003e\u003c/pre\u003e\n\u003c/li\u003e\n\u003cli\u003e\u003cp\u003eIf you know that some params are not serializable, use the \u0026ldquo;@transient\u0026rdquo; modifier. This is especially important in the case of the spark context (sc) and the sql context (sqlContext)\u003c/p\u003e\n\u003cpre\u003e\u003ccode\u003eclass Foo(param1: Type1, @transient sqlContext: SQLContext)\n\u003c/code\u003e\u003c/pre\u003e\n\u003c/li\u003e\n\u003c/ul\u003e\n"
+      },
+      "dateCreated": "Apr 16, 2016 4:08:54 PM",
+      "dateStarted": "Apr 16, 2016 4:09:06 PM",
+      "dateFinished": "Apr 16, 2016 4:09:06 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "config": {},
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "jobName": "paragraph_1460822946747_2035806470",
+      "id": "20160416-160906_21526415",
+      "dateCreated": "Apr 16, 2016 4:09:06 PM",
+      "status": "READY",
+      "progressUpdateIntervalMs": 500
+    }
+  ],
+  "name": "Intro to Scala - 6: Extras",
+  "id": "2BHNQ5VW4",
+  "angularObjects": {
+    "2BKH636QM": [],
+    "2BGUMTUV6": [],
+    "2BFP933KD": [],
+    "2BGM9NQF5": [],
+    "2BHVR1ZUG": [],
+    "2BFSX7YP1": [],
+    "2BK585GGM": [],
+    "2BFT8CYKA": [],
+    "2BG5UEDUJ": [],
+    "2BJG6BMZR": [],
+    "2BGM7D36J": [],
+    "2BJ546RD5": [],
+    "2BKDX4G98": [],
+    "2BJPNTCZG": [],
+    "2BGZ4BMNA": [],
+    "2BHF34EP7": [],
+    "2BKFS96V4": [],
+    "2BHGW5BEZ": []
+  },
+  "config": {},
+  "info": {}
+}

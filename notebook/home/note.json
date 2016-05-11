@@ -1,0 +1,148 @@
+{
+  "paragraphs": [
+    {
+      "text": "%md\n# Hands-on Introduction To Spark DataFrames (and Scala!)",
+      "authenticationInfo": {},
+      "dateUpdated": "Apr 16, 2016 4:11:45 PM",
+      "config": {
+        "colWidth": 12.0,
+        "graph": {
+          "mode": "table",
+          "height": 300.0,
+          "optionOpen": false,
+          "keys": [],
+          "values": [],
+          "groups": [],
+          "scatter": {}
+        },
+        "enabled": true,
+        "editorMode": "ace/mode/markdown",
+        "editorHide": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "jobName": "paragraph_1460823054442_-586688006",
+      "id": "20160416-161054_357576466",
+      "result": {
+        "code": "SUCCESS",
+        "type": "HTML",
+        "msg": "\u003ch1\u003eHands-on Introduction To Spark DataFrames (and Scala!)\u003c/h1\u003e\n"
+      },
+      "dateCreated": "Apr 16, 2016 4:10:54 PM",
+      "dateStarted": "Apr 16, 2016 4:11:42 PM",
+      "dateFinished": "Apr 16, 2016 4:11:42 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%md\n## Intro to Scala\n- [Scala Basics](/#/notebook/2BJ5EXM41)\n    - Declaring Variables\n        - Basic Types\n        - Summary - Scala Type Hierarchy\n        - Literals\n        - String interpolation\n        - Formatting numbers\n        - Heredoc syntax (multiline strings)\n        - Converting between types\n    - Declaring functions\n    - Control Structures\n        - if / else if / else\n        - for loops\n        - while and do / while\n        - try / catch / finally\n- [Collections, Options and Type Inference](/#/notebook/2BJNYS7B3)\n    - Immutable Collections\n    - Mutable Collections\n    - Common operations with collections\n    - Ranges\n    - Options\n    - Type Inference\n- [OOP Basics in Scala](/#/notebook/2BGZKZQZB)\n    - Classes and Objects\n    - Traits\n    - Lazy Values\n    - Namespaces\n- [Deep Dive Into Functions](/#/notebook/2BGU1NN4F)\n    - Variadic functions\n        - Collections to varargs\n    - Anonymous functions\n    - Partially applied functions\n    - Function with multiple argument lists\n    - Curried functions\n    - \"Tupled\" functions, or using tuples to call a function\n    - Extra: Partial functions\n- [Pattern Matching](/#/notebook/2BG791231)\n    - Basics: Matching on values, classes...\n    - Matching on varargs\n    - Matching on regular expressions\n    - Guards in pattern cases\n- [Extras](/#/notebook/2BHNQ5VW4)\n    - Introduction to implicits\n        - Context-bound values\n        - Implicit methods\n    - Scala, Spark and Serialization",
+      "authenticationInfo": {},
+      "dateUpdated": "May 11, 2016 3:41:35 PM",
+      "config": {
+        "colWidth": 6.0,
+        "graph": {
+          "mode": "table",
+          "height": 300.0,
+          "optionOpen": false,
+          "keys": [],
+          "values": [],
+          "groups": [],
+          "scatter": {}
+        },
+        "enabled": true,
+        "editorMode": "ace/mode/markdown",
+        "editorHide": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "jobName": "paragraph_1460823080106_1412714110",
+      "id": "20160416-161120_993401134",
+      "result": {
+        "code": "SUCCESS",
+        "type": "HTML",
+        "msg": "\u003ch2\u003eIntro to Scala\u003c/h2\u003e\n\u003cul\u003e\n\u003cli\u003e\u003ca href\u003d\"/#/notebook/2BJ5EXM41\"\u003eScala Basics\u003c/a\u003e\u003cul\u003e\n\u003cli\u003eDeclaring Variables\u003cul\u003e\n\u003cli\u003eBasic Types\u003c/li\u003e\n\u003cli\u003eSummary - Scala Type Hierarchy\u003c/li\u003e\n\u003cli\u003eLiterals\u003c/li\u003e\n\u003cli\u003eString interpolation\u003c/li\u003e\n\u003cli\u003eFormatting numbers\u003c/li\u003e\n\u003cli\u003eHeredoc syntax (multiline strings)\u003c/li\u003e\n\u003cli\u003eConverting between types\u003c/li\u003e\n\u003c/ul\u003e\n\u003c/li\u003e\n\u003cli\u003eDeclaring functions\u003c/li\u003e\n\u003cli\u003eControl Structures\u003cul\u003e\n\u003cli\u003eif / else if / else\u003c/li\u003e\n\u003cli\u003efor loops\u003c/li\u003e\n\u003cli\u003ewhile and do / while\u003c/li\u003e\n\u003cli\u003etry / catch / finally\u003c/li\u003e\n\u003c/ul\u003e\n\u003c/li\u003e\n\u003c/ul\u003e\n\u003c/li\u003e\n\u003cli\u003e\u003ca href\u003d\"/#/notebook/2BJNYS7B3\"\u003eCollections, Options and Type Inference\u003c/a\u003e\u003cul\u003e\n\u003cli\u003eImmutable Collections\u003c/li\u003e\n\u003cli\u003eMutable Collections\u003c/li\u003e\n\u003cli\u003eCommon operations with collections\u003c/li\u003e\n\u003cli\u003eRanges\u003c/li\u003e\n\u003cli\u003eOptions\u003c/li\u003e\n\u003cli\u003eType Inference\u003c/li\u003e\n\u003c/ul\u003e\n\u003c/li\u003e\n\u003cli\u003e\u003ca href\u003d\"/#/notebook/2BGZKZQZB\"\u003eOOP Basics in Scala\u003c/a\u003e\u003cul\u003e\n\u003cli\u003eClasses and Objects\u003c/li\u003e\n\u003cli\u003eTraits\u003c/li\u003e\n\u003cli\u003eLazy Values\u003c/li\u003e\n\u003cli\u003eNamespaces\u003c/li\u003e\n\u003c/ul\u003e\n\u003c/li\u003e\n\u003cli\u003e\u003ca href\u003d\"/#/notebook/2BGU1NN4F\"\u003eDeep Dive Into Functions\u003c/a\u003e\u003cul\u003e\n\u003cli\u003eVariadic functions\u003cul\u003e\n\u003cli\u003eCollections to varargs\u003c/li\u003e\n\u003c/ul\u003e\n\u003c/li\u003e\n\u003cli\u003eAnonymous functions\u003c/li\u003e\n\u003cli\u003ePartially applied functions\u003c/li\u003e\n\u003cli\u003eFunction with multiple argument lists\u003c/li\u003e\n\u003cli\u003eCurried functions\u003c/li\u003e\n\u003cli\u003e\u0026ldquo;Tupled\u0026rdquo; functions, or using tuples to call a function\u003c/li\u003e\n\u003cli\u003eExtra: Partial functions\u003c/li\u003e\n\u003c/ul\u003e\n\u003c/li\u003e\n\u003cli\u003e\u003ca href\u003d\"/#/notebook/2BG791231\"\u003ePattern Matching\u003c/a\u003e\u003cul\u003e\n\u003cli\u003eBasics: Matching on values, classes\u0026hellip;\u003c/li\u003e\n\u003cli\u003eMatching on varargs\u003c/li\u003e\n\u003cli\u003eMatching on regular expressions\u003c/li\u003e\n\u003cli\u003eGuards in pattern cases\u003c/li\u003e\n\u003c/ul\u003e\n\u003c/li\u003e\n\u003cli\u003e\u003ca href\u003d\"/#/notebook/2BHNQ5VW4\"\u003eExtras\u003c/a\u003e\u003cul\u003e\n\u003cli\u003eIntroduction to implicits\u003cul\u003e\n\u003cli\u003eContext-bound values\u003c/li\u003e\n\u003cli\u003eImplicit methods\u003c/li\u003e\n\u003c/ul\u003e\n\u003c/li\u003e\n\u003cli\u003eScala, Spark and Serialization\u003c/li\u003e\n\u003c/ul\u003e\n\u003c/li\u003e\n\u003c/ul\u003e\n"
+      },
+      "dateCreated": "Apr 16, 2016 4:11:20 PM",
+      "dateStarted": "May 11, 2016 3:41:32 PM",
+      "dateFinished": "May 11, 2016 3:41:33 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%md\n## Intro to DataFrames\n- [Create Data for the training](/#/notebook/2BJ7UV53P)\n- [Exploring DataFrames](/#/notebook/2BGJMERQ3)\n    - **printSchema**: Show the schema\n    - **show**: Showing the contents\n    - **count**: Counting rows\n    - **describe**: Show information about some columns\n    - **sampling**: Take a subset of your data\n    - **explain**: Brief introduction to plans\n- [Transformations](/#/notebook/2BFMDMV28)\n    - Expressions\n        - Column Expressions\n        - SQL Expressions\n    - Projections\n        - **select**\n        - **selectExpr**\n        - **withColumn**\n        - **filter** / **where**\n    - UDFs (User-defined functions)\n    - **groupBy**: Working with grouped data\n        - **sum**\n        - **avg**\n        - **agg**\n        - Grouping based on expressions\n    - UDAFs (User-defined aggregated functions)\n    - Window functions\n        - *Example 1*: Calculate share over a window\n        - *Example 2*: Calculate accumulated value over a window\n    - Joins\n        - Inner join\n        - Left join\n        - Right join\n        - Left semi-join\n        - Left anti-join\n        - Outer join\n        - Cross join\n        - Tips and strategies when joining DataFrames\n    - Merging DataFrames\n        - unionAll\n        - except\n    - Handling null values\n        - **isNull** and **isNotNull** / **IS NULL** / **IS NOT NULL** \n        - The **\u003d\u003d\u003d** and **\u003c\u003d\u003e** operators\n        - **DataFrameNa** functions\n- [Actions](/#/notebook/2BJFVHAMG)\n    - Saving to / reading from Parquet files\n        - Other formats\n        - Creating text files\n    - Saving to Hive\n- [Troubleshooting and gotchas](/#/notebook/2BH3KHM9W)\n    - Working with Hive\n        - Integration with other tools and metastore\n        - Refreshing metadata\n    - Large pipelines: checkpointing DataFrames\n",
+      "authenticationInfo": {},
+      "dateUpdated": "May 11, 2016 3:42:56 PM",
+      "config": {
+        "colWidth": 6.0,
+        "graph": {
+          "mode": "table",
+          "height": 300.0,
+          "optionOpen": false,
+          "keys": [],
+          "values": [],
+          "groups": [],
+          "scatter": {}
+        },
+        "enabled": true,
+        "editorMode": "ace/mode/markdown",
+        "editorHide": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "jobName": "paragraph_1460825115162_-2017042686",
+      "id": "20160416-164515_2130745071",
+      "result": {
+        "code": "SUCCESS",
+        "type": "HTML",
+        "msg": "\u003ch2\u003eIntro to DataFrames\u003c/h2\u003e\n\u003cul\u003e\n\u003cli\u003e\u003ca href\u003d\"/#/notebook/2BJ7UV53P\"\u003eCreate Data for the training\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href\u003d\"/#/notebook/2BGJMERQ3\"\u003eExploring DataFrames\u003c/a\u003e\u003cul\u003e\n\u003cli\u003e\u003cstrong\u003eprintSchema\u003c/strong\u003e: Show the schema\u003c/li\u003e\n\u003cli\u003e\u003cstrong\u003eshow\u003c/strong\u003e: Showing the contents\u003c/li\u003e\n\u003cli\u003e\u003cstrong\u003ecount\u003c/strong\u003e: Counting rows\u003c/li\u003e\n\u003cli\u003e\u003cstrong\u003edescribe\u003c/strong\u003e: Show information about some columns\u003c/li\u003e\n\u003cli\u003e\u003cstrong\u003esampling\u003c/strong\u003e: Take a subset of your data\u003c/li\u003e\n\u003cli\u003e\u003cstrong\u003eexplain\u003c/strong\u003e: Brief introduction to plans\u003c/li\u003e\n\u003c/ul\u003e\n\u003c/li\u003e\n\u003cli\u003e\u003ca href\u003d\"/#/notebook/2BFMDMV28\"\u003eTransformations\u003c/a\u003e\u003cul\u003e\n\u003cli\u003eExpressions\u003cul\u003e\n\u003cli\u003eColumn Expressions\u003c/li\u003e\n\u003cli\u003eSQL Expressions\u003c/li\u003e\n\u003c/ul\u003e\n\u003c/li\u003e\n\u003cli\u003eProjections\u003cul\u003e\n\u003cli\u003e\u003cstrong\u003eselect\u003c/strong\u003e\u003c/li\u003e\n\u003cli\u003e\u003cstrong\u003eselectExpr\u003c/strong\u003e\u003c/li\u003e\n\u003cli\u003e\u003cstrong\u003ewithColumn\u003c/strong\u003e\u003c/li\u003e\n\u003cli\u003e\u003cstrong\u003efilter\u003c/strong\u003e / \u003cstrong\u003ewhere\u003c/strong\u003e\u003c/li\u003e\n\u003c/ul\u003e\n\u003c/li\u003e\n\u003cli\u003eUDFs (User-defined functions)\u003c/li\u003e\n\u003cli\u003e\u003cstrong\u003egroupBy\u003c/strong\u003e: Working with grouped data\u003cul\u003e\n\u003cli\u003e\u003cstrong\u003esum\u003c/strong\u003e\u003c/li\u003e\n\u003cli\u003e\u003cstrong\u003eavg\u003c/strong\u003e\u003c/li\u003e\n\u003cli\u003e\u003cstrong\u003eagg\u003c/strong\u003e\u003c/li\u003e\n\u003cli\u003eGrouping based on expressions\u003c/li\u003e\n\u003c/ul\u003e\n\u003c/li\u003e\n\u003cli\u003eUDAFs (User-defined aggregated functions)\u003c/li\u003e\n\u003cli\u003eWindow functions\u003cul\u003e\n\u003cli\u003e\u003cem\u003eExample 1\u003c/em\u003e: Calculate share over a window\u003c/li\u003e\n\u003cli\u003e\u003cem\u003eExample 2\u003c/em\u003e: Calculate accumulated value over a window\u003c/li\u003e\n\u003c/ul\u003e\n\u003c/li\u003e\n\u003cli\u003eJoins\u003cul\u003e\n\u003cli\u003eInner join\u003c/li\u003e\n\u003cli\u003eLeft join\u003c/li\u003e\n\u003cli\u003eRight join\u003c/li\u003e\n\u003cli\u003eLeft semi-join\u003c/li\u003e\n\u003cli\u003eLeft anti-join\u003c/li\u003e\n\u003cli\u003eOuter join\u003c/li\u003e\n\u003cli\u003eCross join\u003c/li\u003e\n\u003cli\u003eTips and strategies when joining DataFrames\u003c/li\u003e\n\u003c/ul\u003e\n\u003c/li\u003e\n\u003cli\u003eMerging DataFrames\u003cul\u003e\n\u003cli\u003eunionAll\u003c/li\u003e\n\u003cli\u003eexcept\u003c/li\u003e\n\u003c/ul\u003e\n\u003c/li\u003e\n\u003cli\u003eHandling null values\u003cul\u003e\n\u003cli\u003e\u003cstrong\u003eisNull\u003c/strong\u003e and \u003cstrong\u003eisNotNull\u003c/strong\u003e / \u003cstrong\u003eIS NULL\u003c/strong\u003e / \u003cstrong\u003eIS NOT NULL\u003c/strong\u003e\u003c/li\u003e\n\u003cli\u003eThe \u003cstrong\u003e\u003d\u003d\u003d\u003c/strong\u003e and \u003cstrong\u003e\u003c\u003d\u003e\u003c/strong\u003e operators\u003c/li\u003e\n\u003cli\u003e\u003cstrong\u003eDataFrameNa\u003c/strong\u003e functions\u003c/li\u003e\n\u003c/ul\u003e\n\u003c/li\u003e\n\u003c/ul\u003e\n\u003c/li\u003e\n\u003cli\u003e\u003ca href\u003d\"/#/notebook/2BJFVHAMG\"\u003eActions\u003c/a\u003e\u003cul\u003e\n\u003cli\u003eSaving to / reading from Parquet files\u003cul\u003e\n\u003cli\u003eOther formats\u003c/li\u003e\n\u003cli\u003eCreating text files\u003c/li\u003e\n\u003c/ul\u003e\n\u003c/li\u003e\n\u003cli\u003eSaving to Hive\u003c/li\u003e\n\u003c/ul\u003e\n\u003c/li\u003e\n\u003cli\u003e\u003ca href\u003d\"/#/notebook/2BH3KHM9W\"\u003eTroubleshooting and gotchas\u003c/a\u003e\u003cul\u003e\n\u003cli\u003eWorking with Hive\u003cul\u003e\n\u003cli\u003eIntegration with other tools and metastore\u003c/li\u003e\n\u003cli\u003eRefreshing metadata\u003c/li\u003e\n\u003c/ul\u003e\n\u003c/li\u003e\n\u003cli\u003eLarge pipelines: checkpointing DataFrames\u003c/li\u003e\n\u003c/ul\u003e\n\u003c/li\u003e\n\u003c/ul\u003e\n"
+      },
+      "dateCreated": "Apr 16, 2016 4:45:15 PM",
+      "dateStarted": "May 11, 2016 3:42:54 PM",
+      "dateFinished": "May 11, 2016 3:42:54 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "config": {},
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "jobName": "paragraph_1460823096097_-347881532",
+      "id": "20160416-161136_1854338085",
+      "dateCreated": "Apr 16, 2016 4:11:36 PM",
+      "status": "READY",
+      "progressUpdateIntervalMs": 500
+    }
+  ],
+  "name": "Training",
+  "id": "2BGF7ZF2F",
+  "angularObjects": {
+    "2BN7VVJ9U": [],
+    "2BM1CFJ7A": [],
+    "2BMKK9AYY": [],
+    "2BJ35JNN3": [],
+    "2BMQKJBW2": [],
+    "2BJR75CHE": [],
+    "2BKD6T383": [],
+    "2BKAYYUWQ": [],
+    "2BM5GC1MB": [],
+    "2BK6PV8FQ": [],
+    "2BMV2TH7Q": [],
+    "2BKRJB227": [],
+    "2BK134BK5": [],
+    "2BJY4D211": [],
+    "2BJKDC8YW": [],
+    "2BM8ZP8EF": [],
+    "2BKCJ8BDU": [],
+    "2BM6TFVHK": []
+  },
+  "config": {},
+  "info": {}
+}

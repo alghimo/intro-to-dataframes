@@ -1,0 +1,626 @@
+{
+  "paragraphs": [
+    {
+      "text": "%md ### Actions\nMost of the transformations we have seen so far are *lazy*, which means that nothing will actually get executed. What happens instead is that Spark will define what \"needs to be done\" to apply that transformation, but will wait until you perform an action over the results.\nWe have seen a few actions so far, like *show* and *count*",
+      "authenticationInfo": {},
+      "dateUpdated": "Apr 17, 2016 6:11:25 PM",
+      "config": {
+        "colWidth": 12.0,
+        "graph": {
+          "mode": "table",
+          "height": 300.0,
+          "optionOpen": false,
+          "keys": [],
+          "values": [],
+          "groups": [],
+          "scatter": {}
+        },
+        "enabled": true,
+        "editorMode": "ace/mode/markdown",
+        "editorHide": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "jobName": "paragraph_1460916159368_2012378806",
+      "id": "20160417-180239_1684226323",
+      "result": {
+        "code": "SUCCESS",
+        "type": "HTML",
+        "msg": "\u003ch3\u003eActions\u003c/h3\u003e\n\u003cp\u003eMost of the transformations we have seen so far are \u003cem\u003elazy\u003c/em\u003e, which means that nothing will actually get executed. What happens instead is that Spark will define what \u0026ldquo;needs to be done\u0026rdquo; to apply that transformation, but will wait until you perform an action over the results.\n\u003cbr  /\u003eWe have seen a few actions so far, like \u003cem\u003eshow\u003c/em\u003e and \u003cem\u003ecount\u003c/em\u003e\u003c/p\u003e\n"
+      },
+      "dateCreated": "Apr 17, 2016 6:02:39 PM",
+      "dateStarted": "Apr 17, 2016 6:11:22 PM",
+      "dateFinished": "Apr 17, 2016 6:11:23 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": " val myDf \u003d sc.parallelize(Array(\r\n  (\"a\", \"z\"),\r\n  (null, \"y\"),\r\n  (\"b\", \"b\"),\r\n  (null, null)\r\n)).toDF(\"col_a\", \"col_b\")",
+      "authenticationInfo": {},
+      "dateUpdated": "Apr 30, 2016 1:53:39 PM",
+      "config": {
+        "colWidth": 12.0,
+        "graph": {
+          "mode": "table",
+          "height": 300.0,
+          "optionOpen": false,
+          "keys": [],
+          "values": [],
+          "groups": [],
+          "scatter": {}
+        },
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "jobName": "paragraph_1460916682994_-2066793619",
+      "id": "20160417-181122_1502198660",
+      "result": {
+        "code": "SUCCESS",
+        "type": "TEXT",
+        "msg": "myDf: org.apache.spark.sql.DataFrame \u003d [col_a: string, col_b: string]\n"
+      },
+      "dateCreated": "Apr 17, 2016 6:11:22 PM",
+      "dateStarted": "Apr 30, 2016 1:53:39 PM",
+      "dateFinished": "Apr 30, 2016 1:53:40 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%md #### Saving a DataFrame to / reading from a Parquet file\r\nThe \"mode\" method allows us to control what happens if the directory where we are saving already exists. It can be one of the following:\r\n- error: Default option. An error will be thrown if the destination already exists\r\n- overwrite: The destination will be deleted, so we\u0027ll have only the new data at the end.\r\n- append: If the destination exists, the data will be appended.\r\n- ignore: Do nothing if the destination already exists.\r\n",
+      "authenticationInfo": {},
+      "dateUpdated": "Apr 30, 2016 1:53:42 PM",
+      "config": {
+        "colWidth": 12.0,
+        "graph": {
+          "mode": "table",
+          "height": 300.0,
+          "optionOpen": false,
+          "keys": [],
+          "values": [],
+          "groups": [],
+          "scatter": {}
+        },
+        "enabled": true,
+        "editorHide": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "jobName": "paragraph_1460916696129_214013185",
+      "id": "20160417-181136_1330686413",
+      "result": {
+        "code": "SUCCESS",
+        "type": "HTML",
+        "msg": "\u003ch4\u003eSaving a DataFrame to / reading from a Parquet file\u003c/h4\u003e\n\u003cp\u003eThe \u0026ldquo;mode\u0026rdquo; method allows us to control what happens if the directory where we are saving already exists. It can be one of the following:\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003eerror: Default option. An error will be thrown if the destination already exists\u003c/li\u003e\n\u003cli\u003eoverwrite: The destination will be deleted, so we\u0027ll have only the new data at the end.\u003c/li\u003e\n\u003cli\u003eappend: If the destination exists, the data will be appended.\u003c/li\u003e\n\u003cli\u003eignore: Do nothing if the destination already exists.\u003c/li\u003e\n\u003c/ul\u003e\n"
+      },
+      "dateCreated": "Apr 17, 2016 6:11:36 PM",
+      "dateStarted": "Apr 30, 2016 1:53:42 PM",
+      "dateFinished": "Apr 30, 2016 1:53:42 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "// Save the DataFrame. This will fail if \"my_df.parquet\" already exists\r\nmyDf.write.parquet(\"my_df.parquet\")",
+      "authenticationInfo": {},
+      "dateUpdated": "Apr 30, 2016 1:53:43 PM",
+      "config": {
+        "colWidth": 12.0,
+        "graph": {
+          "mode": "table",
+          "height": 300.0,
+          "optionOpen": false,
+          "keys": [],
+          "values": [],
+          "groups": [],
+          "scatter": {}
+        },
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "jobName": "paragraph_1460916747865_-1888811409",
+      "id": "20160417-181227_1176462475",
+      "result": {
+        "code": "SUCCESS",
+        "type": "TEXT",
+        "msg": ""
+      },
+      "dateCreated": "Apr 17, 2016 6:12:27 PM",
+      "dateStarted": "Apr 30, 2016 1:53:43 PM",
+      "dateFinished": "Apr 30, 2016 1:53:43 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "// Even if the previous step worked, doing it a second time will fail, because the destination already exists\r\nmyDf.write.parquet(\"my_df.parquet\")",
+      "authenticationInfo": {},
+      "dateUpdated": "Apr 30, 2016 1:53:47 PM",
+      "config": {
+        "colWidth": 12.0,
+        "graph": {
+          "mode": "table",
+          "height": 300.0,
+          "optionOpen": false,
+          "keys": [],
+          "values": [],
+          "groups": [],
+          "scatter": {}
+        },
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "jobName": "paragraph_1460916788387_-1321814124",
+      "id": "20160417-181308_556471193",
+      "result": {
+        "code": "ERROR",
+        "type": "TEXT",
+        "msg": "org.apache.spark.sql.AnalysisException: path file:/data/my_df.parquet already exists.;\n\tat org.apache.spark.sql.execution.datasources.InsertIntoHadoopFsRelation.run(InsertIntoHadoopFsRelation.scala:76)\n\tat org.apache.spark.sql.execution.ExecutedCommand.sideEffectResult$lzycompute(commands.scala:58)\n\tat org.apache.spark.sql.execution.ExecutedCommand.sideEffectResult(commands.scala:56)\n\tat org.apache.spark.sql.execution.ExecutedCommand.doExecute(commands.scala:70)\n\tat org.apache.spark.sql.execution.SparkPlan$$anonfun$execute$5.apply(SparkPlan.scala:132)\n\tat org.apache.spark.sql.execution.SparkPlan$$anonfun$execute$5.apply(SparkPlan.scala:130)\n\tat org.apache.spark.rdd.RDDOperationScope$.withScope(RDDOperationScope.scala:150)\n\tat org.apache.spark.sql.execution.SparkPlan.execute(SparkPlan.scala:130)\n\tat org.apache.spark.sql.execution.QueryExecution.toRdd$lzycompute(QueryExecution.scala:55)\n\tat org.apache.spark.sql.execution.QueryExecution.toRdd(QueryExecution.scala:55)\n\tat org.apache.spark.sql.execution.datasources.ResolvedDataSource$.apply(ResolvedDataSource.scala:256)\n\tat org.apache.spark.sql.DataFrameWriter.save(DataFrameWriter.scala:148)\n\tat org.apache.spark.sql.DataFrameWriter.save(DataFrameWriter.scala:139)\n\tat org.apache.spark.sql.DataFrameWriter.parquet(DataFrameWriter.scala:334)\n\tat $iwC$$iwC$$iwC$$iwC$$iwC$$iwC$$iwC$$iwC$$iwC$$iwC$$iwC$$iwC$$iwC$$iwC$$iwC$$iwC$$iwC$$iwC$$iwC.\u003cinit\u003e(\u003cconsole\u003e:80)\n\tat $iwC$$iwC$$iwC$$iwC$$iwC$$iwC$$iwC$$iwC$$iwC$$iwC$$iwC$$iwC$$iwC$$iwC$$iwC$$iwC$$iwC$$iwC.\u003cinit\u003e(\u003cconsole\u003e:85)\n\tat $iwC$$iwC$$iwC$$iwC$$iwC$$iwC$$iwC$$iwC$$iwC$$iwC$$iwC$$iwC$$iwC$$iwC$$iwC$$iwC$$iwC.\u003cinit\u003e(\u003cconsole\u003e:87)\n\tat $iwC$$iwC$$iwC$$iwC$$iwC$$iwC$$iwC$$iwC$$iwC$$iwC$$iwC$$iwC$$iwC$$iwC$$iwC$$iwC.\u003cinit\u003e(\u003cconsole\u003e:89)\n\tat $iwC$$iwC$$iwC$$iwC$$iwC$$iwC$$iwC$$iwC$$iwC$$iwC$$iwC$$iwC$$iwC$$iwC$$iwC.\u003cinit\u003e(\u003cconsole\u003e:91)\n\tat $iwC$$iwC$$iwC$$iwC$$iwC$$iwC$$iwC$$iwC$$iwC$$iwC$$iwC$$iwC$$iwC$$iwC.\u003cinit\u003e(\u003cconsole\u003e:93)\n\tat $iwC$$iwC$$iwC$$iwC$$iwC$$iwC$$iwC$$iwC$$iwC$$iwC$$iwC$$iwC$$iwC.\u003cinit\u003e(\u003cconsole\u003e:95)\n\tat $iwC$$iwC$$iwC$$iwC$$iwC$$iwC$$iwC$$iwC$$iwC$$iwC$$iwC$$iwC.\u003cinit\u003e(\u003cconsole\u003e:97)\n\tat $iwC$$iwC$$iwC$$iwC$$iwC$$iwC$$iwC$$iwC$$iwC$$iwC$$iwC.\u003cinit\u003e(\u003cconsole\u003e:99)\n\tat $iwC$$iwC$$iwC$$iwC$$iwC$$iwC$$iwC$$iwC$$iwC$$iwC.\u003cinit\u003e(\u003cconsole\u003e:101)\n\tat $iwC$$iwC$$iwC$$iwC$$iwC$$iwC$$iwC$$iwC$$iwC.\u003cinit\u003e(\u003cconsole\u003e:103)\n\tat $iwC$$iwC$$iwC$$iwC$$iwC$$iwC$$iwC$$iwC.\u003cinit\u003e(\u003cconsole\u003e:105)\n\tat $iwC$$iwC$$iwC$$iwC$$iwC$$iwC$$iwC.\u003cinit\u003e(\u003cconsole\u003e:107)\n\tat $iwC$$iwC$$iwC$$iwC$$iwC$$iwC.\u003cinit\u003e(\u003cconsole\u003e:109)\n\tat $iwC$$iwC$$iwC$$iwC$$iwC.\u003cinit\u003e(\u003cconsole\u003e:111)\n\tat $iwC$$iwC$$iwC$$iwC.\u003cinit\u003e(\u003cconsole\u003e:113)\n\tat $iwC$$iwC$$iwC.\u003cinit\u003e(\u003cconsole\u003e:115)\n\tat $iwC$$iwC.\u003cinit\u003e(\u003cconsole\u003e:117)\n\tat $iwC.\u003cinit\u003e(\u003cconsole\u003e:119)\n\tat \u003cinit\u003e(\u003cconsole\u003e:121)\n\tat .\u003cinit\u003e(\u003cconsole\u003e:125)\n\tat .\u003cclinit\u003e(\u003cconsole\u003e)\n\tat .\u003cinit\u003e(\u003cconsole\u003e:7)\n\tat .\u003cclinit\u003e(\u003cconsole\u003e)\n\tat $print(\u003cconsole\u003e)\n\tat sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)\n\tat sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)\n\tat sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)\n\tat java.lang.reflect.Method.invoke(Method.java:498)\n\tat org.apache.spark.repl.SparkIMain$ReadEvalPrint.call(SparkIMain.scala:1065)\n\tat org.apache.spark.repl.SparkIMain$Request.loadAndRun(SparkIMain.scala:1346)\n\tat org.apache.spark.repl.SparkIMain.loadAndRunReq$1(SparkIMain.scala:840)\n\tat org.apache.spark.repl.SparkIMain.interpret(SparkIMain.scala:871)\n\tat org.apache.spark.repl.SparkIMain.interpret(SparkIMain.scala:819)\n\tat org.apache.zeppelin.spark.SparkInterpreter.interpretInput(SparkInterpreter.java:812)\n\tat org.apache.zeppelin.spark.SparkInterpreter.interpret(SparkInterpreter.java:755)\n\tat org.apache.zeppelin.spark.SparkInterpreter.interpret(SparkInterpreter.java:748)\n\tat org.apache.zeppelin.interpreter.ClassloaderInterpreter.interpret(ClassloaderInterpreter.java:57)\n\tat org.apache.zeppelin.interpreter.LazyOpenInterpreter.interpret(LazyOpenInterpreter.java:93)\n\tat org.apache.zeppelin.interpreter.remote.RemoteInterpreterServer$InterpretJob.jobRun(RemoteInterpreterServer.java:331)\n\tat org.apache.zeppelin.scheduler.Job.run(Job.java:171)\n\tat org.apache.zeppelin.scheduler.FIFOScheduler$1.run(FIFOScheduler.java:139)\n\tat java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511)\n\tat java.util.concurrent.FutureTask.run(FutureTask.java:266)\n\tat java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.access$201(ScheduledThreadPoolExecutor.java:180)\n\tat java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:293)\n\tat java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)\n\tat java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)\n\tat java.lang.Thread.run(Thread.java:745)\n\n"
+      },
+      "dateCreated": "Apr 17, 2016 6:13:08 PM",
+      "dateStarted": "Apr 30, 2016 1:53:47 PM",
+      "dateFinished": "Apr 30, 2016 1:53:47 PM",
+      "status": "ERROR",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "// We can override the existing data..\r\nmyDf.write.mode(\"overwrite\").parquet(\"my_df.parquet\")\r\nval readDf1 \u003d sqlContext.read.parquet(\"my_df.parquet\")\r\nreadDf1.show()",
+      "authenticationInfo": {},
+      "dateUpdated": "Apr 30, 2016 1:53:49 PM",
+      "config": {
+        "colWidth": 12.0,
+        "graph": {
+          "mode": "table",
+          "height": 300.0,
+          "optionOpen": false,
+          "keys": [],
+          "values": [],
+          "groups": [],
+          "scatter": {}
+        },
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "jobName": "paragraph_1460916806521_-32474587",
+      "id": "20160417-181326_207494149",
+      "result": {
+        "code": "SUCCESS",
+        "type": "TEXT",
+        "msg": "readDf1: org.apache.spark.sql.DataFrame \u003d [col_a: string, col_b: string]\n+-----+-----+\n|col_a|col_b|\n+-----+-----+\n| null| null|\n| null|    y|\n|    b|    b|\n|    a|    z|\n+-----+-----+\n\n"
+      },
+      "dateCreated": "Apr 17, 2016 6:13:26 PM",
+      "dateStarted": "Apr 30, 2016 1:53:49 PM",
+      "dateFinished": "Apr 30, 2016 1:53:50 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "// Or we can append the data\r\nmyDf.write.mode(\"append\").parquet(\"my_df.parquet\")\r\nval readDf2 \u003d sqlContext.read.parquet(\"my_df.parquet\")\r\nreadDf2.show()\r\n",
+      "authenticationInfo": {},
+      "dateUpdated": "Apr 30, 2016 1:53:52 PM",
+      "config": {
+        "colWidth": 12.0,
+        "graph": {
+          "mode": "table",
+          "height": 300.0,
+          "optionOpen": false,
+          "keys": [],
+          "values": [],
+          "groups": [],
+          "scatter": {}
+        },
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "jobName": "paragraph_1460916825654_-1718428943",
+      "id": "20160417-181345_473297161",
+      "result": {
+        "code": "SUCCESS",
+        "type": "TEXT",
+        "msg": "readDf2: org.apache.spark.sql.DataFrame \u003d [col_a: string, col_b: string]\n+-----+-----+\n|col_a|col_b|\n+-----+-----+\n|    b|    b|\n| null|    y|\n| null| null|\n| null|    y|\n|    b|    b|\n|    a|    z|\n|    a|    z|\n| null| null|\n+-----+-----+\n\n"
+      },
+      "dateCreated": "Apr 17, 2016 6:13:45 PM",
+      "dateStarted": "Apr 30, 2016 1:53:52 PM",
+      "dateFinished": "Apr 30, 2016 1:53:52 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%md Other formats\r\nAmong others, you can save your DF to orc format, json, text or even external databases through JDBC. In the case of text, your DF needs to have a single column, that must be a string. Let\u0027s do it with an example that will create a file with tab-separated values:\r\n    \r\n**NOTE**: Because of the coalesce(1), this will probably not work if your DataFrame is too big. In that case, you can increase the number of partitions of coalesce, and write the header to a separate file instead.\r\n    \r\n---\r\n\u003chttp://spark.apache.org/docs/latest/api/scala/index.html#org.apache.spark.sql.DataFrameWriter\u003e",
+      "authenticationInfo": {},
+      "dateUpdated": "Apr 30, 2016 1:53:54 PM",
+      "config": {
+        "colWidth": 12.0,
+        "graph": {
+          "mode": "table",
+          "height": 300.0,
+          "optionOpen": false,
+          "keys": [],
+          "values": [],
+          "groups": [],
+          "scatter": {}
+        },
+        "enabled": true,
+        "editorHide": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "jobName": "paragraph_1460916848598_-51449876",
+      "id": "20160417-181408_960949785",
+      "result": {
+        "code": "SUCCESS",
+        "type": "HTML",
+        "msg": "\u003cp\u003eOther formats\n\u003cbr  /\u003eAmong others, you can save your DF to orc format, json, text or even external databases through JDBC. In the case of text, your DF needs to have a single column, that must be a string. Let\u0027s do it with an example that will create a file with tab-separated values:\u003c/p\u003e\n\u003cp\u003e\u003cstrong\u003eNOTE\u003c/strong\u003e: Because of the coalesce(1), this will probably not work if your DataFrame is too big. In that case, you can increase the number of partitions of coalesce, and write the header to a separate file instead.\u003c/p\u003e\n\u003chr /\u003e\n\u003cp\u003e\u003ca href\u003d\"http://spark.apache.org/docs/latest/api/scala/index.html#org.apache.spark.sql.DataFrameWriter\"\u003ehttp://spark.apache.org/docs/latest/api/scala/index.html#org.apache.spark.sql.DataFrameWriter\u003c/a\u003e\u003c/p\u003e\n"
+      },
+      "dateCreated": "Apr 17, 2016 6:14:08 PM",
+      "dateStarted": "Apr 30, 2016 1:53:54 PM",
+      "dateFinished": "Apr 30, 2016 1:53:54 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "val myDf \u003d sc.parallelize(Array(\r\n  (1, \"a\", 5.0, true),\r\n  (2, null, -1.3, false),\r\n  (3, \"b\", 321.09, true)\r\n)).toDF(\"id\", \"col_a\", \"col_b\", \"col_c\")\r\n\r\nval separator \u003d \"\\t\"\r\nval headers \u003d sc.parallelize(Array(myDf.columns.mkString(separator))).toDF(\"value\")\r\n\r\nimport org.apache.spark.sql.functions.lit\r\n// Contents to export, put together as a string with tab-separated values\r\nval content \u003d myDf.map(_.toSeq.mkString(separator)).toDF(\"value\")\r\nval toExport \u003d headers.withColumn(\"is_header\", lit(true))\r\n  .unionAll(content.withColumn(\"is_header\", lit(false)))\r\n  .coalesce(1)\r\n  .orderBy(\u0027is_header.desc)\r\n  .select(\u0027value)\r\ntoExport.write.mode(\"overwrite\").text(\"myDf.tsv\")",
+      "authenticationInfo": {},
+      "dateUpdated": "Apr 30, 2016 1:53:58 PM",
+      "config": {
+        "colWidth": 12.0,
+        "graph": {
+          "mode": "table",
+          "height": 300.0,
+          "optionOpen": false,
+          "keys": [],
+          "values": [],
+          "groups": [],
+          "scatter": {}
+        },
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "jobName": "paragraph_1460916864976_-2059439062",
+      "id": "20160417-181424_438631646",
+      "result": {
+        "code": "SUCCESS",
+        "type": "TEXT",
+        "msg": "myDf: org.apache.spark.sql.DataFrame \u003d [id: int, col_a: string, col_b: double, col_c: boolean]\nseparator: String \u003d \"\t\"\nheaders: org.apache.spark.sql.DataFrame \u003d [value: string]\nimport org.apache.spark.sql.functions.lit\ncontent: org.apache.spark.sql.DataFrame \u003d [value: string]\ntoExport: org.apache.spark.sql.DataFrame \u003d [value: string]\n"
+      },
+      "dateCreated": "Apr 17, 2016 6:14:24 PM",
+      "dateStarted": "Apr 30, 2016 1:53:58 PM",
+      "dateFinished": "Apr 30, 2016 1:53:59 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "// Let\u0027s see what was saved\r\nsc.textFile(\"myDf.tsv\").take(5).foreach(println)",
+      "authenticationInfo": {},
+      "dateUpdated": "Apr 30, 2016 1:54:03 PM",
+      "config": {
+        "colWidth": 12.0,
+        "graph": {
+          "mode": "table",
+          "height": 300.0,
+          "optionOpen": false,
+          "keys": [],
+          "values": [],
+          "groups": [],
+          "scatter": {}
+        },
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "jobName": "paragraph_1460917329530_264299276",
+      "id": "20160417-182209_2099268577",
+      "result": {
+        "code": "SUCCESS",
+        "type": "TEXT",
+        "msg": "id\tcol_a\tcol_b\tcol_c\n1\ta\t5.0\ttrue\n2\tnull\t-1.3\tfalse\n3\tb\t321.09\ttrue\n"
+      },
+      "dateCreated": "Apr 17, 2016 6:22:09 PM",
+      "dateStarted": "Apr 30, 2016 1:54:03 PM",
+      "dateFinished": "Apr 30, 2016 1:54:03 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%md After saving the DF to a text file, you could, from a client machine, get that file with a command like this (assuming you are in a Hadoop cluster):\r\n\r\n```\r\nhadoop fs -get /path/to/myDf.tsv/part* myDeliverable.tsv\r\n```\r\n\r\nThis will work because we have a single \"part-XXX\" file. If you have multiple parts (ie, you didn\u0027t use coalesce), you should download the whole directory, and put the different files together if you want, for instance with cat or something similar. Just be careful with the headers: in this example, the headers will be only in one of the partitions. So, in case you don\u0027t want to  / can not coalesce to one partition because your DF is too big, you could proceed like this:\r\n- Create your headers DF, save it to a separate file\r\n- Save your DF as text in a different location\r\n- Get the headers and the different parts with \"hadoop fs -get\"\r\n- Concat the headers and the different part-XXX files together from the shell using \"cat\" or similar.",
+      "authenticationInfo": {},
+      "dateUpdated": "Apr 17, 2016 6:26:03 PM",
+      "config": {
+        "colWidth": 12.0,
+        "graph": {
+          "mode": "table",
+          "height": 300.0,
+          "optionOpen": false,
+          "keys": [],
+          "values": [],
+          "groups": [],
+          "scatter": {}
+        },
+        "enabled": true,
+        "editorHide": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "jobName": "paragraph_1460917531258_-507047293",
+      "id": "20160417-182531_485467215",
+      "result": {
+        "code": "SUCCESS",
+        "type": "HTML",
+        "msg": "\u003cp\u003eAfter saving the DF to a text file, you could, from a client machine, get that file with a command like this (assuming you are in a Hadoop cluster):\u003c/p\u003e\n\u003cpre\u003e\u003ccode\u003ehadoop fs -get /path/to/myDf.tsv/part* myDeliverable.tsv\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003eThis will work because we have a single \u0026ldquo;part-XXX\u0026rdquo; file. If you have multiple parts (ie, you didn\u0027t use coalesce), you should download the whole directory, and put the different files together if you want, for instance with cat or something similar. Just be careful with the headers: in this example, the headers will be only in one of the partitions. So, in case you don\u0027t want to  / can not coalesce to one partition because your DF is too big, you could proceed like this:\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003eCreate your headers DF, save it to a separate file\u003c/li\u003e\n\u003cli\u003eSave your DF as text in a different location\u003c/li\u003e\n\u003cli\u003eGet the headers and the different parts with \u0026ldquo;hadoop fs -get\u0026rdquo;\u003c/li\u003e\n\u003cli\u003eConcat the headers and the different part-XXX files together from the shell using \u0026ldquo;cat\u0026rdquo; or similar.\u003c/li\u003e\n\u003c/ul\u003e\n"
+      },
+      "dateCreated": "Apr 17, 2016 6:25:31 PM",
+      "dateStarted": "Apr 17, 2016 6:26:00 PM",
+      "dateFinished": "Apr 17, 2016 6:26:00 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%md ### Explanation on the text file creation\r\nGiven a DataFrame, the result will be a single file in HDFS, were the first line contains the headers. There are a few tricks here:\r\n- \"\\_.toSeq\": Converts a row to a sequence, so we can easily make a String out of it.\r\n- Adding the \"is\\_header\" column: Needed to make sure that we can put the headers in the first line by ordering.\r\n- coalesce(1): This will reduce the DF to a single partition. You probably don\u0027t want this if your DF is too big.",
+      "authenticationInfo": {},
+      "dateUpdated": "Apr 17, 2016 6:26:27 PM",
+      "config": {
+        "colWidth": 12.0,
+        "graph": {
+          "mode": "table",
+          "height": 300.0,
+          "optionOpen": false,
+          "keys": [],
+          "values": [],
+          "groups": [],
+          "scatter": {}
+        },
+        "enabled": true,
+        "editorHide": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "jobName": "paragraph_1460917560477_-1919029784",
+      "id": "20160417-182600_300687751",
+      "result": {
+        "code": "SUCCESS",
+        "type": "HTML",
+        "msg": "\u003ch3\u003eExplanation on the text file creation\u003c/h3\u003e\n\u003cp\u003eGiven a DataFrame, the result will be a single file in HDFS, were the first line contains the headers. There are a few tricks here:\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003e\u0026ldquo;_.toSeq\u0026rdquo;: Converts a row to a sequence, so we can easily make a String out of it.\u003c/li\u003e\n\u003cli\u003eAdding the \u0026ldquo;is_header\u0026rdquo; column: Needed to make sure that we can put the headers in the first line by ordering.\u003c/li\u003e\n\u003cli\u003ecoalesce(1): This will reduce the DF to a single partition. You probably don\u0027t want this if your DF is too big.\u003c/li\u003e\n\u003c/ul\u003e\n"
+      },
+      "dateCreated": "Apr 17, 2016 6:26:00 PM",
+      "dateStarted": "Apr 17, 2016 6:26:23 PM",
+      "dateFinished": "Apr 17, 2016 6:26:23 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%md #### Saving to Hive\r\nA nice way to organize our data (and to expose it with other tools, like Tableau), is to use Hive to store our tables. When saving to Hive, apart of setting the mode as we do for files we can specify the format of the table (we usually want parquet, which is the default, but we could store the table as orc, for instance).",
+      "authenticationInfo": {},
+      "dateUpdated": "Apr 17, 2016 6:26:50 PM",
+      "config": {
+        "colWidth": 12.0,
+        "graph": {
+          "mode": "table",
+          "height": 300.0,
+          "optionOpen": false,
+          "keys": [],
+          "values": [],
+          "groups": [],
+          "scatter": {}
+        },
+        "enabled": true,
+        "editorHide": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "jobName": "paragraph_1460917583142_1656288503",
+      "id": "20160417-182623_441831488",
+      "result": {
+        "code": "SUCCESS",
+        "type": "HTML",
+        "msg": "\u003ch4\u003eSaving to Hive\u003c/h4\u003e\n\u003cp\u003eA nice way to organize our data (and to expose it with other tools, like Tableau), is to use Hive to store our tables. When saving to Hive, apart of setting the mode as we do for files we can specify the format of the table (we usually want parquet, which is the default, but we could store the table as orc, for instance).\u003c/p\u003e\n"
+      },
+      "dateCreated": "Apr 17, 2016 6:26:23 PM",
+      "dateStarted": "Apr 17, 2016 6:26:47 PM",
+      "dateFinished": "Apr 17, 2016 6:26:47 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": " val myDf \u003d sc.parallelize(Array(\r\n  (1, \"a\", 5.0, true),\r\n  (2, null, -1.3, false),\r\n  (3, \"b\", 321.09, true)\r\n)).toDF(\"id\", \"col_a\", \"col_b\", \"col_c\")\r\n\r\nsql(\"CREATE DATABASE IF NOT EXISTS df_training\")\r\nmyDf.write.mode(\"overwrite\").saveAsTable(\"df_training.my_df\")",
+      "authenticationInfo": {},
+      "dateUpdated": "Apr 30, 2016 1:54:12 PM",
+      "config": {
+        "colWidth": 12.0,
+        "graph": {
+          "mode": "table",
+          "height": 300.0,
+          "optionOpen": false,
+          "keys": [],
+          "values": [],
+          "groups": [],
+          "scatter": {}
+        },
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "jobName": "paragraph_1460917607238_975313598",
+      "id": "20160417-182647_76374977",
+      "result": {
+        "code": "SUCCESS",
+        "type": "TEXT",
+        "msg": "myDf: org.apache.spark.sql.DataFrame \u003d [id: int, col_a: string, col_b: double, col_c: boolean]\nres149: org.apache.spark.sql.DataFrame \u003d [result: string]\n"
+      },
+      "dateCreated": "Apr 17, 2016 6:26:47 PM",
+      "dateStarted": "Apr 30, 2016 1:54:12 PM",
+      "dateFinished": "Apr 30, 2016 1:54:13 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "// Let\u0027s see what was stored in Hive, using SQL\r\nsql(\"DESCRIBE df_training.my_df\").show",
+      "authenticationInfo": {},
+      "dateUpdated": "Apr 17, 2016 6:28:19 PM",
+      "config": {
+        "colWidth": 12.0,
+        "graph": {
+          "mode": "table",
+          "height": 300.0,
+          "optionOpen": false,
+          "keys": [],
+          "values": [],
+          "groups": [],
+          "scatter": {}
+        },
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "jobName": "paragraph_1460917639573_418828771",
+      "id": "20160417-182719_1735523897",
+      "result": {
+        "code": "SUCCESS",
+        "type": "TEXT",
+        "msg": "+--------+---------+-------+\n|col_name|data_type|comment|\n+--------+---------+-------+\n|      id|      int|       |\n|   col_a|   string|       |\n|   col_b|   double|       |\n|   col_c|  boolean|       |\n+--------+---------+-------+\n\n"
+      },
+      "dateCreated": "Apr 17, 2016 6:27:19 PM",
+      "dateStarted": "Apr 17, 2016 6:28:19 PM",
+      "dateFinished": "Apr 17, 2016 6:28:19 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "// Show the query to create the table\nz.show(sql(\"SHOW CREATE TABLE df_training.my_df\"))",
+      "authenticationInfo": {},
+      "dateUpdated": "Apr 30, 2016 1:54:22 PM",
+      "config": {
+        "colWidth": 12.0,
+        "graph": {
+          "mode": "table",
+          "height": 300.0,
+          "optionOpen": false,
+          "keys": [],
+          "values": [],
+          "groups": [],
+          "scatter": {}
+        },
+        "enabled": true,
+        "editorMode": "ace/mode/scala"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "jobName": "paragraph_1460917699227_1498742313",
+      "id": "20160417-182819_37785213",
+      "result": {
+        "code": "SUCCESS",
+        "type": "TABLE",
+        "msg": "result\nCREATE TABLE `df_training.my_df`(\n  `id` int COMMENT \u0027\u0027, \n  `col_a` string COMMENT \u0027\u0027, \n  `col_b` double COMMENT \u0027\u0027, \n  `col_c` boolean COMMENT \u0027\u0027)\nROW FORMAT SERDE \n  \u0027org.apache.hadoop.hive.ql.io.parquet.serde.ParquetHiveSerDe\u0027 \nWITH SERDEPROPERTIES ( \n  \u0027path\u0027\u003d\u0027file:/user/hive/warehouse/df_training.db/my_df\u0027) \nSTORED AS INPUTFORMAT \n  \u0027org.apache.hadoop.hive.ql.io.parquet.MapredParquetInputFormat\u0027 \nOUTPUTFORMAT \n  \u0027org.apache.hadoop.hive.ql.io.parquet.MapredParquetOutputFormat\u0027\nLOCATION\n  \u0027file:/user/hive/warehouse/df_training.db/my_df\u0027\nTBLPROPERTIES (\n  \u0027COLUMN_STATS_ACCURATE\u0027\u003d\u0027false\u0027, \n  \u0027EXTERNAL\u0027\u003d\u0027FALSE\u0027, \n  \u0027numFiles\u0027\u003d\u00274\u0027, \n  \u0027numRows\u0027\u003d\u0027-1\u0027, \n  \u0027rawDataSize\u0027\u003d\u0027-1\u0027, \n  \u0027spark.sql.sources.provider\u0027\u003d\u0027org.apache.spark.sql.parquet\u0027, \n  \u0027spark.sql.sources.schema.numParts\u0027\u003d\u00271\u0027, \n  \u0027spark.sql.sources.schema.part.0\u0027\u003d\u0027{\\\"type\\\":\\\"struct\\\",\\\"fields\\\":[{\\\"name\\\":\\\"id\\\",\\\"type\\\":\\\"integer\\\",\\\"nullable\\\":true,\\\"metadata\\\":{}},{\\\"name\\\":\\\"col_a\\\",\\\"type\\\":\\\"string\\\",\\\"nullable\\\":true,\\\"metadata\\\":{}},{\\\"name\\\":\\\"col_b\\\",\\\"type\\\":\\\"double\\\",\\\"nullable\\\":true,\\\"metadata\\\":{}},{\\\"name\\\":\\\"col_c\\\",\\\"type\\\":\\\"boolean\\\",\\\"nullable\\\":true,\\\"metadata\\\":{}}]}\u0027, \n  \u0027totalSize\u0027\u003d\u00273049\u0027, \n  \u0027transient_lastDdlTime\u0027\u003d\u00271462024452\u0027)\n"
+      },
+      "dateCreated": "Apr 17, 2016 6:28:19 PM",
+      "dateStarted": "Apr 30, 2016 1:54:22 PM",
+      "dateFinished": "Apr 30, 2016 1:54:23 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "// Get the table as a DF\r\nval myTable \u003d sqlContext.table(\"df_training.my_df\")\r\n// Is equivalent to this (note that the execution plans might not be exactly the same)\r\nval myTableSql \u003d sql(\"SELECT * FROM df_training.my_df\")\r\nmyTableSql.show",
+      "authenticationInfo": {},
+      "dateUpdated": "Apr 17, 2016 6:29:54 PM",
+      "config": {
+        "colWidth": 12.0,
+        "graph": {
+          "mode": "table",
+          "height": 300.0,
+          "optionOpen": false,
+          "keys": [],
+          "values": [],
+          "groups": [],
+          "scatter": {}
+        },
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "jobName": "paragraph_1460917713668_755022689",
+      "id": "20160417-182833_1268336290",
+      "result": {
+        "code": "SUCCESS",
+        "type": "TEXT",
+        "msg": "myTable: org.apache.spark.sql.DataFrame \u003d [id: int, col_a: string, col_b: double, col_c: boolean]\nmyTableSql: org.apache.spark.sql.DataFrame \u003d [id: int, col_a: string, col_b: double, col_c: boolean]\n+---+-----+------+-----+\n| id|col_a| col_b|col_c|\n+---+-----+------+-----+\n|  3|    b|321.09| true|\n|  2| null|  -1.3|false|\n|  1|    a|   5.0| true|\n+---+-----+------+-----+\n\n"
+      },
+      "dateCreated": "Apr 17, 2016 6:28:33 PM",
+      "dateStarted": "Apr 17, 2016 6:29:54 PM",
+      "dateFinished": "Apr 17, 2016 6:29:54 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "config": {},
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "jobName": "paragraph_1460917794577_1455924627",
+      "id": "20160417-182954_1790027075",
+      "dateCreated": "Apr 17, 2016 6:29:54 PM",
+      "status": "READY",
+      "progressUpdateIntervalMs": 500
+    }
+  ],
+  "name": "Intro to DataFrames - 3 Actions",
+  "id": "2BJFVHAMG",
+  "angularObjects": {
+    "2BKYPESN5": [],
+    "2BH1HN1YM": [],
+    "2BH8FKXN5": [],
+    "2BJY1F3F5": [],
+    "2BGQW6CTN": [],
+    "2BKMXERWY": [],
+    "2BJ7YMSDX": [],
+    "2BGZ7XWXF": [],
+    "2BJE5NCK6": [],
+    "2BH3QPUEJ": [],
+    "2BMDAZN5C": [],
+    "2BKY8V4U1": [],
+    "2BMAQG5R9": [],
+    "2BKYEJJWM": [],
+    "2BJDUFZ8Y": [],
+    "2BMDX1KHS": [],
+    "2BKJQTF89": [],
+    "2BMCV5U6S": []
+  },
+  "config": {},
+  "info": {}
+}

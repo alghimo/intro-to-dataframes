@@ -1,0 +1,352 @@
+{
+  "paragraphs": [
+    {
+      "text": "%md\n### Classes and Objects\n\nWhen using Scala with Spark, you will probably use Objects more often than Classes. In short, Objects are used as factories / helpers, whereas classes represent things that usually have an equivalent in the real world, defining its properties (attributes) and behaviours (methods).\nEven though classes are really good to define a clean way of interacting with your instances (you can just expose what\u0027s necessary), they can also cause issues in the context of distributed computing, so most of the times, you\u0027ll find that it\u0027s easier to work only with case classes and objects.\n\n#### Class\nDefining a class in Scala is quite simple:\n\n```\nclass MyClass(attr1: Int, attr2: Int) {\n   private val myPrivateVal \u003d attr1 + 1\n   protected var myProtectedVar \u003d attr2 \u003e 5\n   val somethingPublic \u003d 123.4\n   lazy val myLazyValue \u003d attr1 * attr2\n   \n   def isValid() \u003d {\n      attr1 \u003c attr2\n   }\n}\n```\n\n#### Extending classes\nYou can extend classes by using extend. \n```\nclass Person(name: String, working: Boolean, profession: String) {\n  def available() \u003d {\n     !working\n  }\n\n  def toString() \u003d {\n    s\"$name is a $profession\"\n  }\n}\n\nclass Plumber(name: String, isWorking: Boolean) extends Person(name, true, \"plumber\")\nclass Student(name: String) extends Person(name, false, \"student\") {\n  // You can override methods from the parent class with the \"override\" keyword\n  override def available() \u003d {\n    false\n  }\n}\n\nval jane \u003d new Person(\"Jane\", false, \"teacher\")\nval jack \u003d new Plumber(\"Jack\", true)\nval foo \u003d new Student(\"Foo Bar\")\n```\n\n#### Object\nUnlike classes, objects can not be instantiated (they\u0027re equivalent to singleton classes in other languages). One of the most common use cases for objects within the context of Spark is to have helper methods.\n\nThe other, that you\u0027ll see often both in Scala and Spark, is to have factory methods. One of the features that scala has is what are called **Companion Objects**. When you define a Class, you can defined an Object with the exact same name, and declare the \"apply\" method, that will return an instance of the class. You can declare multiple apply methods with different signatures. You should also define any method that is not \"instance specific\" but \"class specific\" into the companion object. In other languages, this would mean that the companion object defines the *static* methods and attributes of the class.\n\nHowever, usually using companion objects and classes doesn\u0027t work if you are in a REPL environment, notebook or similar, but it is quite useful when packaging libraries.\n\n**TIP**: When you browse the Scala docs for a class, if you want to check the companion object\u0027s docs (if there\u0027s any), you can just add a $ sign at the end of the URL. Ex:\n\u003chttp://www.scala-lang.org/api/2.10.6/index.html#scala.collection.immutable.List\u003e\n\u003chttp://www.scala-lang.org/api/2.10.6/index.html#scala.collection.immutable.List$\u003e",
+      "authenticationInfo": {},
+      "dateUpdated": "May 1, 2016 10:46:41 AM",
+      "config": {
+        "colWidth": 12.0,
+        "graph": {
+          "mode": "table",
+          "height": 300.0,
+          "optionOpen": false,
+          "keys": [],
+          "values": [],
+          "groups": [],
+          "scatter": {}
+        },
+        "enabled": true,
+        "editorMode": "ace/mode/scala",
+        "editorHide": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "jobName": "paragraph_1460821599856_-1202568659",
+      "id": "20160416-154639_962700999",
+      "result": {
+        "code": "SUCCESS",
+        "type": "HTML",
+        "msg": "\u003ch3\u003eClasses and Objects\u003c/h3\u003e\n\u003cp\u003eWhen using Scala with Spark, you will probably use Objects more often than Classes. In short, Objects are used as factories / helpers, whereas classes represent things that usually have an equivalent in the real world, defining its properties (attributes) and behaviours (methods).\n\u003cbr  /\u003eEven though classes are really good to define a clean way of interacting with your instances (you can just expose what\u0027s necessary), they can also cause issues in the context of distributed computing, so most of the times, you\u0027ll find that it\u0027s easier to work only with case classes and objects.\u003c/p\u003e\n\u003ch4\u003eClass\u003c/h4\u003e\n\u003cp\u003eDefining a class in Scala is quite simple:\u003c/p\u003e\n\u003cpre\u003e\u003ccode\u003eclass MyClass(attr1: Int, attr2: Int) {\n   private val myPrivateVal \u003d attr1 + 1\n   protected var myProtectedVar \u003d attr2 \u0026gt; 5\n   val somethingPublic \u003d 123.4\n   lazy val myLazyValue \u003d attr1 * attr2\n\n   def isValid() \u003d {\n      attr1 \u0026lt; attr2\n   }\n}\n\u003c/code\u003e\u003c/pre\u003e\n\u003ch4\u003eExtending classes\u003c/h4\u003e\n\u003cp\u003eYou can extend classes by using extend.\u003c/p\u003e\n\u003cpre\u003e\u003ccode\u003eclass Person(name: String, working: Boolean, profession: String) {\n  def available() \u003d {\n     !working\n  }\n\n  def toString() \u003d {\n    s\"$name is a $profession\"\n  }\n}\n\nclass Plumber(name: String, isWorking: Boolean) extends Person(name, true, \"plumber\")\nclass Student(name: String) extends Person(name, false, \"student\") {\n  // You can override methods from the parent class with the \"override\" keyword\n  override def available() \u003d {\n    false\n  }\n}\n\nval jane \u003d new Person(\"Jane\", false, \"teacher\")\nval jack \u003d new Plumber(\"Jack\", true)\nval foo \u003d new Student(\"Foo Bar\")\n\u003c/code\u003e\u003c/pre\u003e\n\u003ch4\u003eObject\u003c/h4\u003e\n\u003cp\u003eUnlike classes, objects can not be instantiated (they\u0027re equivalent to singleton classes in other languages). One of the most common use cases for objects within the context of Spark is to have helper methods.\u003c/p\u003e\n\u003cp\u003eThe other, that you\u0027ll see often both in Scala and Spark, is to have factory methods. One of the features that scala has is what are called \u003cstrong\u003eCompanion Objects\u003c/strong\u003e. When you define a Class, you can defined an Object with the exact same name, and declare the \u0026ldquo;apply\u0026rdquo; method, that will return an instance of the class. You can declare multiple apply methods with different signatures. You should also define any method that is not \u0026ldquo;instance specific\u0026rdquo; but \u0026ldquo;class specific\u0026rdquo; into the companion object. In other languages, this would mean that the companion object defines the \u003cem\u003estatic\u003c/em\u003e methods and attributes of the class.\u003c/p\u003e\n\u003cp\u003eHowever, usually using companion objects and classes doesn\u0027t work if you are in a REPL environment, notebook or similar, but it is quite useful when packaging libraries.\u003c/p\u003e\n\u003cp\u003e\u003cstrong\u003eTIP\u003c/strong\u003e: When you browse the Scala docs for a class, if you want to check the companion object\u0027s docs (if there\u0027s any), you can just add a $ sign at the end of the URL. Ex:\n\u003cbr  /\u003e\u003ca href\u003d\"http://www.scala-lang.org/api/2.10.6/index.html#scala.collection.immutable.List\"\u003ehttp://www.scala-lang.org/api/2.10.6/index.html#scala.collection.immutable.List\u003c/a\u003e\n\u003cbr  /\u003e\u003ca href\u003d\"http://www.scala-lang.org/api/2.10.6/index.html#scala.collection.immutable.List$\"\u003ehttp://www.scala-lang.org/api/2.10.6/index.html#scala.collection.immutable.List$\u003c/a\u003e\u003c/p\u003e\n"
+      },
+      "dateCreated": "Apr 16, 2016 3:46:39 PM",
+      "dateStarted": "May 1, 2016 10:46:27 AM",
+      "dateFinished": "May 1, 2016 10:46:27 AM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "class Foo(name: String, age: Option[Int], gender: Option[Char]) {\n    override def toString() \u003d {\n        List(\"Name: \", name, \"Age: \", age.getOrElse(\"?\").toString, \"Gender: \", gender.getOrElse(\"?\").toString).filter(_ !\u003d \"\").mkString(\" \")\n    }\n}\nobject FooFactory {\n    def apply(name: String) \u003d {\n        new Foo(name, age\u003dNone, gender\u003dNone)\n    }\n    \n    def apply(name: String, age: Int) \u003d {\n        new Foo(name, Some(age), gender\u003dNone)\n    }\n    \n    def apply(name: String, gender: Char) \u003d {\n        new Foo(name, None, Some(gender))\n    }\n    \n    def apply(name: String, age: Int, gender: Char) \u003d {\n        new Foo(name, Some(age), Some(gender))\n    }\n    \n    def apply(age: Int) \u003d {\n        new Foo(\"J. Doe\", Some(age), gender\u003dNone)\n    }\n    \n    def apply(gender: Char) \u003d {\n        new Foo(\"J. Doe\", age\u003dNone, gender\u003dSome(gender))\n    }\n}\n\nval foo  \u003d new Foo(\"foo\", Some(30), Some(\u0027m\u0027))\nval foo2 \u003d FooFactory(\"foo\", age\u003d30, gender\u003d\u0027m\u0027)\nval foo3 \u003d FooFactory(\"foo\")\nval foo4 \u003d FooFactory(\"foo\", \u0027f\u0027)\nval foo5 \u003d FooFactory(\"foo\", age\u003d13)\nval foo6 \u003d FooFactory(age\u003d25)\nval foo7 \u003d FooFactory(gender\u003d\u0027f\u0027)",
+      "authenticationInfo": {},
+      "dateUpdated": "Apr 16, 2016 3:47:25 PM",
+      "config": {
+        "colWidth": 12.0,
+        "graph": {
+          "mode": "table",
+          "height": 300.0,
+          "optionOpen": false,
+          "keys": [],
+          "values": [],
+          "groups": [],
+          "scatter": {}
+        },
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "jobName": "paragraph_1460821624087_1448213345",
+      "id": "20160416-154704_14960210",
+      "result": {
+        "code": "SUCCESS",
+        "type": "TEXT",
+        "msg": "defined class Foo\ndefined module FooFactory\nwarning: previously defined object Foo is not a companion to class Foo.\nCompanions must be defined together; you may wish to use :paste mode for this.\nfoo: Foo \u003d Name:  foo Age:  30 Gender:  m\nfoo2: Foo \u003d Name:  foo Age:  30 Gender:  m\nfoo3: Foo \u003d Name:  foo Age:  ? Gender:  ?\nfoo4: Foo \u003d Name:  foo Age:  ? Gender:  f\nfoo5: Foo \u003d Name:  foo Age:  13 Gender:  ?\nfoo6: Foo \u003d Name:  J. Doe Age:  25 Gender:  ?\nfoo7: Foo \u003d Name:  J. Doe Age:  ? Gender:  f\n"
+      },
+      "dateCreated": "Apr 16, 2016 3:47:04 PM",
+      "dateStarted": "Apr 16, 2016 3:47:25 PM",
+      "dateFinished": "Apr 16, 2016 3:47:26 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%md\n#### Traits\nTraits are closely related to classes, and if you come from OOP, they are similar to Interfaces, with the difference that you can define behaviour inside them.\nThey are useful to represent behaviour and properties that can then be used by different classes. It\u0027s also the way Scala provides to implement some sort of multiple inheritance. You can\u0027t extend more than one class, but you can extend one class and mix in multiple traits, so the end result is pretty similar to multiple inheritance. The difference is that Traits can\u0027t implement constructor argument themselves.\n\n---\nA good explanation about why you should avoid using \"val\" in traits:\n\u003chttp://stackoverflow.com/questions/19642053/when-to-use-val-or-def-in-scala-traits\u003e",
+      "authenticationInfo": {},
+      "dateUpdated": "May 1, 2016 10:48:18 AM",
+      "config": {
+        "colWidth": 12.0,
+        "graph": {
+          "mode": "table",
+          "height": 300.0,
+          "optionOpen": false,
+          "keys": [],
+          "values": [],
+          "groups": [],
+          "scatter": {}
+        },
+        "enabled": true,
+        "editorHide": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "jobName": "paragraph_1460821645171_782997821",
+      "id": "20160416-154725_1997536725",
+      "result": {
+        "code": "SUCCESS",
+        "type": "HTML",
+        "msg": "\u003ch4\u003eTraits\u003c/h4\u003e\n\u003cp\u003eTraits are closely related to classes, and if you come from OOP, they are similar to Interfaces, with the difference that you can define behaviour inside them.\n\u003cbr  /\u003eThey are useful to represent behaviour and properties that can then be used by different classes. It\u0027s also the way Scala provides to implement some sort of multiple inheritance. You can\u0027t extend more than one class, but you can extend one class and mix in multiple traits, so the end result is pretty similar to multiple inheritance. The difference is that Traits can\u0027t implement constructor argument themselves.\u003c/p\u003e\n\u003chr /\u003e\n\u003cp\u003eA good explanation about why you should avoid using \u0026ldquo;val\u0026rdquo; in traits:\n\u003cbr  /\u003e\u003ca href\u003d\"http://stackoverflow.com/questions/19642053/when-to-use-val-or-def-in-scala-traits\"\u003ehttp://stackoverflow.com/questions/19642053/when-to-use-val-or-def-in-scala-traits\u003c/a\u003e\u003c/p\u003e\n"
+      },
+      "dateCreated": "Apr 16, 2016 3:47:25 PM",
+      "dateStarted": "May 1, 2016 10:48:15 AM",
+      "dateFinished": "May 1, 2016 10:48:15 AM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "trait Sound {\n  // This is an abstract method, that has to be implemented in the class that uses the trait\n  def makeSound(): String\n  // This is an abstract property. Don\u0027t use \"val\" in traits, it can cause unexpected behaviours in classes \n  def soundName: String\n}\n\nclass Animal(name: String)\nclass Dog extends Animal(\"dog\") with Sound {\n    override def makeSound() \u003d {\n        \"woof!\"\n    }\n    \n    override def soundName \u003d \"bark\"\n}\n\nclass Motorbike extends Sound {\n    override def makeSound() \u003d {\n        \"vroom vroom!\"\n    }\n    override def soundName \u003d \"noise\"\n}",
+      "authenticationInfo": {},
+      "dateUpdated": "May 1, 2016 10:49:44 AM",
+      "config": {
+        "colWidth": 12.0,
+        "graph": {
+          "mode": "table",
+          "height": 300.0,
+          "optionOpen": false,
+          "keys": [],
+          "values": [],
+          "groups": [],
+          "scatter": {}
+        },
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "jobName": "paragraph_1460821659377_-2063743967",
+      "id": "20160416-154739_162664922",
+      "result": {
+        "code": "SUCCESS",
+        "type": "TEXT",
+        "msg": "defined trait Sound\ndefined class Animal\ndefined class Dog\ndefined class Motorbike\n"
+      },
+      "dateCreated": "Apr 16, 2016 3:47:39 PM",
+      "dateStarted": "May 1, 2016 10:49:44 AM",
+      "dateFinished": "May 1, 2016 10:49:44 AM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%md\n#### Lazy Values\nA very nice feature of Scala is laziness. Having a lazy value means that you define how to calculate that value, but nothing will happen until you actually use the value. This can save memory and time, for instance, when you develop libraries, where some of the features will not always be used.",
+      "authenticationInfo": {},
+      "dateUpdated": "May 1, 2016 10:51:04 AM",
+      "config": {
+        "colWidth": 12.0,
+        "graph": {
+          "mode": "table",
+          "height": 300.0,
+          "optionOpen": false,
+          "keys": [],
+          "values": [],
+          "groups": [],
+          "scatter": {}
+        },
+        "enabled": true,
+        "editorHide": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "jobName": "paragraph_1460821667730_-784053801",
+      "id": "20160416-154747_777503013",
+      "result": {
+        "code": "SUCCESS",
+        "type": "HTML",
+        "msg": "\u003ch4\u003eLazy Values\u003c/h4\u003e\n\u003cp\u003eA very nice feature of Scala is laziness. Having a lazy value means that you define how to calculate that value, but nothing will happen until you actually use the value. This can save memory and time, for instance, when you develop libraries, where some of the features will not always be used.\u003c/p\u003e\n"
+      },
+      "dateCreated": "Apr 16, 2016 3:47:47 PM",
+      "dateStarted": "May 1, 2016 10:51:01 AM",
+      "dateFinished": "May 1, 2016 10:51:01 AM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "class A {\n    val a \u003d {\n        Thread.sleep(2000)\n        1\n    }\n}\n\nclass B {\n    lazy val b \u003d {\n        Thread.sleep(2000)\n        1\n    }\n}\n\nval startA \u003d System.currentTimeMillis\nval a \u003d new A()\nval endA \u003d System.currentTimeMillis\nprintln(\"Creating an instance of A took: \" + (endA - startA))\n\nval startB \u003d System.currentTimeMillis\nval b \u003d new B()\nval endB \u003d System.currentTimeMillis\nprintln(\"Creating an instance of B took: \" + (endB - startB))",
+      "authenticationInfo": {},
+      "dateUpdated": "Apr 16, 2016 3:48:25 PM",
+      "config": {
+        "colWidth": 12.0,
+        "graph": {
+          "mode": "table",
+          "height": 300.0,
+          "optionOpen": false,
+          "keys": [],
+          "values": [],
+          "groups": [],
+          "scatter": {}
+        },
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "jobName": "paragraph_1460821687160_-912929358",
+      "id": "20160416-154807_761418468",
+      "result": {
+        "code": "SUCCESS",
+        "type": "TEXT",
+        "msg": "defined class A\ndefined class B\nstartA: Long \u003d 1460821705624\na: A \u003d $iwC$$iwC$$iwC$$iwC$$iwC$A@f0422b7\nendA: Long \u003d 1460821707866\nCreating an instance of A took: 2242\nstartB: Long \u003d 1460821708159\nb: B \u003d $iwC$$iwC$$iwC$$iwC$$iwC$B@3b3660cb\nendB: Long \u003d 1460821708388\nCreating an instance of B took: 229\n"
+      },
+      "dateCreated": "Apr 16, 2016 3:48:07 PM",
+      "dateStarted": "Apr 16, 2016 3:48:25 PM",
+      "dateFinished": "Apr 16, 2016 3:48:28 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%md\nYes, the example doesn\u0027t make much sense (why would you want to sleep when initializing a value?). Just imagine that instead of the \"Thread.sleep\", you are connecting to some external system or performing an expensive action, such as a DB, a REST Api, etc..\nThese operations take time, and after all, maybe the user will not always be using the vals you have defined.",
+      "authenticationInfo": {},
+      "dateUpdated": "May 1, 2016 10:51:52 AM",
+      "config": {
+        "colWidth": 12.0,
+        "graph": {
+          "mode": "table",
+          "height": 300.0,
+          "optionOpen": false,
+          "keys": [],
+          "values": [],
+          "groups": [],
+          "scatter": {}
+        },
+        "enabled": true,
+        "editorHide": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "jobName": "paragraph_1460821705318_-1059656607",
+      "id": "20160416-154825_1670193508",
+      "result": {
+        "code": "SUCCESS",
+        "type": "HTML",
+        "msg": "\u003cp\u003eYes, the example doesn\u0027t make much sense (why would you want to sleep when initializing a value?). Just imagine that instead of the \u0026ldquo;Thread.sleep\u0026rdquo;, you are connecting to some external system or performing an expensive action, such as a DB, a REST Api, etc..\n\u003cbr  /\u003eThese operations take time, and after all, maybe the user will not always be using the vals you have defined.\u003c/p\u003e\n"
+      },
+      "dateCreated": "Apr 16, 2016 3:48:25 PM",
+      "dateStarted": "May 1, 2016 10:51:50 AM",
+      "dateFinished": "May 1, 2016 10:51:50 AM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%md\n### Namespaces in Scala\n\nNamespaces in Scala work in a very similar way to Java.\n\nNote that this will only work if you intend to package your code into jar files (not in the REPL / Shell).\n\n```\npackage org.foo.bar\n\nclass MyClass {}\n```\n\nThe fully qualified name of \"MyClass\" will be *org.foo.bar.MyClass*, which is the name you have to write to use it (unless the code is inside the same package)\n```\nval myClass \u003d new org.foo.bar.MyClass()\n```\n\nWhen you want use a class from a different package, you should import it before, so you don\u0027t have to write the fully qualified name.\n```\nimport org.foo.bar.MyClass\n\nval myClass \u003d new MyClass()\n```\n\nYou can also import a class / object / package with an alias:\n```\nimport org.foo.bar.{MyClass \u003d\u003e FooClass}\nval myClass \u003d new FooClass\n```\n\nIf you want to import multiple elements:\n```\nimport org.foo.bar.{MyClass, SomethingElse}\n```\n\nThe \"_\" operator will import everything from the package. **IMPORTANT**: Don\u0027t use it by default, try to import only what you need!\n```\nimport org.foo.bar._\n```\n\nFinally, you can use imports to put methods or values from objects into the current scope",
+      "authenticationInfo": {},
+      "dateUpdated": "May 1, 2016 10:53:13 AM",
+      "config": {
+        "colWidth": 12.0,
+        "graph": {
+          "mode": "table",
+          "height": 300.0,
+          "optionOpen": false,
+          "keys": [],
+          "values": [],
+          "groups": [],
+          "scatter": {}
+        },
+        "enabled": true,
+        "editorHide": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "jobName": "paragraph_1460821719599_-1826461165",
+      "id": "20160416-154839_48675935",
+      "result": {
+        "code": "SUCCESS",
+        "type": "HTML",
+        "msg": "\u003ch3\u003eNamespaces in Scala\u003c/h3\u003e\n\u003cp\u003eNamespaces in Scala work in a very similar way to Java.\u003c/p\u003e\n\u003cp\u003eNote that this will only work if you intend to package your code into jar files (not in the REPL / Shell).\u003c/p\u003e\n\u003cpre\u003e\u003ccode\u003epackage org.foo.bar\n\nclass MyClass {}\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003eThe fully qualified name of \u0026ldquo;MyClass\u0026rdquo; will be \u003cem\u003eorg.foo.bar.MyClass\u003c/em\u003e, which is the name you have to write to use it (unless the code is inside the same package)\u003c/p\u003e\n\u003cpre\u003e\u003ccode\u003eval myClass \u003d new org.foo.bar.MyClass()\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003eWhen you want use a class from a different package, you should import it before, so you don\u0027t have to write the fully qualified name.\u003c/p\u003e\n\u003cpre\u003e\u003ccode\u003eimport org.foo.bar.MyClass\n\nval myClass \u003d new MyClass()\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003eYou can also import a class / object / package with an alias:\u003c/p\u003e\n\u003cpre\u003e\u003ccode\u003eimport org.foo.bar.{MyClass \u003d\u0026gt; FooClass}\nval myClass \u003d new FooClass\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003eIf you want to import multiple elements:\u003c/p\u003e\n\u003cpre\u003e\u003ccode\u003eimport org.foo.bar.{MyClass, SomethingElse}\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003eThe \u0026ldquo;_\u0026rdquo; operator will import everything from the package. \u003cstrong\u003eIMPORTANT\u003c/strong\u003e: Don\u0027t use it by default, try to import only what you need!\u003c/p\u003e\n\u003cpre\u003e\u003ccode\u003eimport org.foo.bar._\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003eFinally, you can use imports to put methods or values from objects into the current scope\u003c/p\u003e\n"
+      },
+      "dateCreated": "Apr 16, 2016 3:48:39 PM",
+      "dateStarted": "May 1, 2016 10:53:11 AM",
+      "dateFinished": "May 1, 2016 10:53:11 AM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "object MyFancyObject {\n    val someValue \u003d 5\n    \n    def doSomething(n: Int) \u003d n * someValue\n}\n\ndef myFunction(n: Int) \u003d {\n    MyFancyObject.doSomething(n + 1)\n}\n\nmyFunction(1)\n\ndef anotherFunction(n: Int) \u003d {\n    import MyFancyObject.doSomething\n    \n    doSomething(n + 1)\n}\n\nanotherFunction(1)\n",
+      "authenticationInfo": {},
+      "dateUpdated": "Apr 16, 2016 3:49:19 PM",
+      "config": {
+        "colWidth": 12.0,
+        "graph": {
+          "mode": "table",
+          "height": 300.0,
+          "optionOpen": false,
+          "keys": [],
+          "values": [],
+          "groups": [],
+          "scatter": {}
+        },
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "jobName": "paragraph_1460821738469_-635617346",
+      "id": "20160416-154858_1032946213",
+      "result": {
+        "code": "SUCCESS",
+        "type": "TEXT",
+        "msg": "defined module MyFancyObject\nmyFunction: (n: Int)Int\nres350: Int \u003d 10\nanotherFunction: (n: Int)Int\nres351: Int \u003d 10\n"
+      },
+      "dateCreated": "Apr 16, 2016 3:48:58 PM",
+      "dateStarted": "Apr 16, 2016 3:49:19 PM",
+      "dateFinished": "Apr 16, 2016 3:49:20 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "config": {},
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "jobName": "paragraph_1462092460297_1495406448",
+      "id": "20160501-084740_204400448",
+      "dateCreated": "May 1, 2016 8:47:40 AM",
+      "status": "READY",
+      "progressUpdateIntervalMs": 500
+    }
+  ],
+  "name": "Intro to Scala - 3: OOP Basics in Scala",
+  "id": "2BGZKZQZB",
+  "angularObjects": {
+    "2BKKGWMY9": [],
+    "2BM7XR6U7": [],
+    "2BHDGC5ZB": [],
+    "2BMJ1ZTKR": [],
+    "2BKYVCNSD": [],
+    "2BM72GFDU": [],
+    "2BM74FBTQ": [],
+    "2BHW3NPVE": [],
+    "2BHZKEE9C": [],
+    "2BM158R3T": [],
+    "2BKMHR2WT": [],
+    "2BK19VD7Y": [],
+    "2BJ72E96T": [],
+    "2BMMM996X": [],
+    "2BKUMG5KZ": [],
+    "2BGQNK6A7": [],
+    "2BH3HCFEG": [],
+    "2BHU5HPQK": []
+  },
+  "config": {},
+  "info": {}
+}

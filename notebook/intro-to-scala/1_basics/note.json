@@ -1,0 +1,841 @@
+{
+  "paragraphs": [
+    {
+      "text": "%md\n### Declaring Variables\n#### val: Immutable variable\nUsing val will make the variable immutable, which means that if you try to reassign a value to it, you\u0027ll get an error.\n```\nval myInt \u003d 1\nval myShort: Short \u003d 2\nval bigNumber \u003d 1L\nval someString \u003d \"foo\"\n// If now you try something like this, you\u0027ll get an error message\nval myInt \u003d 2\n```\n\n#### var: Mutable variable\nIf you ever need a mutable variable, you can use **var**\n```\nvar someCondition \u003d false\n// We can change the value of someCondition\nsomeCondition \u003d true\n```\n\n---\n**IMPORTANT**\n\nThink twice before blindly using var everywhere. It is highly recommended to use **val** whenever it is possible.\nFor simple code, it doesn\u0027t really matter, but using immutable variables helps a lot in preventing bugs, improving code quality in general, and avoiding multithreading issues.\n\nIf you are interested, here\u0027s a deeper explanation in a Stack Overflow answer:\n\u003chttp://stackoverflow.com/questions/1791408/what-is-the-difference-between-a-var-and-val-definition-in-scala\u003e",
+      "authenticationInfo": {},
+      "dateUpdated": "Apr 16, 2016 3:28:57 PM",
+      "config": {
+        "colWidth": 12.0,
+        "graph": {
+          "mode": "table",
+          "height": 300.0,
+          "optionOpen": false,
+          "keys": [],
+          "values": [],
+          "groups": [],
+          "scatter": {}
+        },
+        "enabled": true,
+        "editorHide": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "jobName": "paragraph_1460820023011_-1158959573",
+      "id": "20160416-152023_1056202473",
+      "result": {
+        "code": "SUCCESS",
+        "type": "HTML",
+        "msg": "\u003ch3\u003eDeclaring Variables\u003c/h3\u003e\n\u003ch4\u003eval: Immutable variable\u003c/h4\u003e\n\u003cp\u003eUsing val will make the variable immutable, which means that if you try to reassign a value to it, you\u0027ll get an error.\u003c/p\u003e\n\u003cpre\u003e\u003ccode\u003eval myInt \u003d 1\nval myShort: Short \u003d 2\nval bigNumber \u003d 1L\nval someString \u003d \"foo\"\n// If now you try something like this, you\u0027ll get an error message\nval myInt \u003d 2\n\u003c/code\u003e\u003c/pre\u003e\n\u003ch4\u003evar: Mutable variable\u003c/h4\u003e\n\u003cp\u003eIf you ever need a mutable variable, you can use \u003cstrong\u003evar\u003c/strong\u003e\u003c/p\u003e\n\u003cpre\u003e\u003ccode\u003evar someCondition \u003d false\n// We can change the value of someCondition\nsomeCondition \u003d true\n\u003c/code\u003e\u003c/pre\u003e\n\u003chr /\u003e\n\u003cp\u003e\u003cstrong\u003eIMPORTANT\u003c/strong\u003e\u003c/p\u003e\n\u003cp\u003eThink twice before blindly using var everywhere. It is highly recommended to use \u003cstrong\u003eval\u003c/strong\u003e whenever it is possible.\n\u003cbr  /\u003eFor simple code, it doesn\u0027t really matter, but using immutable variables helps a lot in preventing bugs, improving code quality in general, and avoiding multithreading issues.\u003c/p\u003e\n\u003cp\u003eIf you are interested, here\u0027s a deeper explanation in a Stack Overflow answer:\n\u003cbr  /\u003e\u003ca href\u003d\"http://stackoverflow.com/questions/1791408/what-is-the-difference-between-a-var-and-val-definition-in-scala\"\u003ehttp://stackoverflow.com/questions/1791408/what-is-the-difference-between-a-var-and-val-definition-in-scala\u003c/a\u003e\u003c/p\u003e\n"
+      },
+      "dateCreated": "Apr 16, 2016 3:20:23 PM",
+      "dateStarted": "Apr 16, 2016 3:28:57 PM",
+      "dateFinished": "Apr 16, 2016 3:28:57 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%md\n### Basic Types\nThe basic Scala types we\u0027ll introduce should already sound familiar, with a few exceptions. In most cases, Scala will be able to infer the type, but sometimes you might want to explicitly define the type of the variable you are creating.\n\nIn some cases, this can improve readibility of your code, and in others, it might actually be needed.\n\n---\n#### Boolean types:\n- **Boolean**: true / false\n\n---\n\n#### Character types\n- **Char**: Character literals. You can create it by using single quotes.\n- **String**: It\u0027s the java.lang.String class. Create it by using double quotes.\n\n---\n\n#### Integer types:\n- **Byte**: 1-byte integer number. Range: -128 to 127 (both included) \n- **Short**: 2-byte integer number. Range: -32768 and 32767 (both included)\n- **Int**: 4-byte integer number. Range: -2147483648 and 2147483647\n- **Integer**: You\u0027ll see this type as well sometimes, but \"Integer\" is actually the java.lang.Integer type.\n- **Long**: 8-byte integer. Range: -9223372036854775808 and 9223372036854775807\n- **BigInt**: Can hold integers of any size, given that there is enough memory. You should rarely need it, but it is good to know it\u0027s there.\n    - \u003chttp://www.scala-lang.org/api/2.10.6/index.html#scala.math.BigInt\u003e\n\n---\n#### Decimal types:\n- **Float**: 4-byte single precision float. Range: -3.4028235E38 to 3.4028235E38\n- **Double**: 8-byte, double precision float. Range -1.7976931348623157E308 to 1.7976931348623157E308\n- **BigDecimal**: Supports any decimal range an type, with custom scale.\n```\nval myDecimal \u003d BigDecimal(123.452)\n// With \"setScale\", we can define the number of decimals we want, and how to round the values.\nmyDecimal.setScale(2, BigDecimal.RoundingMode.HALF_UP)\n// 123.45\nval anotherDecimal \u003d BigDecimal(16.66666)\nanotherDecimal.setScale(2, BigDecimal.RoundingMode.HALF_UP)\n// 16.67\n```\n    - \u003chttp://www.scala-lang.org/api/2.10.6/index.html#scala.math.BigDecimal\u003e\n    - \u003chttp://www.scala-lang.org/api/2.10.6/index.html#scala.math.BigDecimal$$RoundingMode$@RoundingMode\u003dscala.math.BigDecimal.RoundingMode.Value\u003e\n\n#### Date types:\nScala has no specific date types, but you can just use the Java types.\n```\nimport java.text.SimpleDateFormat\nimport java.util.Calendar\n\nval now \u003d Calendar.getInstance.getTime\nval hourFormat \u003d new SimpleDateFormat(\"hh\")\nhourFormat.format(now)\n```\n\nFor Spark, it\u0027s important to also take a look at the java.sql types:\n\u003chttps://docs.oracle.com/javase/7/docs/api/java/sql/Date.html\u003e\n\u003chttps://docs.oracle.com/javase/7/docs/api/java/sql/Timestamp.html\u003e\n\n#### Tuples\nEven they are not exactly a primitive type, Tuples are a really important data type in Scala. They are closely related to Maps and to case classes, that we\u0027ll be explaining later.\nIn short, you can thing of a Tuple as a group of values, meaning that, for instance, you could have your function return a tuple containing different values, that can have different types.\n\n\nThe main drawback of tuples, as with arrays, lists, etc is that you need to access the elements based on the index, so your code could become less readable.\nAlso, unlike for arrays, tuples indexes start at 1, and to access an element inside a tuple you need to prefix the index with an underscore.\n\n```\nval myTuple \u003d (1, \"test\", 25.4, true)\nprintln(myTuple._1)\n```\n\n#### Case classes\nCase classes are value objects, but you can think of them as \"tuple with named fields\", if it helps. They are really easy to define and use, and they improve readability of your code when compared to tuples, arrays, lists, etc..\n\n```\ncase class Person(name: String, age: Int, gender: Char, salary: Float)\n\nval john \u003d Person(\"John Doe\", 33, \u0027M\u0027, 1234.5f)\n\ncase class Address(street: String, number: Int, zipCode: String)\nval home \u003d Address(\"foostraat\", 111, \"1-234Z\")\n```",
+      "authenticationInfo": {},
+      "dateUpdated": "May 1, 2016 9:54:29 AM",
+      "config": {
+        "colWidth": 12.0,
+        "graph": {
+          "mode": "table",
+          "height": 300.0,
+          "optionOpen": false,
+          "keys": [],
+          "values": [],
+          "groups": [],
+          "scatter": {}
+        },
+        "enabled": true,
+        "editorHide": true,
+        "editorMode": "ace/mode/markdown"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "jobName": "paragraph_1460820155328_-976387736",
+      "id": "20160416-152235_1781409574",
+      "result": {
+        "code": "SUCCESS",
+        "type": "HTML",
+        "msg": "\u003ch3\u003eBasic Types\u003c/h3\u003e\n\u003cp\u003eThe basic Scala types we\u0027ll introduce should already sound familiar, with a few exceptions. In most cases, Scala will be able to infer the type, but sometimes you might want to explicitly define the type of the variable you are creating.\u003c/p\u003e\n\u003cp\u003eIn some cases, this can improve readibility of your code, and in others, it might actually be needed.\u003c/p\u003e\n\u003chr /\u003e\n\u003ch4\u003eBoolean types:\u003c/h4\u003e\n\u003cul\u003e\n\u003cli\u003e\u003cstrong\u003eBoolean\u003c/strong\u003e: true / false\u003c/li\u003e\n\u003c/ul\u003e\n\u003chr /\u003e\n\u003ch4\u003eCharacter types\u003c/h4\u003e\n\u003cul\u003e\n\u003cli\u003e\u003cstrong\u003eChar\u003c/strong\u003e: Character literals. You can create it by using single quotes.\u003c/li\u003e\n\u003cli\u003e\u003cstrong\u003eString\u003c/strong\u003e: It\u0027s the java.lang.String class. Create it by using double quotes.\u003c/li\u003e\n\u003c/ul\u003e\n\u003chr /\u003e\n\u003ch4\u003eInteger types:\u003c/h4\u003e\n\u003cul\u003e\n\u003cli\u003e\u003cstrong\u003eByte\u003c/strong\u003e: 1-byte integer number. Range: -128 to 127 (both included)\u003c/li\u003e\n\u003cli\u003e\u003cstrong\u003eShort\u003c/strong\u003e: 2-byte integer number. Range: -32768 and 32767 (both included)\u003c/li\u003e\n\u003cli\u003e\u003cstrong\u003eInt\u003c/strong\u003e: 4-byte integer number. Range: -2147483648 and 2147483647\u003c/li\u003e\n\u003cli\u003e\u003cstrong\u003eInteger\u003c/strong\u003e: You\u0027ll see this type as well sometimes, but \u0026ldquo;Integer\u0026rdquo; is actually the java.lang.Integer type.\u003c/li\u003e\n\u003cli\u003e\u003cstrong\u003eLong\u003c/strong\u003e: 8-byte integer. Range: -9223372036854775808 and 9223372036854775807\u003c/li\u003e\n\u003cli\u003e\u003cstrong\u003eBigInt\u003c/strong\u003e: Can hold integers of any size, given that there is enough memory. You should rarely need it, but it is good to know it\u0027s there.\u003cul\u003e\n\u003cli\u003e\u003ca href\u003d\"http://www.scala-lang.org/api/2.10.6/index.html#scala.math.BigInt\"\u003ehttp://www.scala-lang.org/api/2.10.6/index.html#scala.math.BigInt\u003c/a\u003e\u003c/li\u003e\n\u003c/ul\u003e\n\u003c/li\u003e\n\u003c/ul\u003e\n\u003chr /\u003e\n\u003ch4\u003eDecimal types:\u003c/h4\u003e\n\u003cul\u003e\n\u003cli\u003e\u003cstrong\u003eFloat\u003c/strong\u003e: 4-byte single precision float. Range: -3.4028235E38 to 3.4028235E38\u003c/li\u003e\n\u003cli\u003e\u003cstrong\u003eDouble\u003c/strong\u003e: 8-byte, double precision float. Range -1.7976931348623157E308 to 1.7976931348623157E308\u003c/li\u003e\n\u003cli\u003e\u003cstrong\u003eBigDecimal\u003c/strong\u003e: Supports any decimal range an type, with custom scale.\u003cpre\u003e\u003ccode\u003eval myDecimal \u003d BigDecimal(123.452)\n// With \"setScale\", we can define the number of decimals we want, and how to round the values.\nmyDecimal.setScale(2, BigDecimal.RoundingMode.HALF_UP)\n// 123.45\nval anotherDecimal \u003d BigDecimal(16.66666)\nanotherDecimal.setScale(2, BigDecimal.RoundingMode.HALF_UP)\n// 16.67\n\u003c/code\u003e\u003c/pre\u003e\n\u003cul\u003e\n\u003cli\u003e\u003ca href\u003d\"http://www.scala-lang.org/api/2.10.6/index.html#scala.math.BigDecimal\"\u003ehttp://www.scala-lang.org/api/2.10.6/index.html#scala.math.BigDecimal\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href\u003d\"http://www.scala-lang.org/api/2.10.6/index.html#scala.math.BigDecimal$$RoundingMode$@RoundingMode\u003dscala.math.BigDecimal.RoundingMode.Value\"\u003ehttp://www.scala-lang.org/api/2.10.6/index.html#scala.math.BigDecimal$$RoundingMode$@RoundingMode\u003dscala.math.BigDecimal.RoundingMode.Value\u003c/a\u003e\u003c/li\u003e\n\u003c/ul\u003e\n\u003c/li\u003e\n\u003c/ul\u003e\n\u003ch4\u003eDate types:\u003c/h4\u003e\n\u003cp\u003eScala has no specific date types, but you can just use the Java types.\u003c/p\u003e\n\u003cpre\u003e\u003ccode\u003eimport java.text.SimpleDateFormat\nimport java.util.Calendar\n\nval now \u003d Calendar.getInstance.getTime\nval hourFormat \u003d new SimpleDateFormat(\"hh\")\nhourFormat.format(now)\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003eFor Spark, it\u0027s important to also take a look at the java.sql types:\n\u003cbr  /\u003e\u003ca href\u003d\"https://docs.oracle.com/javase/7/docs/api/java/sql/Date.html\"\u003ehttps://docs.oracle.com/javase/7/docs/api/java/sql/Date.html\u003c/a\u003e\n\u003cbr  /\u003e\u003ca href\u003d\"https://docs.oracle.com/javase/7/docs/api/java/sql/Timestamp.html\"\u003ehttps://docs.oracle.com/javase/7/docs/api/java/sql/Timestamp.html\u003c/a\u003e\u003c/p\u003e\n\u003ch4\u003eTuples\u003c/h4\u003e\n\u003cp\u003eEven they are not exactly a primitive type, Tuples are a really important data type in Scala. They are closely related to Maps and to case classes, that we\u0027ll be explaining later.\n\u003cbr  /\u003eIn short, you can thing of a Tuple as a group of values, meaning that, for instance, you could have your function return a tuple containing different values, that can have different types.\u003c/p\u003e\n\u003cp\u003eThe main drawback of tuples, as with arrays, lists, etc is that you need to access the elements based on the index, so your code could become less readable.\n\u003cbr  /\u003eAlso, unlike for arrays, tuples indexes start at 1, and to access an element inside a tuple you need to prefix the index with an underscore.\u003c/p\u003e\n\u003cpre\u003e\u003ccode\u003eval myTuple \u003d (1, \"test\", 25.4, true)\nprintln(myTuple._1)\n\u003c/code\u003e\u003c/pre\u003e\n\u003ch4\u003eCase classes\u003c/h4\u003e\n\u003cp\u003eCase classes are value objects, but you can think of them as \u0026ldquo;tuple with named fields\u0026rdquo;, if it helps. They are really easy to define and use, and they improve readability of your code when compared to tuples, arrays, lists, etc..\u003c/p\u003e\n\u003cpre\u003e\u003ccode\u003ecase class Person(name: String, age: Int, gender: Char, salary: Float)\n\nval john \u003d Person(\"John Doe\", 33, \u0027M\u0027, 1234.5f)\n\ncase class Address(street: String, number: Int, zipCode: String)\nval home \u003d Address(\"foostraat\", 111, \"1-234Z\")\n\u003c/code\u003e\u003c/pre\u003e\n"
+      },
+      "dateCreated": "Apr 16, 2016 3:22:35 PM",
+      "dateStarted": "May 1, 2016 9:54:26 AM",
+      "dateFinished": "May 1, 2016 9:54:27 AM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%md\n### Summary - Scala Type Hierarchy\n\n![Scala Type Hierarchy](https://upload.wikimedia.org/wikipedia/commons/e/ec/Scala_Unified_Types_Hierachy.jpg)\n\n---\n\nSo, is there any difference between *AnyVal* and *AnyRef*? **Yes**\n\nThe main one is that all AnyVal subtypes will be stored on the registry / CPU stack when possible for better performance, whereas AnyRef subtypes will be stored in the heap.",
+      "authenticationInfo": {},
+      "dateUpdated": "Apr 16, 2016 3:28:37 PM",
+      "config": {
+        "colWidth": 12.0,
+        "graph": {
+          "mode": "table",
+          "height": 300.0,
+          "optionOpen": false,
+          "keys": [],
+          "values": [],
+          "groups": [],
+          "scatter": {}
+        },
+        "enabled": true,
+        "editorHide": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "jobName": "paragraph_1460820173406_-56407143",
+      "id": "20160416-152253_107251799",
+      "result": {
+        "code": "SUCCESS",
+        "type": "HTML",
+        "msg": "\u003ch3\u003eSummary - Scala Type Hierarchy\u003c/h3\u003e\n\u003cp\u003e\u003cimg src\u003d\"https://upload.wikimedia.org/wikipedia/commons/e/ec/Scala_Unified_Types_Hierachy.jpg\" alt\u003d\"Scala Type Hierarchy\" /\u003e\u003c/p\u003e\n\u003chr /\u003e\n\u003cp\u003eSo, is there any difference between \u003cem\u003eAnyVal\u003c/em\u003e and \u003cem\u003eAnyRef\u003c/em\u003e? \u003cstrong\u003eYes\u003c/strong\u003e\u003c/p\u003e\n\u003cp\u003eThe main one is that all AnyVal subtypes will be stored on the registry / CPU stack when possible for better performance, whereas AnyRef subtypes will be stored in the heap.\u003c/p\u003e\n"
+      },
+      "dateCreated": "Apr 16, 2016 3:22:53 PM",
+      "dateStarted": "Apr 16, 2016 3:23:20 PM",
+      "dateFinished": "Apr 16, 2016 3:23:20 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%md\n#### Literals\nScala basically follows the Java convention for literals",
+      "authenticationInfo": {},
+      "dateUpdated": "Apr 16, 2016 3:28:35 PM",
+      "config": {
+        "colWidth": 12.0,
+        "graph": {
+          "mode": "table",
+          "height": 300.0,
+          "optionOpen": false,
+          "keys": [],
+          "values": [],
+          "groups": [],
+          "scatter": {}
+        },
+        "enabled": true,
+        "editorHide": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "jobName": "paragraph_1460820200639_-1379711852",
+      "id": "20160416-152320_1824349111",
+      "result": {
+        "code": "SUCCESS",
+        "type": "HTML",
+        "msg": "\u003ch4\u003eLiterals\u003c/h4\u003e\n\u003cp\u003eScala basically follows the Java convention for literals\u003c/p\u003e\n"
+      },
+      "dateCreated": "Apr 16, 2016 3:23:20 PM",
+      "dateStarted": "Apr 16, 2016 3:23:41 PM",
+      "dateFinished": "Apr 16, 2016 3:23:41 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "val myBoolean \u003d true\nval myChar \u003d \u0027c\u0027\nval myString \u003d \"foo\"\nval myByte: Byte \u003d 1\nval myShort: Short \u003d 1\nval myInt \u003d 1\nval myLong \u003d 1L\nval myFloat \u003d 1.0f\nval myDouble \u003d 1.0d\n// We can use the ###d notation, but the default type is already Double\nval myDouble2 \u003d 1.0\n// BigInt and BigDecimal are special cases..\nval myBigInt \u003d BigInt(1)\nval myBigInt2 \u003d BigInt(1L)\nval myBigInt3 \u003d BigInt(\"1\")\nval myBigDecimal \u003d BigDecimal(1.234)\nval myBigDecimal2 \u003d BigDecimal(10L)\nval myBigDecimal3 \u003d BigDecimal(\"-25.98778979\")\n// You can create a Tuple just with the \"()\"\nval myTuple \u003d (1, \"test\", 25.4, true)\nprintln(myTuple._1)",
+      "authenticationInfo": {},
+      "dateUpdated": "Apr 16, 2016 3:23:53 PM",
+      "config": {
+        "colWidth": 12.0,
+        "graph": {
+          "mode": "table",
+          "height": 300.0,
+          "optionOpen": false,
+          "keys": [],
+          "values": [],
+          "groups": [],
+          "scatter": {}
+        },
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "jobName": "paragraph_1460820221030_-1889104072",
+      "id": "20160416-152341_1746490910",
+      "result": {
+        "code": "SUCCESS",
+        "type": "TEXT",
+        "msg": "myBoolean: Boolean \u003d true\nmyChar: Char \u003d c\nmyString: String \u003d foo\nmyByte: Byte \u003d 1\nmyShort: Short \u003d 1\nmyInt: Int \u003d 1\nmyLong: Long \u003d 1\nmyFloat: Float \u003d 1.0\nmyDouble: Double \u003d 1.0\nmyDouble2: Double \u003d 1.0\nmyBigInt: scala.math.BigInt \u003d 1\nmyBigInt2: scala.math.BigInt \u003d 1\nmyBigInt3: scala.math.BigInt \u003d 1\nmyBigDecimal: scala.math.BigDecimal \u003d 1.234\nmyBigDecimal2: scala.math.BigDecimal \u003d 10\nmyBigDecimal3: scala.math.BigDecimal \u003d -25.98778979\nmyTuple: (Int, String, Double, Boolean) \u003d (1,test,25.4,true)\n1\n"
+      },
+      "dateCreated": "Apr 16, 2016 3:23:41 PM",
+      "dateStarted": "Apr 16, 2016 3:23:53 PM",
+      "dateFinished": "Apr 16, 2016 3:23:56 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%md\n#### String interpolation\nYou can interpolate variables into String by prepending an \"s\" to the literal, like this:",
+      "authenticationInfo": {},
+      "dateUpdated": "Apr 16, 2016 4:26:12 PM",
+      "config": {
+        "colWidth": 12.0,
+        "graph": {
+          "mode": "table",
+          "height": 300.0,
+          "optionOpen": false,
+          "keys": [],
+          "values": [],
+          "groups": [],
+          "scatter": {}
+        },
+        "enabled": true,
+        "editorHide": true,
+        "editorMode": "ace/mode/markdown"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "jobName": "paragraph_1460820233313_-1178442205",
+      "id": "20160416-152353_1908952720",
+      "result": {
+        "code": "SUCCESS",
+        "type": "HTML",
+        "msg": "\u003ch4\u003eString interpolation\u003c/h4\u003e\n\u003cp\u003eYou can interpolate variables into String by prepending an \u0026ldquo;s\u0026rdquo; to the literal, like this:\u003c/p\u003e\n"
+      },
+      "dateCreated": "Apr 16, 2016 3:23:53 PM",
+      "dateStarted": "Apr 16, 2016 4:26:05 PM",
+      "dateFinished": "Apr 16, 2016 4:26:05 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "val myName \u003d \"John Doe\"\nprintln(s\"Welcome, ${myName}!\")\n// You can also \"chain\" the strings\n\"Welcome, \" + myName",
+      "authenticationInfo": {},
+      "dateUpdated": "Apr 16, 2016 3:24:19 PM",
+      "config": {
+        "colWidth": 12.0,
+        "graph": {
+          "mode": "table",
+          "height": 300.0,
+          "optionOpen": false,
+          "keys": [],
+          "values": [],
+          "groups": [],
+          "scatter": {}
+        },
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "jobName": "paragraph_1460820249951_255314443",
+      "id": "20160416-152409_1727314442",
+      "result": {
+        "code": "SUCCESS",
+        "type": "TEXT",
+        "msg": "myName: String \u003d John Doe\nWelcome, John Doe!\nres229: String \u003d Welcome, John Doe\n"
+      },
+      "dateCreated": "Apr 16, 2016 3:24:09 PM",
+      "dateStarted": "Apr 16, 2016 3:24:19 PM",
+      "dateFinished": "Apr 16, 2016 3:24:20 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%md\n#### Formatting numbers\nYou can format numbers either by prepending an \"f\" suffix, or using the \"format\" method:",
+      "authenticationInfo": {},
+      "dateUpdated": "Apr 16, 2016 3:28:27 PM",
+      "config": {
+        "colWidth": 12.0,
+        "graph": {
+          "mode": "table",
+          "height": 300.0,
+          "optionOpen": false,
+          "keys": [],
+          "values": [],
+          "groups": [],
+          "scatter": {}
+        },
+        "enabled": true,
+        "editorHide": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "jobName": "paragraph_1460820259826_-1869653733",
+      "id": "20160416-152419_1745374235",
+      "result": {
+        "code": "SUCCESS",
+        "type": "HTML",
+        "msg": "\u003ch4\u003eFormatting numbers\u003c/h4\u003e\n\u003cp\u003eYou can format numbers either by prepending an \u0026ldquo;f\u0026rdquo; suffix, or using the \u0026ldquo;format\u0026rdquo; method:\u003c/p\u003e\n"
+      },
+      "dateCreated": "Apr 16, 2016 3:24:19 PM",
+      "dateStarted": "Apr 16, 2016 3:24:31 PM",
+      "dateFinished": "Apr 16, 2016 3:24:31 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "val myNumber \u003d scala.math.Pi\nprintln(f\"${myNumber}%.3f\")\nprintln(f\"${myNumber}%.4f\")\nprintln(\"%06d\".format(12))",
+      "authenticationInfo": {},
+      "dateUpdated": "May 1, 2016 10:08:11 AM",
+      "config": {
+        "colWidth": 12.0,
+        "graph": {
+          "mode": "table",
+          "height": 300.0,
+          "optionOpen": false,
+          "keys": [],
+          "values": [],
+          "groups": [],
+          "scatter": {}
+        },
+        "enabled": true,
+        "editorMode": "ace/mode/scala"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "jobName": "paragraph_1460820271077_-341415777",
+      "id": "20160416-152431_216240155",
+      "result": {
+        "code": "SUCCESS",
+        "type": "TEXT",
+        "msg": "myNumber: Double \u003d 3.141592653589793\n3.142\n3.1416\n000012\n"
+      },
+      "dateCreated": "Apr 16, 2016 3:24:31 PM",
+      "dateStarted": "May 1, 2016 10:08:11 AM",
+      "dateFinished": "May 1, 2016 10:08:12 AM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%md\n#### Multiline (heredoc) syntax\nIf you need to write multiline strings (this is quite useful, for instance, to write readable queries), just wrap the string with three double-quotes:",
+      "authenticationInfo": {},
+      "dateUpdated": "Apr 16, 2016 3:28:23 PM",
+      "config": {
+        "colWidth": 12.0,
+        "graph": {
+          "mode": "table",
+          "height": 300.0,
+          "optionOpen": false,
+          "keys": [],
+          "values": [],
+          "groups": [],
+          "scatter": {}
+        },
+        "enabled": true,
+        "editorHide": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "jobName": "paragraph_1460820279497_84147155",
+      "id": "20160416-152439_890058742",
+      "result": {
+        "code": "SUCCESS",
+        "type": "HTML",
+        "msg": "\u003ch4\u003eMultiline (heredoc) syntax\u003c/h4\u003e\n\u003cp\u003eIf you need to write multiline strings (this is quite useful, for instance, to write readable queries), just wrap the string with three double-quotes:\u003c/p\u003e\n"
+      },
+      "dateCreated": "Apr 16, 2016 3:24:39 PM",
+      "dateStarted": "Apr 16, 2016 3:24:53 PM",
+      "dateFinished": "Apr 16, 2016 3:24:53 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "\"\"\"This is\na\nmultiline\nstring\"\"\"\n\nval name \u003d \"test\"\n// You can also interpolate strings with the heredoc syntax:\nprintln(s\"\"\"Hello,\n\nAre you ${name}?\"\"\")",
+      "authenticationInfo": {},
+      "dateUpdated": "Apr 16, 2016 3:25:03 PM",
+      "config": {
+        "colWidth": 12.0,
+        "graph": {
+          "mode": "table",
+          "height": 300.0,
+          "optionOpen": false,
+          "keys": [],
+          "values": [],
+          "groups": [],
+          "scatter": {}
+        },
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "jobName": "paragraph_1460820293827_-699971104",
+      "id": "20160416-152453_88166766",
+      "result": {
+        "code": "SUCCESS",
+        "type": "TEXT",
+        "msg": "res235: String \u003d \nThis is\na\nmultiline\nstring\nname: String \u003d test\nHello,\n\nAre you test?\n"
+      },
+      "dateCreated": "Apr 16, 2016 3:24:53 PM",
+      "dateStarted": "Apr 16, 2016 3:25:03 PM",
+      "dateFinished": "Apr 16, 2016 3:25:04 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%md\n### Converting between types\nEven though Scala is really good at guessing the types, it is still a strongly typed language, meaning that in some cases you will have to convert between types.",
+      "authenticationInfo": {},
+      "dateUpdated": "May 1, 2016 10:09:07 AM",
+      "config": {
+        "colWidth": 12.0,
+        "graph": {
+          "mode": "table",
+          "height": 300.0,
+          "optionOpen": false,
+          "keys": [],
+          "values": [],
+          "groups": [],
+          "scatter": {}
+        },
+        "enabled": true,
+        "editorHide": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "jobName": "paragraph_1460820303871_-60118359",
+      "id": "20160416-152503_319769198",
+      "result": {
+        "code": "SUCCESS",
+        "type": "HTML",
+        "msg": "\u003ch3\u003eConverting between types\u003c/h3\u003e\n\u003cp\u003eEven though Scala is really good at guessing the types, it is still a strongly typed language, meaning that in some cases you will have to convert between types.\u003c/p\u003e\n"
+      },
+      "dateCreated": "Apr 16, 2016 3:25:03 PM",
+      "dateStarted": "May 1, 2016 10:09:05 AM",
+      "dateFinished": "May 1, 2016 10:09:05 AM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "val myInt \u003d 123\nval myLong \u003d 123L\nval myString \u003d \"123\"\n\n// Int to String\nmyInt.toString\n// Int to String with leading 0s\n\"%06d\".format(myInt)\n\n// Int to Long\nmyInt.toLong\nmyLong.toInt\n\n// Long to Float\nmyLong.toFloat\n\n// String to Short / Int / Long\nmyString.toShort\nmyString.toInt\nmyString.toLong\nmyString.toDouble",
+      "authenticationInfo": {},
+      "dateUpdated": "Apr 16, 2016 3:25:22 PM",
+      "config": {
+        "colWidth": 12.0,
+        "graph": {
+          "mode": "table",
+          "height": 300.0,
+          "optionOpen": false,
+          "keys": [],
+          "values": [],
+          "groups": [],
+          "scatter": {}
+        },
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "jobName": "paragraph_1460820313783_-1318400504",
+      "id": "20160416-152513_1190152291",
+      "result": {
+        "code": "SUCCESS",
+        "type": "TEXT",
+        "msg": "myInt: Int \u003d 123\nmyLong: Long \u003d 123\nmyString: String \u003d 123\nres238: String \u003d 123\nres239: String \u003d 000123\nres240: Long \u003d 123\nres241: Int \u003d 123\nres242: Float \u003d 123.0\nres243: Short \u003d 123\nres244: Int \u003d 123\nres245: Long \u003d 123\nres246: Double \u003d 123.0\n"
+      },
+      "dateCreated": "Apr 16, 2016 3:25:13 PM",
+      "dateStarted": "Apr 16, 2016 3:25:22 PM",
+      "dateFinished": "Apr 16, 2016 3:25:23 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%md\n### Declaring functions\nFunctions are really powerful in Scala, as we\u0027ll show. The basic syntax to declare a function is as follows:\n```\ndef functionName(param1: type1, param2: type2): returnType \u003d {\n    function body.\n    \n    // whatever you put in the last line is what will be returned\n}\n```\n\nA few things to take into account:\n- The return type is optional in most cases, but writing it helps readability.\n- The last line of the function (actually, the last line that\u0027s executed) is the value that will be returned\n\nWe\u0027ll explain more about functions later, but for now let\u0027s start with a simple example: a function to check whether a number is even or not.",
+      "authenticationInfo": {},
+      "dateUpdated": "Apr 16, 2016 3:28:13 PM",
+      "config": {
+        "colWidth": 12.0,
+        "graph": {
+          "mode": "table",
+          "height": 300.0,
+          "optionOpen": false,
+          "keys": [],
+          "values": [],
+          "groups": [],
+          "scatter": {}
+        },
+        "enabled": true,
+        "editorHide": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "jobName": "paragraph_1460820322048_-118738109",
+      "id": "20160416-152522_1750842874",
+      "result": {
+        "code": "SUCCESS",
+        "type": "HTML",
+        "msg": "\u003ch3\u003eDeclaring functions\u003c/h3\u003e\n\u003cp\u003eFunctions are really powerful in Scala, as we\u0027ll show. The basic syntax to declare a function is as follows:\u003c/p\u003e\n\u003cpre\u003e\u003ccode\u003edef functionName(param1: type1, param2: type2): returnType \u003d {\n    function body.\n\n    // whatever you put in the last line is what will be returned\n}\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003eA few things to take into account:\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003eThe return type is optional in most cases, but writing it helps readability.\u003c/li\u003e\n\u003cli\u003eThe last line of the function (actually, the last line that\u0027s executed) is the value that will be returned\u003c/li\u003e\n\u003c/ul\u003e\n\u003cp\u003eWe\u0027ll explain more about functions later, but for now let\u0027s start with a simple example: a function to check whether a number is even or not.\u003c/p\u003e\n"
+      },
+      "dateCreated": "Apr 16, 2016 3:25:22 PM",
+      "dateStarted": "Apr 16, 2016 3:25:38 PM",
+      "dateFinished": "Apr 16, 2016 3:25:38 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "def isEven(number: Int): Boolean \u003d {\n    number % 2 \u003d\u003d 0 \n}\n\nisEven(2)\nisEven(15)",
+      "authenticationInfo": {},
+      "dateUpdated": "Apr 16, 2016 3:25:50 PM",
+      "config": {
+        "colWidth": 12.0,
+        "graph": {
+          "mode": "table",
+          "height": 300.0,
+          "optionOpen": false,
+          "keys": [],
+          "values": [],
+          "groups": [],
+          "scatter": {}
+        },
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "jobName": "paragraph_1460820338773_-867444145",
+      "id": "20160416-152538_713343550",
+      "result": {
+        "code": "SUCCESS",
+        "type": "TEXT",
+        "msg": "isEven: (number: Int)Boolean\nres248: Boolean \u003d true\nres249: Boolean \u003d false\n"
+      },
+      "dateCreated": "Apr 16, 2016 3:25:38 PM",
+      "dateStarted": "Apr 16, 2016 3:25:50 PM",
+      "dateFinished": "Apr 16, 2016 3:25:50 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%md\n### Control Structures\n\n#### If / else if / else\n\nThe if - else if - else control structure works exactly the same way it does in most languages. Only the body of the first condition to be matched is executed. One of the main differences with other languages is that you can directly assign a variable to the \"result\" of an if.\n\n```\nif (condition1) {\n  // do stuff\n} else if (condition2) {\n  // do other stuff\n}\n// More else if...\nelse {\n  // rest of the stuff\n}\n```",
+      "authenticationInfo": {},
+      "dateUpdated": "Apr 16, 2016 3:28:07 PM",
+      "config": {
+        "colWidth": 12.0,
+        "graph": {
+          "mode": "table",
+          "height": 300.0,
+          "optionOpen": false,
+          "keys": [],
+          "values": [],
+          "groups": [],
+          "scatter": {}
+        },
+        "enabled": true,
+        "editorHide": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "jobName": "paragraph_1460820350117_725046877",
+      "id": "20160416-152550_2027473881",
+      "result": {
+        "code": "SUCCESS",
+        "type": "HTML",
+        "msg": "\u003ch3\u003eControl Structures\u003c/h3\u003e\n\u003ch4\u003eIf / else if / else\u003c/h4\u003e\n\u003cp\u003eThe if - else if - else control structure works exactly the same way it does in most languages. Only the body of the first condition to be matched is executed. One of the main differences with other languages is that you can directly assign a variable to the \u0026ldquo;result\u0026rdquo; of an if.\u003c/p\u003e\n\u003cpre\u003e\u003ccode\u003eif (condition1) {\n  // do stuff\n} else if (condition2) {\n  // do other stuff\n}\n// More else if...\nelse {\n  // rest of the stuff\n}\n\u003c/code\u003e\u003c/pre\u003e\n"
+      },
+      "dateCreated": "Apr 16, 2016 3:25:50 PM",
+      "dateStarted": "Apr 16, 2016 3:26:05 PM",
+      "dateFinished": "Apr 16, 2016 3:26:05 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "val age \u003d 20\n\nval segment \u003d if (age \u003c 12) {\n    \"kid\"\n} else if (age \u003c 20) {\n    \"teenager\"\n} else if (age \u003c 30) {\n    \"young\"\n} else {\n    \"not so young\"\n}",
+      "authenticationInfo": {},
+      "dateUpdated": "Apr 16, 2016 3:26:15 PM",
+      "config": {
+        "colWidth": 12.0,
+        "graph": {
+          "mode": "table",
+          "height": 300.0,
+          "optionOpen": false,
+          "keys": [],
+          "values": [],
+          "groups": [],
+          "scatter": {}
+        },
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "jobName": "paragraph_1460820365748_-784692483",
+      "id": "20160416-152605_1915454449",
+      "result": {
+        "code": "SUCCESS",
+        "type": "TEXT",
+        "msg": "age: Int \u003d 20\nsegment: String \u003d young\n"
+      },
+      "dateCreated": "Apr 16, 2016 3:26:05 PM",
+      "dateStarted": "Apr 16, 2016 3:26:15 PM",
+      "dateFinished": "Apr 16, 2016 3:26:15 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%md\n#### for loops\nAgain, the for control structure should look familiar, with one exception: There is no **break** and no **continue** in Scala\u0027s for loops:\n\n```\nfor (i \u003c- 1 to 5) {\n  println(\"i : \" + i)\n}\n```\n\n**IMPORTANT** You should rarely have the need for \"for\" loops, most of the times, you just use \"map\", \"foreach\" or similar iterate a collection.\n\nOne nice feature that Scala provides and that we\u0027ll also see in other topics is called **guards** and uses a syntax very similar to the *if* that we have just seen, that allow you to do something like this:",
+      "authenticationInfo": {},
+      "dateUpdated": "Apr 16, 2016 3:28:03 PM",
+      "config": {
+        "colWidth": 12.0,
+        "graph": {
+          "mode": "table",
+          "height": 300.0,
+          "optionOpen": false,
+          "keys": [],
+          "values": [],
+          "groups": [],
+          "scatter": {}
+        },
+        "enabled": true,
+        "editorHide": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "jobName": "paragraph_1460820375521_-262188152",
+      "id": "20160416-152615_1944596763",
+      "result": {
+        "code": "SUCCESS",
+        "type": "HTML",
+        "msg": "\u003ch4\u003efor loops\u003c/h4\u003e\n\u003cp\u003eAgain, the for control structure should look familiar, with one exception: There is no \u003cstrong\u003ebreak\u003c/strong\u003e and no \u003cstrong\u003econtinue\u003c/strong\u003e in Scala\u0027s for loops:\u003c/p\u003e\n\u003cpre\u003e\u003ccode\u003efor (i \u0026lt;- 1 to 5) {\n  println(\"i : \" + i)\n}\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003e\u003cstrong\u003eIMPORTANT\u003c/strong\u003e You should rarely have the need for \u0026ldquo;for\u0026rdquo; loops, most of the times, you just use \u0026ldquo;map\u0026rdquo;, \u0026ldquo;foreach\u0026rdquo; or similar iterate a collection.\u003c/p\u003e\n\u003cp\u003eOne nice feature that Scala provides and that we\u0027ll also see in other topics is called \u003cstrong\u003eguards\u003c/strong\u003e and uses a syntax very similar to the \u003cem\u003eif\u003c/em\u003e that we have just seen, that allow you to do something like this:\u003c/p\u003e\n"
+      },
+      "dateCreated": "Apr 16, 2016 3:26:15 PM",
+      "dateStarted": "Apr 16, 2016 3:26:23 PM",
+      "dateFinished": "Apr 16, 2016 3:26:23 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "for (i \u003c- 1 to 100 if i % 7 \u003d\u003d 0) {\n  println(i + \" is a multiple of 7\")\n}",
+      "authenticationInfo": {},
+      "dateUpdated": "Apr 16, 2016 3:26:38 PM",
+      "config": {
+        "colWidth": 12.0,
+        "graph": {
+          "mode": "table",
+          "height": 300.0,
+          "optionOpen": false,
+          "keys": [],
+          "values": [],
+          "groups": [],
+          "scatter": {}
+        },
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "jobName": "paragraph_1460820383831_1020011366",
+      "id": "20160416-152623_1352883047",
+      "result": {
+        "code": "SUCCESS",
+        "type": "TEXT",
+        "msg": "7 is a multiple of 7\n14 is a multiple of 7\n21 is a multiple of 7\n28 is a multiple of 7\n35 is a multiple of 7\n42 is a multiple of 7\n49 is a multiple of 7\n56 is a multiple of 7\n63 is a multiple of 7\n70 is a multiple of 7\n77 is a multiple of 7\n84 is a multiple of 7\n91 is a multiple of 7\n98 is a multiple of 7\n"
+      },
+      "dateCreated": "Apr 16, 2016 3:26:23 PM",
+      "dateStarted": "Apr 16, 2016 3:26:38 PM",
+      "dateFinished": "Apr 16, 2016 3:26:38 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%md\nIf you want to generate a collection as the result of a for loop, you can use \"yield\". To try to explain the concept, you can see it as if every iteration of the loop returned a value that is kept in a buffer, and once the loop ends, a collection is returned.",
+      "authenticationInfo": {},
+      "dateUpdated": "Apr 16, 2016 3:27:57 PM",
+      "config": {
+        "colWidth": 12.0,
+        "graph": {
+          "mode": "table",
+          "height": 300.0,
+          "optionOpen": false,
+          "keys": [],
+          "values": [],
+          "groups": [],
+          "scatter": {}
+        },
+        "enabled": true,
+        "editorHide": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "jobName": "paragraph_1460820398234_-1703995523",
+      "id": "20160416-152638_434533379",
+      "result": {
+        "code": "SUCCESS",
+        "type": "HTML",
+        "msg": "\u003cp\u003eIf you want to generate a collection as the result of a for loop, you can use \u0026ldquo;yield\u0026rdquo;. To try to explain the concept, you can see it as if every iteration of the loop returned a value that is kept in a buffer, and once the loop ends, a collection is returned.\u003c/p\u003e\n"
+      },
+      "dateCreated": "Apr 16, 2016 3:26:38 PM",
+      "dateStarted": "Apr 16, 2016 3:26:47 PM",
+      "dateFinished": "Apr 16, 2016 3:26:47 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "val a \u003d for(i \u003c- \u0027a\u0027 to \u0027d\u0027) yield i.toString",
+      "authenticationInfo": {},
+      "dateUpdated": "Apr 16, 2016 3:26:56 PM",
+      "config": {
+        "colWidth": 12.0,
+        "graph": {
+          "mode": "table",
+          "height": 300.0,
+          "optionOpen": false,
+          "keys": [],
+          "values": [],
+          "groups": [],
+          "scatter": {}
+        },
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "jobName": "paragraph_1460820407464_-974111535",
+      "id": "20160416-152647_203080683",
+      "result": {
+        "code": "SUCCESS",
+        "type": "TEXT",
+        "msg": "a: scala.collection.immutable.IndexedSeq[String] \u003d Vector(a, b, c, d)\n"
+      },
+      "dateCreated": "Apr 16, 2016 3:26:47 PM",
+      "dateStarted": "Apr 16, 2016 3:26:56 PM",
+      "dateFinished": "Apr 16, 2016 3:26:56 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%md\n#### while - do while\nYou will not use this structure very often with Spark, but it\u0027s always good to know what its syntax is:\n\n```\nwhile(someCondition) {\n  // do something\n}\n\ndo {\n  // do something\n} while(someCondition)\n```\n\nAs with most languages, the difference between while and do - while is that the code inside the body will run at least 1 time for the \"do-while\", and it might never get executed if you use \"while\".",
+      "authenticationInfo": {},
+      "dateUpdated": "Apr 16, 2016 3:27:53 PM",
+      "config": {
+        "colWidth": 12.0,
+        "graph": {
+          "mode": "table",
+          "height": 300.0,
+          "optionOpen": false,
+          "keys": [],
+          "values": [],
+          "groups": [],
+          "scatter": {}
+        },
+        "enabled": true,
+        "editorHide": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "jobName": "paragraph_1460820416054_-68782049",
+      "id": "20160416-152656_359010196",
+      "result": {
+        "code": "SUCCESS",
+        "type": "HTML",
+        "msg": "\u003ch4\u003ewhile - do while\u003c/h4\u003e\n\u003cp\u003eYou will not use this structure very often with Spark, but it\u0027s always good to know what its syntax is:\u003c/p\u003e\n\u003cpre\u003e\u003ccode\u003ewhile(someCondition) {\n  // do something\n}\n\ndo {\n  // do something\n} while(someCondition)\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003eAs with most languages, the difference between while and do - while is that the code inside the body will run at least 1 time for the \u0026ldquo;do-while\u0026rdquo;, and it might never get executed if you use \u0026ldquo;while\u0026rdquo;.\u003c/p\u003e\n"
+      },
+      "dateCreated": "Apr 16, 2016 3:26:56 PM",
+      "dateStarted": "Apr 16, 2016 3:27:04 PM",
+      "dateFinished": "Apr 16, 2016 3:27:04 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%md\n### try ... catch ... finally\nAs before, there will be very few cases where you want / need to use a try catch, and if possible, avoid it. Nonetheless, we\u0027ll introduce the syntax for future reference:\n\n```\ntry {\n  // code that might throw exception(s)\n} catch {\n  case x: FooException \u003d\u003e // handleFooException\n  case y: BarException \u003d\u003e // handleBarException\n  // ...\n} finally {\n  // code that will always be executed\n}\n```\n\n**IMPORTANT**: Don\u0027t catch Throwable! And if you do... throw it again. Full explanation:\n\u003chttps://www.sumologic.com/2014/05/05/why-you-should-never-catch-throwable-in-scala\u003e",
+      "authenticationInfo": {},
+      "dateUpdated": "Apr 16, 2016 3:27:49 PM",
+      "config": {
+        "colWidth": 12.0,
+        "graph": {
+          "mode": "table",
+          "height": 300.0,
+          "optionOpen": false,
+          "keys": [],
+          "values": [],
+          "groups": [],
+          "scatter": {}
+        },
+        "enabled": true,
+        "editorHide": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "jobName": "paragraph_1460820424042_1337490505",
+      "id": "20160416-152704_1370700773",
+      "result": {
+        "code": "SUCCESS",
+        "type": "HTML",
+        "msg": "\u003ch3\u003etry \u0026hellip; catch \u0026hellip; finally\u003c/h3\u003e\n\u003cp\u003eAs before, there will be very few cases where you want / need to use a try catch, and if possible, avoid it. Nonetheless, we\u0027ll introduce the syntax for future reference:\u003c/p\u003e\n\u003cpre\u003e\u003ccode\u003etry {\n  // code that might throw exception(s)\n} catch {\n  case x: FooException \u003d\u0026gt; // handleFooException\n  case y: BarException \u003d\u0026gt; // handleBarException\n  // ...\n} finally {\n  // code that will always be executed\n}\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003e\u003cstrong\u003eIMPORTANT\u003c/strong\u003e: Don\u0027t catch Throwable! And if you do\u0026hellip; throw it again. Full explanation:\n\u003cbr  /\u003e\u003ca href\u003d\"https://www.sumologic.com/2014/05/05/why-you-should-never-catch-throwable-in-scala\"\u003ehttps://www.sumologic.com/2014/05/05/why-you-should-never-catch-throwable-in-scala\u003c/a\u003e\u003c/p\u003e\n"
+      },
+      "dateCreated": "Apr 16, 2016 3:27:04 PM",
+      "dateStarted": "Apr 16, 2016 3:27:46 PM",
+      "dateFinished": "Apr 16, 2016 3:27:46 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "config": {},
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "jobName": "paragraph_1460820434465_-1295346218",
+      "id": "20160416-152714_1516765326",
+      "dateCreated": "Apr 16, 2016 3:27:14 PM",
+      "status": "READY",
+      "progressUpdateIntervalMs": 500
+    }
+  ],
+  "name": "Intro to Scala - 1: Basics",
+  "id": "2BJ5EXM41",
+  "angularObjects": {
+    "2BKKGWMY9": [],
+    "2BM7XR6U7": [],
+    "2BHDGC5ZB": [],
+    "2BMJ1ZTKR": [],
+    "2BKYVCNSD": [],
+    "2BM72GFDU": [],
+    "2BM74FBTQ": [],
+    "2BHW3NPVE": [],
+    "2BHZKEE9C": [],
+    "2BM158R3T": [],
+    "2BKMHR2WT": [],
+    "2BK19VD7Y": [],
+    "2BJ72E96T": [],
+    "2BMMM996X": [],
+    "2BKUMG5KZ": [],
+    "2BGQNK6A7": [],
+    "2BH3HCFEG": [],
+    "2BHU5HPQK": []
+  },
+  "config": {
+    "looknfeel": "default"
+  },
+  "info": {}
+}
