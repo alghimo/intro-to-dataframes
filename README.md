@@ -6,11 +6,12 @@
 ### Mac & Windows:
 - *WINDOWS ONLY*: MAKE SURE you have virtualization enabled (instructions included on the docker setup). You might have to enable it on the BIOS.
 - Install [Docker ToolBox](https://www.docker.com/products/docker-toolbox)
-- Assign at least 4GB of memory to the VM, and if possible, increase the number of cores as well.
+- Launch Docker Quick Start Terminal (in order for the "default" machine to show up in VirtualBox)
 - Enable forwarding of ports 4040 and 9995 from the VM to your local host. To access the VM settings:
     - Open VirtualBox
+    - Shut Down the "default" machine
     - Click on the docker vm (usually, it's "default") and click "Settings"
-        - On the "System" menu, you can increase the RAM and the amount of cpus used by the VM.
+        - On the "System" menu, you can increase the RAM (at least 4Gb) and the amount of cpus used by the VM.
         - On the "Network" menu, click "Advanced" and then click "Port Forwarding". Add an entry like this (the name isn't really important..)
             - Name: p9995
             - Protocol: TCP
@@ -30,11 +31,11 @@ git clone https://github.com/alghimo/intro-to-dataframes.git
 
 - Build the image:
     - Linux: Just open a terminal
-    - Windows / Mac: Open the Docker Quickstart Terminal.
+    - Windows / Mac: (Re-)Open the Docker Quickstart Terminal.
     - Build the image and run it. Assuming that you cloned the repo to "C:\Users\Foo\Projects\intro-to-dataframes":
 ```
 cd intro-to-dataframes/
-docker build -t alghimo/intro-to-dataframes:latest .
+docker build -t alghimo/intro-to-dataframes:latest . # This requires a good internet connection and some patience...
 docker run -d -p 9995:9995 -p 4040:4040 -h zeppelin --name zeppelin alghimo/intro-to-dataframes:latest -d
 ```
 
