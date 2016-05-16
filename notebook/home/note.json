@@ -109,14 +109,86 @@
       "progressUpdateIntervalMs": 500
     },
     {
-      "config": {},
+      "text": "%md\n#### Epilogue: Spark 2.0\n\n-[Blog post](https://databricks.com/blog/2016/05/11/spark-2-0-technical-preview-easier-faster-and-smarter.html\u003e)\n-[DataSet API demo](https://databricks-prod-cloudfront.cloud.databricks.com/public/4027ec902e239c93eaaa8714f173bcfc/6122906529858466/431554386690871/4814681571895601/latest.html)",
+      "authenticationInfo": {},
+      "dateUpdated": "May 16, 2016 8:24:57 PM",
+      "config": {
+        "colWidth": 6.0,
+        "graph": {
+          "mode": "table",
+          "height": 107.0,
+          "optionOpen": false,
+          "keys": [],
+          "values": [],
+          "groups": [],
+          "scatter": {}
+        },
+        "enabled": true,
+        "editorMode": "ace/mode/markdown",
+        "editorHide": true
+      },
       "settings": {
         "params": {},
         "forms": {}
       },
       "jobName": "paragraph_1460823096097_-347881532",
       "id": "20160416-161136_1854338085",
+      "result": {
+        "code": "SUCCESS",
+        "type": "HTML",
+        "msg": "\u003ch4\u003eEpilogue: Spark 2.0\u003c/h4\u003e\n\u003cp\u003e-\u003ca href\u003d\"https://databricks.com/blog/2016/05/11/spark-2-0-technical-preview-easier-faster-and-smarter.html\u0026gt;\"\u003eBlog post\u003c/a\u003e\n\u003cbr  /\u003e-\u003ca href\u003d\"https://databricks-prod-cloudfront.cloud.databricks.com/public/4027ec902e239c93eaaa8714f173bcfc/6122906529858466/431554386690871/4814681571895601/latest.html\"\u003eDataSet API demo\u003c/a\u003e\u003c/p\u003e\n"
+      },
       "dateCreated": "Apr 16, 2016 4:11:36 PM",
+      "dateStarted": "May 16, 2016 8:24:55 PM",
+      "dateFinished": "May 16, 2016 8:24:55 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%md\n######Contributors: Albert Gimenez, Thomas Carette\n######© 2016 under Apache v2\n######\u003chttps://github.com/alghimo/intro-to-dataframes\u003e",
+      "authenticationInfo": {},
+      "dateUpdated": "May 16, 2016 8:26:46 PM",
+      "config": {
+        "colWidth": 6.0,
+        "graph": {
+          "mode": "table",
+          "height": 101.0,
+          "optionOpen": false,
+          "keys": [],
+          "values": [],
+          "groups": [],
+          "scatter": {}
+        },
+        "enabled": true,
+        "editorMode": "ace/mode/markdown",
+        "editorHide": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "jobName": "paragraph_1463428903830_-86938208",
+      "id": "20160516-200143_1663973313",
+      "result": {
+        "code": "SUCCESS",
+        "type": "HTML",
+        "msg": "\u003ch6\u003eContributors: Albert Gimenez, Thomas Carette\u003c/h6\u003e\n\u003ch6\u003e© 2016 under Apache v2\u003c/h6\u003e\n\u003ch6\u003e\u003ca href\u003d\"https://github.com/alghimo/intro-to-dataframes\"\u003ehttps://github.com/alghimo/intro-to-dataframes\u003c/a\u003e\u003c/h6\u003e\n"
+      },
+      "dateCreated": "May 16, 2016 8:01:43 PM",
+      "dateStarted": "May 16, 2016 8:26:44 PM",
+      "dateFinished": "May 16, 2016 8:26:44 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "config": {},
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "jobName": "paragraph_1463429502855_-1441751811",
+      "id": "20160516-201142_1028698207",
+      "dateCreated": "May 16, 2016 8:11:42 PM",
       "status": "READY",
       "progressUpdateIntervalMs": 500
     }
