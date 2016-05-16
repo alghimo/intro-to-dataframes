@@ -3,7 +3,7 @@
     {
       "text": "%md\n### Declaring Variables\n#### val: Immutable variable\nUsing val will make the variable immutable, which means that if you try to reassign a value to it, you\u0027ll get an error.\n```\nval myInt \u003d 1\nval myShort: Short \u003d 2\nval bigNumber \u003d 1L\nval someString \u003d \"foo\"\n// If now you try something like this, you\u0027ll get an error message\nval myInt \u003d 2\n```\n\n#### var: Mutable variable\nIf you ever need a mutable variable, you can use **var**\n```\nvar someCondition \u003d false\n// We can change the value of someCondition\nsomeCondition \u003d true\n```\n\n---\n**IMPORTANT**\n\nThink twice before blindly using var everywhere. It is highly recommended to use **val** whenever it is possible.\nFor simple code, it doesn\u0027t really matter, but using immutable variables helps a lot in preventing bugs, improving code quality in general, and avoiding multithreading issues.\n\nIf you are interested, here\u0027s a deeper explanation in a Stack Overflow answer:\n\u003chttp://stackoverflow.com/questions/1791408/what-is-the-difference-between-a-var-and-val-definition-in-scala\u003e",
       "authenticationInfo": {},
-      "dateUpdated": "Apr 16, 2016 3:28:57 PM",
+      "dateUpdated": "May 16, 2016 7:17:46 PM",
       "config": {
         "colWidth": 12.0,
         "graph": {
@@ -30,15 +30,15 @@
         "msg": "\u003ch3\u003eDeclaring Variables\u003c/h3\u003e\n\u003ch4\u003eval: Immutable variable\u003c/h4\u003e\n\u003cp\u003eUsing val will make the variable immutable, which means that if you try to reassign a value to it, you\u0027ll get an error.\u003c/p\u003e\n\u003cpre\u003e\u003ccode\u003eval myInt \u003d 1\nval myShort: Short \u003d 2\nval bigNumber \u003d 1L\nval someString \u003d \"foo\"\n// If now you try something like this, you\u0027ll get an error message\nval myInt \u003d 2\n\u003c/code\u003e\u003c/pre\u003e\n\u003ch4\u003evar: Mutable variable\u003c/h4\u003e\n\u003cp\u003eIf you ever need a mutable variable, you can use \u003cstrong\u003evar\u003c/strong\u003e\u003c/p\u003e\n\u003cpre\u003e\u003ccode\u003evar someCondition \u003d false\n// We can change the value of someCondition\nsomeCondition \u003d true\n\u003c/code\u003e\u003c/pre\u003e\n\u003chr /\u003e\n\u003cp\u003e\u003cstrong\u003eIMPORTANT\u003c/strong\u003e\u003c/p\u003e\n\u003cp\u003eThink twice before blindly using var everywhere. It is highly recommended to use \u003cstrong\u003eval\u003c/strong\u003e whenever it is possible.\n\u003cbr  /\u003eFor simple code, it doesn\u0027t really matter, but using immutable variables helps a lot in preventing bugs, improving code quality in general, and avoiding multithreading issues.\u003c/p\u003e\n\u003cp\u003eIf you are interested, here\u0027s a deeper explanation in a Stack Overflow answer:\n\u003cbr  /\u003e\u003ca href\u003d\"http://stackoverflow.com/questions/1791408/what-is-the-difference-between-a-var-and-val-definition-in-scala\"\u003ehttp://stackoverflow.com/questions/1791408/what-is-the-difference-between-a-var-and-val-definition-in-scala\u003c/a\u003e\u003c/p\u003e\n"
       },
       "dateCreated": "Apr 16, 2016 3:20:23 PM",
-      "dateStarted": "Apr 16, 2016 3:28:57 PM",
-      "dateFinished": "Apr 16, 2016 3:28:57 PM",
+      "dateStarted": "May 16, 2016 7:17:46 PM",
+      "dateFinished": "May 16, 2016 7:17:46 PM",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
     {
-      "text": "%md\n### Basic Types\nThe basic Scala types we\u0027ll introduce should already sound familiar, with a few exceptions. In most cases, Scala will be able to infer the type, but sometimes you might want to explicitly define the type of the variable you are creating.\n\nIn some cases, this can improve readibility of your code, and in others, it might actually be needed.\n\n---\n#### Boolean types:\n- **Boolean**: true / false\n\n---\n\n#### Character types\n- **Char**: Character literals. You can create it by using single quotes.\n- **String**: It\u0027s the java.lang.String class. Create it by using double quotes.\n\n---\n\n#### Integer types:\n- **Byte**: 1-byte integer number. Range: -128 to 127 (both included) \n- **Short**: 2-byte integer number. Range: -32768 and 32767 (both included)\n- **Int**: 4-byte integer number. Range: -2147483648 and 2147483647\n- **Integer**: You\u0027ll see this type as well sometimes, but \"Integer\" is actually the java.lang.Integer type.\n- **Long**: 8-byte integer. Range: -9223372036854775808 and 9223372036854775807\n- **BigInt**: Can hold integers of any size, given that there is enough memory. You should rarely need it, but it is good to know it\u0027s there.\n    - \u003chttp://www.scala-lang.org/api/2.10.6/index.html#scala.math.BigInt\u003e\n\n---\n#### Decimal types:\n- **Float**: 4-byte single precision float. Range: -3.4028235E38 to 3.4028235E38\n- **Double**: 8-byte, double precision float. Range -1.7976931348623157E308 to 1.7976931348623157E308\n- **BigDecimal**: Supports any decimal range an type, with custom scale.\n```\nval myDecimal \u003d BigDecimal(123.452)\n// With \"setScale\", we can define the number of decimals we want, and how to round the values.\nmyDecimal.setScale(2, BigDecimal.RoundingMode.HALF_UP)\n// 123.45\nval anotherDecimal \u003d BigDecimal(16.66666)\nanotherDecimal.setScale(2, BigDecimal.RoundingMode.HALF_UP)\n// 16.67\n```\n    - \u003chttp://www.scala-lang.org/api/2.10.6/index.html#scala.math.BigDecimal\u003e\n    - \u003chttp://www.scala-lang.org/api/2.10.6/index.html#scala.math.BigDecimal$$RoundingMode$@RoundingMode\u003dscala.math.BigDecimal.RoundingMode.Value\u003e\n\n#### Date types:\nScala has no specific date types, but you can just use the Java types.\n```\nimport java.text.SimpleDateFormat\nimport java.util.Calendar\n\nval now \u003d Calendar.getInstance.getTime\nval hourFormat \u003d new SimpleDateFormat(\"hh\")\nhourFormat.format(now)\n```\n\nFor Spark, it\u0027s important to also take a look at the java.sql types:\n\u003chttps://docs.oracle.com/javase/7/docs/api/java/sql/Date.html\u003e\n\u003chttps://docs.oracle.com/javase/7/docs/api/java/sql/Timestamp.html\u003e\n\n#### Tuples\nEven they are not exactly a primitive type, Tuples are a really important data type in Scala. They are closely related to Maps and to case classes, that we\u0027ll be explaining later.\nIn short, you can thing of a Tuple as a group of values, meaning that, for instance, you could have your function return a tuple containing different values, that can have different types.\n\n\nThe main drawback of tuples, as with arrays, lists, etc is that you need to access the elements based on the index, so your code could become less readable.\nAlso, unlike for arrays, tuples indexes start at 1, and to access an element inside a tuple you need to prefix the index with an underscore.\n\n```\nval myTuple \u003d (1, \"test\", 25.4, true)\nprintln(myTuple._1)\n```\n\n#### Case classes\nCase classes are value objects, but you can think of them as \"tuple with named fields\", if it helps. They are really easy to define and use, and they improve readability of your code when compared to tuples, arrays, lists, etc..\n\n```\ncase class Person(name: String, age: Int, gender: Char, salary: Float)\n\nval john \u003d Person(\"John Doe\", 33, \u0027M\u0027, 1234.5f)\n\ncase class Address(street: String, number: Int, zipCode: String)\nval home \u003d Address(\"foostraat\", 111, \"1-234Z\")\n```",
+      "text": "%md\n### Basic Types\nThe basic Scala types we\u0027ll introduce should already sound familiar, with a few exceptions. In most cases, Scala will be able to infer the type, but sometimes you might want to explicitly define the type of the variable you are creating.\n\nIn some cases, this can improve readibility of your code, and in others, it might actually be needed.\n\n---\n#### Boolean types:\n- **Boolean**: true / false\n\n---\n\n#### Character types\n- **Char**: Character literals. You can create it by using single quotes.\n- **String**: It\u0027s the java.lang.String class. Create it by using double quotes.\n\n---\n\n#### Integer types:\n- **Byte**: 1-byte integer number. Range: -128 to 127 (both included) \n- **Short**: 2-byte integer number. Range: -32768 and 32767 (both included)\n- **Int**: 4-byte integer number. Range: -2147483648 and 2147483647\n- **Integer**: You\u0027ll see this type as well sometimes, but \"Integer\" is actually the java.lang.Integer type.\n- **Long**: 8-byte integer. Range: -9223372036854775808 and 9223372036854775807\n- **BigInt**: Can hold integers of any size, given that there is enough memory. You should rarely need it, but it is good to know it\u0027s there.\n    - \u003chttp://www.scala-lang.org/api/2.10.6/index.html#scala.math.BigInt\u003e\n\n---\n#### Decimal types:\n- **Float**: 4-byte single precision float. Range: -3.4028235E38 to 3.4028235E38\n- **Double**: 8-byte, double precision float. Range -1.7976931348623157E308 to 1.7976931348623157E308\n- **BigDecimal**: Supports any decimal range an type, with custom scale.\n```\nval myDecimal \u003d BigDecimal(123.452)\n// With \"setScale\", we can define the number of decimals we want, and how to round the values.\nmyDecimal.setScale(2, BigDecimal.RoundingMode.HALF_UP)\n// 123.45\nval anotherDecimal \u003d BigDecimal(16.66666)\nanotherDecimal.setScale(2, BigDecimal.RoundingMode.HALF_UP)\n// 16.67\n```\n    - \u003chttp://www.scala-lang.org/api/2.10.6/index.html#scala.math.BigDecimal\u003e\n    - \u003chttp://www.scala-lang.org/api/2.10.6/index.html#scala.math.BigDecimal$$RoundingMode$@RoundingMode\u003dscala.math.BigDecimal.RoundingMode.Value\u003e\n\n#### Date types:\nScala has no specific date types, but you can just use the Java types.\n```\nimport java.text.SimpleDateFormat\nimport java.util.Calendar\n\nval now \u003d Calendar.getInstance.getTime\nval hourFormat \u003d new SimpleDateFormat(\"hh\")\nhourFormat.format(now)\n```\n\nFor Spark, it\u0027s important to also take a look at the java.sql types:\n\u003chttps://docs.oracle.com/javase/7/docs/api/java/sql/Date.html\u003e\n\u003chttps://docs.oracle.com/javase/7/docs/api/java/sql/Timestamp.html\u003e\n\n#### Tuples\nEven they are not exactly a primitive type, Tuples are a important data structures in Scala. They are closely related to Maps and case classes that we will introduce below.\nIn short, you can think of a Tuple as a group of values. For instance, you could build a function that returns several variables of different types in a tuple.\n\n\nThe main drawback of tuples, as with arrays, lists, etc is that you need to access the elements based on the index, so your code could become less readable.\nAlso, unlike for arrays, tuples indexes start at 1, and to access an element inside a tuple you need to prefix the index with an underscore. Last but not least, tuples are diffrent of most collections we will introduce later in the fact that they are ***not iterable***.\n\n```\nval myTuple \u003d (1, \"test\", 25.4, true)\nprintln(myTuple._1)\n```\n\n#### Case classes\nCase classes are value objects, but you can think of them as \"tuple with named fields\", if it helps. They are really easy to define and use, and they improve readability of your code when compared to tuples, arrays, lists, etc..\n\n```\ncase class Person(name: String, age: Int, gender: Char, salary: Float)\n\nval john \u003d Person(\"John Doe\", 33, \u0027M\u0027, 1234.5f)\n\ncase class Address(street: String, number: Int, zipCode: String)\nval home \u003d Address(\"foostraat\", 111, \"1-234Z\")\n```",
       "authenticationInfo": {},
-      "dateUpdated": "May 1, 2016 9:54:29 AM",
+      "dateUpdated": "May 16, 2016 7:23:39 PM",
       "config": {
         "colWidth": 12.0,
         "graph": {
@@ -63,18 +63,18 @@
       "result": {
         "code": "SUCCESS",
         "type": "HTML",
-        "msg": "\u003ch3\u003eBasic Types\u003c/h3\u003e\n\u003cp\u003eThe basic Scala types we\u0027ll introduce should already sound familiar, with a few exceptions. In most cases, Scala will be able to infer the type, but sometimes you might want to explicitly define the type of the variable you are creating.\u003c/p\u003e\n\u003cp\u003eIn some cases, this can improve readibility of your code, and in others, it might actually be needed.\u003c/p\u003e\n\u003chr /\u003e\n\u003ch4\u003eBoolean types:\u003c/h4\u003e\n\u003cul\u003e\n\u003cli\u003e\u003cstrong\u003eBoolean\u003c/strong\u003e: true / false\u003c/li\u003e\n\u003c/ul\u003e\n\u003chr /\u003e\n\u003ch4\u003eCharacter types\u003c/h4\u003e\n\u003cul\u003e\n\u003cli\u003e\u003cstrong\u003eChar\u003c/strong\u003e: Character literals. You can create it by using single quotes.\u003c/li\u003e\n\u003cli\u003e\u003cstrong\u003eString\u003c/strong\u003e: It\u0027s the java.lang.String class. Create it by using double quotes.\u003c/li\u003e\n\u003c/ul\u003e\n\u003chr /\u003e\n\u003ch4\u003eInteger types:\u003c/h4\u003e\n\u003cul\u003e\n\u003cli\u003e\u003cstrong\u003eByte\u003c/strong\u003e: 1-byte integer number. Range: -128 to 127 (both included)\u003c/li\u003e\n\u003cli\u003e\u003cstrong\u003eShort\u003c/strong\u003e: 2-byte integer number. Range: -32768 and 32767 (both included)\u003c/li\u003e\n\u003cli\u003e\u003cstrong\u003eInt\u003c/strong\u003e: 4-byte integer number. Range: -2147483648 and 2147483647\u003c/li\u003e\n\u003cli\u003e\u003cstrong\u003eInteger\u003c/strong\u003e: You\u0027ll see this type as well sometimes, but \u0026ldquo;Integer\u0026rdquo; is actually the java.lang.Integer type.\u003c/li\u003e\n\u003cli\u003e\u003cstrong\u003eLong\u003c/strong\u003e: 8-byte integer. Range: -9223372036854775808 and 9223372036854775807\u003c/li\u003e\n\u003cli\u003e\u003cstrong\u003eBigInt\u003c/strong\u003e: Can hold integers of any size, given that there is enough memory. You should rarely need it, but it is good to know it\u0027s there.\u003cul\u003e\n\u003cli\u003e\u003ca href\u003d\"http://www.scala-lang.org/api/2.10.6/index.html#scala.math.BigInt\"\u003ehttp://www.scala-lang.org/api/2.10.6/index.html#scala.math.BigInt\u003c/a\u003e\u003c/li\u003e\n\u003c/ul\u003e\n\u003c/li\u003e\n\u003c/ul\u003e\n\u003chr /\u003e\n\u003ch4\u003eDecimal types:\u003c/h4\u003e\n\u003cul\u003e\n\u003cli\u003e\u003cstrong\u003eFloat\u003c/strong\u003e: 4-byte single precision float. Range: -3.4028235E38 to 3.4028235E38\u003c/li\u003e\n\u003cli\u003e\u003cstrong\u003eDouble\u003c/strong\u003e: 8-byte, double precision float. Range -1.7976931348623157E308 to 1.7976931348623157E308\u003c/li\u003e\n\u003cli\u003e\u003cstrong\u003eBigDecimal\u003c/strong\u003e: Supports any decimal range an type, with custom scale.\u003cpre\u003e\u003ccode\u003eval myDecimal \u003d BigDecimal(123.452)\n// With \"setScale\", we can define the number of decimals we want, and how to round the values.\nmyDecimal.setScale(2, BigDecimal.RoundingMode.HALF_UP)\n// 123.45\nval anotherDecimal \u003d BigDecimal(16.66666)\nanotherDecimal.setScale(2, BigDecimal.RoundingMode.HALF_UP)\n// 16.67\n\u003c/code\u003e\u003c/pre\u003e\n\u003cul\u003e\n\u003cli\u003e\u003ca href\u003d\"http://www.scala-lang.org/api/2.10.6/index.html#scala.math.BigDecimal\"\u003ehttp://www.scala-lang.org/api/2.10.6/index.html#scala.math.BigDecimal\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href\u003d\"http://www.scala-lang.org/api/2.10.6/index.html#scala.math.BigDecimal$$RoundingMode$@RoundingMode\u003dscala.math.BigDecimal.RoundingMode.Value\"\u003ehttp://www.scala-lang.org/api/2.10.6/index.html#scala.math.BigDecimal$$RoundingMode$@RoundingMode\u003dscala.math.BigDecimal.RoundingMode.Value\u003c/a\u003e\u003c/li\u003e\n\u003c/ul\u003e\n\u003c/li\u003e\n\u003c/ul\u003e\n\u003ch4\u003eDate types:\u003c/h4\u003e\n\u003cp\u003eScala has no specific date types, but you can just use the Java types.\u003c/p\u003e\n\u003cpre\u003e\u003ccode\u003eimport java.text.SimpleDateFormat\nimport java.util.Calendar\n\nval now \u003d Calendar.getInstance.getTime\nval hourFormat \u003d new SimpleDateFormat(\"hh\")\nhourFormat.format(now)\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003eFor Spark, it\u0027s important to also take a look at the java.sql types:\n\u003cbr  /\u003e\u003ca href\u003d\"https://docs.oracle.com/javase/7/docs/api/java/sql/Date.html\"\u003ehttps://docs.oracle.com/javase/7/docs/api/java/sql/Date.html\u003c/a\u003e\n\u003cbr  /\u003e\u003ca href\u003d\"https://docs.oracle.com/javase/7/docs/api/java/sql/Timestamp.html\"\u003ehttps://docs.oracle.com/javase/7/docs/api/java/sql/Timestamp.html\u003c/a\u003e\u003c/p\u003e\n\u003ch4\u003eTuples\u003c/h4\u003e\n\u003cp\u003eEven they are not exactly a primitive type, Tuples are a really important data type in Scala. They are closely related to Maps and to case classes, that we\u0027ll be explaining later.\n\u003cbr  /\u003eIn short, you can thing of a Tuple as a group of values, meaning that, for instance, you could have your function return a tuple containing different values, that can have different types.\u003c/p\u003e\n\u003cp\u003eThe main drawback of tuples, as with arrays, lists, etc is that you need to access the elements based on the index, so your code could become less readable.\n\u003cbr  /\u003eAlso, unlike for arrays, tuples indexes start at 1, and to access an element inside a tuple you need to prefix the index with an underscore.\u003c/p\u003e\n\u003cpre\u003e\u003ccode\u003eval myTuple \u003d (1, \"test\", 25.4, true)\nprintln(myTuple._1)\n\u003c/code\u003e\u003c/pre\u003e\n\u003ch4\u003eCase classes\u003c/h4\u003e\n\u003cp\u003eCase classes are value objects, but you can think of them as \u0026ldquo;tuple with named fields\u0026rdquo;, if it helps. They are really easy to define and use, and they improve readability of your code when compared to tuples, arrays, lists, etc..\u003c/p\u003e\n\u003cpre\u003e\u003ccode\u003ecase class Person(name: String, age: Int, gender: Char, salary: Float)\n\nval john \u003d Person(\"John Doe\", 33, \u0027M\u0027, 1234.5f)\n\ncase class Address(street: String, number: Int, zipCode: String)\nval home \u003d Address(\"foostraat\", 111, \"1-234Z\")\n\u003c/code\u003e\u003c/pre\u003e\n"
+        "msg": "\u003ch3\u003eBasic Types\u003c/h3\u003e\n\u003cp\u003eThe basic Scala types we\u0027ll introduce should already sound familiar, with a few exceptions. In most cases, Scala will be able to infer the type, but sometimes you might want to explicitly define the type of the variable you are creating.\u003c/p\u003e\n\u003cp\u003eIn some cases, this can improve readibility of your code, and in others, it might actually be needed.\u003c/p\u003e\n\u003chr /\u003e\n\u003ch4\u003eBoolean types:\u003c/h4\u003e\n\u003cul\u003e\n\u003cli\u003e\u003cstrong\u003eBoolean\u003c/strong\u003e: true / false\u003c/li\u003e\n\u003c/ul\u003e\n\u003chr /\u003e\n\u003ch4\u003eCharacter types\u003c/h4\u003e\n\u003cul\u003e\n\u003cli\u003e\u003cstrong\u003eChar\u003c/strong\u003e: Character literals. You can create it by using single quotes.\u003c/li\u003e\n\u003cli\u003e\u003cstrong\u003eString\u003c/strong\u003e: It\u0027s the java.lang.String class. Create it by using double quotes.\u003c/li\u003e\n\u003c/ul\u003e\n\u003chr /\u003e\n\u003ch4\u003eInteger types:\u003c/h4\u003e\n\u003cul\u003e\n\u003cli\u003e\u003cstrong\u003eByte\u003c/strong\u003e: 1-byte integer number. Range: -128 to 127 (both included)\u003c/li\u003e\n\u003cli\u003e\u003cstrong\u003eShort\u003c/strong\u003e: 2-byte integer number. Range: -32768 and 32767 (both included)\u003c/li\u003e\n\u003cli\u003e\u003cstrong\u003eInt\u003c/strong\u003e: 4-byte integer number. Range: -2147483648 and 2147483647\u003c/li\u003e\n\u003cli\u003e\u003cstrong\u003eInteger\u003c/strong\u003e: You\u0027ll see this type as well sometimes, but \u0026ldquo;Integer\u0026rdquo; is actually the java.lang.Integer type.\u003c/li\u003e\n\u003cli\u003e\u003cstrong\u003eLong\u003c/strong\u003e: 8-byte integer. Range: -9223372036854775808 and 9223372036854775807\u003c/li\u003e\n\u003cli\u003e\u003cstrong\u003eBigInt\u003c/strong\u003e: Can hold integers of any size, given that there is enough memory. You should rarely need it, but it is good to know it\u0027s there.\u003cul\u003e\n\u003cli\u003e\u003ca href\u003d\"http://www.scala-lang.org/api/2.10.6/index.html#scala.math.BigInt\"\u003ehttp://www.scala-lang.org/api/2.10.6/index.html#scala.math.BigInt\u003c/a\u003e\u003c/li\u003e\n\u003c/ul\u003e\n\u003c/li\u003e\n\u003c/ul\u003e\n\u003chr /\u003e\n\u003ch4\u003eDecimal types:\u003c/h4\u003e\n\u003cul\u003e\n\u003cli\u003e\u003cstrong\u003eFloat\u003c/strong\u003e: 4-byte single precision float. Range: -3.4028235E38 to 3.4028235E38\u003c/li\u003e\n\u003cli\u003e\u003cstrong\u003eDouble\u003c/strong\u003e: 8-byte, double precision float. Range -1.7976931348623157E308 to 1.7976931348623157E308\u003c/li\u003e\n\u003cli\u003e\u003cstrong\u003eBigDecimal\u003c/strong\u003e: Supports any decimal range an type, with custom scale.\u003cpre\u003e\u003ccode\u003eval myDecimal \u003d BigDecimal(123.452)\n// With \"setScale\", we can define the number of decimals we want, and how to round the values.\nmyDecimal.setScale(2, BigDecimal.RoundingMode.HALF_UP)\n// 123.45\nval anotherDecimal \u003d BigDecimal(16.66666)\nanotherDecimal.setScale(2, BigDecimal.RoundingMode.HALF_UP)\n// 16.67\n\u003c/code\u003e\u003c/pre\u003e\n\u003cul\u003e\n\u003cli\u003e\u003ca href\u003d\"http://www.scala-lang.org/api/2.10.6/index.html#scala.math.BigDecimal\"\u003ehttp://www.scala-lang.org/api/2.10.6/index.html#scala.math.BigDecimal\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href\u003d\"http://www.scala-lang.org/api/2.10.6/index.html#scala.math.BigDecimal$$RoundingMode$@RoundingMode\u003dscala.math.BigDecimal.RoundingMode.Value\"\u003ehttp://www.scala-lang.org/api/2.10.6/index.html#scala.math.BigDecimal$$RoundingMode$@RoundingMode\u003dscala.math.BigDecimal.RoundingMode.Value\u003c/a\u003e\u003c/li\u003e\n\u003c/ul\u003e\n\u003c/li\u003e\n\u003c/ul\u003e\n\u003ch4\u003eDate types:\u003c/h4\u003e\n\u003cp\u003eScala has no specific date types, but you can just use the Java types.\u003c/p\u003e\n\u003cpre\u003e\u003ccode\u003eimport java.text.SimpleDateFormat\nimport java.util.Calendar\n\nval now \u003d Calendar.getInstance.getTime\nval hourFormat \u003d new SimpleDateFormat(\"hh\")\nhourFormat.format(now)\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003eFor Spark, it\u0027s important to also take a look at the java.sql types:\n\u003cbr  /\u003e\u003ca href\u003d\"https://docs.oracle.com/javase/7/docs/api/java/sql/Date.html\"\u003ehttps://docs.oracle.com/javase/7/docs/api/java/sql/Date.html\u003c/a\u003e\n\u003cbr  /\u003e\u003ca href\u003d\"https://docs.oracle.com/javase/7/docs/api/java/sql/Timestamp.html\"\u003ehttps://docs.oracle.com/javase/7/docs/api/java/sql/Timestamp.html\u003c/a\u003e\u003c/p\u003e\n\u003ch4\u003eTuples\u003c/h4\u003e\n\u003cp\u003eEven they are not exactly a primitive type, Tuples are a important data structures in Scala. They are closely related to Maps and case classes that we will introduce below.\n\u003cbr  /\u003eIn short, you can think of a Tuple as a group of values. For instance, you could build a function that returns several variables of different types in a tuple.\u003c/p\u003e\n\u003cp\u003eThe main drawback of tuples, as with arrays, lists, etc is that you need to access the elements based on the index, so your code could become less readable.\n\u003cbr  /\u003eAlso, unlike for arrays, tuples indexes start at 1, and to access an element inside a tuple you need to prefix the index with an underscore. Last but not least, tuples are diffrent of most collections we will introduce later in the fact that they are \u003cstrong\u003e\u003cem\u003enot iterable\u003c/em\u003e\u003c/strong\u003e.\u003c/p\u003e\n\u003cpre\u003e\u003ccode\u003eval myTuple \u003d (1, \"test\", 25.4, true)\nprintln(myTuple._1)\n\u003c/code\u003e\u003c/pre\u003e\n\u003ch4\u003eCase classes\u003c/h4\u003e\n\u003cp\u003eCase classes are value objects, but you can think of them as \u0026ldquo;tuple with named fields\u0026rdquo;, if it helps. They are really easy to define and use, and they improve readability of your code when compared to tuples, arrays, lists, etc..\u003c/p\u003e\n\u003cpre\u003e\u003ccode\u003ecase class Person(name: String, age: Int, gender: Char, salary: Float)\n\nval john \u003d Person(\"John Doe\", 33, \u0027M\u0027, 1234.5f)\n\ncase class Address(street: String, number: Int, zipCode: String)\nval home \u003d Address(\"foostraat\", 111, \"1-234Z\")\n\u003c/code\u003e\u003c/pre\u003e\n"
       },
       "dateCreated": "Apr 16, 2016 3:22:35 PM",
-      "dateStarted": "May 1, 2016 9:54:26 AM",
-      "dateFinished": "May 1, 2016 9:54:27 AM",
+      "dateStarted": "May 16, 2016 7:23:38 PM",
+      "dateFinished": "May 16, 2016 7:23:38 PM",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
     {
       "text": "%md\n### Summary - Scala Type Hierarchy\n\n![Scala Type Hierarchy](https://upload.wikimedia.org/wikipedia/commons/e/ec/Scala_Unified_Types_Hierachy.jpg)\n\n---\n\nSo, is there any difference between *AnyVal* and *AnyRef*? **Yes**\n\nThe main one is that all AnyVal subtypes will be stored on the registry / CPU stack when possible for better performance, whereas AnyRef subtypes will be stored in the heap.",
       "authenticationInfo": {},
-      "dateUpdated": "Apr 16, 2016 3:28:37 PM",
+      "dateUpdated": "May 16, 2016 7:17:56 PM",
       "config": {
         "colWidth": 12.0,
         "graph": {
@@ -101,8 +101,8 @@
         "msg": "\u003ch3\u003eSummary - Scala Type Hierarchy\u003c/h3\u003e\n\u003cp\u003e\u003cimg src\u003d\"https://upload.wikimedia.org/wikipedia/commons/e/ec/Scala_Unified_Types_Hierachy.jpg\" alt\u003d\"Scala Type Hierarchy\" /\u003e\u003c/p\u003e\n\u003chr /\u003e\n\u003cp\u003eSo, is there any difference between \u003cem\u003eAnyVal\u003c/em\u003e and \u003cem\u003eAnyRef\u003c/em\u003e? \u003cstrong\u003eYes\u003c/strong\u003e\u003c/p\u003e\n\u003cp\u003eThe main one is that all AnyVal subtypes will be stored on the registry / CPU stack when possible for better performance, whereas AnyRef subtypes will be stored in the heap.\u003c/p\u003e\n"
       },
       "dateCreated": "Apr 16, 2016 3:22:53 PM",
-      "dateStarted": "Apr 16, 2016 3:23:20 PM",
-      "dateFinished": "Apr 16, 2016 3:23:20 PM",
+      "dateStarted": "May 16, 2016 7:17:56 PM",
+      "dateFinished": "May 16, 2016 7:17:56 PM",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
@@ -454,9 +454,9 @@
       "progressUpdateIntervalMs": 500
     },
     {
-      "text": "%md\n### Declaring functions\nFunctions are really powerful in Scala, as we\u0027ll show. The basic syntax to declare a function is as follows:\n```\ndef functionName(param1: type1, param2: type2): returnType \u003d {\n    function body.\n    \n    // whatever you put in the last line is what will be returned\n}\n```\n\nA few things to take into account:\n- The return type is optional in most cases, but writing it helps readability.\n- The last line of the function (actually, the last line that\u0027s executed) is the value that will be returned\n\nWe\u0027ll explain more about functions later, but for now let\u0027s start with a simple example: a function to check whether a number is even or not.",
+      "text": "%md\n### Declaring functions\nFunctions are really powerful in Scala, as we\u0027ll show. The basic syntax to declare a function is as follows:\n```\ndef functionName(param1: type1, param2: type2): returnType \u003d {\n    function body.\n    \n    // whatever you put in the last line is what will be returned\n}\n```\n\nA few things to take into account:\n- The return type is optional in most cases, but writing it helps readability.\n- The last line of the function (actually, the last line that\u0027s executed) is the value that will be returned\n\nWe will explain more about functions later, but for now let\u0027s start with a simple example: a function to check whether a number is even or not.",
       "authenticationInfo": {},
-      "dateUpdated": "Apr 16, 2016 3:28:13 PM",
+      "dateUpdated": "May 16, 2016 7:15:48 PM",
       "config": {
         "colWidth": 12.0,
         "graph": {
@@ -469,7 +469,8 @@
           "scatter": {}
         },
         "enabled": true,
-        "editorHide": true
+        "editorHide": true,
+        "editorMode": "ace/mode/markdown"
       },
       "settings": {
         "params": {},
@@ -480,11 +481,11 @@
       "result": {
         "code": "SUCCESS",
         "type": "HTML",
-        "msg": "\u003ch3\u003eDeclaring functions\u003c/h3\u003e\n\u003cp\u003eFunctions are really powerful in Scala, as we\u0027ll show. The basic syntax to declare a function is as follows:\u003c/p\u003e\n\u003cpre\u003e\u003ccode\u003edef functionName(param1: type1, param2: type2): returnType \u003d {\n    function body.\n\n    // whatever you put in the last line is what will be returned\n}\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003eA few things to take into account:\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003eThe return type is optional in most cases, but writing it helps readability.\u003c/li\u003e\n\u003cli\u003eThe last line of the function (actually, the last line that\u0027s executed) is the value that will be returned\u003c/li\u003e\n\u003c/ul\u003e\n\u003cp\u003eWe\u0027ll explain more about functions later, but for now let\u0027s start with a simple example: a function to check whether a number is even or not.\u003c/p\u003e\n"
+        "msg": "\u003ch3\u003eDeclaring functions\u003c/h3\u003e\n\u003cp\u003eFunctions are really powerful in Scala, as we\u0027ll show. The basic syntax to declare a function is as follows:\u003c/p\u003e\n\u003cpre\u003e\u003ccode\u003edef functionName(param1: type1, param2: type2): returnType \u003d {\n    function body.\n\n    // whatever you put in the last line is what will be returned\n}\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003eA few things to take into account:\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003eThe return type is optional in most cases, but writing it helps readability.\u003c/li\u003e\n\u003cli\u003eThe last line of the function (actually, the last line that\u0027s executed) is the value that will be returned\u003c/li\u003e\n\u003c/ul\u003e\n\u003cp\u003eWe will explain more about functions later, but for now let\u0027s start with a simple example: a function to check whether a number is even or not.\u003c/p\u003e\n"
       },
       "dateCreated": "Apr 16, 2016 3:25:22 PM",
-      "dateStarted": "Apr 16, 2016 3:25:38 PM",
-      "dateFinished": "Apr 16, 2016 3:25:38 PM",
+      "dateStarted": "May 16, 2016 7:15:48 PM",
+      "dateFinished": "May 16, 2016 7:15:48 PM",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
@@ -592,9 +593,9 @@
       "progressUpdateIntervalMs": 500
     },
     {
-      "text": "%md\n#### for loops\nAgain, the for control structure should look familiar, with one exception: There is no **break** and no **continue** in Scala\u0027s for loops:\n\n```\nfor (i \u003c- 1 to 5) {\n  println(\"i : \" + i)\n}\n```\n\n**IMPORTANT** You should rarely have the need for \"for\" loops, most of the times, you just use \"map\", \"foreach\" or similar iterate a collection.\n\nOne nice feature that Scala provides and that we\u0027ll also see in other topics is called **guards** and uses a syntax very similar to the *if* that we have just seen, that allow you to do something like this:",
+      "text": "%md\n#### for loops\nAgain, the for control structure should look familiar, with one exception: There is no **break** and no **continue** in Scala\u0027s for loops:\n\n```\nfor (i \u003c- 1 to 5) {\n  println(\"i : \" + i)\n}\n```\n\n**IMPORTANT** You should rarely have the need for \"for\" loops, most of the times, you just use \"map\", \"foreach\" or similar iterate a collection.\n\nOne nice feature that Scala provides and that we will also see in other topics is called **guards** and uses a syntax very similar to the *if* that we have just seen, that allow you to do something like this:",
       "authenticationInfo": {},
-      "dateUpdated": "Apr 16, 2016 3:28:03 PM",
+      "dateUpdated": "May 16, 2016 7:16:34 PM",
       "config": {
         "colWidth": 12.0,
         "graph": {
@@ -618,11 +619,11 @@
       "result": {
         "code": "SUCCESS",
         "type": "HTML",
-        "msg": "\u003ch4\u003efor loops\u003c/h4\u003e\n\u003cp\u003eAgain, the for control structure should look familiar, with one exception: There is no \u003cstrong\u003ebreak\u003c/strong\u003e and no \u003cstrong\u003econtinue\u003c/strong\u003e in Scala\u0027s for loops:\u003c/p\u003e\n\u003cpre\u003e\u003ccode\u003efor (i \u0026lt;- 1 to 5) {\n  println(\"i : \" + i)\n}\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003e\u003cstrong\u003eIMPORTANT\u003c/strong\u003e You should rarely have the need for \u0026ldquo;for\u0026rdquo; loops, most of the times, you just use \u0026ldquo;map\u0026rdquo;, \u0026ldquo;foreach\u0026rdquo; or similar iterate a collection.\u003c/p\u003e\n\u003cp\u003eOne nice feature that Scala provides and that we\u0027ll also see in other topics is called \u003cstrong\u003eguards\u003c/strong\u003e and uses a syntax very similar to the \u003cem\u003eif\u003c/em\u003e that we have just seen, that allow you to do something like this:\u003c/p\u003e\n"
+        "msg": "\u003ch4\u003efor loops\u003c/h4\u003e\n\u003cp\u003eAgain, the for control structure should look familiar, with one exception: There is no \u003cstrong\u003ebreak\u003c/strong\u003e and no \u003cstrong\u003econtinue\u003c/strong\u003e in Scala\u0027s for loops:\u003c/p\u003e\n\u003cpre\u003e\u003ccode\u003efor (i \u0026lt;- 1 to 5) {\n  println(\"i : \" + i)\n}\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003e\u003cstrong\u003eIMPORTANT\u003c/strong\u003e You should rarely have the need for \u0026ldquo;for\u0026rdquo; loops, most of the times, you just use \u0026ldquo;map\u0026rdquo;, \u0026ldquo;foreach\u0026rdquo; or similar iterate a collection.\u003c/p\u003e\n\u003cp\u003eOne nice feature that Scala provides and that we will also see in other topics is called \u003cstrong\u003eguards\u003c/strong\u003e and uses a syntax very similar to the \u003cem\u003eif\u003c/em\u003e that we have just seen, that allow you to do something like this:\u003c/p\u003e\n"
       },
       "dateCreated": "Apr 16, 2016 3:26:15 PM",
-      "dateStarted": "Apr 16, 2016 3:26:23 PM",
-      "dateFinished": "Apr 16, 2016 3:26:23 PM",
+      "dateStarted": "May 16, 2016 7:16:32 PM",
+      "dateFinished": "May 16, 2016 7:16:32 PM",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
@@ -661,9 +662,9 @@
       "progressUpdateIntervalMs": 500
     },
     {
-      "text": "%md\nIf you want to generate a collection as the result of a for loop, you can use \"yield\". To try to explain the concept, you can see it as if every iteration of the loop returned a value that is kept in a buffer, and once the loop ends, a collection is returned.",
+      "text": "%md\n-\nIf you want to generate a collection as the result of a for loop, you can use \"yield\". To try to explain the concept, you can see it as if every iteration of the loop returned a value that is kept in a buffer, and once the loop ends, a collection is returned.",
       "authenticationInfo": {},
-      "dateUpdated": "Apr 16, 2016 3:27:57 PM",
+      "dateUpdated": "May 16, 2016 7:16:54 PM",
       "config": {
         "colWidth": 12.0,
         "graph": {
@@ -687,11 +688,11 @@
       "result": {
         "code": "SUCCESS",
         "type": "HTML",
-        "msg": "\u003cp\u003eIf you want to generate a collection as the result of a for loop, you can use \u0026ldquo;yield\u0026rdquo;. To try to explain the concept, you can see it as if every iteration of the loop returned a value that is kept in a buffer, and once the loop ends, a collection is returned.\u003c/p\u003e\n"
+        "msg": "\u003cp\u003e-\n\u003cbr  /\u003eIf you want to generate a collection as the result of a for loop, you can use \u0026ldquo;yield\u0026rdquo;. To try to explain the concept, you can see it as if every iteration of the loop returned a value that is kept in a buffer, and once the loop ends, a collection is returned.\u003c/p\u003e\n"
       },
       "dateCreated": "Apr 16, 2016 3:26:38 PM",
-      "dateStarted": "Apr 16, 2016 3:26:47 PM",
-      "dateFinished": "Apr 16, 2016 3:26:47 PM",
+      "dateStarted": "May 16, 2016 7:16:53 PM",
+      "dateFinished": "May 16, 2016 7:16:53 PM",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
@@ -765,9 +766,9 @@
       "progressUpdateIntervalMs": 500
     },
     {
-      "text": "%md\n### try ... catch ... finally\nAs before, there will be very few cases where you want / need to use a try catch, and if possible, avoid it. Nonetheless, we\u0027ll introduce the syntax for future reference:\n\n```\ntry {\n  // code that might throw exception(s)\n} catch {\n  case x: FooException \u003d\u003e // handleFooException\n  case y: BarException \u003d\u003e // handleBarException\n  // ...\n} finally {\n  // code that will always be executed\n}\n```\n\n**IMPORTANT**: Don\u0027t catch Throwable! And if you do... throw it again. Full explanation:\n\u003chttps://www.sumologic.com/2014/05/05/why-you-should-never-catch-throwable-in-scala\u003e",
+      "text": "%md\n### try ... catch ... finally\nAs before, there will be very few cases where you want / need to use a try catch, and if possible, avoid it. Nonetheless, we will introduce the syntax for future reference:\n\n```\ntry {\n  // code that might throw exception(s)\n} catch {\n  case x: FooException \u003d\u003e // handleFooException\n  case y: BarException \u003d\u003e // handleBarException\n  // ...\n} finally {\n  // code that will always be executed\n}\n```\n\n**IMPORTANT**: Don\u0027t catch Throwable! And if you do... throw it again. Full explanation:\n\u003chttps://www.sumologic.com/2014/05/05/why-you-should-never-catch-throwable-in-scala\u003e",
       "authenticationInfo": {},
-      "dateUpdated": "Apr 16, 2016 3:27:49 PM",
+      "dateUpdated": "May 16, 2016 7:17:21 PM",
       "config": {
         "colWidth": 12.0,
         "graph": {
@@ -791,11 +792,11 @@
       "result": {
         "code": "SUCCESS",
         "type": "HTML",
-        "msg": "\u003ch3\u003etry \u0026hellip; catch \u0026hellip; finally\u003c/h3\u003e\n\u003cp\u003eAs before, there will be very few cases where you want / need to use a try catch, and if possible, avoid it. Nonetheless, we\u0027ll introduce the syntax for future reference:\u003c/p\u003e\n\u003cpre\u003e\u003ccode\u003etry {\n  // code that might throw exception(s)\n} catch {\n  case x: FooException \u003d\u0026gt; // handleFooException\n  case y: BarException \u003d\u0026gt; // handleBarException\n  // ...\n} finally {\n  // code that will always be executed\n}\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003e\u003cstrong\u003eIMPORTANT\u003c/strong\u003e: Don\u0027t catch Throwable! And if you do\u0026hellip; throw it again. Full explanation:\n\u003cbr  /\u003e\u003ca href\u003d\"https://www.sumologic.com/2014/05/05/why-you-should-never-catch-throwable-in-scala\"\u003ehttps://www.sumologic.com/2014/05/05/why-you-should-never-catch-throwable-in-scala\u003c/a\u003e\u003c/p\u003e\n"
+        "msg": "\u003ch3\u003etry \u0026hellip; catch \u0026hellip; finally\u003c/h3\u003e\n\u003cp\u003eAs before, there will be very few cases where you want / need to use a try catch, and if possible, avoid it. Nonetheless, we will introduce the syntax for future reference:\u003c/p\u003e\n\u003cpre\u003e\u003ccode\u003etry {\n  // code that might throw exception(s)\n} catch {\n  case x: FooException \u003d\u0026gt; // handleFooException\n  case y: BarException \u003d\u0026gt; // handleBarException\n  // ...\n} finally {\n  // code that will always be executed\n}\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003e\u003cstrong\u003eIMPORTANT\u003c/strong\u003e: Don\u0027t catch Throwable! And if you do\u0026hellip; throw it again. Full explanation:\n\u003cbr  /\u003e\u003ca href\u003d\"https://www.sumologic.com/2014/05/05/why-you-should-never-catch-throwable-in-scala\"\u003ehttps://www.sumologic.com/2014/05/05/why-you-should-never-catch-throwable-in-scala\u003c/a\u003e\u003c/p\u003e\n"
       },
       "dateCreated": "Apr 16, 2016 3:27:04 PM",
-      "dateStarted": "Apr 16, 2016 3:27:46 PM",
-      "dateFinished": "Apr 16, 2016 3:27:46 PM",
+      "dateStarted": "May 16, 2016 7:17:20 PM",
+      "dateFinished": "May 16, 2016 7:17:20 PM",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
@@ -815,24 +816,24 @@
   "name": "Intro to Scala - 1: Basics",
   "id": "2BJ5EXM41",
   "angularObjects": {
-    "2BKKGWMY9": [],
-    "2BM7XR6U7": [],
-    "2BHDGC5ZB": [],
-    "2BMJ1ZTKR": [],
-    "2BKYVCNSD": [],
-    "2BM72GFDU": [],
-    "2BM74FBTQ": [],
-    "2BHW3NPVE": [],
-    "2BHZKEE9C": [],
-    "2BM158R3T": [],
-    "2BKMHR2WT": [],
-    "2BK19VD7Y": [],
-    "2BJ72E96T": [],
-    "2BMMM996X": [],
-    "2BKUMG5KZ": [],
-    "2BGQNK6A7": [],
-    "2BH3HCFEG": [],
-    "2BHU5HPQK": []
+    "2BMRDS78B": [],
+    "2BK8HQZE9": [],
+    "2BMCTH6K1": [],
+    "2BMMXJCPX": [],
+    "2BJSN3SRW": [],
+    "2BHYZ4NNZ": [],
+    "2BJETA9QN": [],
+    "2BM84FP6H": [],
+    "2BJXJW856": [],
+    "2BKVHNW3H": [],
+    "2BMV94AQ9": [],
+    "2BNXDNAWE": [],
+    "2BNX11SUX": [],
+    "2BNFXMT3V": [],
+    "2BMP8AVX7": [],
+    "2BMU7Y7YW": [],
+    "2BJC373Q3": [],
+    "2BN2SY8TW": []
   },
   "config": {
     "looknfeel": "default"

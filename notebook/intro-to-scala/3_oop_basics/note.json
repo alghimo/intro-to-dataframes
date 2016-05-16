@@ -209,9 +209,9 @@
       "progressUpdateIntervalMs": 500
     },
     {
-      "text": "%md\nYes, the example doesn\u0027t make much sense (why would you want to sleep when initializing a value?). Just imagine that instead of the \"Thread.sleep\", you are connecting to some external system or performing an expensive action, such as a DB, a REST Api, etc..\nThese operations take time, and after all, maybe the user will not always be using the vals you have defined.",
+      "text": "%md\n-\nYes, the example doesn\u0027t make much sense (why would you want to sleep when initializing a value?). Just imagine that instead of the \"Thread.sleep\", you are connecting to some external system or performing an expensive action, such as a DB, a REST Api, etc..\nThese operations take time, and after all, maybe the user will not always be using the vals you have defined.",
       "authenticationInfo": {},
-      "dateUpdated": "May 1, 2016 10:51:52 AM",
+      "dateUpdated": "May 16, 2016 7:40:01 PM",
       "config": {
         "colWidth": 12.0,
         "graph": {
@@ -224,7 +224,8 @@
           "scatter": {}
         },
         "enabled": true,
-        "editorHide": true
+        "editorHide": true,
+        "editorMode": "ace/mode/markdown"
       },
       "settings": {
         "params": {},
@@ -235,11 +236,11 @@
       "result": {
         "code": "SUCCESS",
         "type": "HTML",
-        "msg": "\u003cp\u003eYes, the example doesn\u0027t make much sense (why would you want to sleep when initializing a value?). Just imagine that instead of the \u0026ldquo;Thread.sleep\u0026rdquo;, you are connecting to some external system or performing an expensive action, such as a DB, a REST Api, etc..\n\u003cbr  /\u003eThese operations take time, and after all, maybe the user will not always be using the vals you have defined.\u003c/p\u003e\n"
+        "msg": "\u003cp\u003e-\n\u003cbr  /\u003eYes, the example doesn\u0027t make much sense (why would you want to sleep when initializing a value?). Just imagine that instead of the \u0026ldquo;Thread.sleep\u0026rdquo;, you are connecting to some external system or performing an expensive action, such as a DB, a REST Api, etc..\n\u003cbr  /\u003eThese operations take time, and after all, maybe the user will not always be using the vals you have defined.\u003c/p\u003e\n"
       },
       "dateCreated": "Apr 16, 2016 3:48:25 PM",
-      "dateStarted": "May 1, 2016 10:51:50 AM",
-      "dateFinished": "May 1, 2016 10:51:50 AM",
+      "dateStarted": "May 16, 2016 7:40:00 PM",
+      "dateFinished": "May 16, 2016 7:40:00 PM",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
@@ -328,24 +329,24 @@
   "name": "Intro to Scala - 3: OOP Basics in Scala",
   "id": "2BGZKZQZB",
   "angularObjects": {
-    "2BKKGWMY9": [],
-    "2BM7XR6U7": [],
-    "2BHDGC5ZB": [],
-    "2BMJ1ZTKR": [],
-    "2BKYVCNSD": [],
-    "2BM72GFDU": [],
-    "2BM74FBTQ": [],
-    "2BHW3NPVE": [],
-    "2BHZKEE9C": [],
-    "2BM158R3T": [],
-    "2BKMHR2WT": [],
-    "2BK19VD7Y": [],
-    "2BJ72E96T": [],
-    "2BMMM996X": [],
-    "2BKUMG5KZ": [],
-    "2BGQNK6A7": [],
-    "2BH3HCFEG": [],
-    "2BHU5HPQK": []
+    "2BMRDS78B": [],
+    "2BK8HQZE9": [],
+    "2BMCTH6K1": [],
+    "2BMMXJCPX": [],
+    "2BJSN3SRW": [],
+    "2BHYZ4NNZ": [],
+    "2BJETA9QN": [],
+    "2BM84FP6H": [],
+    "2BJXJW856": [],
+    "2BKVHNW3H": [],
+    "2BMV94AQ9": [],
+    "2BNXDNAWE": [],
+    "2BNX11SUX": [],
+    "2BNFXMT3V": [],
+    "2BMP8AVX7": [],
+    "2BMU7Y7YW": [],
+    "2BJC373Q3": [],
+    "2BN2SY8TW": []
   },
   "config": {},
   "info": {}

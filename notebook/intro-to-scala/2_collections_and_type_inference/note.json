@@ -1,9 +1,9 @@
 {
   "paragraphs": [
     {
-      "text": "%md\n## Collections\nWe\u0027ll not be covering all of the Scala collections, but we\u0027ll cover some of the collections you\u0027ll probably use more often.\nIt\u0027s important to note that Scala makes a clear differentiation between mutable and immutable collections, and usually offers a \"mutable\" equivalent for every \"immutable\" collection type.",
+      "text": "%md\n## Collections\nWe\u0027ll not be covering all of the Scala collections, but we will cover some of the collections you will probably use more often.\nIt\u0027s important to note that Scala makes a clear differentiation between mutable and immutable collections, and usually offers a \"mutable\" equivalent for every \"immutable\" collection type.",
       "authenticationInfo": {},
-      "dateUpdated": "Apr 16, 2016 4:32:59 PM",
+      "dateUpdated": "May 16, 2016 7:26:52 PM",
       "config": {
         "colWidth": 12.0,
         "graph": {
@@ -28,18 +28,18 @@
       "result": {
         "code": "SUCCESS",
         "type": "HTML",
-        "msg": "\u003ch2\u003eCollections\u003c/h2\u003e\n\u003cp\u003eWe\u0027ll not be covering all of the Scala collections, but we\u0027ll cover some of the collections you\u0027ll probably use more often.\n\u003cbr  /\u003eIt\u0027s important to note that Scala makes a clear differentiation between mutable and immutable collections, and usually offers a \u0026ldquo;mutable\u0026rdquo; equivalent for every \u0026ldquo;immutable\u0026rdquo; collection type.\u003c/p\u003e\n"
+        "msg": "\u003ch2\u003eCollections\u003c/h2\u003e\n\u003cp\u003eWe\u0027ll not be covering all of the Scala collections, but we will cover some of the collections you will probably use more often.\n\u003cbr  /\u003eIt\u0027s important to note that Scala makes a clear differentiation between mutable and immutable collections, and usually offers a \u0026ldquo;mutable\u0026rdquo; equivalent for every \u0026ldquo;immutable\u0026rdquo; collection type.\u003c/p\u003e\n"
       },
       "dateCreated": "Apr 16, 2016 3:31:07 PM",
-      "dateStarted": "Apr 16, 2016 4:32:56 PM",
-      "dateFinished": "Apr 16, 2016 4:32:56 PM",
+      "dateStarted": "May 16, 2016 7:26:51 PM",
+      "dateFinished": "May 16, 2016 7:26:51 PM",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
     {
-      "text": "%md\n### Immutable Collections\nImmutable collections are defined inside the \"scala.collection.immutable\" package:\n\u003chttp://www.scala-lang.org/api/2.10.6/#scala.collection.immutable.package\u003e\n#### List and Set\nThe main functional difference between a List and a Set is that Set only keeps distinct elements.",
+      "text": "%md\n### Immutable Collections\nImmutable collections are defined inside the \"scala.collection.immutable\" package:\n\u003chttp://www.scala-lang.org/api/2.10.6/#scala.collection.immutable.package\u003e\n#### List and Set\nThe main functional difference between a List and a Set is that Set only keeps distinct elements.\n\n---\n\u003chttp://www.scala-lang.org/api/2.10.6/scala/collection/immutable/List.html\u003e\n\u003chttp://www.scala-lang.org/api/2.10.6/scala/collection/immutable/Set.html\u003e",
       "authenticationInfo": {},
-      "dateUpdated": "Apr 17, 2016 1:45:40 PM",
+      "dateUpdated": "May 16, 2016 7:27:43 PM",
       "config": {
         "colWidth": 12.0,
         "graph": {
@@ -64,11 +64,11 @@
       "result": {
         "code": "SUCCESS",
         "type": "HTML",
-        "msg": "\u003ch3\u003eImmutable Collections\u003c/h3\u003e\n\u003cp\u003eImmutable collections are defined inside the \u0026ldquo;scala.collection.immutable\u0026rdquo; package:\n\u003cbr  /\u003e\u003ca href\u003d\"http://www.scala-lang.org/api/2.10.6/#scala.collection.immutable.package\"\u003ehttp://www.scala-lang.org/api/2.10.6/#scala.collection.immutable.package\u003c/a\u003e\u003c/p\u003e\n\u003ch4\u003eList and Set\u003c/h4\u003e\n\u003cp\u003eThe main functional difference between a List and a Set is that Set only keeps distinct elements.\u003c/p\u003e\n"
+        "msg": "\u003ch3\u003eImmutable Collections\u003c/h3\u003e\n\u003cp\u003eImmutable collections are defined inside the \u0026ldquo;scala.collection.immutable\u0026rdquo; package:\n\u003cbr  /\u003e\u003ca href\u003d\"http://www.scala-lang.org/api/2.10.6/#scala.collection.immutable.package\"\u003ehttp://www.scala-lang.org/api/2.10.6/#scala.collection.immutable.package\u003c/a\u003e\u003c/p\u003e\n\u003ch4\u003eList and Set\u003c/h4\u003e\n\u003cp\u003eThe main functional difference between a List and a Set is that Set only keeps distinct elements.\u003c/p\u003e\n\u003chr /\u003e\n\u003cp\u003e\u003ca href\u003d\"http://www.scala-lang.org/api/2.10.6/scala/collection/immutable/List.html\"\u003ehttp://www.scala-lang.org/api/2.10.6/scala/collection/immutable/List.html\u003c/a\u003e\n\u003cbr  /\u003e\u003ca href\u003d\"http://www.scala-lang.org/api/2.10.6/scala/collection/immutable/Set.html\"\u003ehttp://www.scala-lang.org/api/2.10.6/scala/collection/immutable/Set.html\u003c/a\u003e\u003c/p\u003e\n"
       },
       "dateCreated": "Apr 16, 2016 3:31:21 PM",
-      "dateStarted": "Apr 16, 2016 3:31:43 PM",
-      "dateFinished": "Apr 16, 2016 3:31:43 PM",
+      "dateStarted": "May 16, 2016 7:27:42 PM",
+      "dateFinished": "May 16, 2016 7:27:42 PM",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
@@ -107,9 +107,9 @@
       "progressUpdateIntervalMs": 500
     },
     {
-      "text": "%md\n#### Map\nA map keeps its elements in the form (key, value). Keys are unique, so you can not have the same key with two different values.",
+      "text": "%md\n#### Map\nA map keeps its elements in the form (key, value). Keys are unique, so you can not have the same key with two different values.\n\n---\n\u003chttp://www.scala-lang.org/api/2.10.6/scala/collection/immutable/Map.html\u003e",
       "authenticationInfo": {},
-      "dateUpdated": "Apr 16, 2016 3:32:21 PM",
+      "dateUpdated": "May 16, 2016 7:28:35 PM",
       "config": {
         "colWidth": 12.0,
         "graph": {
@@ -133,11 +133,11 @@
       "result": {
         "code": "SUCCESS",
         "type": "HTML",
-        "msg": "\u003ch4\u003eMap\u003c/h4\u003e\n\u003cp\u003eA map keeps its elements in the form (key, value). Keys are unique, so you can not have the same key with two different values.\u003c/p\u003e\n"
+        "msg": "\u003ch4\u003eMap\u003c/h4\u003e\n\u003cp\u003eA map keeps its elements in the form (key, value). Keys are unique, so you can not have the same key with two different values.\u003c/p\u003e\n\u003chr /\u003e\n\u003cp\u003e\u003ca href\u003d\"http://www.scala-lang.org/api/2.10.6/scala/collection/immutable/Map.html\"\u003ehttp://www.scala-lang.org/api/2.10.6/scala/collection/immutable/Map.html\u003c/a\u003e\u003c/p\u003e\n"
       },
       "dateCreated": "Apr 16, 2016 3:32:02 PM",
-      "dateStarted": "Apr 16, 2016 3:32:19 PM",
-      "dateFinished": "Apr 16, 2016 3:32:19 PM",
+      "dateStarted": "May 16, 2016 7:28:33 PM",
+      "dateFinished": "May 16, 2016 7:28:33 PM",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
@@ -314,9 +314,9 @@
       "progressUpdateIntervalMs": 500
     },
     {
-      "text": "%md\n#### HashMap\nThe last mutable collection we\u0027ll explain is HashMap. As with the other mutable types, you can reassign values and add / remove elements.\n\n---\n\u003chttp://www.scala-lang.org/api/2.10.6/#scala.collection.mutable.HashMap\u003e",
+      "text": "%md\n#### HashMap\nThe last mutable collection we will explain is HashMap. As with the other mutable types, you can reassign values and add / remove elements.\n\n---\n\u003chttp://www.scala-lang.org/api/2.10.6/#scala.collection.mutable.HashMap\u003e",
       "authenticationInfo": {},
-      "dateUpdated": "Apr 16, 2016 3:33:45 PM",
+      "dateUpdated": "May 16, 2016 7:29:05 PM",
       "config": {
         "colWidth": 12.0,
         "graph": {
@@ -340,11 +340,11 @@
       "result": {
         "code": "SUCCESS",
         "type": "HTML",
-        "msg": "\u003ch4\u003eHashMap\u003c/h4\u003e\n\u003cp\u003eThe last mutable collection we\u0027ll explain is HashMap. As with the other mutable types, you can reassign values and add / remove elements.\u003c/p\u003e\n\u003chr /\u003e\n\u003cp\u003e\u003ca href\u003d\"http://www.scala-lang.org/api/2.10.6/#scala.collection.mutable.HashMap\"\u003ehttp://www.scala-lang.org/api/2.10.6/#scala.collection.mutable.HashMap\u003c/a\u003e\u003c/p\u003e\n"
+        "msg": "\u003ch4\u003eHashMap\u003c/h4\u003e\n\u003cp\u003eThe last mutable collection we will explain is HashMap. As with the other mutable types, you can reassign values and add / remove elements.\u003c/p\u003e\n\u003chr /\u003e\n\u003cp\u003e\u003ca href\u003d\"http://www.scala-lang.org/api/2.10.6/#scala.collection.mutable.HashMap\"\u003ehttp://www.scala-lang.org/api/2.10.6/#scala.collection.mutable.HashMap\u003c/a\u003e\u003c/p\u003e\n"
       },
       "dateCreated": "Apr 16, 2016 3:33:29 PM",
-      "dateStarted": "Apr 16, 2016 3:33:43 PM",
-      "dateFinished": "Apr 16, 2016 3:33:43 PM",
+      "dateStarted": "May 16, 2016 7:29:04 PM",
+      "dateFinished": "May 16, 2016 7:29:04 PM",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
@@ -383,9 +383,9 @@
       "progressUpdateIntervalMs": 500
     },
     {
-      "text": "%md\n### Common operations with collections\nYou\u0027ll probably find yourself working with collections quite often. There is a set of operations that are especially important in collections. Let\u0027s show them through examples:\n\n#### \"contains\" and \"isDefinedAt\"",
+      "text": "%md\n### Common operations with collections\nYou will probably find yourself working with collections quite often. There is a set of operations that are especially important in collections. Let\u0027s show them through examples:\n\n#### \"contains\" and \"isDefinedAt\"",
       "authenticationInfo": {},
-      "dateUpdated": "Apr 16, 2016 3:34:16 PM",
+      "dateUpdated": "May 16, 2016 7:29:23 PM",
       "config": {
         "colWidth": 12.0,
         "graph": {
@@ -409,11 +409,11 @@
       "result": {
         "code": "SUCCESS",
         "type": "HTML",
-        "msg": "\u003ch3\u003eCommon operations with collections\u003c/h3\u003e\n\u003cp\u003eYou\u0027ll probably find yourself working with collections quite often. There is a set of operations that are especially important in collections. Let\u0027s show them through examples:\u003c/p\u003e\n\u003ch4\u003e\u0026ldquo;contains\u0026rdquo; and \u0026ldquo;isDefinedAt\u0026rdquo;\u003c/h4\u003e\n"
+        "msg": "\u003ch3\u003eCommon operations with collections\u003c/h3\u003e\n\u003cp\u003eYou will probably find yourself working with collections quite often. There is a set of operations that are especially important in collections. Let\u0027s show them through examples:\u003c/p\u003e\n\u003ch4\u003e\u0026ldquo;contains\u0026rdquo; and \u0026ldquo;isDefinedAt\u0026rdquo;\u003c/h4\u003e\n"
       },
       "dateCreated": "Apr 16, 2016 3:34:00 PM",
-      "dateStarted": "Apr 16, 2016 3:34:12 PM",
-      "dateFinished": "Apr 16, 2016 3:34:12 PM",
+      "dateStarted": "May 16, 2016 7:29:19 PM",
+      "dateFinished": "May 16, 2016 7:29:19 PM",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
@@ -1818,24 +1818,24 @@
   "name": "Intro to Scala - 2: Collections and Type Inference",
   "id": "2BJNYS7B3",
   "angularObjects": {
-    "2BKKGWMY9": [],
-    "2BM7XR6U7": [],
-    "2BHDGC5ZB": [],
-    "2BMJ1ZTKR": [],
-    "2BKYVCNSD": [],
-    "2BM72GFDU": [],
-    "2BM74FBTQ": [],
-    "2BHW3NPVE": [],
-    "2BHZKEE9C": [],
-    "2BM158R3T": [],
-    "2BKMHR2WT": [],
-    "2BK19VD7Y": [],
-    "2BJ72E96T": [],
-    "2BMMM996X": [],
-    "2BKUMG5KZ": [],
-    "2BGQNK6A7": [],
-    "2BH3HCFEG": [],
-    "2BHU5HPQK": []
+    "2BMRDS78B": [],
+    "2BK8HQZE9": [],
+    "2BMCTH6K1": [],
+    "2BMMXJCPX": [],
+    "2BJSN3SRW": [],
+    "2BHYZ4NNZ": [],
+    "2BJETA9QN": [],
+    "2BM84FP6H": [],
+    "2BJXJW856": [],
+    "2BKVHNW3H": [],
+    "2BMV94AQ9": [],
+    "2BNXDNAWE": [],
+    "2BNX11SUX": [],
+    "2BNFXMT3V": [],
+    "2BMP8AVX7": [],
+    "2BMU7Y7YW": [],
+    "2BJC373Q3": [],
+    "2BN2SY8TW": []
   },
   "config": {
     "looknfeel": "default"
