@@ -288,9 +288,117 @@
       "progressUpdateIntervalMs": 500
     },
     {
+      "text": "%md ## Different \"entry points\" for Spark\n### Interactive applications: Spark shells\nInteractive applications are perfect for exploration, as they provide quick feedback, you can code and see the output as you develop (no need to compile, package, submit..).\n\nThe different shells available with Spark are:\n- **spark-shell**: The Scala shell\n- **pyspark**: Python shell.\n- **spark-sql**: SQL shell. Uses exactly the same syntax as Hive, which is (mostly) standard SQL.\n\n\u003chttp://spark.apache.org/docs/latest/programming-guide.html#using-the-shell\u003e\n\n### Non-interactive applications: spark-submit\nA typical use case for spark-submit are long-lived applications, such as streaming applications, but you can also package your Scala, Java or Python code and run it through Spark submit.\n\n\u003chttp://spark.apache.org/docs/latest/submitting-applications.html\u003e",
+      "authenticationInfo": {},
+      "dateUpdated": "May 16, 2016 10:53:38 PM",
+      "config": {
+        "colWidth": 12.0,
+        "graph": {
+          "mode": "table",
+          "height": 300.0,
+          "optionOpen": false,
+          "keys": [],
+          "values": [],
+          "groups": [],
+          "scatter": {}
+        },
+        "enabled": true,
+        "editorMode": "ace/mode/markdown",
+        "editorHide": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "jobName": "paragraph_1463431554271_1620405556",
+      "id": "20160516-204554_1382139261",
+      "result": {
+        "code": "SUCCESS",
+        "type": "HTML",
+        "msg": "\u003ch2\u003eDifferent \u0026ldquo;entry points\u0026rdquo; for Spark\u003c/h2\u003e\n\u003ch3\u003eInteractive applications: Spark shells\u003c/h3\u003e\n\u003cp\u003eInteractive applications are perfect for exploration, as they provide quick feedback, you can code and see the output as you develop (no need to compile, package, submit..).\u003c/p\u003e\n\u003cp\u003eThe different shells available with Spark are:\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003e\u003cstrong\u003espark-shell\u003c/strong\u003e: The Scala shell\u003c/li\u003e\n\u003cli\u003e\u003cstrong\u003epyspark\u003c/strong\u003e: Python shell.\u003c/li\u003e\n\u003cli\u003e\u003cstrong\u003espark-sql\u003c/strong\u003e: SQL shell. Uses exactly the same syntax as Hive, which is (mostly) standard SQL.\u003c/li\u003e\n\u003c/ul\u003e\n\u003cp\u003e\u003ca href\u003d\"http://spark.apache.org/docs/latest/programming-guide.html#using-the-shell\"\u003ehttp://spark.apache.org/docs/latest/programming-guide.html#using-the-shell\u003c/a\u003e\u003c/p\u003e\n\u003ch3\u003eNon-interactive applications: spark-submit\u003c/h3\u003e\n\u003cp\u003eA typical use case for spark-submit are long-lived applications, such as streaming applications, but you can also package your Scala, Java or Python code and run it through Spark submit.\u003c/p\u003e\n\u003cp\u003e\u003ca href\u003d\"http://spark.apache.org/docs/latest/submitting-applications.html\"\u003ehttp://spark.apache.org/docs/latest/submitting-applications.html\u003c/a\u003e\u003c/p\u003e\n"
+      },
+      "dateCreated": "May 16, 2016 8:45:54 PM",
+      "dateStarted": "May 16, 2016 10:53:37 PM",
+      "dateFinished": "May 16, 2016 10:53:37 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%md ### Main parameters for starting Spark\n#### master\nThe **--master** option will define how and where spark will be running. Some possible values are:\n- **local[N]**: Runs Spark in local mode, with N worker threads.\n- **local[\\*]**: Runs Spark in local mode, with the maximum number of worker threads (1 per logical core)\n- **yarn-client**: Runs Spark on YARN, with the driver running on the machine where you execute the command. Use this to run your interactive shells if you are in a YARN cluster.\n- **yarn-cluster**: Runs Spark on YARN, with the driver running on the cluster as well. Use this for the applications you submit if you are in a YARN cluster.\n\nIn the case of yarn-client and yarn-cluster, you will have to specify either **HADOOP\\_CONF\\_DIR** or **YARN\\_CONF\\_DIR**.\n\nApart from these, Spark can also run on a [Mesos](http://mesos.apache.org/) cluster or in a [Spark Standalone](http://spark.apache.org/docs/latest/spark-standalone.html) cluster.\n\n---\nA full explanation of the master option:\n\u003chttp://spark.apache.org/docs/latest/submitting-applications.html#master-urls\u003e\n\n#### driver-memory\nAs the name suggests **--driver-memory** parameter, you control how much memory is assigned to your driver. Usually, you don\u0027t need a lot of memory for the driver itself, as most of the work is (or should be) done by the workers (the executors). Example:\n\n```\nspark-shell --master yarn-client --driver-memory 8G\n```\n\n#### executor-memory\nAmount of memory for executors.\n\n```\nspark-shell --master yarn-client --executor-memory 8G\n```\n\n#### executor-cores\nNumber of VCores (threads) to be used on each executor. Increasing this will enhance parallelization, but setting it too high might actually degrade performance in some cases. For instance, the maximum write throughput to HDFS is usually achieved with 5 threads per executor, but if your job is mostly CPU-bound, you might still benefit of increasing the number of cores.\n\n**Advice**: Keep the number of cores to 5\n```\nspark-shell --master yarn-client --executor-memory 8G --executor-cores 5\n```\n\n#### conf\nThe **--conf** option is used to set the rest of [Spark properties](http://spark.apache.org/docs/latest/configuration.html#available-properties). You can also use it to pass your own config values, but at least with the current version of Spark, your config parameter must start with \"spark.xxx\".\n\n```\nspark-shell --master yarn-client --conf spark.rdd.compress\u003dtrue --conf spark.dfTraining.someThing\u003dfoo\n```\n\nHere\u0027s a nice discussion discussing different parameters to run spark jobs. It is based on YARN, but most of the points are still valid for other resource managers:\n\u003chttp://blog.cloudera.com/blog/2015/03/how-to-tune-your-apache-spark-jobs-part-2/\u003e\n\nMore information about how Spark runs on YARN:\n\u003chttp://blog.cloudera.com/blog/2014/05/apache-spark-resource-management-and-yarn-app-models/\u003e",
+      "authenticationInfo": {},
+      "dateUpdated": "May 16, 2016 11:37:02 PM",
+      "config": {
+        "colWidth": 12.0,
+        "graph": {
+          "mode": "table",
+          "height": 300.0,
+          "optionOpen": false,
+          "keys": [],
+          "values": [],
+          "groups": [],
+          "scatter": {}
+        },
+        "enabled": true,
+        "editorMode": "ace/mode/markdown",
+        "editorHide": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "jobName": "paragraph_1463434990130_1862687852",
+      "id": "20160516-214310_1542758818",
+      "result": {
+        "code": "SUCCESS",
+        "type": "HTML",
+        "msg": "\u003ch3\u003eMain parameters for starting Spark\u003c/h3\u003e\n\u003ch4\u003emaster\u003c/h4\u003e\n\u003cp\u003eThe \u003cstrong\u003e\u0026ndash;master\u003c/strong\u003e option will define how and where spark will be running. Some possible values are:\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003e\u003cstrong\u003elocal[N]\u003c/strong\u003e: Runs Spark in local mode, with N worker threads.\u003c/li\u003e\n\u003cli\u003e\u003cstrong\u003elocal[*]\u003c/strong\u003e: Runs Spark in local mode, with the maximum number of worker threads (1 per logical core)\u003c/li\u003e\n\u003cli\u003e\u003cstrong\u003eyarn-client\u003c/strong\u003e: Runs Spark on YARN, with the driver running on the machine where you execute the command. Use this to run your interactive shells if you are in a YARN cluster.\u003c/li\u003e\n\u003cli\u003e\u003cstrong\u003eyarn-cluster\u003c/strong\u003e: Runs Spark on YARN, with the driver running on the cluster as well. Use this for the applications you submit if you are in a YARN cluster.\u003c/li\u003e\n\u003c/ul\u003e\n\u003cp\u003eIn the case of yarn-client and yarn-cluster, you will have to specify either \u003cstrong\u003eHADOOP_CONF_DIR\u003c/strong\u003e or \u003cstrong\u003eYARN_CONF_DIR\u003c/strong\u003e.\u003c/p\u003e\n\u003cp\u003eApart from these, Spark can also run on a \u003ca href\u003d\"http://mesos.apache.org/\"\u003eMesos\u003c/a\u003e cluster or in a \u003ca href\u003d\"http://spark.apache.org/docs/latest/spark-standalone.html\"\u003eSpark Standalone\u003c/a\u003e cluster.\u003c/p\u003e\n\u003chr /\u003e\n\u003cp\u003eA full explanation of the master option:\n\u003cbr  /\u003e\u003ca href\u003d\"http://spark.apache.org/docs/latest/submitting-applications.html#master-urls\"\u003ehttp://spark.apache.org/docs/latest/submitting-applications.html#master-urls\u003c/a\u003e\u003c/p\u003e\n\u003ch4\u003edriver-memory\u003c/h4\u003e\n\u003cp\u003eAs the name suggests \u003cstrong\u003e\u0026ndash;driver-memory\u003c/strong\u003e parameter, you control how much memory is assigned to your driver. Usually, you don\u0027t need a lot of memory for the driver itself, as most of the work is (or should be) done by the workers (the executors). Example:\u003c/p\u003e\n\u003cpre\u003e\u003ccode\u003espark-shell --master yarn-client --driver-memory 8G\n\u003c/code\u003e\u003c/pre\u003e\n\u003ch4\u003eexecutor-memory\u003c/h4\u003e\n\u003cp\u003eAmount of memory for executors.\u003c/p\u003e\n\u003cpre\u003e\u003ccode\u003espark-shell --master yarn-client --executor-memory 8G\n\u003c/code\u003e\u003c/pre\u003e\n\u003ch4\u003eexecutor-cores\u003c/h4\u003e\n\u003cp\u003eNumber of VCores (threads) to be used on each executor. Increasing this will enhance parallelization, but setting it too high might actually degrade performance in some cases. For instance, the maximum write throughput to HDFS is usually achieved with 5 threads per executor, but if your job is mostly CPU-bound, you might still benefit of increasing the number of cores.\u003c/p\u003e\n\u003cp\u003e\u003cstrong\u003eAdvice\u003c/strong\u003e: Keep the number of cores to 5\u003c/p\u003e\n\u003cpre\u003e\u003ccode\u003espark-shell --master yarn-client --executor-memory 8G --executor-cores 5\n\u003c/code\u003e\u003c/pre\u003e\n\u003ch4\u003econf\u003c/h4\u003e\n\u003cp\u003eThe \u003cstrong\u003e\u0026ndash;conf\u003c/strong\u003e option is used to set the rest of \u003ca href\u003d\"http://spark.apache.org/docs/latest/configuration.html#available-properties\"\u003eSpark properties\u003c/a\u003e. You can also use it to pass your own config values, but at least with the current version of Spark, your config parameter must start with \u0026ldquo;spark.xxx\u0026rdquo;.\u003c/p\u003e\n\u003cpre\u003e\u003ccode\u003espark-shell --master yarn-client --conf spark.rdd.compress\u003dtrue --conf spark.dfTraining.someThing\u003dfoo\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003eHere\u0027s a nice discussion discussing different parameters to run spark jobs. It is based on YARN, but most of the points are still valid for other resource managers:\n\u003cbr  /\u003e\u003ca href\u003d\"http://blog.cloudera.com/blog/2015/03/how-to-tune-your-apache-spark-jobs-part-2/\"\u003ehttp://blog.cloudera.com/blog/2015/03/how-to-tune-your-apache-spark-jobs-part-2/\u003c/a\u003e\u003c/p\u003e\n\u003cp\u003eMore information about how Spark runs on YARN:\n\u003cbr  /\u003e\u003ca href\u003d\"http://blog.cloudera.com/blog/2014/05/apache-spark-resource-management-and-yarn-app-models/\"\u003ehttp://blog.cloudera.com/blog/2014/05/apache-spark-resource-management-and-yarn-app-models/\u003c/a\u003e\u003c/p\u003e\n"
+      },
+      "dateCreated": "May 16, 2016 9:43:10 PM",
+      "dateStarted": "May 16, 2016 11:36:55 PM",
+      "dateFinished": "May 16, 2016 11:36:55 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%md ### Common / recommended configurations\nThere are lots of different parameters, but there are a few that can help you improve performanace of your applications, and to avoid some issues.\n\n- **spark.sql.hive.convertMetastoreParquet\u003dfalse**: If you use Spark with Hive, and save Hive table as parquet files, Spark will use its own Parquet implementation by default, to get better performance. This might result in issues if you try to read that table from outside Spark (e.g. Tableau).\n- **spark.rdd.compress\u003dtrue**: Compresses serialized RDD partitions. This helps saving a lot of memory (useful for caching), at the cost of some extra CPU.\n- **spark.serializer\u003dorg.apache.spark.serializer.KryoSerializer**: Kryo serialization is faster than the default, Java serialization. Might require some extra work if you intend to serialize your own classes, but the change is usually transparent.\n- **spark.kryoserializer.buffer.max\u003dXXX**: You might need to increase this if you get \"buffer limit\" errors with Kryo.\n- **spark.io.compression.codec\u003dsnappy**: Codec used to compress internal data. Snappy is already the default, but it was not in older versions.\n- **spark.sql.parquet.compression.codec\u003dsnappy**: Default value for this one is gzip, which is probably not the best compression to choose in most cases.\n\n---\nMore information:\n\u003chttp://spark.apache.org/docs/latest/sql-programming-guide.html#hive-metastore-parquet-table-conversion\u003e\n\u003chttp://spark.apache.org/docs/latest/configuration.html#compression-and-serialization\u003e\n\u003chttp://www.cloudera.com/documentation/enterprise/5-4-x/topics/admin_data_compression_performance.html\u003e\n\n### Adding custom Jars (Scala):\nThere are a few ways to add your own jars to the Spark shell. Given that you have a jar file in \"/path/to/my.jar\", you can add it to your shell like this:\n\n```\nspark-shell \u003cother_options\u003e \\\n--driver-java-options \"-Dspark.executor.extraClassPath\u003d/path/to/my.jar\"\n--jars /path/to/my.jar\n```\n\nIf you have internet connection, you can also use the \"--packages\" option, for instance:\n\n```\nspark-shell --master local[*] --packages com.databricks:spark-csv_2.10:1.4.0\n```\n\n### Adding custom files (Python):\nYou can load your own python files, that you can then \"import\" so that you can the import them into your shell, using the \"py-files\" option:\n\n```\npyspark --master yarn-client --py-files myfile.py\n```",
+      "authenticationInfo": {},
+      "dateUpdated": "May 16, 2016 11:40:34 PM",
+      "config": {
+        "colWidth": 12.0,
+        "graph": {
+          "mode": "table",
+          "height": 300.0,
+          "optionOpen": false,
+          "keys": [],
+          "values": [],
+          "groups": [],
+          "scatter": {}
+        },
+        "enabled": true,
+        "editorMode": "ace/mode/markdown",
+        "editorHide": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "jobName": "paragraph_1463438672224_-2135169570",
+      "id": "20160516-224432_86969776",
+      "result": {
+        "code": "SUCCESS",
+        "type": "HTML",
+        "msg": "\u003ch3\u003eCommon / recommended configurations\u003c/h3\u003e\n\u003cp\u003eThere are lots of different parameters, but there are a few that can help you improve performanace of your applications, and to avoid some issues.\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003e\u003cstrong\u003espark.sql.hive.convertMetastoreParquet\u003dfalse\u003c/strong\u003e: If you use Spark with Hive, and save Hive table as parquet files, Spark will use its own Parquet implementation by default, to get better performance. This might result in issues if you try to read that table from outside Spark (e.g. Tableau).\u003c/li\u003e\n\u003cli\u003e\u003cstrong\u003espark.rdd.compress\u003dtrue\u003c/strong\u003e: Compresses serialized RDD partitions. This helps saving a lot of memory (useful for caching), at the cost of some extra CPU.\u003c/li\u003e\n\u003cli\u003e\u003cstrong\u003espark.serializer\u003dorg.apache.spark.serializer.KryoSerializer\u003c/strong\u003e: Kryo serialization is faster than the default, Java serialization. Might require some extra work if you intend to serialize your own classes, but the change is usually transparent.\u003c/li\u003e\n\u003cli\u003e\u003cstrong\u003espark.kryoserializer.buffer.max\u003dXXX\u003c/strong\u003e: You might need to increase this if you get \u0026ldquo;buffer limit\u0026rdquo; errors with Kryo.\u003c/li\u003e\n\u003cli\u003e\u003cstrong\u003espark.io.compression.codec\u003dsnappy\u003c/strong\u003e: Codec used to compress internal data. Snappy is already the default, but it was not in older versions.\u003c/li\u003e\n\u003cli\u003e\u003cstrong\u003espark.sql.parquet.compression.codec\u003dsnappy\u003c/strong\u003e: Default value for this one is gzip, which is probably not the best compression to choose in most cases.\u003c/li\u003e\n\u003c/ul\u003e\n\u003chr /\u003e\n\u003cp\u003eMore information:\n\u003cbr  /\u003e\u003ca href\u003d\"http://spark.apache.org/docs/latest/sql-programming-guide.html#hive-metastore-parquet-table-conversion\"\u003ehttp://spark.apache.org/docs/latest/sql-programming-guide.html#hive-metastore-parquet-table-conversion\u003c/a\u003e\n\u003cbr  /\u003e\u003ca href\u003d\"http://spark.apache.org/docs/latest/configuration.html#compression-and-serialization\"\u003ehttp://spark.apache.org/docs/latest/configuration.html#compression-and-serialization\u003c/a\u003e\n\u003cbr  /\u003e\u003ca href\u003d\"http://www.cloudera.com/documentation/enterprise/5-4-x/topics/admin_data_compression_performance.html\"\u003ehttp://www.cloudera.com/documentation/enterprise/5-4-x/topics/admin_data_compression_performance.html\u003c/a\u003e\u003c/p\u003e\n\u003ch3\u003eAdding custom Jars (Scala):\u003c/h3\u003e\n\u003cp\u003eThere are a few ways to add your own jars to the Spark shell. Given that you have a jar file in \u0026ldquo;/path/to/my.jar\u0026rdquo;, you can add it to your shell like this:\u003c/p\u003e\n\u003cpre\u003e\u003ccode\u003espark-shell \u0026lt;other_options\u0026gt; \\\n--driver-java-options \"-Dspark.executor.extraClassPath\u003d/path/to/my.jar\"\n--jars /path/to/my.jar\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003eIf you have internet connection, you can also use the \u0026ldquo;\u0026ndash;packages\u0026rdquo; option, for instance:\u003c/p\u003e\n\u003cpre\u003e\u003ccode\u003espark-shell --master local[*] --packages com.databricks:spark-csv_2.10:1.4.0\n\u003c/code\u003e\u003c/pre\u003e\n\u003ch3\u003eAdding custom files (Python):\u003c/h3\u003e\n\u003cp\u003eYou can load your own python files, that you can then \u0026ldquo;import\u0026rdquo; so that you can the import them into your shell, using the \u0026ldquo;py-files\u0026rdquo; option:\u003c/p\u003e\n\u003cpre\u003e\u003ccode\u003epyspark --master yarn-client --py-files myfile.py\n\u003c/code\u003e\u003c/pre\u003e\n"
+      },
+      "dateCreated": "May 16, 2016 10:44:32 PM",
+      "dateStarted": "May 16, 2016 11:40:31 PM",
+      "dateFinished": "May 16, 2016 11:40:31 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
       "text": "%md\n### Spark UI\n\n\u003chttp://localhost:4040/jobs/\u003e",
       "authenticationInfo": {},
-      "dateUpdated": "May 4, 2016 1:49:09 PM",
+      "dateUpdated": "May 16, 2016 8:46:12 PM",
       "config": {
         "colWidth": 12.0,
         "graph": {
@@ -375,24 +483,24 @@
   "name": "Spark basics",
   "id": "2BKE3N99M",
   "angularObjects": {
-    "2BMWCA4BT": [],
-    "2BJE4F1YW": [],
-    "2BHDPMFXC": [],
-    "2BK9JBT9Z": [],
-    "2BM2VRJ1J": [],
-    "2BJ7F8EEF": [],
-    "2BJ35YZU9": [],
-    "2BJJVYEYX": [],
-    "2BJ8Z3NF1": [],
-    "2BM4H84YM": [],
-    "2BKFFWCX3": [],
-    "2BGY118VY": [],
-    "2BJMJNJFV": [],
-    "2BMDUGFDQ": [],
-    "2BJC8F3T1": [],
-    "2BK1NSR8S": [],
-    "2BHRRQE3D": [],
-    "2BJ4G7QS4": []
+    "2BJJ4DB1J": [],
+    "2BKFHDDUC": [],
+    "2BNFM2KRQ": [],
+    "2BKRZNXQD": [],
+    "2BJU5CCXF": [],
+    "2BJ2B46AA": [],
+    "2BJX2UD6X": [],
+    "2BKZ8UWDJ": [],
+    "2BK5XKAC4": [],
+    "2BHYVYJ9W": [],
+    "2BN7KBDKU": [],
+    "2BJPGSRH5": [],
+    "2BKU1V2HH": [],
+    "2BJF4SGRM": [],
+    "2BN8MFDMC": [],
+    "2BM2EZWKG": [],
+    "2BMY1AQGH": [],
+    "2BNENARYG": []
   },
   "config": {},
   "info": {}
