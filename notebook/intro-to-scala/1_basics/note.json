@@ -36,9 +36,9 @@
       "progressUpdateIntervalMs": 500
     },
     {
-      "text": "%md\n### Basic Types\nThe basic Scala types we\u0027ll introduce should already sound familiar, with a few exceptions. In most cases, Scala will be able to infer the type, but sometimes you might want to explicitly define the type of the variable you are creating.\n\nIn some cases, this can improve readibility of your code, and in others, it might actually be needed.\n\n---\n#### Boolean types:\n- **Boolean**: true / false\n\n---\n\n#### Character types\n- **Char**: Character literals. You can create it by using single quotes.\n- **String**: It\u0027s the java.lang.String class. Create it by using double quotes.\n\n---\n\n#### Integer types:\n- **Byte**: 1-byte integer number. Range: -128 to 127 (both included) \n- **Short**: 2-byte integer number. Range: -32768 and 32767 (both included)\n- **Int**: 4-byte integer number. Range: -2147483648 and 2147483647\n- **Integer**: You\u0027ll see this type as well sometimes, but \"Integer\" is actually the java.lang.Integer type.\n- **Long**: 8-byte integer. Range: -9223372036854775808 and 9223372036854775807\n- **BigInt**: Can hold integers of any size, given that there is enough memory. You should rarely need it, but it is good to know it\u0027s there.\n    - \u003chttp://www.scala-lang.org/api/2.10.6/index.html#scala.math.BigInt\u003e\n\n---\n#### Decimal types:\n- **Float**: 4-byte single precision float. Range: -3.4028235E38 to 3.4028235E38\n- **Double**: 8-byte, double precision float. Range -1.7976931348623157E308 to 1.7976931348623157E308\n- **BigDecimal**: Supports any decimal range an type, with custom scale.\n```\nval myDecimal \u003d BigDecimal(123.452)\n// With \"setScale\", we can define the number of decimals we want, and how to round the values.\nmyDecimal.setScale(2, BigDecimal.RoundingMode.HALF_UP)\n// 123.45\nval anotherDecimal \u003d BigDecimal(16.66666)\nanotherDecimal.setScale(2, BigDecimal.RoundingMode.HALF_UP)\n// 16.67\n```\n    - \u003chttp://www.scala-lang.org/api/2.10.6/index.html#scala.math.BigDecimal\u003e\n    - \u003chttp://www.scala-lang.org/api/2.10.6/index.html#scala.math.BigDecimal$$RoundingMode$@RoundingMode\u003dscala.math.BigDecimal.RoundingMode.Value\u003e\n\n#### Date types:\nScala has no specific date types, but you can just use the Java types.\n```\nimport java.text.SimpleDateFormat\nimport java.util.Calendar\n\nval now \u003d Calendar.getInstance.getTime\nval hourFormat \u003d new SimpleDateFormat(\"hh\")\nhourFormat.format(now)\n```\n\nFor Spark, it\u0027s important to also take a look at the java.sql types:\n\u003chttps://docs.oracle.com/javase/7/docs/api/java/sql/Date.html\u003e\n\u003chttps://docs.oracle.com/javase/7/docs/api/java/sql/Timestamp.html\u003e\n\n#### Tuples\nEven they are not exactly a primitive type, Tuples are a important data structures in Scala. They are closely related to Maps and case classes that we will introduce below.\nIn short, you can think of a Tuple as a group of values. For instance, you could build a function that returns several variables of different types in a tuple.\n\n\nThe main drawback of tuples, as with arrays, lists, etc is that you need to access the elements based on the index, so your code could become less readable.\nAlso, unlike for arrays, tuples indexes start at 1, and to access an element inside a tuple you need to prefix the index with an underscore. Last but not least, tuples are diffrent of most collections we will introduce later in the fact that they are ***not iterable***.\n\n```\nval myTuple \u003d (1, \"test\", 25.4, true)\nprintln(myTuple._1)\n```\n\n#### Case classes\nCase classes are value objects, but you can think of them as \"tuple with named fields\", if it helps. They are really easy to define and use, and they improve readability of your code when compared to tuples, arrays, lists, etc..\n\n```\ncase class Person(name: String, age: Int, gender: Char, salary: Float)\n\nval john \u003d Person(\"John Doe\", 33, \u0027M\u0027, 1234.5f)\n\ncase class Address(street: String, number: Int, zipCode: String)\nval home \u003d Address(\"foostraat\", 111, \"1-234Z\")\n```",
+      "text": "%md\n### Basic Types\nThe basic Scala types we\u0027ll introduce should already sound familiar, with a few exceptions. In most cases, Scala will be able to infer the type, but sometimes you might want to explicitly define the type of the variable you are creating.\n\nIn some cases, this can improve readibility of your code, and in others, it might actually be needed.\n\n---\n#### Boolean types:\n- **Boolean**: true / false\n\n---\n\n#### Character types\n- **Char**: Character literals. You can create it by using single quotes.\n- **String**: It\u0027s the java.lang.String class. Create it by using double quotes.\n\n---\n\n#### Integer types:\n- **Byte**: 1-byte integer number. Range: -128 to 127 (both included) \n- **Short**: 2-byte integer number. Range: -32768 and 32767 (both included)\n- **Int**: 4-byte integer number. Range: -2147483648 and 2147483647\n- **Integer**: You\u0027ll see this type as well sometimes, but \"Integer\" is actually the java.lang.Integer type.\n- **Long**: 8-byte integer. Range: -9223372036854775808 and 9223372036854775807\n- **BigInt**: Can hold integers of any size, given that there is enough memory. You should rarely need it, but it is good to know it\u0027s there.\n    - \u003chttp://www.scala-lang.org/api/2.10.6/index.html#scala.math.BigInt\u003e\n\n---\n#### Decimal types:\n- **Float**: 4-byte single precision float. Range: -3.4028235E38 to 3.4028235E38\n- **Double**: 8-byte, double precision float. Range -1.7976931348623157E308 to 1.7976931348623157E308\n- **BigDecimal**: Supports any decimal range an type, with custom scale.\n```\nval myDecimal \u003d BigDecimal(123.452)\n// With \"setScale\", we can define the number of decimals we want, and how to round the values.\nmyDecimal.setScale(2, BigDecimal.RoundingMode.HALF_UP)\n// 123.45\nval anotherDecimal \u003d BigDecimal(16.66666)\nanotherDecimal.setScale(2, BigDecimal.RoundingMode.HALF_UP)\n// 16.67\n```\n    - \u003chttp://www.scala-lang.org/api/2.10.6/index.html#scala.math.BigDecimal\u003e\n    - \u003chttp://www.scala-lang.org/api/2.10.6/index.html#scala.math.BigDecimal$$RoundingMode$@RoundingMode\u003dscala.math.BigDecimal.RoundingMode.Value\u003e\n\n#### Date types:\nScala has no specific date types, but you can just use the Java types.\n```\nimport java.text.SimpleDateFormat\nimport java.util.Calendar\n\nval now \u003d Calendar.getInstance.getTime\nval hourFormat \u003d new SimpleDateFormat(\"hh\")\nhourFormat.format(now)\n```\n\nFor Spark, it\u0027s important to also take a look at the java.sql types:\n\u003chttps://docs.oracle.com/javase/7/docs/api/java/sql/Date.html\u003e\n\u003chttps://docs.oracle.com/javase/7/docs/api/java/sql/Timestamp.html\u003e\n\n#### Tuples\nEven they are not exactly a primitive type, Tuples are a important data structures in Scala. They are closely related to Maps and case classes that we will introduce below.\nIn short, you can think of a Tuple as a group of values. For instance, you could build a function that returns several variables of different types in a tuple.\n\n\nThe main drawback of tuples, as with arrays, lists, etc is that you need to access the elements based on the index, so your code could become less readable.\nAlso, unlike for arrays, tuples indexes start at 1, and to access an element inside a tuple you need to prefix the index with an underscore. Last but not least, tuples are diffrent of most collections we will introduce later in the fact that they are ***not iterable***.\n\n```\nval myTuple \u003d (1, \"test\", 25.4, true)\nprintln(myTuple._1)\n```\n\n#### Case classes\nCase classes are value objects, but you can think of them as \"tuple with named fields\", if it helps. They are really easy to define and use, and they improve readability of your code when compared to tuples, arrays, lists, etc..\n\n```\ncase class Person(name: String, age: Int, gender: Char, salary: Float)\n\nval john \u003d Person(\"John Doe\", 33, \u0027M\u0027, 1234.5f)\n\ncase class Address(street: String, number: Int, zipCode: String)\nval home \u003d Address(\"foostraat\", 111, \"1-234Z\")\n```\n\n#### Unit type\nYou will see the Unit type often, as it is the return type for functions that return nothing. It is similar to the void return type in Java, or null in other languages.\nUnit is actually a special case of Tuple: It is a 0-length tuple, and it is represented by the literal \"()\"",
       "authenticationInfo": {},
-      "dateUpdated": "May 16, 2016 7:23:39 PM",
+      "dateUpdated": "May 17, 2016 8:55:49 AM",
       "config": {
         "colWidth": 12.0,
         "graph": {
@@ -63,18 +63,18 @@
       "result": {
         "code": "SUCCESS",
         "type": "HTML",
-        "msg": "\u003ch3\u003eBasic Types\u003c/h3\u003e\n\u003cp\u003eThe basic Scala types we\u0027ll introduce should already sound familiar, with a few exceptions. In most cases, Scala will be able to infer the type, but sometimes you might want to explicitly define the type of the variable you are creating.\u003c/p\u003e\n\u003cp\u003eIn some cases, this can improve readibility of your code, and in others, it might actually be needed.\u003c/p\u003e\n\u003chr /\u003e\n\u003ch4\u003eBoolean types:\u003c/h4\u003e\n\u003cul\u003e\n\u003cli\u003e\u003cstrong\u003eBoolean\u003c/strong\u003e: true / false\u003c/li\u003e\n\u003c/ul\u003e\n\u003chr /\u003e\n\u003ch4\u003eCharacter types\u003c/h4\u003e\n\u003cul\u003e\n\u003cli\u003e\u003cstrong\u003eChar\u003c/strong\u003e: Character literals. You can create it by using single quotes.\u003c/li\u003e\n\u003cli\u003e\u003cstrong\u003eString\u003c/strong\u003e: It\u0027s the java.lang.String class. Create it by using double quotes.\u003c/li\u003e\n\u003c/ul\u003e\n\u003chr /\u003e\n\u003ch4\u003eInteger types:\u003c/h4\u003e\n\u003cul\u003e\n\u003cli\u003e\u003cstrong\u003eByte\u003c/strong\u003e: 1-byte integer number. Range: -128 to 127 (both included)\u003c/li\u003e\n\u003cli\u003e\u003cstrong\u003eShort\u003c/strong\u003e: 2-byte integer number. Range: -32768 and 32767 (both included)\u003c/li\u003e\n\u003cli\u003e\u003cstrong\u003eInt\u003c/strong\u003e: 4-byte integer number. Range: -2147483648 and 2147483647\u003c/li\u003e\n\u003cli\u003e\u003cstrong\u003eInteger\u003c/strong\u003e: You\u0027ll see this type as well sometimes, but \u0026ldquo;Integer\u0026rdquo; is actually the java.lang.Integer type.\u003c/li\u003e\n\u003cli\u003e\u003cstrong\u003eLong\u003c/strong\u003e: 8-byte integer. Range: -9223372036854775808 and 9223372036854775807\u003c/li\u003e\n\u003cli\u003e\u003cstrong\u003eBigInt\u003c/strong\u003e: Can hold integers of any size, given that there is enough memory. You should rarely need it, but it is good to know it\u0027s there.\u003cul\u003e\n\u003cli\u003e\u003ca href\u003d\"http://www.scala-lang.org/api/2.10.6/index.html#scala.math.BigInt\"\u003ehttp://www.scala-lang.org/api/2.10.6/index.html#scala.math.BigInt\u003c/a\u003e\u003c/li\u003e\n\u003c/ul\u003e\n\u003c/li\u003e\n\u003c/ul\u003e\n\u003chr /\u003e\n\u003ch4\u003eDecimal types:\u003c/h4\u003e\n\u003cul\u003e\n\u003cli\u003e\u003cstrong\u003eFloat\u003c/strong\u003e: 4-byte single precision float. Range: -3.4028235E38 to 3.4028235E38\u003c/li\u003e\n\u003cli\u003e\u003cstrong\u003eDouble\u003c/strong\u003e: 8-byte, double precision float. Range -1.7976931348623157E308 to 1.7976931348623157E308\u003c/li\u003e\n\u003cli\u003e\u003cstrong\u003eBigDecimal\u003c/strong\u003e: Supports any decimal range an type, with custom scale.\u003cpre\u003e\u003ccode\u003eval myDecimal \u003d BigDecimal(123.452)\n// With \"setScale\", we can define the number of decimals we want, and how to round the values.\nmyDecimal.setScale(2, BigDecimal.RoundingMode.HALF_UP)\n// 123.45\nval anotherDecimal \u003d BigDecimal(16.66666)\nanotherDecimal.setScale(2, BigDecimal.RoundingMode.HALF_UP)\n// 16.67\n\u003c/code\u003e\u003c/pre\u003e\n\u003cul\u003e\n\u003cli\u003e\u003ca href\u003d\"http://www.scala-lang.org/api/2.10.6/index.html#scala.math.BigDecimal\"\u003ehttp://www.scala-lang.org/api/2.10.6/index.html#scala.math.BigDecimal\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href\u003d\"http://www.scala-lang.org/api/2.10.6/index.html#scala.math.BigDecimal$$RoundingMode$@RoundingMode\u003dscala.math.BigDecimal.RoundingMode.Value\"\u003ehttp://www.scala-lang.org/api/2.10.6/index.html#scala.math.BigDecimal$$RoundingMode$@RoundingMode\u003dscala.math.BigDecimal.RoundingMode.Value\u003c/a\u003e\u003c/li\u003e\n\u003c/ul\u003e\n\u003c/li\u003e\n\u003c/ul\u003e\n\u003ch4\u003eDate types:\u003c/h4\u003e\n\u003cp\u003eScala has no specific date types, but you can just use the Java types.\u003c/p\u003e\n\u003cpre\u003e\u003ccode\u003eimport java.text.SimpleDateFormat\nimport java.util.Calendar\n\nval now \u003d Calendar.getInstance.getTime\nval hourFormat \u003d new SimpleDateFormat(\"hh\")\nhourFormat.format(now)\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003eFor Spark, it\u0027s important to also take a look at the java.sql types:\n\u003cbr  /\u003e\u003ca href\u003d\"https://docs.oracle.com/javase/7/docs/api/java/sql/Date.html\"\u003ehttps://docs.oracle.com/javase/7/docs/api/java/sql/Date.html\u003c/a\u003e\n\u003cbr  /\u003e\u003ca href\u003d\"https://docs.oracle.com/javase/7/docs/api/java/sql/Timestamp.html\"\u003ehttps://docs.oracle.com/javase/7/docs/api/java/sql/Timestamp.html\u003c/a\u003e\u003c/p\u003e\n\u003ch4\u003eTuples\u003c/h4\u003e\n\u003cp\u003eEven they are not exactly a primitive type, Tuples are a important data structures in Scala. They are closely related to Maps and case classes that we will introduce below.\n\u003cbr  /\u003eIn short, you can think of a Tuple as a group of values. For instance, you could build a function that returns several variables of different types in a tuple.\u003c/p\u003e\n\u003cp\u003eThe main drawback of tuples, as with arrays, lists, etc is that you need to access the elements based on the index, so your code could become less readable.\n\u003cbr  /\u003eAlso, unlike for arrays, tuples indexes start at 1, and to access an element inside a tuple you need to prefix the index with an underscore. Last but not least, tuples are diffrent of most collections we will introduce later in the fact that they are \u003cstrong\u003e\u003cem\u003enot iterable\u003c/em\u003e\u003c/strong\u003e.\u003c/p\u003e\n\u003cpre\u003e\u003ccode\u003eval myTuple \u003d (1, \"test\", 25.4, true)\nprintln(myTuple._1)\n\u003c/code\u003e\u003c/pre\u003e\n\u003ch4\u003eCase classes\u003c/h4\u003e\n\u003cp\u003eCase classes are value objects, but you can think of them as \u0026ldquo;tuple with named fields\u0026rdquo;, if it helps. They are really easy to define and use, and they improve readability of your code when compared to tuples, arrays, lists, etc..\u003c/p\u003e\n\u003cpre\u003e\u003ccode\u003ecase class Person(name: String, age: Int, gender: Char, salary: Float)\n\nval john \u003d Person(\"John Doe\", 33, \u0027M\u0027, 1234.5f)\n\ncase class Address(street: String, number: Int, zipCode: String)\nval home \u003d Address(\"foostraat\", 111, \"1-234Z\")\n\u003c/code\u003e\u003c/pre\u003e\n"
+        "msg": "\u003ch3\u003eBasic Types\u003c/h3\u003e\n\u003cp\u003eThe basic Scala types we\u0027ll introduce should already sound familiar, with a few exceptions. In most cases, Scala will be able to infer the type, but sometimes you might want to explicitly define the type of the variable you are creating.\u003c/p\u003e\n\u003cp\u003eIn some cases, this can improve readibility of your code, and in others, it might actually be needed.\u003c/p\u003e\n\u003chr /\u003e\n\u003ch4\u003eBoolean types:\u003c/h4\u003e\n\u003cul\u003e\n\u003cli\u003e\u003cstrong\u003eBoolean\u003c/strong\u003e: true / false\u003c/li\u003e\n\u003c/ul\u003e\n\u003chr /\u003e\n\u003ch4\u003eCharacter types\u003c/h4\u003e\n\u003cul\u003e\n\u003cli\u003e\u003cstrong\u003eChar\u003c/strong\u003e: Character literals. You can create it by using single quotes.\u003c/li\u003e\n\u003cli\u003e\u003cstrong\u003eString\u003c/strong\u003e: It\u0027s the java.lang.String class. Create it by using double quotes.\u003c/li\u003e\n\u003c/ul\u003e\n\u003chr /\u003e\n\u003ch4\u003eInteger types:\u003c/h4\u003e\n\u003cul\u003e\n\u003cli\u003e\u003cstrong\u003eByte\u003c/strong\u003e: 1-byte integer number. Range: -128 to 127 (both included)\u003c/li\u003e\n\u003cli\u003e\u003cstrong\u003eShort\u003c/strong\u003e: 2-byte integer number. Range: -32768 and 32767 (both included)\u003c/li\u003e\n\u003cli\u003e\u003cstrong\u003eInt\u003c/strong\u003e: 4-byte integer number. Range: -2147483648 and 2147483647\u003c/li\u003e\n\u003cli\u003e\u003cstrong\u003eInteger\u003c/strong\u003e: You\u0027ll see this type as well sometimes, but \u0026ldquo;Integer\u0026rdquo; is actually the java.lang.Integer type.\u003c/li\u003e\n\u003cli\u003e\u003cstrong\u003eLong\u003c/strong\u003e: 8-byte integer. Range: -9223372036854775808 and 9223372036854775807\u003c/li\u003e\n\u003cli\u003e\u003cstrong\u003eBigInt\u003c/strong\u003e: Can hold integers of any size, given that there is enough memory. You should rarely need it, but it is good to know it\u0027s there.\u003cul\u003e\n\u003cli\u003e\u003ca href\u003d\"http://www.scala-lang.org/api/2.10.6/index.html#scala.math.BigInt\"\u003ehttp://www.scala-lang.org/api/2.10.6/index.html#scala.math.BigInt\u003c/a\u003e\u003c/li\u003e\n\u003c/ul\u003e\n\u003c/li\u003e\n\u003c/ul\u003e\n\u003chr /\u003e\n\u003ch4\u003eDecimal types:\u003c/h4\u003e\n\u003cul\u003e\n\u003cli\u003e\u003cstrong\u003eFloat\u003c/strong\u003e: 4-byte single precision float. Range: -3.4028235E38 to 3.4028235E38\u003c/li\u003e\n\u003cli\u003e\u003cstrong\u003eDouble\u003c/strong\u003e: 8-byte, double precision float. Range -1.7976931348623157E308 to 1.7976931348623157E308\u003c/li\u003e\n\u003cli\u003e\u003cstrong\u003eBigDecimal\u003c/strong\u003e: Supports any decimal range an type, with custom scale.\u003cpre\u003e\u003ccode\u003eval myDecimal \u003d BigDecimal(123.452)\n// With \"setScale\", we can define the number of decimals we want, and how to round the values.\nmyDecimal.setScale(2, BigDecimal.RoundingMode.HALF_UP)\n// 123.45\nval anotherDecimal \u003d BigDecimal(16.66666)\nanotherDecimal.setScale(2, BigDecimal.RoundingMode.HALF_UP)\n// 16.67\n\u003c/code\u003e\u003c/pre\u003e\n\u003cul\u003e\n\u003cli\u003e\u003ca href\u003d\"http://www.scala-lang.org/api/2.10.6/index.html#scala.math.BigDecimal\"\u003ehttp://www.scala-lang.org/api/2.10.6/index.html#scala.math.BigDecimal\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href\u003d\"http://www.scala-lang.org/api/2.10.6/index.html#scala.math.BigDecimal$$RoundingMode$@RoundingMode\u003dscala.math.BigDecimal.RoundingMode.Value\"\u003ehttp://www.scala-lang.org/api/2.10.6/index.html#scala.math.BigDecimal$$RoundingMode$@RoundingMode\u003dscala.math.BigDecimal.RoundingMode.Value\u003c/a\u003e\u003c/li\u003e\n\u003c/ul\u003e\n\u003c/li\u003e\n\u003c/ul\u003e\n\u003ch4\u003eDate types:\u003c/h4\u003e\n\u003cp\u003eScala has no specific date types, but you can just use the Java types.\u003c/p\u003e\n\u003cpre\u003e\u003ccode\u003eimport java.text.SimpleDateFormat\nimport java.util.Calendar\n\nval now \u003d Calendar.getInstance.getTime\nval hourFormat \u003d new SimpleDateFormat(\"hh\")\nhourFormat.format(now)\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003eFor Spark, it\u0027s important to also take a look at the java.sql types:\n\u003cbr  /\u003e\u003ca href\u003d\"https://docs.oracle.com/javase/7/docs/api/java/sql/Date.html\"\u003ehttps://docs.oracle.com/javase/7/docs/api/java/sql/Date.html\u003c/a\u003e\n\u003cbr  /\u003e\u003ca href\u003d\"https://docs.oracle.com/javase/7/docs/api/java/sql/Timestamp.html\"\u003ehttps://docs.oracle.com/javase/7/docs/api/java/sql/Timestamp.html\u003c/a\u003e\u003c/p\u003e\n\u003ch4\u003eTuples\u003c/h4\u003e\n\u003cp\u003eEven they are not exactly a primitive type, Tuples are a important data structures in Scala. They are closely related to Maps and case classes that we will introduce below.\n\u003cbr  /\u003eIn short, you can think of a Tuple as a group of values. For instance, you could build a function that returns several variables of different types in a tuple.\u003c/p\u003e\n\u003cp\u003eThe main drawback of tuples, as with arrays, lists, etc is that you need to access the elements based on the index, so your code could become less readable.\n\u003cbr  /\u003eAlso, unlike for arrays, tuples indexes start at 1, and to access an element inside a tuple you need to prefix the index with an underscore. Last but not least, tuples are diffrent of most collections we will introduce later in the fact that they are \u003cstrong\u003e\u003cem\u003enot iterable\u003c/em\u003e\u003c/strong\u003e.\u003c/p\u003e\n\u003cpre\u003e\u003ccode\u003eval myTuple \u003d (1, \"test\", 25.4, true)\nprintln(myTuple._1)\n\u003c/code\u003e\u003c/pre\u003e\n\u003ch4\u003eCase classes\u003c/h4\u003e\n\u003cp\u003eCase classes are value objects, but you can think of them as \u0026ldquo;tuple with named fields\u0026rdquo;, if it helps. They are really easy to define and use, and they improve readability of your code when compared to tuples, arrays, lists, etc..\u003c/p\u003e\n\u003cpre\u003e\u003ccode\u003ecase class Person(name: String, age: Int, gender: Char, salary: Float)\n\nval john \u003d Person(\"John Doe\", 33, \u0027M\u0027, 1234.5f)\n\ncase class Address(street: String, number: Int, zipCode: String)\nval home \u003d Address(\"foostraat\", 111, \"1-234Z\")\n\u003c/code\u003e\u003c/pre\u003e\n\u003ch4\u003eUnit type\u003c/h4\u003e\n\u003cp\u003eYou will see the Unit type often, as it is the return type for functions that return nothing. It is similar to the void return type in Java, or null in other languages.\n\u003cbr  /\u003eUnit is actually a special case of Tuple: It is a 0-length tuple, and it is represented by the literal \u0026ldquo;()\u0026rdquo;\u003c/p\u003e\n"
       },
       "dateCreated": "Apr 16, 2016 3:22:35 PM",
-      "dateStarted": "May 16, 2016 7:23:38 PM",
-      "dateFinished": "May 16, 2016 7:23:38 PM",
+      "dateStarted": "May 17, 2016 8:55:44 AM",
+      "dateFinished": "May 17, 2016 8:55:44 AM",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
     {
       "text": "%md\n### Summary - Scala Type Hierarchy\n\n![Scala Type Hierarchy](https://upload.wikimedia.org/wikipedia/commons/e/ec/Scala_Unified_Types_Hierachy.jpg)\n\n---\n\nSo, is there any difference between *AnyVal* and *AnyRef*? **Yes**\n\nThe main one is that all AnyVal subtypes will be stored on the registry / CPU stack when possible for better performance, whereas AnyRef subtypes will be stored in the heap.",
       "authenticationInfo": {},
-      "dateUpdated": "May 16, 2016 7:17:56 PM",
+      "dateUpdated": "May 17, 2016 8:57:12 AM",
       "config": {
         "colWidth": 12.0,
         "graph": {
@@ -101,15 +101,15 @@
         "msg": "\u003ch3\u003eSummary - Scala Type Hierarchy\u003c/h3\u003e\n\u003cp\u003e\u003cimg src\u003d\"https://upload.wikimedia.org/wikipedia/commons/e/ec/Scala_Unified_Types_Hierachy.jpg\" alt\u003d\"Scala Type Hierarchy\" /\u003e\u003c/p\u003e\n\u003chr /\u003e\n\u003cp\u003eSo, is there any difference between \u003cem\u003eAnyVal\u003c/em\u003e and \u003cem\u003eAnyRef\u003c/em\u003e? \u003cstrong\u003eYes\u003c/strong\u003e\u003c/p\u003e\n\u003cp\u003eThe main one is that all AnyVal subtypes will be stored on the registry / CPU stack when possible for better performance, whereas AnyRef subtypes will be stored in the heap.\u003c/p\u003e\n"
       },
       "dateCreated": "Apr 16, 2016 3:22:53 PM",
-      "dateStarted": "May 16, 2016 7:17:56 PM",
-      "dateFinished": "May 16, 2016 7:17:56 PM",
+      "dateStarted": "May 17, 2016 8:57:09 AM",
+      "dateFinished": "May 17, 2016 8:57:09 AM",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
     {
-      "text": "%md\n#### Literals\nScala basically follows the Java convention for literals",
+      "text": "%md\n#### Literals\nScala basically follows the Java convention for literals. Let\u0027s show how to create the most common types.",
       "authenticationInfo": {},
-      "dateUpdated": "Apr 16, 2016 3:28:35 PM",
+      "dateUpdated": "May 17, 2016 8:51:28 AM",
       "config": {
         "colWidth": 12.0,
         "graph": {
@@ -122,7 +122,8 @@
           "scatter": {}
         },
         "enabled": true,
-        "editorHide": true
+        "editorHide": true,
+        "editorMode": "ace/mode/markdown"
       },
       "settings": {
         "params": {},
@@ -133,18 +134,18 @@
       "result": {
         "code": "SUCCESS",
         "type": "HTML",
-        "msg": "\u003ch4\u003eLiterals\u003c/h4\u003e\n\u003cp\u003eScala basically follows the Java convention for literals\u003c/p\u003e\n"
+        "msg": "\u003ch4\u003eLiterals\u003c/h4\u003e\n\u003cp\u003eScala basically follows the Java convention for literals. Let\u0027s show how to create the most common types.\u003c/p\u003e\n"
       },
       "dateCreated": "Apr 16, 2016 3:23:20 PM",
-      "dateStarted": "Apr 16, 2016 3:23:41 PM",
-      "dateFinished": "Apr 16, 2016 3:23:41 PM",
+      "dateStarted": "May 17, 2016 8:51:24 AM",
+      "dateFinished": "May 17, 2016 8:51:25 AM",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
     {
-      "text": "val myBoolean \u003d true\nval myChar \u003d \u0027c\u0027\nval myString \u003d \"foo\"\nval myByte: Byte \u003d 1\nval myShort: Short \u003d 1\nval myInt \u003d 1\nval myLong \u003d 1L\nval myFloat \u003d 1.0f\nval myDouble \u003d 1.0d\n// We can use the ###d notation, but the default type is already Double\nval myDouble2 \u003d 1.0\n// BigInt and BigDecimal are special cases..\nval myBigInt \u003d BigInt(1)\nval myBigInt2 \u003d BigInt(1L)\nval myBigInt3 \u003d BigInt(\"1\")\nval myBigDecimal \u003d BigDecimal(1.234)\nval myBigDecimal2 \u003d BigDecimal(10L)\nval myBigDecimal3 \u003d BigDecimal(\"-25.98778979\")\n// You can create a Tuple just with the \"()\"\nval myTuple \u003d (1, \"test\", 25.4, true)\nprintln(myTuple._1)",
+      "text": "val myBoolean \u003d true\nval myChar \u003d \u0027c\u0027\nval myString \u003d \"foo\"\nval myByte: Byte \u003d 1\nval myShort: Short \u003d 1\nval myInt \u003d 1\nval myLong \u003d 1L\nval myFloat \u003d 1.0f\nval myDouble \u003d 1.0d\n// We can use the ###d notation, but the default type is already Double\nval myDouble2 \u003d 1.0\n// BigInt and BigDecimal are special cases..\nval myBigInt \u003d BigInt(1)\nval myBigInt2 \u003d BigInt(1L)\nval myBigInt3 \u003d BigInt(\"1\")\nval myBigDecimal \u003d BigDecimal(1.234)\nval myBigDecimal2 \u003d BigDecimal(10L)\nval myBigDecimal3 \u003d BigDecimal(\"-25.98778979\")\n// You can create a Tuple just with the \"()\"\nval myTuple \u003d (1, \"test\", 25.4, true)\nval myUnit \u003d ()\nprintln(myTuple._1)",
       "authenticationInfo": {},
-      "dateUpdated": "Apr 16, 2016 3:23:53 PM",
+      "dateUpdated": "May 17, 2016 8:58:28 AM",
       "config": {
         "colWidth": 12.0,
         "graph": {
@@ -156,7 +157,8 @@
           "groups": [],
           "scatter": {}
         },
-        "enabled": true
+        "enabled": true,
+        "editorMode": "ace/mode/scala"
       },
       "settings": {
         "params": {},
@@ -167,11 +169,11 @@
       "result": {
         "code": "SUCCESS",
         "type": "TEXT",
-        "msg": "myBoolean: Boolean \u003d true\nmyChar: Char \u003d c\nmyString: String \u003d foo\nmyByte: Byte \u003d 1\nmyShort: Short \u003d 1\nmyInt: Int \u003d 1\nmyLong: Long \u003d 1\nmyFloat: Float \u003d 1.0\nmyDouble: Double \u003d 1.0\nmyDouble2: Double \u003d 1.0\nmyBigInt: scala.math.BigInt \u003d 1\nmyBigInt2: scala.math.BigInt \u003d 1\nmyBigInt3: scala.math.BigInt \u003d 1\nmyBigDecimal: scala.math.BigDecimal \u003d 1.234\nmyBigDecimal2: scala.math.BigDecimal \u003d 10\nmyBigDecimal3: scala.math.BigDecimal \u003d -25.98778979\nmyTuple: (Int, String, Double, Boolean) \u003d (1,test,25.4,true)\n1\n"
+        "msg": "myBoolean: Boolean \u003d true\nmyChar: Char \u003d c\nmyString: String \u003d foo\nmyByte: Byte \u003d 1\nmyShort: Short \u003d 1\nmyInt: Int \u003d 1\nmyLong: Long \u003d 1\nmyFloat: Float \u003d 1.0\nmyDouble: Double \u003d 1.0\nmyDouble2: Double \u003d 1.0\nmyBigInt: scala.math.BigInt \u003d 1\nmyBigInt2: scala.math.BigInt \u003d 1\nmyBigInt3: scala.math.BigInt \u003d 1\nmyBigDecimal: scala.math.BigDecimal \u003d 1.234\nmyBigDecimal2: scala.math.BigDecimal \u003d 10\nmyBigDecimal3: scala.math.BigDecimal \u003d -25.98778979\nmyTuple: (Int, String, Double, Boolean) \u003d (1,test,25.4,true)\nmyUnit: Unit \u003d ()\n1\n"
       },
       "dateCreated": "Apr 16, 2016 3:23:41 PM",
-      "dateStarted": "Apr 16, 2016 3:23:53 PM",
-      "dateFinished": "Apr 16, 2016 3:23:56 PM",
+      "dateStarted": "May 17, 2016 8:58:28 AM",
+      "dateFinished": "May 17, 2016 8:58:30 AM",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
@@ -816,24 +818,24 @@
   "name": "Intro to Scala - 1: Basics",
   "id": "2BJ5EXM41",
   "angularObjects": {
-    "2BMRDS78B": [],
-    "2BK8HQZE9": [],
-    "2BMCTH6K1": [],
-    "2BMMXJCPX": [],
-    "2BJSN3SRW": [],
-    "2BHYZ4NNZ": [],
-    "2BJETA9QN": [],
-    "2BM84FP6H": [],
-    "2BJXJW856": [],
-    "2BKVHNW3H": [],
-    "2BMV94AQ9": [],
-    "2BNXDNAWE": [],
-    "2BNX11SUX": [],
-    "2BNFXMT3V": [],
-    "2BMP8AVX7": [],
-    "2BMU7Y7YW": [],
-    "2BJC373Q3": [],
-    "2BN2SY8TW": []
+    "2BJJ4DB1J": [],
+    "2BKFHDDUC": [],
+    "2BNFM2KRQ": [],
+    "2BKRZNXQD": [],
+    "2BJU5CCXF": [],
+    "2BJ2B46AA": [],
+    "2BJX2UD6X": [],
+    "2BKZ8UWDJ": [],
+    "2BK5XKAC4": [],
+    "2BHYVYJ9W": [],
+    "2BN7KBDKU": [],
+    "2BJPGSRH5": [],
+    "2BKU1V2HH": [],
+    "2BJF4SGRM": [],
+    "2BN8MFDMC": [],
+    "2BM2EZWKG": [],
+    "2BMY1AQGH": [],
+    "2BNENARYG": []
   },
   "config": {
     "looknfeel": "default"

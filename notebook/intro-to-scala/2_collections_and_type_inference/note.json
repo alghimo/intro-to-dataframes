@@ -1,9 +1,9 @@
 {
   "paragraphs": [
     {
-      "text": "%md\n## Collections\nWe\u0027ll not be covering all of the Scala collections, but we will cover some of the collections you will probably use more often.\nIt\u0027s important to note that Scala makes a clear differentiation between mutable and immutable collections, and usually offers a \"mutable\" equivalent for every \"immutable\" collection type.",
+      "text": "%md\n## Collections\nWe\u0027ll not be covering all of the Scala collections, but we will cover some of the collections you will probably use more often.\nIt\u0027s important to note that Scala makes a clear differentiation between mutable and immutable collections, and usually offers a \"mutable\" equivalent for every \"immutable\" collection type.\n\n---\nOnce you have gone through this notebook, you can keep reading about collections here:\n\u003chttp://docs.scala-lang.org/overviews/collections/overview.html\u003e\n\u003chttp://docs.scala-lang.org/overviews/collections/performance-characteristics\u003e",
       "authenticationInfo": {},
-      "dateUpdated": "May 16, 2016 7:26:52 PM",
+      "dateUpdated": "May 17, 2016 9:01:07 AM",
       "config": {
         "colWidth": 12.0,
         "graph": {
@@ -28,11 +28,11 @@
       "result": {
         "code": "SUCCESS",
         "type": "HTML",
-        "msg": "\u003ch2\u003eCollections\u003c/h2\u003e\n\u003cp\u003eWe\u0027ll not be covering all of the Scala collections, but we will cover some of the collections you will probably use more often.\n\u003cbr  /\u003eIt\u0027s important to note that Scala makes a clear differentiation between mutable and immutable collections, and usually offers a \u0026ldquo;mutable\u0026rdquo; equivalent for every \u0026ldquo;immutable\u0026rdquo; collection type.\u003c/p\u003e\n"
+        "msg": "\u003ch2\u003eCollections\u003c/h2\u003e\n\u003cp\u003eWe\u0027ll not be covering all of the Scala collections, but we will cover some of the collections you will probably use more often.\n\u003cbr  /\u003eIt\u0027s important to note that Scala makes a clear differentiation between mutable and immutable collections, and usually offers a \u0026ldquo;mutable\u0026rdquo; equivalent for every \u0026ldquo;immutable\u0026rdquo; collection type.\u003c/p\u003e\n\u003chr /\u003e\n\u003cp\u003eOnce you have gone through this notebook, you can keep reading about collections here:\n\u003cbr  /\u003e\u003ca href\u003d\"http://docs.scala-lang.org/overviews/collections/overview.html\"\u003ehttp://docs.scala-lang.org/overviews/collections/overview.html\u003c/a\u003e\n\u003cbr  /\u003e\u003ca href\u003d\"http://docs.scala-lang.org/overviews/collections/performance-characteristics\"\u003ehttp://docs.scala-lang.org/overviews/collections/performance-characteristics\u003c/a\u003e\u003c/p\u003e\n"
       },
       "dateCreated": "Apr 16, 2016 3:31:07 PM",
-      "dateStarted": "May 16, 2016 7:26:51 PM",
-      "dateFinished": "May 16, 2016 7:26:51 PM",
+      "dateStarted": "May 17, 2016 9:01:05 AM",
+      "dateFinished": "May 17, 2016 9:01:05 AM",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
@@ -1818,24 +1818,24 @@
   "name": "Intro to Scala - 2: Collections and Type Inference",
   "id": "2BJNYS7B3",
   "angularObjects": {
-    "2BMRDS78B": [],
-    "2BK8HQZE9": [],
-    "2BMCTH6K1": [],
-    "2BMMXJCPX": [],
-    "2BJSN3SRW": [],
-    "2BHYZ4NNZ": [],
-    "2BJETA9QN": [],
-    "2BM84FP6H": [],
-    "2BJXJW856": [],
-    "2BKVHNW3H": [],
-    "2BMV94AQ9": [],
-    "2BNXDNAWE": [],
-    "2BNX11SUX": [],
-    "2BNFXMT3V": [],
-    "2BMP8AVX7": [],
-    "2BMU7Y7YW": [],
-    "2BJC373Q3": [],
-    "2BN2SY8TW": []
+    "2BJJ4DB1J": [],
+    "2BKFHDDUC": [],
+    "2BNFM2KRQ": [],
+    "2BKRZNXQD": [],
+    "2BJU5CCXF": [],
+    "2BJ2B46AA": [],
+    "2BJX2UD6X": [],
+    "2BKZ8UWDJ": [],
+    "2BK5XKAC4": [],
+    "2BHYVYJ9W": [],
+    "2BN7KBDKU": [],
+    "2BJPGSRH5": [],
+    "2BKU1V2HH": [],
+    "2BJF4SGRM": [],
+    "2BN8MFDMC": [],
+    "2BM2EZWKG": [],
+    "2BMY1AQGH": [],
+    "2BNENARYG": []
   },
   "config": {
     "looknfeel": "default"
