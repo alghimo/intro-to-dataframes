@@ -176,9 +176,9 @@
       "progressUpdateIntervalMs": 500
     },
     {
-      "text": "%md When working on large pipelines, you will start filtering, joining, selecting, doing unions of DataFrames.. At the end, chances are that you DF execution plans will become too large, requiring a lot of stages to get there.\r\n \r\nIf possible, you can \"checkpoint\" your DataFrame to a file or table and read it back. This way you \"start fresh\" with your DF, and this will usually enhance the performance. You can also cache your DF, but you can still get the slowness, for instance, if some of parts are removed from memory, if some of the executors die, or if you have dynamic allocation enabled and are not using something like Tachyon (this would mean that the cache is stored in the executors, so when they are decomissioned, so is the cache).\r\n\r\nLet\u0027s show the difference with an example",
+      "text": "%md When working on complex pipelines, you will start filtering, joining, selecting, doing unions of DataFrames.. At the end, chances are that you DF execution plans will become too large, requiring a lot of stages to get there.\r\n \r\nIf possible, you can \"checkpoint\" your DataFrame to a file or table and read it back. This way you \"start fresh\" with your DF, and this will usually enhance the performance. You can also cache your DF, but you can still get the slowness, for instance, if some of parts are removed from memory, if some of the executors die, or if you have dynamic allocation enabled and are not using something like Tachyon (this would mean that the cache is stored in the executors, so when they are decomissioned, so is the cache).\r\nHowever, it is not advisable to checkpoint to often, writing to disk is slow, so you\u0027ll need to find the balance between one and the other.\r\n\r\nLet\u0027s show the difference with an example",
       "authenticationInfo": {},
-      "dateUpdated": "Apr 17, 2016 6:35:57 PM",
+      "dateUpdated": "May 17, 2016 3:34:35 PM",
       "config": {
         "colWidth": 12.0,
         "graph": {
@@ -191,7 +191,8 @@
           "scatter": {}
         },
         "enabled": true,
-        "editorHide": true
+        "editorHide": false,
+        "editorMode": "ace/mode/markdown"
       },
       "settings": {
         "params": {},
@@ -202,11 +203,11 @@
       "result": {
         "code": "SUCCESS",
         "type": "HTML",
-        "msg": "\u003cp\u003eWhen working on large pipelines, you will start filtering, joining, selecting, doing unions of DataFrames.. At the end, chances are that you DF execution plans will become too large, requiring a lot of stages to get there.\u003c/p\u003e\n\u003cp\u003eIf possible, you can \u0026ldquo;checkpoint\u0026rdquo; your DataFrame to a file or table and read it back. This way you \u0026ldquo;start fresh\u0026rdquo; with your DF, and this will usually enhance the performance. You can also cache your DF, but you can still get the slowness, for instance, if some of parts are removed from memory, if some of the executors die, or if you have dynamic allocation enabled and are not using something like Tachyon (this would mean that the cache is stored in the executors, so when they are decomissioned, so is the cache).\u003c/p\u003e\n\u003cp\u003eLet\u0027s show the difference with an example\u003c/p\u003e\n"
+        "msg": "\u003cp\u003eWhen working on complex pipelines, you will start filtering, joining, selecting, doing unions of DataFrames.. At the end, chances are that you DF execution plans will become too large, requiring a lot of stages to get there.\u003c/p\u003e\n\u003cp\u003eIf possible, you can \u0026ldquo;checkpoint\u0026rdquo; your DataFrame to a file or table and read it back. This way you \u0026ldquo;start fresh\u0026rdquo; with your DF, and this will usually enhance the performance. You can also cache your DF, but you can still get the slowness, for instance, if some of parts are removed from memory, if some of the executors die, or if you have dynamic allocation enabled and are not using something like Tachyon (this would mean that the cache is stored in the executors, so when they are decomissioned, so is the cache).\n\u003cbr  /\u003eHowever, it is not advisable to checkpoint to often, writing to disk is slow, so you\u0027ll need to find the balance between one and the other.\u003c/p\u003e\n\u003cp\u003eLet\u0027s show the difference with an example\u003c/p\u003e\n"
       },
       "dateCreated": "Apr 17, 2016 6:35:36 PM",
-      "dateStarted": "Apr 17, 2016 6:35:54 PM",
-      "dateFinished": "Apr 17, 2016 6:35:54 PM",
+      "dateStarted": "May 17, 2016 3:34:35 PM",
+      "dateFinished": "May 17, 2016 3:34:35 PM",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
@@ -364,24 +365,24 @@
   "name": "Intro to DataFrames - 4 Troubleshooting and gotchas",
   "id": "2BH3KHM9W",
   "angularObjects": {
-    "2BKYPESN5": [],
-    "2BH1HN1YM": [],
-    "2BH8FKXN5": [],
-    "2BJY1F3F5": [],
-    "2BGQW6CTN": [],
-    "2BKMXERWY": [],
-    "2BJ7YMSDX": [],
-    "2BGZ7XWXF": [],
-    "2BJE5NCK6": [],
-    "2BH3QPUEJ": [],
-    "2BMDAZN5C": [],
-    "2BKY8V4U1": [],
-    "2BMAQG5R9": [],
-    "2BKYEJJWM": [],
-    "2BJDUFZ8Y": [],
-    "2BMDX1KHS": [],
-    "2BKJQTF89": [],
-    "2BMCV5U6S": []
+    "2BJJ4DB1J": [],
+    "2BKFHDDUC": [],
+    "2BNFM2KRQ": [],
+    "2BKRZNXQD": [],
+    "2BJU5CCXF": [],
+    "2BJ2B46AA": [],
+    "2BJX2UD6X": [],
+    "2BKZ8UWDJ": [],
+    "2BK5XKAC4": [],
+    "2BHYVYJ9W": [],
+    "2BN7KBDKU": [],
+    "2BJPGSRH5": [],
+    "2BKU1V2HH": [],
+    "2BJF4SGRM": [],
+    "2BN8MFDMC": [],
+    "2BM2EZWKG": [],
+    "2BMY1AQGH": [],
+    "2BNENARYG": []
   },
   "config": {},
   "info": {}
