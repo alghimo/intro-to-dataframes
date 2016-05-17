@@ -107,9 +107,9 @@
       "progressUpdateIntervalMs": 500
     },
     {
-      "text": "case class PointOfInterest(name: String, lat: Float, lng: Float)\n\nimplicit def tuple2Person(t: Tuple3[String, Float, Float]) \u003d {\n    PointOfInterest(t._1, t._2, t._3)\n}\n\nval myTuple \u003d (\"home\", 30.123f, 0.632f)\n\nval home: PointOfInterest \u003d myTuple",
+      "text": "case class PointOfInterest(name: String, lat: Float, lng: Float)\n\nimplicit def tuple2PointOfInterest(t: Tuple3[String, Float, Float]) \u003d {\n    PointOfInterest(t._1, t._2, t._3)\n}\n\nval myTuple \u003d (\"home\", 30.123f, 0.632f)\n\nval home: PointOfInterest \u003d myTuple",
       "authenticationInfo": {},
-      "dateUpdated": "Apr 23, 2016 9:26:24 PM",
+      "dateUpdated": "May 17, 2016 3:14:43 PM",
       "config": {
         "colWidth": 12.0,
         "graph": {
@@ -121,7 +121,8 @@
           "groups": [],
           "scatter": {}
         },
-        "enabled": true
+        "enabled": true,
+        "editorMode": "ace/mode/scala"
       },
       "settings": {
         "params": {},
@@ -132,18 +133,18 @@
       "result": {
         "code": "SUCCESS",
         "type": "TEXT",
-        "msg": "defined class PointOfInterest\nwarning: there were 1 feature warning(s); re-run with -feature for details\ntuple2Person: (t: (String, Float, Float))PointOfInterest\nmyTuple: (String, Float, Float) \u003d (home,30.123,0.632)\nhome: PointOfInterest \u003d PointOfInterest(home,30.123,0.632)\n"
+        "msg": "defined class PointOfInterest\nwarning: there were 1 feature warning(s); re-run with -feature for details\ntuple2PointOfInterest: (t: (String, Float, Float))PointOfInterest\nmyTuple: (String, Float, Float) \u003d (home,30.123,0.632)\nhome: PointOfInterest \u003d PointOfInterest(home,30.123,0.632)\n"
       },
       "dateCreated": "Apr 16, 2016 4:08:39 PM",
-      "dateStarted": "Apr 23, 2016 9:26:24 PM",
-      "dateFinished": "Apr 23, 2016 9:26:25 PM",
+      "dateStarted": "May 17, 2016 3:14:43 PM",
+      "dateFinished": "May 17, 2016 3:14:44 PM",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
     {
-      "text": "%md\n### Some tips on Spark, Scala and Serialization\nIf you try to write good, structured code with Spark (classes, hierarchy, etc to properly represent your domain), sooner or later, you will probably end up with serialization errors.\nEven if it works, quite often using classes with Spark can end up with huge, unexpected Shuffles due to serialization. Using objects doesn\u0027t cause that most of the times, as long as they are simple.\n\nThere are a few things to take into account:\n\n- If you use classes, have them extend java.io.Serializable\n- Try to limit the scope of your methods. Using things from the \"outer\" scope might cause the whole instance to be serialized\n```\nclass A {\n   val a \u003d \"Mr.\"\n   \n   def doStuff(n: String) \u003d {\n      val a \u003d this.a\n      \n      a + \" \" + n\n   }\n}\n```\n\n- If you know that some params are not serializable, use the \"@transient\" modifier. This is especially important in the case of the spark context (sc) and the sql context (sqlContext)\n```\nclass Foo(param1: Type1, @transient sqlContext: SQLContext)\n```",
+      "text": "%md\n### Some tips on Spark, Scala and Serialization\nIf you try to write good, structured code with Spark (classes, hierarchy, etc to properly represent your domain), sooner or later, you will probably end up with serialization errors.\nEven if it works, quite often using classes with Spark can end up with huge, unexpected Shuffles due to serialization. Using objects doesn\u0027t cause that most of the times, as long as they are simple.\n\nThere are a few things to take into account:\n\n- If you use classes, have them extend java.io.Serializable\n- Try to limit the scope of your methods. Using things from the \"outer\" scope might cause the whole instance to be serialized\n```\nclass A {\n   val a \u003d \"Mr.\"\n   \n   def doStuff(n: String) \u003d {\n      val a \u003d this.a\n      \n      a + \" \" + n\n   }\n}\n```\n\n- If you know that some params are not serializable, use the \"@transient\" modifier. This is especially important in the case of the spark context (sc) and the sql context (sqlContext).\n```\nclass Foo(param1: Type1, @transient sqlContext: SQLContext)\n```\nUsing the @transient annotation will be important if you work on \"OOP\"-ish code, as you will have to choose which parts of your class not to serialize.",
       "authenticationInfo": {},
-      "dateUpdated": "Apr 16, 2016 4:09:11 PM",
+      "dateUpdated": "May 17, 2016 3:16:15 PM",
       "config": {
         "colWidth": 12.0,
         "graph": {
@@ -167,11 +168,11 @@
       "result": {
         "code": "SUCCESS",
         "type": "HTML",
-        "msg": "\u003ch3\u003eSome tips on Spark, Scala and Serialization\u003c/h3\u003e\n\u003cp\u003eIf you try to write good, structured code with Spark (classes, hierarchy, etc to properly represent your domain), sooner or later, you will probably end up with serialization errors.\n\u003cbr  /\u003eEven if it works, quite often using classes with Spark can end up with huge, unexpected Shuffles due to serialization. Using objects doesn\u0027t cause that most of the times, as long as they are simple.\u003c/p\u003e\n\u003cp\u003eThere are a few things to take into account:\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003e\u003cp\u003eIf you use classes, have them extend java.io.Serializable\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\u003cp\u003eTry to limit the scope of your methods. Using things from the \u0026ldquo;outer\u0026rdquo; scope might cause the whole instance to be serialized\u003c/p\u003e\n\u003cpre\u003e\u003ccode\u003eclass A {\nval a \u003d \"Mr.\"\n\ndef doStuff(n: String) \u003d {\n  val a \u003d this.a\n\n  a + \" \" + n\n}\n}\n\u003c/code\u003e\u003c/pre\u003e\n\u003c/li\u003e\n\u003cli\u003e\u003cp\u003eIf you know that some params are not serializable, use the \u0026ldquo;@transient\u0026rdquo; modifier. This is especially important in the case of the spark context (sc) and the sql context (sqlContext)\u003c/p\u003e\n\u003cpre\u003e\u003ccode\u003eclass Foo(param1: Type1, @transient sqlContext: SQLContext)\n\u003c/code\u003e\u003c/pre\u003e\n\u003c/li\u003e\n\u003c/ul\u003e\n"
+        "msg": "\u003ch3\u003eSome tips on Spark, Scala and Serialization\u003c/h3\u003e\n\u003cp\u003eIf you try to write good, structured code with Spark (classes, hierarchy, etc to properly represent your domain), sooner or later, you will probably end up with serialization errors.\n\u003cbr  /\u003eEven if it works, quite often using classes with Spark can end up with huge, unexpected Shuffles due to serialization. Using objects doesn\u0027t cause that most of the times, as long as they are simple.\u003c/p\u003e\n\u003cp\u003eThere are a few things to take into account:\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003e\u003cp\u003eIf you use classes, have them extend java.io.Serializable\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\u003cp\u003eTry to limit the scope of your methods. Using things from the \u0026ldquo;outer\u0026rdquo; scope might cause the whole instance to be serialized\u003c/p\u003e\n\u003cpre\u003e\u003ccode\u003eclass A {\nval a \u003d \"Mr.\"\n\ndef doStuff(n: String) \u003d {\n  val a \u003d this.a\n\n  a + \" \" + n\n}\n}\n\u003c/code\u003e\u003c/pre\u003e\n\u003c/li\u003e\n\u003cli\u003e\u003cp\u003eIf you know that some params are not serializable, use the \u0026ldquo;@transient\u0026rdquo; modifier. This is especially important in the case of the spark context (sc) and the sql context (sqlContext).\u003c/p\u003e\n\u003cpre\u003e\u003ccode\u003eclass Foo(param1: Type1, @transient sqlContext: SQLContext)\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003eUsing the @transient annotation will be important if you work on \u0026ldquo;OOP\u0026rdquo;-ish code, as you will have to choose which parts of your class not to serialize.\u003c/p\u003e\n\u003c/li\u003e\n\u003c/ul\u003e\n"
       },
       "dateCreated": "Apr 16, 2016 4:08:54 PM",
-      "dateStarted": "Apr 16, 2016 4:09:06 PM",
-      "dateFinished": "Apr 16, 2016 4:09:06 PM",
+      "dateStarted": "May 17, 2016 3:16:10 PM",
+      "dateFinished": "May 17, 2016 3:16:10 PM",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
@@ -191,24 +192,24 @@
   "name": "Intro to Scala - 6: Extras",
   "id": "2BHNQ5VW4",
   "angularObjects": {
-    "2BKH636QM": [],
-    "2BGUMTUV6": [],
-    "2BFP933KD": [],
-    "2BGM9NQF5": [],
-    "2BHVR1ZUG": [],
-    "2BFSX7YP1": [],
-    "2BK585GGM": [],
-    "2BFT8CYKA": [],
-    "2BG5UEDUJ": [],
-    "2BJG6BMZR": [],
-    "2BGM7D36J": [],
-    "2BJ546RD5": [],
-    "2BKDX4G98": [],
-    "2BJPNTCZG": [],
-    "2BGZ4BMNA": [],
-    "2BHF34EP7": [],
-    "2BKFS96V4": [],
-    "2BHGW5BEZ": []
+    "2BJJ4DB1J": [],
+    "2BKFHDDUC": [],
+    "2BNFM2KRQ": [],
+    "2BKRZNXQD": [],
+    "2BJU5CCXF": [],
+    "2BJ2B46AA": [],
+    "2BJX2UD6X": [],
+    "2BKZ8UWDJ": [],
+    "2BK5XKAC4": [],
+    "2BHYVYJ9W": [],
+    "2BN7KBDKU": [],
+    "2BJPGSRH5": [],
+    "2BKU1V2HH": [],
+    "2BJF4SGRM": [],
+    "2BN8MFDMC": [],
+    "2BM2EZWKG": [],
+    "2BMY1AQGH": [],
+    "2BNENARYG": []
   },
   "config": {},
   "info": {}

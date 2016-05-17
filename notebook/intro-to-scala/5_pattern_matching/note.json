@@ -70,9 +70,9 @@
       "progressUpdateIntervalMs": 500
     },
     {
-      "text": "%md\n#### Matching on varargs\nWhat if you want to match on variable arguments?",
+      "text": "%md\n#### Matching on varargs\nWhat if you want to match on variable arguments? In that case, you can use this expression: \"varName @ _*\". Varname will contain a list of all the remaining arguments.\n\nLet\u0027s see it with an example.",
       "authenticationInfo": {},
-      "dateUpdated": "Apr 16, 2016 4:05:55 PM",
+      "dateUpdated": "May 17, 2016 3:14:15 PM",
       "config": {
         "colWidth": 12.0,
         "graph": {
@@ -85,7 +85,8 @@
           "scatter": {}
         },
         "enabled": true,
-        "editorHide": true
+        "editorHide": true,
+        "editorMode": "ace/mode/markdown"
       },
       "settings": {
         "params": {},
@@ -96,11 +97,11 @@
       "result": {
         "code": "SUCCESS",
         "type": "HTML",
-        "msg": "\u003ch4\u003eMatching on varargs\u003c/h4\u003e\n\u003cp\u003eWhat if you want to match on variable arguments?\u003c/p\u003e\n"
+        "msg": "\u003ch4\u003eMatching on varargs\u003c/h4\u003e\n\u003cp\u003eWhat if you want to match on variable arguments? In that case, you can use this expression: \u0026ldquo;varName @ _*\u0026ldquo;. Varname will contain a list of all the remaining arguments.\u003c/p\u003e\n\u003cp\u003eLet\u0027s see it with an example.\u003c/p\u003e\n"
       },
       "dateCreated": "Apr 16, 2016 4:05:09 PM",
-      "dateStarted": "Apr 16, 2016 4:05:36 PM",
-      "dateFinished": "Apr 16, 2016 4:05:36 PM",
+      "dateStarted": "May 17, 2016 3:14:05 PM",
+      "dateFinished": "May 17, 2016 3:14:05 PM",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
@@ -293,24 +294,24 @@
   "name": "Intro to Scala - 5: Pattern Matching",
   "id": "2BG791231",
   "angularObjects": {
-    "2BKKGWMY9": [],
-    "2BM7XR6U7": [],
-    "2BHDGC5ZB": [],
-    "2BMJ1ZTKR": [],
-    "2BKYVCNSD": [],
-    "2BM72GFDU": [],
-    "2BM74FBTQ": [],
-    "2BHW3NPVE": [],
-    "2BHZKEE9C": [],
-    "2BM158R3T": [],
-    "2BKMHR2WT": [],
-    "2BK19VD7Y": [],
-    "2BJ72E96T": [],
-    "2BMMM996X": [],
-    "2BKUMG5KZ": [],
-    "2BGQNK6A7": [],
-    "2BH3HCFEG": [],
-    "2BHU5HPQK": []
+    "2BJJ4DB1J": [],
+    "2BKFHDDUC": [],
+    "2BNFM2KRQ": [],
+    "2BKRZNXQD": [],
+    "2BJU5CCXF": [],
+    "2BJ2B46AA": [],
+    "2BJX2UD6X": [],
+    "2BKZ8UWDJ": [],
+    "2BK5XKAC4": [],
+    "2BHYVYJ9W": [],
+    "2BN7KBDKU": [],
+    "2BJPGSRH5": [],
+    "2BKU1V2HH": [],
+    "2BJF4SGRM": [],
+    "2BN8MFDMC": [],
+    "2BM2EZWKG": [],
+    "2BMY1AQGH": [],
+    "2BNENARYG": []
   },
   "config": {
     "looknfeel": "default"

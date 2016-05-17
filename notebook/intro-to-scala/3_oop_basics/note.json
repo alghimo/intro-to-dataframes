@@ -245,9 +245,9 @@
       "progressUpdateIntervalMs": 500
     },
     {
-      "text": "%md\n### Namespaces in Scala\n\nNamespaces in Scala work in a very similar way to Java.\n\nNote that this will only work if you intend to package your code into jar files (not in the REPL / Shell).\n\n```\npackage org.foo.bar\n\nclass MyClass {}\n```\n\nThe fully qualified name of \"MyClass\" will be *org.foo.bar.MyClass*, which is the name you have to write to use it (unless the code is inside the same package)\n```\nval myClass \u003d new org.foo.bar.MyClass()\n```\n\nWhen you want use a class from a different package, you should import it before, so you don\u0027t have to write the fully qualified name.\n```\nimport org.foo.bar.MyClass\n\nval myClass \u003d new MyClass()\n```\n\nYou can also import a class / object / package with an alias:\n```\nimport org.foo.bar.{MyClass \u003d\u003e FooClass}\nval myClass \u003d new FooClass\n```\n\nIf you want to import multiple elements:\n```\nimport org.foo.bar.{MyClass, SomethingElse}\n```\n\nThe \"_\" operator will import everything from the package. **IMPORTANT**: Don\u0027t use it by default, try to import only what you need!\n```\nimport org.foo.bar._\n```\n\nFinally, you can use imports to put methods or values from objects into the current scope",
+      "text": "%md\n### Namespaces in Scala\n\nNamespaces in Scala work in a very similar way to Java and other languages, so typically, the package names are in the form *[org|com].[VENDOR].[PACKAGE].xxx.yyy*.\n\nBesides, the namespace usually maps to the path of the file on the repository (it is not mandatory in Scala, but it is highly recommended).\nThis means that a class like \"com.mycompany.somelib.SomeClass\" will usually map to the path \"src/scala/com/mycompany/somelib/SomeClass.scala\".\n\n\nNote that this will only work if you intend to package your code into jar files (not in the REPL / Shell).\n\n```\npackage org.foo.bar\n\nclass MyClass {}\n```\n\nThe fully qualified name of \"MyClass\" will be *org.foo.bar.MyClass*, which is the name you have to write to use it (unless the code is inside the same package)\n```\nval myClass \u003d new org.foo.bar.MyClass()\n```\n\nWhen you want use a class from a different package, you should import it before, so you don\u0027t have to write the fully qualified name.\n```\nimport org.foo.bar.MyClass\n\nval myClass \u003d new MyClass()\n```\n\nYou can also import a class / object / package with an alias:\n```\nimport org.foo.bar.{MyClass \u003d\u003e FooClass}\nval myClass \u003d new FooClass\n```\n\nIf you want to import multiple elements:\n```\nimport org.foo.bar.{MyClass, SomethingElse}\n```\n\nThe \"_\" operator will import everything from the package. **IMPORTANT**: Don\u0027t use it by default, try to import only what you need!\n```\nimport org.foo.bar._\n```\n\nFinally, you can use imports to put methods or values from objects into the current scope",
       "authenticationInfo": {},
-      "dateUpdated": "May 1, 2016 10:53:13 AM",
+      "dateUpdated": "May 17, 2016 2:56:30 PM",
       "config": {
         "colWidth": 12.0,
         "graph": {
@@ -260,7 +260,8 @@
           "scatter": {}
         },
         "enabled": true,
-        "editorHide": true
+        "editorHide": true,
+        "editorMode": "ace/mode/markdown"
       },
       "settings": {
         "params": {},
@@ -271,11 +272,11 @@
       "result": {
         "code": "SUCCESS",
         "type": "HTML",
-        "msg": "\u003ch3\u003eNamespaces in Scala\u003c/h3\u003e\n\u003cp\u003eNamespaces in Scala work in a very similar way to Java.\u003c/p\u003e\n\u003cp\u003eNote that this will only work if you intend to package your code into jar files (not in the REPL / Shell).\u003c/p\u003e\n\u003cpre\u003e\u003ccode\u003epackage org.foo.bar\n\nclass MyClass {}\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003eThe fully qualified name of \u0026ldquo;MyClass\u0026rdquo; will be \u003cem\u003eorg.foo.bar.MyClass\u003c/em\u003e, which is the name you have to write to use it (unless the code is inside the same package)\u003c/p\u003e\n\u003cpre\u003e\u003ccode\u003eval myClass \u003d new org.foo.bar.MyClass()\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003eWhen you want use a class from a different package, you should import it before, so you don\u0027t have to write the fully qualified name.\u003c/p\u003e\n\u003cpre\u003e\u003ccode\u003eimport org.foo.bar.MyClass\n\nval myClass \u003d new MyClass()\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003eYou can also import a class / object / package with an alias:\u003c/p\u003e\n\u003cpre\u003e\u003ccode\u003eimport org.foo.bar.{MyClass \u003d\u0026gt; FooClass}\nval myClass \u003d new FooClass\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003eIf you want to import multiple elements:\u003c/p\u003e\n\u003cpre\u003e\u003ccode\u003eimport org.foo.bar.{MyClass, SomethingElse}\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003eThe \u0026ldquo;_\u0026rdquo; operator will import everything from the package. \u003cstrong\u003eIMPORTANT\u003c/strong\u003e: Don\u0027t use it by default, try to import only what you need!\u003c/p\u003e\n\u003cpre\u003e\u003ccode\u003eimport org.foo.bar._\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003eFinally, you can use imports to put methods or values from objects into the current scope\u003c/p\u003e\n"
+        "msg": "\u003ch3\u003eNamespaces in Scala\u003c/h3\u003e\n\u003cp\u003eNamespaces in Scala work in a very similar way to Java and other languages, so typically, the package names are in the form \u003cem\u003e[org|com].[VENDOR].[PACKAGE].xxx.yyy\u003c/em\u003e.\u003c/p\u003e\n\u003cp\u003eBesides, the namespace usually maps to the path of the file on the repository (it is not mandatory in Scala, but it is highly recommended).\n\u003cbr  /\u003eThis means that a class like \u0026ldquo;com.mycompany.somelib.SomeClass\u0026rdquo; will usually map to the path \u0026ldquo;src/scala/com/mycompany/somelib/SomeClass.scala\u0026rdquo;.\u003c/p\u003e\n\u003cp\u003eNote that this will only work if you intend to package your code into jar files (not in the REPL / Shell).\u003c/p\u003e\n\u003cpre\u003e\u003ccode\u003epackage org.foo.bar\n\nclass MyClass {}\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003eThe fully qualified name of \u0026ldquo;MyClass\u0026rdquo; will be \u003cem\u003eorg.foo.bar.MyClass\u003c/em\u003e, which is the name you have to write to use it (unless the code is inside the same package)\u003c/p\u003e\n\u003cpre\u003e\u003ccode\u003eval myClass \u003d new org.foo.bar.MyClass()\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003eWhen you want use a class from a different package, you should import it before, so you don\u0027t have to write the fully qualified name.\u003c/p\u003e\n\u003cpre\u003e\u003ccode\u003eimport org.foo.bar.MyClass\n\nval myClass \u003d new MyClass()\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003eYou can also import a class / object / package with an alias:\u003c/p\u003e\n\u003cpre\u003e\u003ccode\u003eimport org.foo.bar.{MyClass \u003d\u0026gt; FooClass}\nval myClass \u003d new FooClass\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003eIf you want to import multiple elements:\u003c/p\u003e\n\u003cpre\u003e\u003ccode\u003eimport org.foo.bar.{MyClass, SomethingElse}\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003eThe \u0026ldquo;_\u0026rdquo; operator will import everything from the package. \u003cstrong\u003eIMPORTANT\u003c/strong\u003e: Don\u0027t use it by default, try to import only what you need!\u003c/p\u003e\n\u003cpre\u003e\u003ccode\u003eimport org.foo.bar._\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003eFinally, you can use imports to put methods or values from objects into the current scope\u003c/p\u003e\n"
       },
       "dateCreated": "Apr 16, 2016 3:48:39 PM",
-      "dateStarted": "May 1, 2016 10:53:11 AM",
-      "dateFinished": "May 1, 2016 10:53:11 AM",
+      "dateStarted": "May 17, 2016 2:56:27 PM",
+      "dateFinished": "May 17, 2016 2:56:27 PM",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
@@ -329,24 +330,24 @@
   "name": "Intro to Scala - 3: OOP Basics in Scala",
   "id": "2BGZKZQZB",
   "angularObjects": {
-    "2BMRDS78B": [],
-    "2BK8HQZE9": [],
-    "2BMCTH6K1": [],
-    "2BMMXJCPX": [],
-    "2BJSN3SRW": [],
-    "2BHYZ4NNZ": [],
-    "2BJETA9QN": [],
-    "2BM84FP6H": [],
-    "2BJXJW856": [],
-    "2BKVHNW3H": [],
-    "2BMV94AQ9": [],
-    "2BNXDNAWE": [],
-    "2BNX11SUX": [],
-    "2BNFXMT3V": [],
-    "2BMP8AVX7": [],
-    "2BMU7Y7YW": [],
-    "2BJC373Q3": [],
-    "2BN2SY8TW": []
+    "2BJJ4DB1J": [],
+    "2BKFHDDUC": [],
+    "2BNFM2KRQ": [],
+    "2BKRZNXQD": [],
+    "2BJU5CCXF": [],
+    "2BJ2B46AA": [],
+    "2BJX2UD6X": [],
+    "2BKZ8UWDJ": [],
+    "2BK5XKAC4": [],
+    "2BHYVYJ9W": [],
+    "2BN7KBDKU": [],
+    "2BJPGSRH5": [],
+    "2BKU1V2HH": [],
+    "2BJF4SGRM": [],
+    "2BN8MFDMC": [],
+    "2BM2EZWKG": [],
+    "2BMY1AQGH": [],
+    "2BNENARYG": []
   },
   "config": {},
   "info": {}

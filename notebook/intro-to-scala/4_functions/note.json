@@ -37,9 +37,9 @@
       "progressUpdateIntervalMs": 500
     },
     {
-      "text": "%md\n#### Variadic functions (i.e: Function with variable number of arguments)\nSometimes, you want your function to take not one, or two, but a variable number of arguments. That\u0027s where varargs (or variadic arguments, variadic functions) come into play.\nThe syntax is almost the same as for regular functions, except for one thing: you add a star (**\\***) after the argument type. Also, requirement is that all variadic arguments MUST be defined at the end of the argument list.",
+      "text": "%md\n#### Variadic functions (i.e: Function with variable number of arguments)\nSometimes, you want your function to take not one, or two, but a variable number of arguments. That\u0027s where varargs (or variadic arguments, variadic functions) come into play.\nThe syntax is almost the same as for regular functions, except for one thing: you add a star (**\\***) after the argument type.\n\n**NOTE**: It is a requirement for all variadic to be defined at the end of the argument list, and you can define only one variadic argument per argument list.",
       "authenticationInfo": {},
-      "dateUpdated": "Apr 16, 2016 3:50:53 PM",
+      "dateUpdated": "May 17, 2016 3:01:21 PM",
       "config": {
         "colWidth": 12.0,
         "graph": {
@@ -63,18 +63,18 @@
       "result": {
         "code": "SUCCESS",
         "type": "HTML",
-        "msg": "\u003ch4\u003eVariadic functions (i.e: Function with variable number of arguments)\u003c/h4\u003e\n\u003cp\u003eSometimes, you want your function to take not one, or two, but a variable number of arguments. That\u0027s where varargs (or variadic arguments, variadic functions) come into play.\n\u003cbr  /\u003eThe syntax is almost the same as for regular functions, except for one thing: you add a star (\u003cstrong\u003e*\u003c/strong\u003e) after the argument type. Also, requirement is that all variadic arguments MUST be defined at the end of the argument list.\u003c/p\u003e\n"
+        "msg": "\u003ch4\u003eVariadic functions (i.e: Function with variable number of arguments)\u003c/h4\u003e\n\u003cp\u003eSometimes, you want your function to take not one, or two, but a variable number of arguments. That\u0027s where varargs (or variadic arguments, variadic functions) come into play.\n\u003cbr  /\u003eThe syntax is almost the same as for regular functions, except for one thing: you add a star (\u003cstrong\u003e*\u003c/strong\u003e) after the argument type.\u003c/p\u003e\n\u003cp\u003e\u003cstrong\u003eNOTE\u003c/strong\u003e: It is a requirement for all variadic to be defined at the end of the argument list, and you can define only one variadic argument per argument list.\u003c/p\u003e\n"
       },
       "dateCreated": "Apr 16, 2016 3:50:35 PM",
-      "dateStarted": "Apr 16, 2016 3:50:51 PM",
-      "dateFinished": "Apr 16, 2016 3:50:51 PM",
+      "dateStarted": "May 17, 2016 3:00:31 PM",
+      "dateFinished": "May 17, 2016 3:00:31 PM",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
     {
       "text": "def createCommand(arguments: String*) \u003d {\n  arguments.mkString(\" \")\n}\n\ncreateCommand()\ncreateCommand(\"ls\")\ncreateCommand(\"ls\", \"-la\")\ncreateCommand(\"ls\", \"-la\", \"/home\")",
       "authenticationInfo": {},
-      "dateUpdated": "Apr 16, 2016 3:51:02 PM",
+      "dateUpdated": "May 17, 2016 2:57:51 PM",
       "config": {
         "colWidth": 12.0,
         "graph": {
@@ -86,7 +86,8 @@
           "groups": [],
           "scatter": {}
         },
-        "enabled": true
+        "enabled": true,
+        "editorMode": "ace/mode/scala"
       },
       "settings": {
         "params": {},
@@ -95,14 +96,14 @@
       "jobName": "paragraph_1460821851300_1357887654",
       "id": "20160416-155051_1484155740",
       "result": {
-        "code": "SUCCESS",
+        "code": "ERROR",
         "type": "TEXT",
-        "msg": "createCommand: (arguments: String*)String\nres353: String \u003d \"\"\nres354: String \u003d ls\nres355: String \u003d ls -la\nres356: String \u003d ls -la /home\n"
+        "msg": "createCommand: (arguments: String*)String\nres88: String \u003d \"\"\nres89: String \u003d ls\nres90: String \u003d ls -la\nres91: String \u003d ls -la /home\n\u003cconsole\u003e:27: error: *-parameter must come last\n         def createCommand2(commands: String*, arguments: String*) \u003d {\n                            ^\n"
       },
       "dateCreated": "Apr 16, 2016 3:50:51 PM",
-      "dateStarted": "Apr 16, 2016 3:51:02 PM",
-      "dateFinished": "Apr 16, 2016 3:51:03 PM",
-      "status": "FINISHED",
+      "dateStarted": "May 17, 2016 2:57:36 PM",
+      "dateFinished": "May 17, 2016 2:57:36 PM",
+      "status": "ERROR",
       "progressUpdateIntervalMs": 500
     },
     {
@@ -313,9 +314,9 @@
       "progressUpdateIntervalMs": 500
     },
     {
-      "text": "%md\n#### Function with multiple argument lists\nWhen defining functions, you can have that function take multiple argument lists. You can think of it as if you had a first function, that returns another function for each argument list. This is quite common in other languages, for instance in Javascript.",
+      "text": "%md\n#### Function with multiple argument lists\nWhen defining functions, you can have that function take multiple argument lists. You can think of it as if you had a first function, that returns another function for each argument list. This is quite common in other languages, for instance in Javascript.\n\nTaking back the case of variadic functions, you can have multiple varargs if you have multiple argument lists, with the condition that the varargs are always at the end of the list.\n\n```\ndef twoVarArgs(myArgs1: Int*)(myArgs2: String*) { ... }\n```",
       "authenticationInfo": {},
-      "dateUpdated": "Apr 16, 2016 4:00:08 PM",
+      "dateUpdated": "May 17, 2016 3:07:31 PM",
       "config": {
         "colWidth": 12.0,
         "graph": {
@@ -339,18 +340,18 @@
       "result": {
         "code": "SUCCESS",
         "type": "HTML",
-        "msg": "\u003ch4\u003eFunction with multiple argument lists\u003c/h4\u003e\n\u003cp\u003eWhen defining functions, you can have that function take multiple argument lists. You can think of it as if you had a first function, that returns another function for each argument list. This is quite common in other languages, for instance in Javascript.\u003c/p\u003e\n"
+        "msg": "\u003ch4\u003eFunction with multiple argument lists\u003c/h4\u003e\n\u003cp\u003eWhen defining functions, you can have that function take multiple argument lists. You can think of it as if you had a first function, that returns another function for each argument list. This is quite common in other languages, for instance in Javascript.\u003c/p\u003e\n\u003cp\u003eTaking back the case of variadic functions, you can have multiple varargs if you have multiple argument lists, with the condition that the varargs are always at the end of the list.\u003c/p\u003e\n\u003cpre\u003e\u003ccode\u003edef twoVarArgs(myArgs1: Int*)(myArgs2: String*) { ... }\n\u003c/code\u003e\u003c/pre\u003e\n"
       },
       "dateCreated": "Apr 16, 2016 3:53:29 PM",
-      "dateStarted": "Apr 16, 2016 3:53:40 PM",
-      "dateFinished": "Apr 16, 2016 3:53:40 PM",
+      "dateStarted": "May 17, 2016 3:07:27 PM",
+      "dateFinished": "May 17, 2016 3:07:27 PM",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
     {
       "text": "def myFunction[A](number: A)(f: A \u003d\u003e Unit) \u003d {\n  f(number)\n}\n\n// You can define just part of the argument lists, but in that case, you must end the call with an underscore (that represents the rest of argument lists)\nval res \u003d myFunction(5) _\n\ndef myPrinter(i: Int) \u003d println(s\"Printing $i...\")\ndef myPrinter2(i: Int) \u003d println(s\"Value $i...\")\n\nres(myPrinter)\nres(myPrinter2)",
       "authenticationInfo": {},
-      "dateUpdated": "Apr 16, 2016 4:00:05 PM",
+      "dateUpdated": "May 17, 2016 3:03:33 PM",
       "config": {
         "colWidth": 12.0,
         "graph": {
@@ -376,8 +377,8 @@
         "msg": "myFunction: [A](number: A)(f: A \u003d\u003e Unit)Unit\nres: (Int \u003d\u003e Unit) \u003d\u003e Unit \u003d \u003cfunction1\u003e\nmyPrinter: (i: Int)Unit\nmyPrinter2: (i: Int)Unit\nPrinting 5...\nValue 5...\n"
       },
       "dateCreated": "Apr 16, 2016 3:53:40 PM",
-      "dateStarted": "Apr 16, 2016 4:00:05 PM",
-      "dateFinished": "Apr 16, 2016 4:00:06 PM",
+      "dateStarted": "May 17, 2016 3:03:33 PM",
+      "dateFinished": "May 17, 2016 3:03:34 PM",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
@@ -658,9 +659,9 @@
       "progressUpdateIntervalMs": 500
     },
     {
-      "text": "%md ### Extra: Partial functions\nThe name looks very similar to \"partial functions\", but partially applied function are not the same. What\u0027s the difference?\n\nA partial function is a function that is **defined only for a certain domain**. The best thing is that they allow to split logic in smaller chunks of code, or to put it another way, to split a big problem in smaller problems.\n\nYou can compose multiple partial functions with \"orElse\". It is the functional equivalent to an \"if\" statement: it will return the result of the first function that\u0027s defined in the domain.\nYou can chain multiple partial functions with \"andThen\" or \"compose\". Assuming you have functions \"f\" and \"g\":\n- \"f andThen g\" is equivalent to \"g(f(x))\"\n- \"f compose g\" is equivalent to \"f(g(x))\"\n",
+      "text": "%md ### Extra: Partial functions\nThe name looks very similar to \"partially applied functions\", but partial applied function are not the same. What\u0027s the difference?\n\nA partially applied function is a function that has part of its arguments already set, while a partial function is a function that is **defined only for a certain domain**. The best thing is that they allow to split logic in smaller chunks of code, or to put it another way, to create specific login for certain parts of the domain.\n\nYou can compose multiple partial functions with \"orElse\". It is the functional equivalent to an \"if\" statement: it will return the result of the first function that\u0027s defined in the domain.\nYou can chain multiple partial functions with \"andThen\" or \"compose\". Assuming you have functions \"f\" and \"g\":\n- \"f andThen g\" is equivalent to \"g(f(x))\"\n- \"f compose g\" is equivalent to \"f(g(x))\"\n",
       "authenticationInfo": {},
-      "dateUpdated": "May 1, 2016 11:02:57 AM",
+      "dateUpdated": "May 17, 2016 3:11:46 PM",
       "config": {
         "colWidth": 12.0,
         "graph": {
@@ -685,11 +686,11 @@
       "result": {
         "code": "SUCCESS",
         "type": "HTML",
-        "msg": "\u003ch3\u003eExtra: Partial functions\u003c/h3\u003e\n\u003cp\u003eThe name looks very similar to \u0026ldquo;partial functions\u0026rdquo;, but partially applied function are not the same. What\u0027s the difference?\u003c/p\u003e\n\u003cp\u003eA partial function is a function that is \u003cstrong\u003edefined only for a certain domain\u003c/strong\u003e. The best thing is that they allow to split logic in smaller chunks of code, or to put it another way, to split a big problem in smaller problems.\u003c/p\u003e\n\u003cp\u003eYou can compose multiple partial functions with \u0026ldquo;orElse\u0026rdquo;. It is the functional equivalent to an \u0026ldquo;if\u0026rdquo; statement: it will return the result of the first function that\u0027s defined in the domain.\n\u003cbr  /\u003eYou can chain multiple partial functions with \u0026ldquo;andThen\u0026rdquo; or \u0026ldquo;compose\u0026rdquo;. Assuming you have functions \u0026ldquo;f\u0026rdquo; and \u0026ldquo;g\u0026rdquo;:\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003e\u0026ldquo;f andThen g\u0026rdquo; is equivalent to \u0026ldquo;g(f(x))\u0026rdquo;\u003c/li\u003e\n\u003cli\u003e\u0026ldquo;f compose g\u0026rdquo; is equivalent to \u0026ldquo;f(g(x))\u0026rdquo;\u003c/li\u003e\n\u003c/ul\u003e\n"
+        "msg": "\u003ch3\u003eExtra: Partial functions\u003c/h3\u003e\n\u003cp\u003eThe name looks very similar to \u0026ldquo;partially applied functions\u0026rdquo;, but partial applied function are not the same. What\u0027s the difference?\u003c/p\u003e\n\u003cp\u003eA partially applied function is a function that has part of its arguments already set, while a partial function is a function that is \u003cstrong\u003edefined only for a certain domain\u003c/strong\u003e. The best thing is that they allow to split logic in smaller chunks of code, or to put it another way, to create specific login for certain parts of the domain.\u003c/p\u003e\n\u003cp\u003eYou can compose multiple partial functions with \u0026ldquo;orElse\u0026rdquo;. It is the functional equivalent to an \u0026ldquo;if\u0026rdquo; statement: it will return the result of the first function that\u0027s defined in the domain.\n\u003cbr  /\u003eYou can chain multiple partial functions with \u0026ldquo;andThen\u0026rdquo; or \u0026ldquo;compose\u0026rdquo;. Assuming you have functions \u0026ldquo;f\u0026rdquo; and \u0026ldquo;g\u0026rdquo;:\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003e\u0026ldquo;f andThen g\u0026rdquo; is equivalent to \u0026ldquo;g(f(x))\u0026rdquo;\u003c/li\u003e\n\u003cli\u003e\u0026ldquo;f compose g\u0026rdquo; is equivalent to \u0026ldquo;f(g(x))\u0026rdquo;\u003c/li\u003e\n\u003c/ul\u003e\n"
       },
       "dateCreated": "Apr 16, 2016 4:02:37 PM",
-      "dateStarted": "May 1, 2016 11:02:54 AM",
-      "dateFinished": "May 1, 2016 11:02:54 AM",
+      "dateStarted": "May 17, 2016 3:11:43 PM",
+      "dateFinished": "May 17, 2016 3:11:43 PM",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
@@ -777,24 +778,24 @@
   "name": "Intro to Scala - 4: Deep Dive Into Functions",
   "id": "2BGU1NN4F",
   "angularObjects": {
-    "2BKKGWMY9": [],
-    "2BM7XR6U7": [],
-    "2BHDGC5ZB": [],
-    "2BMJ1ZTKR": [],
-    "2BKYVCNSD": [],
-    "2BM72GFDU": [],
-    "2BM74FBTQ": [],
-    "2BHW3NPVE": [],
-    "2BHZKEE9C": [],
-    "2BM158R3T": [],
-    "2BKMHR2WT": [],
-    "2BK19VD7Y": [],
-    "2BJ72E96T": [],
-    "2BMMM996X": [],
-    "2BKUMG5KZ": [],
-    "2BGQNK6A7": [],
-    "2BH3HCFEG": [],
-    "2BHU5HPQK": []
+    "2BJJ4DB1J": [],
+    "2BKFHDDUC": [],
+    "2BNFM2KRQ": [],
+    "2BKRZNXQD": [],
+    "2BJU5CCXF": [],
+    "2BJ2B46AA": [],
+    "2BJX2UD6X": [],
+    "2BKZ8UWDJ": [],
+    "2BK5XKAC4": [],
+    "2BHYVYJ9W": [],
+    "2BN7KBDKU": [],
+    "2BJPGSRH5": [],
+    "2BKU1V2HH": [],
+    "2BJF4SGRM": [],
+    "2BN8MFDMC": [],
+    "2BM2EZWKG": [],
+    "2BMY1AQGH": [],
+    "2BNENARYG": []
   },
   "config": {
     "looknfeel": "default"

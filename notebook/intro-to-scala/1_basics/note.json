@@ -595,9 +595,9 @@
       "progressUpdateIntervalMs": 500
     },
     {
-      "text": "%md\n#### for loops\nAgain, the for control structure should look familiar, with one exception: There is no **break** and no **continue** in Scala\u0027s for loops:\n\n```\nfor (i \u003c- 1 to 5) {\n  println(\"i : \" + i)\n}\n```\n\n**IMPORTANT** You should rarely have the need for \"for\" loops, most of the times, you just use \"map\", \"foreach\" or similar iterate a collection.\n\nOne nice feature that Scala provides and that we will also see in other topics is called **guards** and uses a syntax very similar to the *if* that we have just seen, that allow you to do something like this:",
+      "text": "%md\n#### for loops\nAgain, the for control structure should look familiar, with one exception: There is no **break** and no **continue** in Scala\u0027s for loops:\n\n```\nfor (i \u003c- 1 to 5) {\n  println(\"i : \" + i)\n}\n```\n\nAlso, there is no need to nest multiple \"for\" loops. If you want to iterate, let\u0027s say variable i and j, you can just do:\n```\nfor(i \u003c- 1 to 5; j \u003c- 1 to 3) {\n  println(s\"\u003ci,j\u003e \u003d \u003c$i,$j\u003e\")\n}\n```\n\n**IMPORTANT** You should rarely have the need for \"for\" loops, most of the times, you just use \"map\", \"foreach\" or similar iterate a collection.\n\nOne nice feature that Scala provides and that we will also see in other topics is called **guards** and uses a syntax very similar to the *if* that we have just seen, that allow you to do something like this:",
       "authenticationInfo": {},
-      "dateUpdated": "May 16, 2016 7:16:34 PM",
+      "dateUpdated": "May 17, 2016 2:49:56 PM",
       "config": {
         "colWidth": 12.0,
         "graph": {
@@ -610,7 +610,8 @@
           "scatter": {}
         },
         "enabled": true,
-        "editorHide": true
+        "editorHide": true,
+        "editorMode": "ace/mode/markdown"
       },
       "settings": {
         "params": {},
@@ -621,11 +622,11 @@
       "result": {
         "code": "SUCCESS",
         "type": "HTML",
-        "msg": "\u003ch4\u003efor loops\u003c/h4\u003e\n\u003cp\u003eAgain, the for control structure should look familiar, with one exception: There is no \u003cstrong\u003ebreak\u003c/strong\u003e and no \u003cstrong\u003econtinue\u003c/strong\u003e in Scala\u0027s for loops:\u003c/p\u003e\n\u003cpre\u003e\u003ccode\u003efor (i \u0026lt;- 1 to 5) {\n  println(\"i : \" + i)\n}\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003e\u003cstrong\u003eIMPORTANT\u003c/strong\u003e You should rarely have the need for \u0026ldquo;for\u0026rdquo; loops, most of the times, you just use \u0026ldquo;map\u0026rdquo;, \u0026ldquo;foreach\u0026rdquo; or similar iterate a collection.\u003c/p\u003e\n\u003cp\u003eOne nice feature that Scala provides and that we will also see in other topics is called \u003cstrong\u003eguards\u003c/strong\u003e and uses a syntax very similar to the \u003cem\u003eif\u003c/em\u003e that we have just seen, that allow you to do something like this:\u003c/p\u003e\n"
+        "msg": "\u003ch4\u003efor loops\u003c/h4\u003e\n\u003cp\u003eAgain, the for control structure should look familiar, with one exception: There is no \u003cstrong\u003ebreak\u003c/strong\u003e and no \u003cstrong\u003econtinue\u003c/strong\u003e in Scala\u0027s for loops:\u003c/p\u003e\n\u003cpre\u003e\u003ccode\u003efor (i \u0026lt;- 1 to 5) {\n  println(\"i : \" + i)\n}\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003eAlso, there is no need to nest multiple \u0026ldquo;for\u0026rdquo; loops. If you want to iterate, let\u0027s say variable i and j, you can just do:\u003c/p\u003e\n\u003cpre\u003e\u003ccode\u003efor(i \u0026lt;- 1 to 5; j \u0026lt;- 1 to 3) {\n  println(s\"\u0026lt;i,j\u0026gt; \u003d \u0026lt;$i,$j\u0026gt;\")\n}\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003e\u003cstrong\u003eIMPORTANT\u003c/strong\u003e You should rarely have the need for \u0026ldquo;for\u0026rdquo; loops, most of the times, you just use \u0026ldquo;map\u0026rdquo;, \u0026ldquo;foreach\u0026rdquo; or similar iterate a collection.\u003c/p\u003e\n\u003cp\u003eOne nice feature that Scala provides and that we will also see in other topics is called \u003cstrong\u003eguards\u003c/strong\u003e and uses a syntax very similar to the \u003cem\u003eif\u003c/em\u003e that we have just seen, that allow you to do something like this:\u003c/p\u003e\n"
       },
       "dateCreated": "Apr 16, 2016 3:26:15 PM",
-      "dateStarted": "May 16, 2016 7:16:32 PM",
-      "dateFinished": "May 16, 2016 7:16:32 PM",
+      "dateStarted": "May 17, 2016 2:49:49 PM",
+      "dateFinished": "May 17, 2016 2:49:49 PM",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },

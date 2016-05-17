@@ -418,9 +418,9 @@
       "progressUpdateIntervalMs": 500
     },
     {
-      "text": "val myArray \u003d Array(1,2,3)\nval myMap \u003d Map(1 -\u003e \"x\", 2 -\u003e \"foo\", 5 -\u003e \"bar\")\nval myList \u003d List(2.5, 6.3, 18.98)\n\n// Check whether an element exists in the collection\nprintln(\"myArray contains \u00271\u0027: \" + myArray.contains(1))\n// Map.contains checks keys, not values\nprintln(\"myMap contains \u00271\u0027: \" + myMap.contains(1))\n// If you want to check whether a value exists in a Map, it is not that straight - forward:\nprintln(\"myMap contains value \u0027foo\u0027: \" + myMap.values.exists(_ \u003d\u003d \"foo\"))\n\n// Check whether the given index / key exists\nprintln(\"myArray is defined at index 2: \" + myArray.isDefinedAt(2))\nprintln(\"myMap contains key \u00273\u0027: \" + myMap.isDefinedAt(3))\nprintln(\"myList is defined at index \u00273\u0027: \" + myList.isDefinedAt(3))",
+      "text": "val myArray \u003d Array(1,2,3)\nval myMap \u003d Map(1 -\u003e \"x\", 2 -\u003e \"foo\", 5 -\u003e \"bar\")\nval myList \u003d List(2.5, 6.3, 18.98)\n\n// Check whether an element exists in the collection\nprintln(\"myArray contains \u00271\u0027: \" + myArray.contains(1))\n// Map.contains checks keys, not values\nprintln(\"myMap contains \u00271\u0027: \" + myMap.contains(1))\n// If you want to check whether a value exists in a Map, it is not that straight - forward:\n// The \"_\" is a special operator that will be introduced later, but think of it as a placeholder for every element of the collection.\nprintln(\"myMap contains value \u0027foo\u0027: \" + myMap.values.exists(_ \u003d\u003d \"foo\"))\n\n// Check whether the given index / key exists\nprintln(\"myArray is defined at index 2: \" + myArray.isDefinedAt(2))\nprintln(\"myMap contains key \u00273\u0027: \" + myMap.isDefinedAt(3))\nprintln(\"myList is defined at index \u00273\u0027: \" + myList.isDefinedAt(3))",
       "authenticationInfo": {},
-      "dateUpdated": "Apr 16, 2016 3:34:32 PM",
+      "dateUpdated": "May 17, 2016 2:22:56 PM",
       "config": {
         "colWidth": 12.0,
         "graph": {
@@ -432,7 +432,8 @@
           "groups": [],
           "scatter": {}
         },
-        "enabled": true
+        "enabled": true,
+        "editorHide": false
       },
       "settings": {
         "params": {},
@@ -446,8 +447,8 @@
         "msg": "myArray: Array[Int] \u003d Array(1, 2, 3)\nmyMap: scala.collection.immutable.Map[Int,String] \u003d Map(1 -\u003e x, 2 -\u003e foo, 5 -\u003e bar)\nmyList: List[Double] \u003d List(2.5, 6.3, 18.98)\nmyArray contains \u00271\u0027: true\nmyMap contains \u00271\u0027: true\nmyMap contains value \u0027foo\u0027: true\nmyArray is defined at index 2: true\nmyMap contains key \u00273\u0027: false\nmyList is defined at index \u00273\u0027: false\n"
       },
       "dateCreated": "Apr 16, 2016 3:34:12 PM",
-      "dateStarted": "Apr 16, 2016 3:34:32 PM",
-      "dateFinished": "Apr 16, 2016 3:34:33 PM",
+      "dateStarted": "May 17, 2016 2:22:56 PM",
+      "dateFinished": "May 17, 2016 2:22:57 PM",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
@@ -558,9 +559,9 @@
       "progressUpdateIntervalMs": 500
     },
     {
-      "text": "// This is the same function we defined in the previous example\ndef isEven(number: Int) \u003d {\n    number % 2 \u003d\u003d 0\n}\n\nval myNumbers \u003d Array(1, 2, 5, 6, 7, 15)\nval names \u003d List(\"foo\", \"bar\", \"jane\", \"john\")\n\n// Get only even numbers\nmyNumbers.filter(isEven)\n\n// Get numbers bigger than 5\nmyNumbers.filter(_ \u003e 0)\n\n// Get names not starting with \"j\"\nnames.filter(!_.startsWith(\"j\"))",
+      "text": "// This is the same function we defined in the previous example\ndef isEven(number: Int) \u003d {\n    number % 2 \u003d\u003d 0\n}\n\nval myNumbers \u003d Array(1, 2, 5, 6, 7, 15)\nval names \u003d List(\"foo\", \"bar\", \"jane\", \"john\")\n\n// Get only even numbers\nmyNumbers.filter(isEven)\n\n// Get numbers bigger than 5\nmyNumbers.filter(_ \u003e 5)\n\n// Get names not starting with \"j\"\nnames.filter(!_.startsWith(\"j\"))",
       "authenticationInfo": {},
-      "dateUpdated": "Apr 16, 2016 3:35:01 PM",
+      "dateUpdated": "May 17, 2016 2:27:55 PM",
       "config": {
         "colWidth": 12.0,
         "graph": {
@@ -583,11 +584,11 @@
       "result": {
         "code": "SUCCESS",
         "type": "TEXT",
-        "msg": "isEven: (number: Int)Boolean\nmyNumbers: Array[Int] \u003d Array(1, 2, 5, 6, 7, 15)\nnames: List[String] \u003d List(foo, bar, jane, john)\nres283: Array[Int] \u003d Array(2, 6)\nres284: Array[Int] \u003d Array(1, 2, 5, 6, 7, 15)\nres285: List[String] \u003d List(foo, bar)\n"
+        "msg": "isEven: (number: Int)Boolean\nmyNumbers: Array[Int] \u003d Array(1, 2, 5, 6, 7, 15)\nnames: List[String] \u003d List(foo, bar, jane, john)\nres46: Array[Int] \u003d Array(2, 6)\nres47: Array[Int] \u003d Array(6, 7, 15)\nres48: List[String] \u003d List(foo, bar)\n"
       },
       "dateCreated": "Apr 16, 2016 3:34:42 PM",
-      "dateStarted": "Apr 16, 2016 3:35:01 PM",
-      "dateFinished": "Apr 16, 2016 3:35:02 PM",
+      "dateStarted": "May 17, 2016 2:27:55 PM",
+      "dateFinished": "May 17, 2016 2:27:56 PM",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
@@ -661,9 +662,9 @@
       "progressUpdateIntervalMs": 500
     },
     {
-      "text": "%md\n#### reduce\nAs the name might suggest, reduce will narrow your collection to a single element. In short, it will apply the given function to pairs of elements in your collection.\n\nImportant to keep in mind when using reduce:\n- The order is not guaranteed. This means that if you apply a function that\u0027s not associative, you have no guarantee that your reduce will get the same results twice.",
+      "text": "%md\n#### reduce / fold\nAs the name might suggest, reduce will narrow your collection to a single element. In short, it will apply the given function to pairs of elements in your collection.\nFold does the same, except that you must provide the indentity value for your operation (for instance, if you sum, it will be 0, if you multiply, it will be 1..)\n\n\nImportant to keep in mind when using reduce:\n- The order is not guaranteed. This means that if you apply a function that\u0027s not associative, you have no guarantee that your reduce will get the same results twice.\n\n",
       "authenticationInfo": {},
-      "dateUpdated": "Apr 17, 2016 2:41:36 PM",
+      "dateUpdated": "May 17, 2016 2:43:33 PM",
       "config": {
         "colWidth": 12.0,
         "graph": {
@@ -676,7 +677,7 @@
           "scatter": {}
         },
         "enabled": true,
-        "editorHide": true,
+        "editorHide": false,
         "editorMode": "ace/mode/markdown"
       },
       "settings": {
@@ -697,9 +698,9 @@
       "progressUpdateIntervalMs": 500
     },
     {
-      "text": "val myList \u003d List(1, 2, 3, 5)\n// The two \"_\" stand for the two elements that our reduce function will take.\nmyList.reduce(_ + _)\n\ndef multiply(a: Int, b: Int) \u003d a * b\nmyList.reduce(multiply)\n// This will seem to work, but you might start getting unexpected results any time.\nmyList.fold(3)(multiply)",
+      "text": "val myList \u003d List(8, 2, 2, 2)\n// The two \"_\" stand for the two elements that our reduce function will take.\nprintln(\"myList.reduce with sum result: \" + myList.reduce(_ + _))\n\ndef multiply(a: Int, b: Int) \u003d a * b\nprintln(\"myList.reduce with multiply result: \" + myList.reduce(multiply))\n// This will seem to work, but you might start getting unexpected results depending on the operation you perform.\nprintln(\"myList.fold with multiply result: \" + myList.fold(1)(multiply))\n\ndef divide(a: Int, b: Int) \u003d a / b\n\nprintln(\"myList.reduce with division result: \" + myList.reduce(divide))\nprintln(\"myList.fold with division result: \" + myList.fold(1)(divide))",
       "authenticationInfo": {},
-      "dateUpdated": "Apr 17, 2016 2:41:37 PM",
+      "dateUpdated": "May 17, 2016 2:45:00 PM",
       "config": {
         "colWidth": 12.0,
         "graph": {
@@ -723,11 +724,11 @@
       "result": {
         "code": "SUCCESS",
         "type": "TEXT",
-        "msg": "myList: List[Int] \u003d List(1, 2, 3, 5)\nres111: Int \u003d 11\nmultiply: (a: Int, b: Int)Int\nres112: Int \u003d 30\nres113: Int \u003d 90\n"
+        "msg": "myList: List[Int] \u003d List(8, 2, 2, 2)\nmyList.reduce with sum result: 14\nmultiply: (a: Int, b: Int)Int\nmyList.reduce with multiply result: 64\nmyList.fold with multiply result: 64\ndivide: (a: Int, b: Int)Int\nmyList.reduce with division result: 1\nmyList.fold with division result: 0\n"
       },
       "dateCreated": "Apr 16, 2016 3:36:13 PM",
-      "dateStarted": "Apr 17, 2016 2:41:37 PM",
-      "dateFinished": "Apr 17, 2016 2:41:38 PM",
+      "dateStarted": "May 17, 2016 2:45:00 PM",
+      "dateFinished": "May 17, 2016 2:45:01 PM",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
